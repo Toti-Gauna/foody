@@ -80,7 +80,21 @@ Todos solo salón. Las **demos son siempre ficticias** y llevan la etiqueta «De
 
 ## 5. La página (foody.eclipse-business.com)
 
-Estética **Efemérides** (observatorio comercial). Hero **más chico y rápido** que el de Eclipse, con H1 y una sola acción en ámbar. Orden: hero → qué ofrecemos para cada tipo de negocio → demos → planes de precios → cómo empezamos → resto de Eclipse → preguntas → contacto. Marcas de sección en mono, Geist, Geist Mono e Instrument Serif; glass solo en el header; zonas de noche que abren a amanecer para leer precios; un ámbar sólido por viewport; es/en/pt; contenido en JSON; movimiento reducido; etiqueta «Demo». El naranja y rojo sobreviven en la corona del eclipse y en la fotografía de comida. Detalle de secciones, copy y partitura de movimiento en la versión anterior del roadmap (`git log`) y en `PROMPT-IMAGENES.md` (tomas E01–E13).
+Estética **Efemérides** (observatorio comercial). Hero **más chico y rápido** que el de Eclipse, con H1 y una sola acción en ámbar. Orden: hero → qué ofrecemos para cada tipo de negocio → demos → planes de precios → cómo empezamos → resto de Eclipse → preguntas → contacto. Marcas de sección en mono, Geist, Geist Mono e Instrument Serif; glass solo en el header; zonas de noche que abren a amanecer para leer precios; un ámbar sólido por viewport; es/en/pt; contenido en JSON; movimiento reducido; etiqueta «Demo». El naranja y rojo sobreviven en la corona del eclipse y en la fotografía de comida. 
+| # | Sección | Qué muestra | Zona |
+|---|---|---|---|
+| 01 | **Hero** (chico y rápido) | H1 y una acción. Un eclipse sobre la noche y un plato hiperrealista que la corona revela | Noche |
+| 02 | **Qué ofrecemos para cada tipo de negocio** | Índice de líneas (restó-bar, bar, café, cervecería, heladería) con un preview activo: vista cenital hiperrealista, qué incluye y su personaje. En móvil, lista plegable | Noche |
+| 03 | **Demos** | Una demo ficticia por comercio, con etiqueta «Demo» y su propia identidad; «Ver demo» abre la capa a pantalla completa | Noche a amanecer |
+| 04 | **Planes de precios** | Libro de precios: seis filas con glifo de fase lunar, precio en mono, qué suma cada plan, mensual/anual y moneda; Growth destacada; «Ver demo de este plan» y «Pedir este plan» | Amanecer |
+| 05 | Cómo empezamos | Tres pasos: configurar el local y el personaje, cargar la carta, imprimir los QR | Amanecer |
+| 06 | Y lo demás de Eclipse | Academy, Media, Utilería | Amanecer |
+| 07 | Preguntas | Qué pasa si falla algo, datos, mayoría de edad, cómo se cobra | Amanecer |
+| 08 | Contacto | WhatsApp y registro; el eclipse se retira y sale el sol | Amanecer |
+
+Copy candidato: H1 «Tu local, pidiendo desde la mesa.»; CTA «Ver las demos» y secundaria «Ver planes». El CTA global «Quiero potenciar mi negocio» sigue flotando y se aparta cuando hay otro ámbar en pantalla.
+
+**Partitura de movimiento (a especificar y medir antes de implementar):** hero con un solo evento de eclipse; parallax de estrellas; vapor del plato en loop corto y pausado fuera de pantalla; preview del índice con crossfade de 180–240 ms; demos que se abren con el eclipse existente y «Saltar» siempre operativo; filas de planes que se encienden con su fase lunar; cierre en amanecer. Máximo dos movimientos principales a la vez; nada decorativo en reposo; movimiento reducido = estático o fundido de 150 ms; audio apagado por defecto. Imágenes: `PROMPT-IMAGENES.md` (tomas E01–E13).
 
 **Demos:** una por comercio (restó-bar ficticio, bar «Neón 21», café «Grano», heladería «Gelato Pop», cervecería a nombrar) con identidad propia. La demo de cada plan crece con su tanda.
 
