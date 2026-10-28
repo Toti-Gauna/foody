@@ -1,13 +1,13 @@
 # Mi Eclipse · portal del suscriptor
 
-Qué ve y qué completa quien se registra en Foody. Es el portal **cliente** (distinto del portal interno de operaciones de Eclipse). Base: V4 del Notion (Mi Eclipse reúne plan, sistema del negocio, contratos, pagos, soporte y entregas).
+Qué ve y qué completa quien se registra en Eclipse para locales de comida. Es el portal **cliente** (distinto del portal interno de operaciones de Eclipse). Base: V4 del Notion (Mi Eclipse reúne plan, sistema del negocio, contratos, pagos, soporte y entregas).
 
 ## 1. Registro y alta (embudo)
 
 1. **Crear cuenta:** email y contraseña (o proveedor de acceso), verificación por email.
 2. **Tu negocio:** nombre, comercio (cervecería, bar, café, heladería), ciudad, cantidad de sucursales.
 3. **Tu plan:** Contact 30 · Growth 75 · Escalar 100 · Hípergrowth 150 · Deluxe 200 · Partner 500; mensual o anual. Muestra qué incluye cada uno y qué se suma al subir.
-4. **Tu personaje:** elegir 1 de 5 con vista previa animada.
+4. **Tu personaje:** lo configura Eclipse según el rubro del local (el cliente no elige); se muestra con vista previa animada.
 5. **Datos de cobro** (ver §3) y **método de pago**.
 6. **Confirmación:** resumen del pedido y de lo que se cobra hoy y cada mes; aceptar términos.
 7. **Onboarding:** checklist (cargar la carta, subir logo y fotos, crear mesas y QR, probar un pedido, imprimir soporte).

@@ -1,0 +1,27 @@
+MASCOTAS GASTRONOMICAS
+
+20 personajes con 15 acciones por personaje: 300 poses en 20 laminas.
+Cada lamina se lee de izquierda a derecha, primero fila superior, luego central y luego inferior (5 columnas x 3 filas).
+
+ORDEN DE ACCIONES
+01. Saludar
+02. Agradecer
+03. Presentar carta
+04. Servir
+05. Esperar
+06. Retirarse de espaldas con la cuenta
+07. Anotar pedido
+08. Sorprenderse
+09. Estar triste
+10. Jugar en el celular
+11. Celebrar premio
+12. Pensar
+13. Señalar una recomendación
+14. Caminar con la cuenta
+15. Limpiar
+
+CONTENIDO
+01_acciones_15: laminas completas por categoria y personaje.
+02_exploraciones_anteriores: todas las otras imagenes generadas disponibles de esta exploracion, incluidas pruebas y variantes previas. Una prueba anterior de taza repitio al mozo; la taza correcta esta en 01_acciones_15/cafe/taza.jpg.
+
+Formato JPG comprimido, dimensiones conservadas. Son referencias de diseno, no animaciones ni sprites recortados.

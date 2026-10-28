@@ -1,10 +1,10 @@
 # Personajes · selección, poses y reacciones
 
-Fuente: `assets/personajes/` (pack "mascotas gastronómicas": 20 personajes, 15 acciones y 50 poses clave cada uno). Son **referencias de diseño**, no sprites ni animaciones.
+Fuente: `assets/personajes/` (pack "mascotas gastronómicas" de Eclipse para locales de comida: 20 personajes, 15 acciones y 50 poses clave cada uno). Son **referencias de diseño**, no sprites ni animaciones.
 
 ## 1. Los 20 personajes
 
-| Comercio | Personajes (el cliente elige 1) |
+| Comercio | Personajes (Eclipse asigna 1 al local) |
 |---|---|
 | Cervecería | `barril_robot` · `escorpion_estelar` · `hamburguesa` · `lupulo` · `oso_cervecero` |
 | Bar | `barracuda` · `copa_coctel` · `luna` · `mapache` · `pizza` |
@@ -13,14 +13,14 @@ Fuente: `assets/personajes/` (pack "mascotas gastronómicas": 20 personajes, 15 
 
 Estructura: `assets/personajes/<comercio>/<personaje>/acciones_15.jpg` y `secuencias_50/poses_*.jpg`. Índice de las 1000 poses: `INDICE_1000_POSES.csv` (archivo, fila y columna). Manifiesto para el selector: `personajes.json`.
 
-## 2. Elegir personaje
+## 2. Asignación del personaje
 
-Paso del onboarding en Mi Eclipse, después de elegir comercio: grilla con los 5 personajes de ese comercio. Al pasar el cursor o tocar, el personaje hace **saludar**, **anotar pedido** y **celebrar**. Se confirma uno y queda guardado en la cuenta.
+**Decisión (28/10/2026):** el cliente **no elige**. Eclipse asigna **un personaje al local** al configurarlo, coherente con el rubro (un helado no representa a un restó-bar). Si el local ya tiene mascota, se adapta a medida con Media. Un cambio posterior se pide a soporte y no pierde sellos ni progreso.
 
-- Se puede cambiar desde Mi Eclipse; el cambio no pierde sellos ni progreso.
-- Las poses y animaciones son equivalentes entre personajes: un solo sistema de estados, y cada personaje es un paquete intercambiable.
+- Nombres aprobados: Barry, Cocó, Lula, Rocco, Pizzi (bar) · Coli, Dora, Mimi, Gus, Tazzi (café) · Robi, Antar, Burgi, Lupi, Bruno (cervecería) · Nubi, Fru, Pali, Pingo, Rulo (heladería).
+- **Piloto (restó-bar):** Gus (Mesero) por defecto; alternativas Barry y Rocco.
+- Las poses y animaciones son equivalentes entre personajes: un solo sistema de estados y paquetes intercambiables.
 - Partner: un personaje por marca, con opción de uno distinto por sucursal (a definir).
-- Un personaje propio o a medida es un trabajo de Media, fuera del plan.
 
 ## 3. Las 15 acciones y dónde se usan
 

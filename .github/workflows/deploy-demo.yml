@@ -1,0 +1,39 @@
+name: Deploy demo
+
+# Publica la demo «La carta de Gus» (prototipos/carta-gus) en GitHub Pages cada vez que cambia main.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "prototipos/carta-gus/**"
+      - ".github/workflows/deploy-demo.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - name: Verificar que la demo no esté vacía
+        run: test -s prototipos/carta-gus/index.html
+      - run: touch prototipos/carta-gus/.nojekyll
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: prototipos/carta-gus
+      - id: deployment
+        uses: actions/deploy-pages@v4
