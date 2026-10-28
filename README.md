@@ -10,6 +10,7 @@ Estado: **planificación**. Todavía no hay código de aplicación. Este repo re
 |---|---|
 | [`docs/ROADMAP.md`](docs/ROADMAP.md) | Roadmap v5 por tandas de plan, con modelo, esfuerzo y tamaño por fase |
 | [`docs/SDD-0.1-DESCUBRIMIENTO.md`](docs/SDD-0.1-DESCUBRIMIENTO.md) | SDD de la fase 0.1: decisiones, flujos, estados, alcance de Contact, juegos por plan, proveedores y preguntas abiertas |
+| [`docs/0.2-CONTRATO-VISUAL.md`](docs/0.2-CONTRATO-VISUAL.md) | Fase 0.2: contrato visual de la página (dirección, secciones, movimiento, presupuesto, rúbrica, enlace con Eclipse-Web) |
 | [`docs/PERSONAJES.md`](docs/PERSONAJES.md) | Selección de personaje, poses, reacciones y reglas |
 | [`docs/PORTAL-CUENTA.md`](docs/PORTAL-CUENTA.md) | Portal Mi Eclipse, datos de cobro, Academy, Media y Utilería |
 | [`docs/PROMPT-IMAGENES.md`](docs/PROMPT-IMAGENES.md) | Prompt completo v4 (estética Efemérides) para generar todas las imágenes |

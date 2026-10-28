@@ -121,7 +121,7 @@ Cada tanda termina con un **hito vendible** probado en un piloto.
 | Fase | Entregable | Modelo y esfuerzo | Tamaño |
 |---|---|---|---|
 | 0.1 Descubrimiento y SDD | **Cerrada** con estas decisiones | Sonnet · medium | S |
-| 0.2 Contrato visual de la página | Efemérides aplicada a una página corta y rápida: matriz de animaciones, presupuesto visual por viewport, rúbrica de 14 puntos, hero chico | Opus · high | M |
+| 0.2 Contrato visual de la página | **Hecha, falta el OK de D1–D7** (`0.2-CONTRATO-VISUAL.md`). Efemérides aplicada a una página corta y rápida: matriz de animaciones, presupuesto visual por viewport, rúbrica de 14 puntos, hero chico | Opus · high | M |
 | 0.3 Personaje piloto | Hoja maestra de **Gus** (y de Barry y Rocco si se quieren), tabla pose↔evento, manifiesto | Opus · high | M |
 | 0.4 Lote 1 de imágenes | Hero, previews cenitales, fondos y restó-bar piloto (C01–C10); 44 productos de la carta demo con IA | Sonnet · medium (prompts de producto con Haiku · low) | M |
 | 0.5 Arquitectura y repo | ADR con Next.js TypeScript estricto, Neon, roles y permisos, sesión de mesa firmada por QR, **decisión de tiempo real** (conexiones persistentes o alternativa), **decisión de impresión** (formato térmico del navegador o programa local), retención de 12 meses, aislamiento entre locales, suscripciones, i18n, CI | **Opus · xhigh** | L |
