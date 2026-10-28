@@ -1,0 +1,6 @@
+FOODY - REFERENCIAS DE DIRECCION VISUAL
+
+59 imagenes PNG: 21 tomas, 12 vistas de demos, 24 assets y 2 variantes iniciales.
+Las versiones ajustadas del logo viajero y del grano estan en sus carpetas principales.
+Personajes provisorios. Texto real para implementar en HTML.
+Imagenes de referencia; no son capturas listas para publicar.
