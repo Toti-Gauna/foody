@@ -1,0 +1,238 @@
+{
+  "version": 1,
+  "nota": "Referencias de diseño sin recortar. Un personaje por local, elegido en el onboarding. Las poses y secuencias son equivalentes entre personajes.",
+  "personajes": [
+    {
+      "id": "bar.barracuda",
+      "comercio": "bar",
+      "nombre": "Barracuda",
+      "acciones_15": "bar/barracuda/acciones_15.jpg",
+      "secuencias_50": [
+        "bar/barracuda/secuencias_50/poses_01_25.jpg",
+        "bar/barracuda/secuencias_50/poses_26_50.jpg"
+      ],
+      "estado": "referencia-sin-aprobar"
+    },
+    {
+      "id": "bar.copa_coctel",
+      "comercio": "bar",
+      "nombre": "Copa cóctel",
+      "acciones_15": "bar/copa_coctel/acciones_15.jpg",
+      "secuencias_50": [
+        "bar/copa_coctel/secuencias_50/poses_01_25.jpg",
+        "bar/copa_coctel/secuencias_50/poses_26_50.jpg"
+      ],
+      "estado": "referencia-sin-aprobar"
+    },
+    {
+      "id": "bar.luna",
+      "comercio": "bar",
+      "nombre": "Luna",
+      "acciones_15": "bar/luna/acciones_15.jpg",
+      "secuencias_50": [
+        "bar/luna/secuencias_50/poses_01_25.jpg",
+        "bar/luna/secuencias_50/poses_26_50.jpg"
+      ],
+      "estado": "referencia-sin-aprobar"
+    },
+    {
+      "id": "bar.mapache",
+      "comercio": "bar",
+      "nombre": "Mapache",
+      "acciones_15": "bar/mapache/acciones_15.jpg",
+      "secuencias_50": [
+        "bar/mapache/secuencias_50/poses_01_10.jpg",
+        "bar/mapache/secuencias_50/poses_11_20.jpg",
+        "bar/mapache/secuencias_50/poses_21_30.jpg",
+        "bar/mapache/secuencias_50/poses_31_40.jpg",
+        "bar/mapache/secuencias_50/poses_41_50.jpg"
+      ],
+      "estado": "referencia-sin-aprobar"
+    },
+    {
+      "id": "bar.pizza",
+      "comercio": "bar",
+      "nombre": "Pizza",
+      "acciones_15": "bar/pizza/acciones_15.jpg",
+      "secuencias_50": [
+        "bar/pizza/secuencias_50/poses_01_25.jpg",
+        "bar/pizza/secuencias_50/poses_26_50.jpg"
+      ],
+      "estado": "referencia-sin-aprobar"
+    },
+    {
+      "id": "cafe.colibri",
+      "comercio": "cafe",
+      "nombre": "Colibrí",
+      "acciones_15": "cafe/colibri/acciones_15.jpg",
+      "secuencias_50": [
+        "cafe/colibri/secuencias_50/poses_01_25.jpg",
+        "cafe/colibri/secuencias_50/poses_26_50.jpg"
+      ],
+      "estado": "referencia-sin-aprobar"
+    },
+    {
+      "id": "cafe.gota_dorada",
+      "comercio": "cafe",
+      "nombre": "Gota dorada",
+      "acciones_15": "cafe/gota_dorada/acciones_15.jpg",
+      "secuencias_50": [
+        "cafe/gota_dorada/secuencias_50/poses_01_25.jpg",
+        "cafe/gota_dorada/secuencias_50/poses_26_50.jpg"
+      ],
+      "estado": "referencia-sin-aprobar"
+    },
+    {
+      "id": "cafe.medialuna",
+      "comercio": "cafe",
+      "nombre": "Medialuna",
+      "acciones_15": "cafe/medialuna/acciones_15.jpg",
+      "secuencias_50": [
+        "cafe/medialuna/secuencias_50/poses_01_25.jpg",
+        "cafe/medialuna/secuencias_50/poses_26_50.jpg"
+      ],
+      "estado": "referencia-sin-aprobar"
+    },
+    {
+      "id": "cafe.mesero",
+      "comercio": "cafe",
+      "nombre": "Mesero",
+      "acciones_15": "cafe/mesero/acciones_15.jpg",
+      "secuencias_50": [
+        "cafe/mesero/secuencias_50/poses_01_10.jpg",
+        "cafe/mesero/secuencias_50/poses_11_20.jpg",
+        "cafe/mesero/secuencias_50/poses_21_30.jpg",
+        "cafe/mesero/secuencias_50/poses_31_40.jpg",
+        "cafe/mesero/secuencias_50/poses_41_50.jpg"
+      ],
+      "estado": "referencia-sin-aprobar"
+    },
+    {
+      "id": "cafe.taza",
+      "comercio": "cafe",
+      "nombre": "Taza",
+      "acciones_15": "cafe/taza/acciones_15.jpg",
+      "secuencias_50": [
+        "cafe/taza/secuencias_50/poses_01_25.jpg",
+        "cafe/taza/secuencias_50/poses_26_50.jpg"
+      ],
+      "estado": "referencia-sin-aprobar"
+    },
+    {
+      "id": "cerveceria.barril_robot",
+      "comercio": "cerveceria",
+      "nombre": "Barril robot",
+      "acciones_15": "cerveceria/barril_robot/acciones_15.jpg",
+      "secuencias_50": [
+        "cerveceria/barril_robot/secuencias_50/poses_01_25.jpg",
+        "cerveceria/barril_robot/secuencias_50/poses_26_50.jpg"
+      ],
+      "estado": "referencia-sin-aprobar"
+    },
+    {
+      "id": "cerveceria.escorpion_estelar",
+      "comercio": "cerveceria",
+      "nombre": "Escorpión estelar",
+      "acciones_15": "cerveceria/escorpion_estelar/acciones_15.jpg",
+      "secuencias_50": [
+        "cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg",
+        "cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg"
+      ],
+      "estado": "referencia-sin-aprobar"
+    },
+    {
+      "id": "cerveceria.hamburguesa",
+      "comercio": "cerveceria",
+      "nombre": "Hamburguesa",
+      "acciones_15": "cerveceria/hamburguesa/acciones_15.jpg",
+      "secuencias_50": [
+        "cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg",
+        "cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg"
+      ],
+      "estado": "referencia-sin-aprobar"
+    },
+    {
+      "id": "cerveceria.lupulo",
+      "comercio": "cerveceria",
+      "nombre": "Lúpulo",
+      "acciones_15": "cerveceria/lupulo/acciones_15.jpg",
+      "secuencias_50": [
+        "cerveceria/lupulo/secuencias_50/poses_01_25.jpg",
+        "cerveceria/lupulo/secuencias_50/poses_26_50.jpg"
+      ],
+      "estado": "referencia-sin-aprobar"
+    },
+    {
+      "id": "cerveceria.oso_cervecero",
+      "comercio": "cerveceria",
+      "nombre": "Oso cervecero",
+      "acciones_15": "cerveceria/oso_cervecero/acciones_15.jpg",
+      "secuencias_50": [
+        "cerveceria/oso_cervecero/secuencias_50/poses_01_10.jpg",
+        "cerveceria/oso_cervecero/secuencias_50/poses_11_20.jpg",
+        "cerveceria/oso_cervecero/secuencias_50/poses_21_30.jpg",
+        "cerveceria/oso_cervecero/secuencias_50/poses_31_40.jpg",
+        "cerveceria/oso_cervecero/secuencias_50/poses_41_50.jpg"
+      ],
+      "estado": "referencia-sin-aprobar"
+    },
+    {
+      "id": "heladeria.cono_nube",
+      "comercio": "heladeria",
+      "nombre": "Cono nube",
+      "acciones_15": "heladeria/cono_nube/acciones_15.jpg",
+      "secuencias_50": [
+        "heladeria/cono_nube/secuencias_50/poses_01_25.jpg",
+        "heladeria/cono_nube/secuencias_50/poses_26_50.jpg"
+      ],
+      "estado": "referencia-sin-aprobar"
+    },
+    {
+      "id": "heladeria.frutilla",
+      "comercio": "heladeria",
+      "nombre": "Frutilla",
+      "acciones_15": "heladeria/frutilla/acciones_15.jpg",
+      "secuencias_50": [
+        "heladeria/frutilla/secuencias_50/poses_01_25.jpg",
+        "heladeria/frutilla/secuencias_50/poses_26_50.jpg"
+      ],
+      "estado": "referencia-sin-aprobar"
+    },
+    {
+      "id": "heladeria.palito_helado",
+      "comercio": "heladeria",
+      "nombre": "Palito helado",
+      "acciones_15": "heladeria/palito_helado/acciones_15.jpg",
+      "secuencias_50": [
+        "heladeria/palito_helado/secuencias_50/poses_01_25.jpg",
+        "heladeria/palito_helado/secuencias_50/poses_26_50.jpg"
+      ],
+      "estado": "referencia-sin-aprobar"
+    },
+    {
+      "id": "heladeria.pinguino",
+      "comercio": "heladeria",
+      "nombre": "Pingüino",
+      "acciones_15": "heladeria/pinguino/acciones_15.jpg",
+      "secuencias_50": [
+        "heladeria/pinguino/secuencias_50/poses_01_10.jpg",
+        "heladeria/pinguino/secuencias_50/poses_11_20.jpg",
+        "heladeria/pinguino/secuencias_50/poses_21_30.jpg",
+        "heladeria/pinguino/secuencias_50/poses_31_40.jpg",
+        "heladeria/pinguino/secuencias_50/poses_41_50.jpg"
+      ],
+      "estado": "referencia-sin-aprobar"
+    },
+    {
+      "id": "heladeria.remolino",
+      "comercio": "heladeria",
+      "nombre": "Remolino",
+      "acciones_15": "heladeria/remolino/acciones_15.jpg",
+      "secuencias_50": [
+        "heladeria/remolino/secuencias_50/poses_01_25.jpg",
+        "heladeria/remolino/secuencias_50/poses_26_50.jpg"
+      ],
+      "estado": "referencia-sin-aprobar"
+    }
+  ]
+}

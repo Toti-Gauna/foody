@@ -1,0 +1,1001 @@
+categoria,personaje,pose,secuencia,archivo,fila,columna
+bar,Barracuda,1,Caminar,bar/barracuda/secuencias_50/poses_01_25.jpg,1,1
+bar,Barracuda,2,Caminar,bar/barracuda/secuencias_50/poses_01_25.jpg,1,2
+bar,Barracuda,3,Caminar,bar/barracuda/secuencias_50/poses_01_25.jpg,1,3
+bar,Barracuda,4,Caminar,bar/barracuda/secuencias_50/poses_01_25.jpg,1,4
+bar,Barracuda,5,Caminar,bar/barracuda/secuencias_50/poses_01_25.jpg,1,5
+bar,Barracuda,6,Correr,bar/barracuda/secuencias_50/poses_01_25.jpg,2,1
+bar,Barracuda,7,Correr,bar/barracuda/secuencias_50/poses_01_25.jpg,2,2
+bar,Barracuda,8,Correr,bar/barracuda/secuencias_50/poses_01_25.jpg,2,3
+bar,Barracuda,9,Correr,bar/barracuda/secuencias_50/poses_01_25.jpg,2,4
+bar,Barracuda,10,Correr,bar/barracuda/secuencias_50/poses_01_25.jpg,2,5
+bar,Barracuda,11,Traer y entregar,bar/barracuda/secuencias_50/poses_01_25.jpg,3,1
+bar,Barracuda,12,Traer y entregar,bar/barracuda/secuencias_50/poses_01_25.jpg,3,2
+bar,Barracuda,13,Traer y entregar,bar/barracuda/secuencias_50/poses_01_25.jpg,3,3
+bar,Barracuda,14,Traer y entregar,bar/barracuda/secuencias_50/poses_01_25.jpg,3,4
+bar,Barracuda,15,Traer y entregar,bar/barracuda/secuencias_50/poses_01_25.jpg,3,5
+bar,Barracuda,16,Aparecer y avisar,bar/barracuda/secuencias_50/poses_01_25.jpg,4,1
+bar,Barracuda,17,Aparecer y avisar,bar/barracuda/secuencias_50/poses_01_25.jpg,4,2
+bar,Barracuda,18,Aparecer y avisar,bar/barracuda/secuencias_50/poses_01_25.jpg,4,3
+bar,Barracuda,19,Aparecer y avisar,bar/barracuda/secuencias_50/poses_01_25.jpg,4,4
+bar,Barracuda,20,Aparecer y avisar,bar/barracuda/secuencias_50/poses_01_25.jpg,4,5
+bar,Barracuda,21,Reposo con vida,bar/barracuda/secuencias_50/poses_01_25.jpg,5,1
+bar,Barracuda,22,Reposo con vida,bar/barracuda/secuencias_50/poses_01_25.jpg,5,2
+bar,Barracuda,23,Reposo con vida,bar/barracuda/secuencias_50/poses_01_25.jpg,5,3
+bar,Barracuda,24,Reposo con vida,bar/barracuda/secuencias_50/poses_01_25.jpg,5,4
+bar,Barracuda,25,Reposo con vida,bar/barracuda/secuencias_50/poses_01_25.jpg,5,5
+bar,Barracuda,26,Inactividad sin elección o scroll,bar/barracuda/secuencias_50/poses_26_50.jpg,1,1
+bar,Barracuda,27,Inactividad sin elección o scroll,bar/barracuda/secuencias_50/poses_26_50.jpg,1,2
+bar,Barracuda,28,Inactividad sin elección o scroll,bar/barracuda/secuencias_50/poses_26_50.jpg,1,3
+bar,Barracuda,29,Inactividad sin elección o scroll,bar/barracuda/secuencias_50/poses_26_50.jpg,1,4
+bar,Barracuda,30,Inactividad sin elección o scroll,bar/barracuda/secuencias_50/poses_26_50.jpg,1,5
+bar,Barracuda,31,Scroll abajo: caída,bar/barracuda/secuencias_50/poses_26_50.jpg,2,1
+bar,Barracuda,32,Scroll abajo: caída,bar/barracuda/secuencias_50/poses_26_50.jpg,2,2
+bar,Barracuda,33,Scroll abajo: caída,bar/barracuda/secuencias_50/poses_26_50.jpg,2,3
+bar,Barracuda,34,Scroll abajo: caída,bar/barracuda/secuencias_50/poses_26_50.jpg,2,4
+bar,Barracuda,35,Scroll abajo: caída,bar/barracuda/secuencias_50/poses_26_50.jpg,2,5
+bar,Barracuda,36,Scroll arriba: reaparecer,bar/barracuda/secuencias_50/poses_26_50.jpg,3,1
+bar,Barracuda,37,Scroll arriba: reaparecer,bar/barracuda/secuencias_50/poses_26_50.jpg,3,2
+bar,Barracuda,38,Scroll arriba: reaparecer,bar/barracuda/secuencias_50/poses_26_50.jpg,3,3
+bar,Barracuda,39,Scroll arriba: reaparecer,bar/barracuda/secuencias_50/poses_26_50.jpg,3,4
+bar,Barracuda,40,Scroll arriba: reaparecer,bar/barracuda/secuencias_50/poses_26_50.jpg,3,5
+bar,Barracuda,41,Confirmación y logro,bar/barracuda/secuencias_50/poses_26_50.jpg,4,1
+bar,Barracuda,42,Confirmación y logro,bar/barracuda/secuencias_50/poses_26_50.jpg,4,2
+bar,Barracuda,43,Confirmación y logro,bar/barracuda/secuencias_50/poses_26_50.jpg,4,3
+bar,Barracuda,44,Confirmación y logro,bar/barracuda/secuencias_50/poses_26_50.jpg,4,4
+bar,Barracuda,45,Confirmación y logro,bar/barracuda/secuencias_50/poses_26_50.jpg,4,5
+bar,Barracuda,46,Error recuperable y ayuda,bar/barracuda/secuencias_50/poses_26_50.jpg,5,1
+bar,Barracuda,47,Error recuperable y ayuda,bar/barracuda/secuencias_50/poses_26_50.jpg,5,2
+bar,Barracuda,48,Error recuperable y ayuda,bar/barracuda/secuencias_50/poses_26_50.jpg,5,3
+bar,Barracuda,49,Error recuperable y ayuda,bar/barracuda/secuencias_50/poses_26_50.jpg,5,4
+bar,Barracuda,50,Error recuperable y ayuda,bar/barracuda/secuencias_50/poses_26_50.jpg,5,5
+bar,Copa cóctel,1,Caminar,bar/copa_coctel/secuencias_50/poses_01_25.jpg,1,1
+bar,Copa cóctel,2,Caminar,bar/copa_coctel/secuencias_50/poses_01_25.jpg,1,2
+bar,Copa cóctel,3,Caminar,bar/copa_coctel/secuencias_50/poses_01_25.jpg,1,3
+bar,Copa cóctel,4,Caminar,bar/copa_coctel/secuencias_50/poses_01_25.jpg,1,4
+bar,Copa cóctel,5,Caminar,bar/copa_coctel/secuencias_50/poses_01_25.jpg,1,5
+bar,Copa cóctel,6,Correr,bar/copa_coctel/secuencias_50/poses_01_25.jpg,2,1
+bar,Copa cóctel,7,Correr,bar/copa_coctel/secuencias_50/poses_01_25.jpg,2,2
+bar,Copa cóctel,8,Correr,bar/copa_coctel/secuencias_50/poses_01_25.jpg,2,3
+bar,Copa cóctel,9,Correr,bar/copa_coctel/secuencias_50/poses_01_25.jpg,2,4
+bar,Copa cóctel,10,Correr,bar/copa_coctel/secuencias_50/poses_01_25.jpg,2,5
+bar,Copa cóctel,11,Traer y entregar,bar/copa_coctel/secuencias_50/poses_01_25.jpg,3,1
+bar,Copa cóctel,12,Traer y entregar,bar/copa_coctel/secuencias_50/poses_01_25.jpg,3,2
+bar,Copa cóctel,13,Traer y entregar,bar/copa_coctel/secuencias_50/poses_01_25.jpg,3,3
+bar,Copa cóctel,14,Traer y entregar,bar/copa_coctel/secuencias_50/poses_01_25.jpg,3,4
+bar,Copa cóctel,15,Traer y entregar,bar/copa_coctel/secuencias_50/poses_01_25.jpg,3,5
+bar,Copa cóctel,16,Aparecer y avisar,bar/copa_coctel/secuencias_50/poses_01_25.jpg,4,1
+bar,Copa cóctel,17,Aparecer y avisar,bar/copa_coctel/secuencias_50/poses_01_25.jpg,4,2
+bar,Copa cóctel,18,Aparecer y avisar,bar/copa_coctel/secuencias_50/poses_01_25.jpg,4,3
+bar,Copa cóctel,19,Aparecer y avisar,bar/copa_coctel/secuencias_50/poses_01_25.jpg,4,4
+bar,Copa cóctel,20,Aparecer y avisar,bar/copa_coctel/secuencias_50/poses_01_25.jpg,4,5
+bar,Copa cóctel,21,Reposo con vida,bar/copa_coctel/secuencias_50/poses_01_25.jpg,5,1
+bar,Copa cóctel,22,Reposo con vida,bar/copa_coctel/secuencias_50/poses_01_25.jpg,5,2
+bar,Copa cóctel,23,Reposo con vida,bar/copa_coctel/secuencias_50/poses_01_25.jpg,5,3
+bar,Copa cóctel,24,Reposo con vida,bar/copa_coctel/secuencias_50/poses_01_25.jpg,5,4
+bar,Copa cóctel,25,Reposo con vida,bar/copa_coctel/secuencias_50/poses_01_25.jpg,5,5
+bar,Copa cóctel,26,Inactividad sin elección o scroll,bar/copa_coctel/secuencias_50/poses_26_50.jpg,1,1
+bar,Copa cóctel,27,Inactividad sin elección o scroll,bar/copa_coctel/secuencias_50/poses_26_50.jpg,1,2
+bar,Copa cóctel,28,Inactividad sin elección o scroll,bar/copa_coctel/secuencias_50/poses_26_50.jpg,1,3
+bar,Copa cóctel,29,Inactividad sin elección o scroll,bar/copa_coctel/secuencias_50/poses_26_50.jpg,1,4
+bar,Copa cóctel,30,Inactividad sin elección o scroll,bar/copa_coctel/secuencias_50/poses_26_50.jpg,1,5
+bar,Copa cóctel,31,Scroll abajo: caída,bar/copa_coctel/secuencias_50/poses_26_50.jpg,2,1
+bar,Copa cóctel,32,Scroll abajo: caída,bar/copa_coctel/secuencias_50/poses_26_50.jpg,2,2
+bar,Copa cóctel,33,Scroll abajo: caída,bar/copa_coctel/secuencias_50/poses_26_50.jpg,2,3
+bar,Copa cóctel,34,Scroll abajo: caída,bar/copa_coctel/secuencias_50/poses_26_50.jpg,2,4
+bar,Copa cóctel,35,Scroll abajo: caída,bar/copa_coctel/secuencias_50/poses_26_50.jpg,2,5
+bar,Copa cóctel,36,Scroll arriba: reaparecer,bar/copa_coctel/secuencias_50/poses_26_50.jpg,3,1
+bar,Copa cóctel,37,Scroll arriba: reaparecer,bar/copa_coctel/secuencias_50/poses_26_50.jpg,3,2
+bar,Copa cóctel,38,Scroll arriba: reaparecer,bar/copa_coctel/secuencias_50/poses_26_50.jpg,3,3
+bar,Copa cóctel,39,Scroll arriba: reaparecer,bar/copa_coctel/secuencias_50/poses_26_50.jpg,3,4
+bar,Copa cóctel,40,Scroll arriba: reaparecer,bar/copa_coctel/secuencias_50/poses_26_50.jpg,3,5
+bar,Copa cóctel,41,Confirmación y logro,bar/copa_coctel/secuencias_50/poses_26_50.jpg,4,1
+bar,Copa cóctel,42,Confirmación y logro,bar/copa_coctel/secuencias_50/poses_26_50.jpg,4,2
+bar,Copa cóctel,43,Confirmación y logro,bar/copa_coctel/secuencias_50/poses_26_50.jpg,4,3
+bar,Copa cóctel,44,Confirmación y logro,bar/copa_coctel/secuencias_50/poses_26_50.jpg,4,4
+bar,Copa cóctel,45,Confirmación y logro,bar/copa_coctel/secuencias_50/poses_26_50.jpg,4,5
+bar,Copa cóctel,46,Error recuperable y ayuda,bar/copa_coctel/secuencias_50/poses_26_50.jpg,5,1
+bar,Copa cóctel,47,Error recuperable y ayuda,bar/copa_coctel/secuencias_50/poses_26_50.jpg,5,2
+bar,Copa cóctel,48,Error recuperable y ayuda,bar/copa_coctel/secuencias_50/poses_26_50.jpg,5,3
+bar,Copa cóctel,49,Error recuperable y ayuda,bar/copa_coctel/secuencias_50/poses_26_50.jpg,5,4
+bar,Copa cóctel,50,Error recuperable y ayuda,bar/copa_coctel/secuencias_50/poses_26_50.jpg,5,5
+bar,Luna,1,Caminar,bar/luna/secuencias_50/poses_01_25.jpg,1,1
+bar,Luna,2,Caminar,bar/luna/secuencias_50/poses_01_25.jpg,1,2
+bar,Luna,3,Caminar,bar/luna/secuencias_50/poses_01_25.jpg,1,3
+bar,Luna,4,Caminar,bar/luna/secuencias_50/poses_01_25.jpg,1,4
+bar,Luna,5,Caminar,bar/luna/secuencias_50/poses_01_25.jpg,1,5
+bar,Luna,6,Correr,bar/luna/secuencias_50/poses_01_25.jpg,2,1
+bar,Luna,7,Correr,bar/luna/secuencias_50/poses_01_25.jpg,2,2
+bar,Luna,8,Correr,bar/luna/secuencias_50/poses_01_25.jpg,2,3
+bar,Luna,9,Correr,bar/luna/secuencias_50/poses_01_25.jpg,2,4
+bar,Luna,10,Correr,bar/luna/secuencias_50/poses_01_25.jpg,2,5
+bar,Luna,11,Traer y entregar,bar/luna/secuencias_50/poses_01_25.jpg,3,1
+bar,Luna,12,Traer y entregar,bar/luna/secuencias_50/poses_01_25.jpg,3,2
+bar,Luna,13,Traer y entregar,bar/luna/secuencias_50/poses_01_25.jpg,3,3
+bar,Luna,14,Traer y entregar,bar/luna/secuencias_50/poses_01_25.jpg,3,4
+bar,Luna,15,Traer y entregar,bar/luna/secuencias_50/poses_01_25.jpg,3,5
+bar,Luna,16,Aparecer y avisar,bar/luna/secuencias_50/poses_01_25.jpg,4,1
+bar,Luna,17,Aparecer y avisar,bar/luna/secuencias_50/poses_01_25.jpg,4,2
+bar,Luna,18,Aparecer y avisar,bar/luna/secuencias_50/poses_01_25.jpg,4,3
+bar,Luna,19,Aparecer y avisar,bar/luna/secuencias_50/poses_01_25.jpg,4,4
+bar,Luna,20,Aparecer y avisar,bar/luna/secuencias_50/poses_01_25.jpg,4,5
+bar,Luna,21,Reposo con vida,bar/luna/secuencias_50/poses_01_25.jpg,5,1
+bar,Luna,22,Reposo con vida,bar/luna/secuencias_50/poses_01_25.jpg,5,2
+bar,Luna,23,Reposo con vida,bar/luna/secuencias_50/poses_01_25.jpg,5,3
+bar,Luna,24,Reposo con vida,bar/luna/secuencias_50/poses_01_25.jpg,5,4
+bar,Luna,25,Reposo con vida,bar/luna/secuencias_50/poses_01_25.jpg,5,5
+bar,Luna,26,Inactividad sin elección o scroll,bar/luna/secuencias_50/poses_26_50.jpg,1,1
+bar,Luna,27,Inactividad sin elección o scroll,bar/luna/secuencias_50/poses_26_50.jpg,1,2
+bar,Luna,28,Inactividad sin elección o scroll,bar/luna/secuencias_50/poses_26_50.jpg,1,3
+bar,Luna,29,Inactividad sin elección o scroll,bar/luna/secuencias_50/poses_26_50.jpg,1,4
+bar,Luna,30,Inactividad sin elección o scroll,bar/luna/secuencias_50/poses_26_50.jpg,1,5
+bar,Luna,31,Scroll abajo: caída,bar/luna/secuencias_50/poses_26_50.jpg,2,1
+bar,Luna,32,Scroll abajo: caída,bar/luna/secuencias_50/poses_26_50.jpg,2,2
+bar,Luna,33,Scroll abajo: caída,bar/luna/secuencias_50/poses_26_50.jpg,2,3
+bar,Luna,34,Scroll abajo: caída,bar/luna/secuencias_50/poses_26_50.jpg,2,4
+bar,Luna,35,Scroll abajo: caída,bar/luna/secuencias_50/poses_26_50.jpg,2,5
+bar,Luna,36,Scroll arriba: reaparecer,bar/luna/secuencias_50/poses_26_50.jpg,3,1
+bar,Luna,37,Scroll arriba: reaparecer,bar/luna/secuencias_50/poses_26_50.jpg,3,2
+bar,Luna,38,Scroll arriba: reaparecer,bar/luna/secuencias_50/poses_26_50.jpg,3,3
+bar,Luna,39,Scroll arriba: reaparecer,bar/luna/secuencias_50/poses_26_50.jpg,3,4
+bar,Luna,40,Scroll arriba: reaparecer,bar/luna/secuencias_50/poses_26_50.jpg,3,5
+bar,Luna,41,Confirmación y logro,bar/luna/secuencias_50/poses_26_50.jpg,4,1
+bar,Luna,42,Confirmación y logro,bar/luna/secuencias_50/poses_26_50.jpg,4,2
+bar,Luna,43,Confirmación y logro,bar/luna/secuencias_50/poses_26_50.jpg,4,3
+bar,Luna,44,Confirmación y logro,bar/luna/secuencias_50/poses_26_50.jpg,4,4
+bar,Luna,45,Confirmación y logro,bar/luna/secuencias_50/poses_26_50.jpg,4,5
+bar,Luna,46,Error recuperable y ayuda,bar/luna/secuencias_50/poses_26_50.jpg,5,1
+bar,Luna,47,Error recuperable y ayuda,bar/luna/secuencias_50/poses_26_50.jpg,5,2
+bar,Luna,48,Error recuperable y ayuda,bar/luna/secuencias_50/poses_26_50.jpg,5,3
+bar,Luna,49,Error recuperable y ayuda,bar/luna/secuencias_50/poses_26_50.jpg,5,4
+bar,Luna,50,Error recuperable y ayuda,bar/luna/secuencias_50/poses_26_50.jpg,5,5
+bar,Mapache,1,Caminar,bar/mapache/secuencias_50/poses_01_10.jpg,1,1
+bar,Mapache,2,Caminar,bar/mapache/secuencias_50/poses_01_10.jpg,1,2
+bar,Mapache,3,Caminar,bar/mapache/secuencias_50/poses_01_10.jpg,1,3
+bar,Mapache,4,Caminar,bar/mapache/secuencias_50/poses_01_10.jpg,1,4
+bar,Mapache,5,Caminar,bar/mapache/secuencias_50/poses_01_10.jpg,1,5
+bar,Mapache,6,Correr,bar/mapache/secuencias_50/poses_01_10.jpg,2,1
+bar,Mapache,7,Correr,bar/mapache/secuencias_50/poses_01_10.jpg,2,2
+bar,Mapache,8,Correr,bar/mapache/secuencias_50/poses_01_10.jpg,2,3
+bar,Mapache,9,Correr,bar/mapache/secuencias_50/poses_01_10.jpg,2,4
+bar,Mapache,10,Correr,bar/mapache/secuencias_50/poses_01_10.jpg,2,5
+bar,Mapache,11,Traer y entregar,bar/mapache/secuencias_50/poses_11_20.jpg,1,1
+bar,Mapache,12,Traer y entregar,bar/mapache/secuencias_50/poses_11_20.jpg,1,2
+bar,Mapache,13,Traer y entregar,bar/mapache/secuencias_50/poses_11_20.jpg,1,3
+bar,Mapache,14,Traer y entregar,bar/mapache/secuencias_50/poses_11_20.jpg,1,4
+bar,Mapache,15,Traer y entregar,bar/mapache/secuencias_50/poses_11_20.jpg,1,5
+bar,Mapache,16,Aparecer y avisar,bar/mapache/secuencias_50/poses_11_20.jpg,2,1
+bar,Mapache,17,Aparecer y avisar,bar/mapache/secuencias_50/poses_11_20.jpg,2,2
+bar,Mapache,18,Aparecer y avisar,bar/mapache/secuencias_50/poses_11_20.jpg,2,3
+bar,Mapache,19,Aparecer y avisar,bar/mapache/secuencias_50/poses_11_20.jpg,2,4
+bar,Mapache,20,Aparecer y avisar,bar/mapache/secuencias_50/poses_11_20.jpg,2,5
+bar,Mapache,21,Reposo con vida,bar/mapache/secuencias_50/poses_21_30.jpg,1,1
+bar,Mapache,22,Reposo con vida,bar/mapache/secuencias_50/poses_21_30.jpg,1,2
+bar,Mapache,23,Reposo con vida,bar/mapache/secuencias_50/poses_21_30.jpg,1,3
+bar,Mapache,24,Reposo con vida,bar/mapache/secuencias_50/poses_21_30.jpg,1,4
+bar,Mapache,25,Reposo con vida,bar/mapache/secuencias_50/poses_21_30.jpg,1,5
+bar,Mapache,26,Inactividad sin elección o scroll,bar/mapache/secuencias_50/poses_21_30.jpg,2,1
+bar,Mapache,27,Inactividad sin elección o scroll,bar/mapache/secuencias_50/poses_21_30.jpg,2,2
+bar,Mapache,28,Inactividad sin elección o scroll,bar/mapache/secuencias_50/poses_21_30.jpg,2,3
+bar,Mapache,29,Inactividad sin elección o scroll,bar/mapache/secuencias_50/poses_21_30.jpg,2,4
+bar,Mapache,30,Inactividad sin elección o scroll,bar/mapache/secuencias_50/poses_21_30.jpg,2,5
+bar,Mapache,31,Scroll abajo: caída,bar/mapache/secuencias_50/poses_31_40.jpg,1,1
+bar,Mapache,32,Scroll abajo: caída,bar/mapache/secuencias_50/poses_31_40.jpg,1,2
+bar,Mapache,33,Scroll abajo: caída,bar/mapache/secuencias_50/poses_31_40.jpg,1,3
+bar,Mapache,34,Scroll abajo: caída,bar/mapache/secuencias_50/poses_31_40.jpg,1,4
+bar,Mapache,35,Scroll abajo: caída,bar/mapache/secuencias_50/poses_31_40.jpg,1,5
+bar,Mapache,36,Scroll arriba: reaparecer,bar/mapache/secuencias_50/poses_31_40.jpg,2,1
+bar,Mapache,37,Scroll arriba: reaparecer,bar/mapache/secuencias_50/poses_31_40.jpg,2,2
+bar,Mapache,38,Scroll arriba: reaparecer,bar/mapache/secuencias_50/poses_31_40.jpg,2,3
+bar,Mapache,39,Scroll arriba: reaparecer,bar/mapache/secuencias_50/poses_31_40.jpg,2,4
+bar,Mapache,40,Scroll arriba: reaparecer,bar/mapache/secuencias_50/poses_31_40.jpg,2,5
+bar,Mapache,41,Confirmación y logro,bar/mapache/secuencias_50/poses_41_50.jpg,1,1
+bar,Mapache,42,Confirmación y logro,bar/mapache/secuencias_50/poses_41_50.jpg,1,2
+bar,Mapache,43,Confirmación y logro,bar/mapache/secuencias_50/poses_41_50.jpg,1,3
+bar,Mapache,44,Confirmación y logro,bar/mapache/secuencias_50/poses_41_50.jpg,1,4
+bar,Mapache,45,Confirmación y logro,bar/mapache/secuencias_50/poses_41_50.jpg,1,5
+bar,Mapache,46,Error recuperable y ayuda,bar/mapache/secuencias_50/poses_41_50.jpg,2,1
+bar,Mapache,47,Error recuperable y ayuda,bar/mapache/secuencias_50/poses_41_50.jpg,2,2
+bar,Mapache,48,Error recuperable y ayuda,bar/mapache/secuencias_50/poses_41_50.jpg,2,3
+bar,Mapache,49,Error recuperable y ayuda,bar/mapache/secuencias_50/poses_41_50.jpg,2,4
+bar,Mapache,50,Error recuperable y ayuda,bar/mapache/secuencias_50/poses_41_50.jpg,2,5
+bar,Pizza,1,Caminar,bar/pizza/secuencias_50/poses_01_25.jpg,1,1
+bar,Pizza,2,Caminar,bar/pizza/secuencias_50/poses_01_25.jpg,1,2
+bar,Pizza,3,Caminar,bar/pizza/secuencias_50/poses_01_25.jpg,1,3
+bar,Pizza,4,Caminar,bar/pizza/secuencias_50/poses_01_25.jpg,1,4
+bar,Pizza,5,Caminar,bar/pizza/secuencias_50/poses_01_25.jpg,1,5
+bar,Pizza,6,Correr,bar/pizza/secuencias_50/poses_01_25.jpg,2,1
+bar,Pizza,7,Correr,bar/pizza/secuencias_50/poses_01_25.jpg,2,2
+bar,Pizza,8,Correr,bar/pizza/secuencias_50/poses_01_25.jpg,2,3
+bar,Pizza,9,Correr,bar/pizza/secuencias_50/poses_01_25.jpg,2,4
+bar,Pizza,10,Correr,bar/pizza/secuencias_50/poses_01_25.jpg,2,5
+bar,Pizza,11,Traer y entregar,bar/pizza/secuencias_50/poses_01_25.jpg,3,1
+bar,Pizza,12,Traer y entregar,bar/pizza/secuencias_50/poses_01_25.jpg,3,2
+bar,Pizza,13,Traer y entregar,bar/pizza/secuencias_50/poses_01_25.jpg,3,3
+bar,Pizza,14,Traer y entregar,bar/pizza/secuencias_50/poses_01_25.jpg,3,4
+bar,Pizza,15,Traer y entregar,bar/pizza/secuencias_50/poses_01_25.jpg,3,5
+bar,Pizza,16,Aparecer y avisar,bar/pizza/secuencias_50/poses_01_25.jpg,4,1
+bar,Pizza,17,Aparecer y avisar,bar/pizza/secuencias_50/poses_01_25.jpg,4,2
+bar,Pizza,18,Aparecer y avisar,bar/pizza/secuencias_50/poses_01_25.jpg,4,3
+bar,Pizza,19,Aparecer y avisar,bar/pizza/secuencias_50/poses_01_25.jpg,4,4
+bar,Pizza,20,Aparecer y avisar,bar/pizza/secuencias_50/poses_01_25.jpg,4,5
+bar,Pizza,21,Reposo con vida,bar/pizza/secuencias_50/poses_01_25.jpg,5,1
+bar,Pizza,22,Reposo con vida,bar/pizza/secuencias_50/poses_01_25.jpg,5,2
+bar,Pizza,23,Reposo con vida,bar/pizza/secuencias_50/poses_01_25.jpg,5,3
+bar,Pizza,24,Reposo con vida,bar/pizza/secuencias_50/poses_01_25.jpg,5,4
+bar,Pizza,25,Reposo con vida,bar/pizza/secuencias_50/poses_01_25.jpg,5,5
+bar,Pizza,26,Inactividad sin elección o scroll,bar/pizza/secuencias_50/poses_26_50.jpg,1,1
+bar,Pizza,27,Inactividad sin elección o scroll,bar/pizza/secuencias_50/poses_26_50.jpg,1,2
+bar,Pizza,28,Inactividad sin elección o scroll,bar/pizza/secuencias_50/poses_26_50.jpg,1,3
+bar,Pizza,29,Inactividad sin elección o scroll,bar/pizza/secuencias_50/poses_26_50.jpg,1,4
+bar,Pizza,30,Inactividad sin elección o scroll,bar/pizza/secuencias_50/poses_26_50.jpg,1,5
+bar,Pizza,31,Scroll abajo: caída,bar/pizza/secuencias_50/poses_26_50.jpg,2,1
+bar,Pizza,32,Scroll abajo: caída,bar/pizza/secuencias_50/poses_26_50.jpg,2,2
+bar,Pizza,33,Scroll abajo: caída,bar/pizza/secuencias_50/poses_26_50.jpg,2,3
+bar,Pizza,34,Scroll abajo: caída,bar/pizza/secuencias_50/poses_26_50.jpg,2,4
+bar,Pizza,35,Scroll abajo: caída,bar/pizza/secuencias_50/poses_26_50.jpg,2,5
+bar,Pizza,36,Scroll arriba: reaparecer,bar/pizza/secuencias_50/poses_26_50.jpg,3,1
+bar,Pizza,37,Scroll arriba: reaparecer,bar/pizza/secuencias_50/poses_26_50.jpg,3,2
+bar,Pizza,38,Scroll arriba: reaparecer,bar/pizza/secuencias_50/poses_26_50.jpg,3,3
+bar,Pizza,39,Scroll arriba: reaparecer,bar/pizza/secuencias_50/poses_26_50.jpg,3,4
+bar,Pizza,40,Scroll arriba: reaparecer,bar/pizza/secuencias_50/poses_26_50.jpg,3,5
+bar,Pizza,41,Confirmación y logro,bar/pizza/secuencias_50/poses_26_50.jpg,4,1
+bar,Pizza,42,Confirmación y logro,bar/pizza/secuencias_50/poses_26_50.jpg,4,2
+bar,Pizza,43,Confirmación y logro,bar/pizza/secuencias_50/poses_26_50.jpg,4,3
+bar,Pizza,44,Confirmación y logro,bar/pizza/secuencias_50/poses_26_50.jpg,4,4
+bar,Pizza,45,Confirmación y logro,bar/pizza/secuencias_50/poses_26_50.jpg,4,5
+bar,Pizza,46,Error recuperable y ayuda,bar/pizza/secuencias_50/poses_26_50.jpg,5,1
+bar,Pizza,47,Error recuperable y ayuda,bar/pizza/secuencias_50/poses_26_50.jpg,5,2
+bar,Pizza,48,Error recuperable y ayuda,bar/pizza/secuencias_50/poses_26_50.jpg,5,3
+bar,Pizza,49,Error recuperable y ayuda,bar/pizza/secuencias_50/poses_26_50.jpg,5,4
+bar,Pizza,50,Error recuperable y ayuda,bar/pizza/secuencias_50/poses_26_50.jpg,5,5
+cafe,Colibrí,1,Caminar,cafe/colibri/secuencias_50/poses_01_25.jpg,1,1
+cafe,Colibrí,2,Caminar,cafe/colibri/secuencias_50/poses_01_25.jpg,1,2
+cafe,Colibrí,3,Caminar,cafe/colibri/secuencias_50/poses_01_25.jpg,1,3
+cafe,Colibrí,4,Caminar,cafe/colibri/secuencias_50/poses_01_25.jpg,1,4
+cafe,Colibrí,5,Caminar,cafe/colibri/secuencias_50/poses_01_25.jpg,1,5
+cafe,Colibrí,6,Correr,cafe/colibri/secuencias_50/poses_01_25.jpg,2,1
+cafe,Colibrí,7,Correr,cafe/colibri/secuencias_50/poses_01_25.jpg,2,2
+cafe,Colibrí,8,Correr,cafe/colibri/secuencias_50/poses_01_25.jpg,2,3
+cafe,Colibrí,9,Correr,cafe/colibri/secuencias_50/poses_01_25.jpg,2,4
+cafe,Colibrí,10,Correr,cafe/colibri/secuencias_50/poses_01_25.jpg,2,5
+cafe,Colibrí,11,Traer y entregar,cafe/colibri/secuencias_50/poses_01_25.jpg,3,1
+cafe,Colibrí,12,Traer y entregar,cafe/colibri/secuencias_50/poses_01_25.jpg,3,2
+cafe,Colibrí,13,Traer y entregar,cafe/colibri/secuencias_50/poses_01_25.jpg,3,3
+cafe,Colibrí,14,Traer y entregar,cafe/colibri/secuencias_50/poses_01_25.jpg,3,4
+cafe,Colibrí,15,Traer y entregar,cafe/colibri/secuencias_50/poses_01_25.jpg,3,5
+cafe,Colibrí,16,Aparecer y avisar,cafe/colibri/secuencias_50/poses_01_25.jpg,4,1
+cafe,Colibrí,17,Aparecer y avisar,cafe/colibri/secuencias_50/poses_01_25.jpg,4,2
+cafe,Colibrí,18,Aparecer y avisar,cafe/colibri/secuencias_50/poses_01_25.jpg,4,3
+cafe,Colibrí,19,Aparecer y avisar,cafe/colibri/secuencias_50/poses_01_25.jpg,4,4
+cafe,Colibrí,20,Aparecer y avisar,cafe/colibri/secuencias_50/poses_01_25.jpg,4,5
+cafe,Colibrí,21,Reposo con vida,cafe/colibri/secuencias_50/poses_01_25.jpg,5,1
+cafe,Colibrí,22,Reposo con vida,cafe/colibri/secuencias_50/poses_01_25.jpg,5,2
+cafe,Colibrí,23,Reposo con vida,cafe/colibri/secuencias_50/poses_01_25.jpg,5,3
+cafe,Colibrí,24,Reposo con vida,cafe/colibri/secuencias_50/poses_01_25.jpg,5,4
+cafe,Colibrí,25,Reposo con vida,cafe/colibri/secuencias_50/poses_01_25.jpg,5,5
+cafe,Colibrí,26,Inactividad sin elección o scroll,cafe/colibri/secuencias_50/poses_26_50.jpg,1,1
+cafe,Colibrí,27,Inactividad sin elección o scroll,cafe/colibri/secuencias_50/poses_26_50.jpg,1,2
+cafe,Colibrí,28,Inactividad sin elección o scroll,cafe/colibri/secuencias_50/poses_26_50.jpg,1,3
+cafe,Colibrí,29,Inactividad sin elección o scroll,cafe/colibri/secuencias_50/poses_26_50.jpg,1,4
+cafe,Colibrí,30,Inactividad sin elección o scroll,cafe/colibri/secuencias_50/poses_26_50.jpg,1,5
+cafe,Colibrí,31,Scroll abajo: caída,cafe/colibri/secuencias_50/poses_26_50.jpg,2,1
+cafe,Colibrí,32,Scroll abajo: caída,cafe/colibri/secuencias_50/poses_26_50.jpg,2,2
+cafe,Colibrí,33,Scroll abajo: caída,cafe/colibri/secuencias_50/poses_26_50.jpg,2,3
+cafe,Colibrí,34,Scroll abajo: caída,cafe/colibri/secuencias_50/poses_26_50.jpg,2,4
+cafe,Colibrí,35,Scroll abajo: caída,cafe/colibri/secuencias_50/poses_26_50.jpg,2,5
+cafe,Colibrí,36,Scroll arriba: reaparecer,cafe/colibri/secuencias_50/poses_26_50.jpg,3,1
+cafe,Colibrí,37,Scroll arriba: reaparecer,cafe/colibri/secuencias_50/poses_26_50.jpg,3,2
+cafe,Colibrí,38,Scroll arriba: reaparecer,cafe/colibri/secuencias_50/poses_26_50.jpg,3,3
+cafe,Colibrí,39,Scroll arriba: reaparecer,cafe/colibri/secuencias_50/poses_26_50.jpg,3,4
+cafe,Colibrí,40,Scroll arriba: reaparecer,cafe/colibri/secuencias_50/poses_26_50.jpg,3,5
+cafe,Colibrí,41,Confirmación y logro,cafe/colibri/secuencias_50/poses_26_50.jpg,4,1
+cafe,Colibrí,42,Confirmación y logro,cafe/colibri/secuencias_50/poses_26_50.jpg,4,2
+cafe,Colibrí,43,Confirmación y logro,cafe/colibri/secuencias_50/poses_26_50.jpg,4,3
+cafe,Colibrí,44,Confirmación y logro,cafe/colibri/secuencias_50/poses_26_50.jpg,4,4
+cafe,Colibrí,45,Confirmación y logro,cafe/colibri/secuencias_50/poses_26_50.jpg,4,5
+cafe,Colibrí,46,Error recuperable y ayuda,cafe/colibri/secuencias_50/poses_26_50.jpg,5,1
+cafe,Colibrí,47,Error recuperable y ayuda,cafe/colibri/secuencias_50/poses_26_50.jpg,5,2
+cafe,Colibrí,48,Error recuperable y ayuda,cafe/colibri/secuencias_50/poses_26_50.jpg,5,3
+cafe,Colibrí,49,Error recuperable y ayuda,cafe/colibri/secuencias_50/poses_26_50.jpg,5,4
+cafe,Colibrí,50,Error recuperable y ayuda,cafe/colibri/secuencias_50/poses_26_50.jpg,5,5
+cafe,Gota dorada,1,Caminar,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,1,1
+cafe,Gota dorada,2,Caminar,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,1,2
+cafe,Gota dorada,3,Caminar,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,1,3
+cafe,Gota dorada,4,Caminar,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,1,4
+cafe,Gota dorada,5,Caminar,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,1,5
+cafe,Gota dorada,6,Correr,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,2,1
+cafe,Gota dorada,7,Correr,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,2,2
+cafe,Gota dorada,8,Correr,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,2,3
+cafe,Gota dorada,9,Correr,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,2,4
+cafe,Gota dorada,10,Correr,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,2,5
+cafe,Gota dorada,11,Traer y entregar,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,3,1
+cafe,Gota dorada,12,Traer y entregar,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,3,2
+cafe,Gota dorada,13,Traer y entregar,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,3,3
+cafe,Gota dorada,14,Traer y entregar,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,3,4
+cafe,Gota dorada,15,Traer y entregar,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,3,5
+cafe,Gota dorada,16,Aparecer y avisar,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,4,1
+cafe,Gota dorada,17,Aparecer y avisar,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,4,2
+cafe,Gota dorada,18,Aparecer y avisar,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,4,3
+cafe,Gota dorada,19,Aparecer y avisar,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,4,4
+cafe,Gota dorada,20,Aparecer y avisar,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,4,5
+cafe,Gota dorada,21,Reposo con vida,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,5,1
+cafe,Gota dorada,22,Reposo con vida,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,5,2
+cafe,Gota dorada,23,Reposo con vida,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,5,3
+cafe,Gota dorada,24,Reposo con vida,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,5,4
+cafe,Gota dorada,25,Reposo con vida,cafe/gota_dorada/secuencias_50/poses_01_25.jpg,5,5
+cafe,Gota dorada,26,Inactividad sin elección o scroll,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,1,1
+cafe,Gota dorada,27,Inactividad sin elección o scroll,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,1,2
+cafe,Gota dorada,28,Inactividad sin elección o scroll,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,1,3
+cafe,Gota dorada,29,Inactividad sin elección o scroll,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,1,4
+cafe,Gota dorada,30,Inactividad sin elección o scroll,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,1,5
+cafe,Gota dorada,31,Scroll abajo: caída,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,2,1
+cafe,Gota dorada,32,Scroll abajo: caída,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,2,2
+cafe,Gota dorada,33,Scroll abajo: caída,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,2,3
+cafe,Gota dorada,34,Scroll abajo: caída,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,2,4
+cafe,Gota dorada,35,Scroll abajo: caída,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,2,5
+cafe,Gota dorada,36,Scroll arriba: reaparecer,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,3,1
+cafe,Gota dorada,37,Scroll arriba: reaparecer,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,3,2
+cafe,Gota dorada,38,Scroll arriba: reaparecer,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,3,3
+cafe,Gota dorada,39,Scroll arriba: reaparecer,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,3,4
+cafe,Gota dorada,40,Scroll arriba: reaparecer,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,3,5
+cafe,Gota dorada,41,Confirmación y logro,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,4,1
+cafe,Gota dorada,42,Confirmación y logro,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,4,2
+cafe,Gota dorada,43,Confirmación y logro,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,4,3
+cafe,Gota dorada,44,Confirmación y logro,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,4,4
+cafe,Gota dorada,45,Confirmación y logro,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,4,5
+cafe,Gota dorada,46,Error recuperable y ayuda,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,5,1
+cafe,Gota dorada,47,Error recuperable y ayuda,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,5,2
+cafe,Gota dorada,48,Error recuperable y ayuda,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,5,3
+cafe,Gota dorada,49,Error recuperable y ayuda,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,5,4
+cafe,Gota dorada,50,Error recuperable y ayuda,cafe/gota_dorada/secuencias_50/poses_26_50.jpg,5,5
+cafe,Medialuna,1,Caminar,cafe/medialuna/secuencias_50/poses_01_25.jpg,1,1
+cafe,Medialuna,2,Caminar,cafe/medialuna/secuencias_50/poses_01_25.jpg,1,2
+cafe,Medialuna,3,Caminar,cafe/medialuna/secuencias_50/poses_01_25.jpg,1,3
+cafe,Medialuna,4,Caminar,cafe/medialuna/secuencias_50/poses_01_25.jpg,1,4
+cafe,Medialuna,5,Caminar,cafe/medialuna/secuencias_50/poses_01_25.jpg,1,5
+cafe,Medialuna,6,Correr,cafe/medialuna/secuencias_50/poses_01_25.jpg,2,1
+cafe,Medialuna,7,Correr,cafe/medialuna/secuencias_50/poses_01_25.jpg,2,2
+cafe,Medialuna,8,Correr,cafe/medialuna/secuencias_50/poses_01_25.jpg,2,3
+cafe,Medialuna,9,Correr,cafe/medialuna/secuencias_50/poses_01_25.jpg,2,4
+cafe,Medialuna,10,Correr,cafe/medialuna/secuencias_50/poses_01_25.jpg,2,5
+cafe,Medialuna,11,Traer y entregar,cafe/medialuna/secuencias_50/poses_01_25.jpg,3,1
+cafe,Medialuna,12,Traer y entregar,cafe/medialuna/secuencias_50/poses_01_25.jpg,3,2
+cafe,Medialuna,13,Traer y entregar,cafe/medialuna/secuencias_50/poses_01_25.jpg,3,3
+cafe,Medialuna,14,Traer y entregar,cafe/medialuna/secuencias_50/poses_01_25.jpg,3,4
+cafe,Medialuna,15,Traer y entregar,cafe/medialuna/secuencias_50/poses_01_25.jpg,3,5
+cafe,Medialuna,16,Aparecer y avisar,cafe/medialuna/secuencias_50/poses_01_25.jpg,4,1
+cafe,Medialuna,17,Aparecer y avisar,cafe/medialuna/secuencias_50/poses_01_25.jpg,4,2
+cafe,Medialuna,18,Aparecer y avisar,cafe/medialuna/secuencias_50/poses_01_25.jpg,4,3
+cafe,Medialuna,19,Aparecer y avisar,cafe/medialuna/secuencias_50/poses_01_25.jpg,4,4
+cafe,Medialuna,20,Aparecer y avisar,cafe/medialuna/secuencias_50/poses_01_25.jpg,4,5
+cafe,Medialuna,21,Reposo con vida,cafe/medialuna/secuencias_50/poses_01_25.jpg,5,1
+cafe,Medialuna,22,Reposo con vida,cafe/medialuna/secuencias_50/poses_01_25.jpg,5,2
+cafe,Medialuna,23,Reposo con vida,cafe/medialuna/secuencias_50/poses_01_25.jpg,5,3
+cafe,Medialuna,24,Reposo con vida,cafe/medialuna/secuencias_50/poses_01_25.jpg,5,4
+cafe,Medialuna,25,Reposo con vida,cafe/medialuna/secuencias_50/poses_01_25.jpg,5,5
+cafe,Medialuna,26,Inactividad sin elección o scroll,cafe/medialuna/secuencias_50/poses_26_50.jpg,1,1
+cafe,Medialuna,27,Inactividad sin elección o scroll,cafe/medialuna/secuencias_50/poses_26_50.jpg,1,2
+cafe,Medialuna,28,Inactividad sin elección o scroll,cafe/medialuna/secuencias_50/poses_26_50.jpg,1,3
+cafe,Medialuna,29,Inactividad sin elección o scroll,cafe/medialuna/secuencias_50/poses_26_50.jpg,1,4
+cafe,Medialuna,30,Inactividad sin elección o scroll,cafe/medialuna/secuencias_50/poses_26_50.jpg,1,5
+cafe,Medialuna,31,Scroll abajo: caída,cafe/medialuna/secuencias_50/poses_26_50.jpg,2,1
+cafe,Medialuna,32,Scroll abajo: caída,cafe/medialuna/secuencias_50/poses_26_50.jpg,2,2
+cafe,Medialuna,33,Scroll abajo: caída,cafe/medialuna/secuencias_50/poses_26_50.jpg,2,3
+cafe,Medialuna,34,Scroll abajo: caída,cafe/medialuna/secuencias_50/poses_26_50.jpg,2,4
+cafe,Medialuna,35,Scroll abajo: caída,cafe/medialuna/secuencias_50/poses_26_50.jpg,2,5
+cafe,Medialuna,36,Scroll arriba: reaparecer,cafe/medialuna/secuencias_50/poses_26_50.jpg,3,1
+cafe,Medialuna,37,Scroll arriba: reaparecer,cafe/medialuna/secuencias_50/poses_26_50.jpg,3,2
+cafe,Medialuna,38,Scroll arriba: reaparecer,cafe/medialuna/secuencias_50/poses_26_50.jpg,3,3
+cafe,Medialuna,39,Scroll arriba: reaparecer,cafe/medialuna/secuencias_50/poses_26_50.jpg,3,4
+cafe,Medialuna,40,Scroll arriba: reaparecer,cafe/medialuna/secuencias_50/poses_26_50.jpg,3,5
+cafe,Medialuna,41,Confirmación y logro,cafe/medialuna/secuencias_50/poses_26_50.jpg,4,1
+cafe,Medialuna,42,Confirmación y logro,cafe/medialuna/secuencias_50/poses_26_50.jpg,4,2
+cafe,Medialuna,43,Confirmación y logro,cafe/medialuna/secuencias_50/poses_26_50.jpg,4,3
+cafe,Medialuna,44,Confirmación y logro,cafe/medialuna/secuencias_50/poses_26_50.jpg,4,4
+cafe,Medialuna,45,Confirmación y logro,cafe/medialuna/secuencias_50/poses_26_50.jpg,4,5
+cafe,Medialuna,46,Error recuperable y ayuda,cafe/medialuna/secuencias_50/poses_26_50.jpg,5,1
+cafe,Medialuna,47,Error recuperable y ayuda,cafe/medialuna/secuencias_50/poses_26_50.jpg,5,2
+cafe,Medialuna,48,Error recuperable y ayuda,cafe/medialuna/secuencias_50/poses_26_50.jpg,5,3
+cafe,Medialuna,49,Error recuperable y ayuda,cafe/medialuna/secuencias_50/poses_26_50.jpg,5,4
+cafe,Medialuna,50,Error recuperable y ayuda,cafe/medialuna/secuencias_50/poses_26_50.jpg,5,5
+cafe,Mesero,1,Caminar,cafe/mesero/secuencias_50/poses_01_10.jpg,1,1
+cafe,Mesero,2,Caminar,cafe/mesero/secuencias_50/poses_01_10.jpg,1,2
+cafe,Mesero,3,Caminar,cafe/mesero/secuencias_50/poses_01_10.jpg,1,3
+cafe,Mesero,4,Caminar,cafe/mesero/secuencias_50/poses_01_10.jpg,1,4
+cafe,Mesero,5,Caminar,cafe/mesero/secuencias_50/poses_01_10.jpg,1,5
+cafe,Mesero,6,Correr,cafe/mesero/secuencias_50/poses_01_10.jpg,2,1
+cafe,Mesero,7,Correr,cafe/mesero/secuencias_50/poses_01_10.jpg,2,2
+cafe,Mesero,8,Correr,cafe/mesero/secuencias_50/poses_01_10.jpg,2,3
+cafe,Mesero,9,Correr,cafe/mesero/secuencias_50/poses_01_10.jpg,2,4
+cafe,Mesero,10,Correr,cafe/mesero/secuencias_50/poses_01_10.jpg,2,5
+cafe,Mesero,11,Traer y entregar,cafe/mesero/secuencias_50/poses_11_20.jpg,1,1
+cafe,Mesero,12,Traer y entregar,cafe/mesero/secuencias_50/poses_11_20.jpg,1,2
+cafe,Mesero,13,Traer y entregar,cafe/mesero/secuencias_50/poses_11_20.jpg,1,3
+cafe,Mesero,14,Traer y entregar,cafe/mesero/secuencias_50/poses_11_20.jpg,1,4
+cafe,Mesero,15,Traer y entregar,cafe/mesero/secuencias_50/poses_11_20.jpg,1,5
+cafe,Mesero,16,Aparecer y avisar,cafe/mesero/secuencias_50/poses_11_20.jpg,2,1
+cafe,Mesero,17,Aparecer y avisar,cafe/mesero/secuencias_50/poses_11_20.jpg,2,2
+cafe,Mesero,18,Aparecer y avisar,cafe/mesero/secuencias_50/poses_11_20.jpg,2,3
+cafe,Mesero,19,Aparecer y avisar,cafe/mesero/secuencias_50/poses_11_20.jpg,2,4
+cafe,Mesero,20,Aparecer y avisar,cafe/mesero/secuencias_50/poses_11_20.jpg,2,5
+cafe,Mesero,21,Reposo con vida,cafe/mesero/secuencias_50/poses_21_30.jpg,1,1
+cafe,Mesero,22,Reposo con vida,cafe/mesero/secuencias_50/poses_21_30.jpg,1,2
+cafe,Mesero,23,Reposo con vida,cafe/mesero/secuencias_50/poses_21_30.jpg,1,3
+cafe,Mesero,24,Reposo con vida,cafe/mesero/secuencias_50/poses_21_30.jpg,1,4
+cafe,Mesero,25,Reposo con vida,cafe/mesero/secuencias_50/poses_21_30.jpg,1,5
+cafe,Mesero,26,Inactividad sin elección o scroll,cafe/mesero/secuencias_50/poses_21_30.jpg,2,1
+cafe,Mesero,27,Inactividad sin elección o scroll,cafe/mesero/secuencias_50/poses_21_30.jpg,2,2
+cafe,Mesero,28,Inactividad sin elección o scroll,cafe/mesero/secuencias_50/poses_21_30.jpg,2,3
+cafe,Mesero,29,Inactividad sin elección o scroll,cafe/mesero/secuencias_50/poses_21_30.jpg,2,4
+cafe,Mesero,30,Inactividad sin elección o scroll,cafe/mesero/secuencias_50/poses_21_30.jpg,2,5
+cafe,Mesero,31,Scroll abajo: caída,cafe/mesero/secuencias_50/poses_31_40.jpg,1,1
+cafe,Mesero,32,Scroll abajo: caída,cafe/mesero/secuencias_50/poses_31_40.jpg,1,2
+cafe,Mesero,33,Scroll abajo: caída,cafe/mesero/secuencias_50/poses_31_40.jpg,1,3
+cafe,Mesero,34,Scroll abajo: caída,cafe/mesero/secuencias_50/poses_31_40.jpg,1,4
+cafe,Mesero,35,Scroll abajo: caída,cafe/mesero/secuencias_50/poses_31_40.jpg,1,5
+cafe,Mesero,36,Scroll arriba: reaparecer,cafe/mesero/secuencias_50/poses_31_40.jpg,2,1
+cafe,Mesero,37,Scroll arriba: reaparecer,cafe/mesero/secuencias_50/poses_31_40.jpg,2,2
+cafe,Mesero,38,Scroll arriba: reaparecer,cafe/mesero/secuencias_50/poses_31_40.jpg,2,3
+cafe,Mesero,39,Scroll arriba: reaparecer,cafe/mesero/secuencias_50/poses_31_40.jpg,2,4
+cafe,Mesero,40,Scroll arriba: reaparecer,cafe/mesero/secuencias_50/poses_31_40.jpg,2,5
+cafe,Mesero,41,Confirmación y logro,cafe/mesero/secuencias_50/poses_41_50.jpg,1,1
+cafe,Mesero,42,Confirmación y logro,cafe/mesero/secuencias_50/poses_41_50.jpg,1,2
+cafe,Mesero,43,Confirmación y logro,cafe/mesero/secuencias_50/poses_41_50.jpg,1,3
+cafe,Mesero,44,Confirmación y logro,cafe/mesero/secuencias_50/poses_41_50.jpg,1,4
+cafe,Mesero,45,Confirmación y logro,cafe/mesero/secuencias_50/poses_41_50.jpg,1,5
+cafe,Mesero,46,Error recuperable y ayuda,cafe/mesero/secuencias_50/poses_41_50.jpg,2,1
+cafe,Mesero,47,Error recuperable y ayuda,cafe/mesero/secuencias_50/poses_41_50.jpg,2,2
+cafe,Mesero,48,Error recuperable y ayuda,cafe/mesero/secuencias_50/poses_41_50.jpg,2,3
+cafe,Mesero,49,Error recuperable y ayuda,cafe/mesero/secuencias_50/poses_41_50.jpg,2,4
+cafe,Mesero,50,Error recuperable y ayuda,cafe/mesero/secuencias_50/poses_41_50.jpg,2,5
+cafe,Taza,1,Caminar,cafe/taza/secuencias_50/poses_01_25.jpg,1,1
+cafe,Taza,2,Caminar,cafe/taza/secuencias_50/poses_01_25.jpg,1,2
+cafe,Taza,3,Caminar,cafe/taza/secuencias_50/poses_01_25.jpg,1,3
+cafe,Taza,4,Caminar,cafe/taza/secuencias_50/poses_01_25.jpg,1,4
+cafe,Taza,5,Caminar,cafe/taza/secuencias_50/poses_01_25.jpg,1,5
+cafe,Taza,6,Correr,cafe/taza/secuencias_50/poses_01_25.jpg,2,1
+cafe,Taza,7,Correr,cafe/taza/secuencias_50/poses_01_25.jpg,2,2
+cafe,Taza,8,Correr,cafe/taza/secuencias_50/poses_01_25.jpg,2,3
+cafe,Taza,9,Correr,cafe/taza/secuencias_50/poses_01_25.jpg,2,4
+cafe,Taza,10,Correr,cafe/taza/secuencias_50/poses_01_25.jpg,2,5
+cafe,Taza,11,Traer y entregar,cafe/taza/secuencias_50/poses_01_25.jpg,3,1
+cafe,Taza,12,Traer y entregar,cafe/taza/secuencias_50/poses_01_25.jpg,3,2
+cafe,Taza,13,Traer y entregar,cafe/taza/secuencias_50/poses_01_25.jpg,3,3
+cafe,Taza,14,Traer y entregar,cafe/taza/secuencias_50/poses_01_25.jpg,3,4
+cafe,Taza,15,Traer y entregar,cafe/taza/secuencias_50/poses_01_25.jpg,3,5
+cafe,Taza,16,Aparecer y avisar,cafe/taza/secuencias_50/poses_01_25.jpg,4,1
+cafe,Taza,17,Aparecer y avisar,cafe/taza/secuencias_50/poses_01_25.jpg,4,2
+cafe,Taza,18,Aparecer y avisar,cafe/taza/secuencias_50/poses_01_25.jpg,4,3
+cafe,Taza,19,Aparecer y avisar,cafe/taza/secuencias_50/poses_01_25.jpg,4,4
+cafe,Taza,20,Aparecer y avisar,cafe/taza/secuencias_50/poses_01_25.jpg,4,5
+cafe,Taza,21,Reposo con vida,cafe/taza/secuencias_50/poses_01_25.jpg,5,1
+cafe,Taza,22,Reposo con vida,cafe/taza/secuencias_50/poses_01_25.jpg,5,2
+cafe,Taza,23,Reposo con vida,cafe/taza/secuencias_50/poses_01_25.jpg,5,3
+cafe,Taza,24,Reposo con vida,cafe/taza/secuencias_50/poses_01_25.jpg,5,4
+cafe,Taza,25,Reposo con vida,cafe/taza/secuencias_50/poses_01_25.jpg,5,5
+cafe,Taza,26,Inactividad sin elección o scroll,cafe/taza/secuencias_50/poses_26_50.jpg,1,1
+cafe,Taza,27,Inactividad sin elección o scroll,cafe/taza/secuencias_50/poses_26_50.jpg,1,2
+cafe,Taza,28,Inactividad sin elección o scroll,cafe/taza/secuencias_50/poses_26_50.jpg,1,3
+cafe,Taza,29,Inactividad sin elección o scroll,cafe/taza/secuencias_50/poses_26_50.jpg,1,4
+cafe,Taza,30,Inactividad sin elección o scroll,cafe/taza/secuencias_50/poses_26_50.jpg,1,5
+cafe,Taza,31,Scroll abajo: caída,cafe/taza/secuencias_50/poses_26_50.jpg,2,1
+cafe,Taza,32,Scroll abajo: caída,cafe/taza/secuencias_50/poses_26_50.jpg,2,2
+cafe,Taza,33,Scroll abajo: caída,cafe/taza/secuencias_50/poses_26_50.jpg,2,3
+cafe,Taza,34,Scroll abajo: caída,cafe/taza/secuencias_50/poses_26_50.jpg,2,4
+cafe,Taza,35,Scroll abajo: caída,cafe/taza/secuencias_50/poses_26_50.jpg,2,5
+cafe,Taza,36,Scroll arriba: reaparecer,cafe/taza/secuencias_50/poses_26_50.jpg,3,1
+cafe,Taza,37,Scroll arriba: reaparecer,cafe/taza/secuencias_50/poses_26_50.jpg,3,2
+cafe,Taza,38,Scroll arriba: reaparecer,cafe/taza/secuencias_50/poses_26_50.jpg,3,3
+cafe,Taza,39,Scroll arriba: reaparecer,cafe/taza/secuencias_50/poses_26_50.jpg,3,4
+cafe,Taza,40,Scroll arriba: reaparecer,cafe/taza/secuencias_50/poses_26_50.jpg,3,5
+cafe,Taza,41,Confirmación y logro,cafe/taza/secuencias_50/poses_26_50.jpg,4,1
+cafe,Taza,42,Confirmación y logro,cafe/taza/secuencias_50/poses_26_50.jpg,4,2
+cafe,Taza,43,Confirmación y logro,cafe/taza/secuencias_50/poses_26_50.jpg,4,3
+cafe,Taza,44,Confirmación y logro,cafe/taza/secuencias_50/poses_26_50.jpg,4,4
+cafe,Taza,45,Confirmación y logro,cafe/taza/secuencias_50/poses_26_50.jpg,4,5
+cafe,Taza,46,Error recuperable y ayuda,cafe/taza/secuencias_50/poses_26_50.jpg,5,1
+cafe,Taza,47,Error recuperable y ayuda,cafe/taza/secuencias_50/poses_26_50.jpg,5,2
+cafe,Taza,48,Error recuperable y ayuda,cafe/taza/secuencias_50/poses_26_50.jpg,5,3
+cafe,Taza,49,Error recuperable y ayuda,cafe/taza/secuencias_50/poses_26_50.jpg,5,4
+cafe,Taza,50,Error recuperable y ayuda,cafe/taza/secuencias_50/poses_26_50.jpg,5,5
+cerveceria,Barril robot,1,Caminar,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,1,1
+cerveceria,Barril robot,2,Caminar,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,1,2
+cerveceria,Barril robot,3,Caminar,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,1,3
+cerveceria,Barril robot,4,Caminar,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,1,4
+cerveceria,Barril robot,5,Caminar,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,1,5
+cerveceria,Barril robot,6,Correr,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,2,1
+cerveceria,Barril robot,7,Correr,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,2,2
+cerveceria,Barril robot,8,Correr,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,2,3
+cerveceria,Barril robot,9,Correr,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,2,4
+cerveceria,Barril robot,10,Correr,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,2,5
+cerveceria,Barril robot,11,Traer y entregar,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,3,1
+cerveceria,Barril robot,12,Traer y entregar,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,3,2
+cerveceria,Barril robot,13,Traer y entregar,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,3,3
+cerveceria,Barril robot,14,Traer y entregar,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,3,4
+cerveceria,Barril robot,15,Traer y entregar,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,3,5
+cerveceria,Barril robot,16,Aparecer y avisar,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,4,1
+cerveceria,Barril robot,17,Aparecer y avisar,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,4,2
+cerveceria,Barril robot,18,Aparecer y avisar,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,4,3
+cerveceria,Barril robot,19,Aparecer y avisar,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,4,4
+cerveceria,Barril robot,20,Aparecer y avisar,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,4,5
+cerveceria,Barril robot,21,Reposo con vida,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,5,1
+cerveceria,Barril robot,22,Reposo con vida,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,5,2
+cerveceria,Barril robot,23,Reposo con vida,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,5,3
+cerveceria,Barril robot,24,Reposo con vida,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,5,4
+cerveceria,Barril robot,25,Reposo con vida,cerveceria/barril_robot/secuencias_50/poses_01_25.jpg,5,5
+cerveceria,Barril robot,26,Inactividad sin elección o scroll,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,1,1
+cerveceria,Barril robot,27,Inactividad sin elección o scroll,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,1,2
+cerveceria,Barril robot,28,Inactividad sin elección o scroll,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,1,3
+cerveceria,Barril robot,29,Inactividad sin elección o scroll,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,1,4
+cerveceria,Barril robot,30,Inactividad sin elección o scroll,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,1,5
+cerveceria,Barril robot,31,Scroll abajo: caída,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,2,1
+cerveceria,Barril robot,32,Scroll abajo: caída,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,2,2
+cerveceria,Barril robot,33,Scroll abajo: caída,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,2,3
+cerveceria,Barril robot,34,Scroll abajo: caída,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,2,4
+cerveceria,Barril robot,35,Scroll abajo: caída,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,2,5
+cerveceria,Barril robot,36,Scroll arriba: reaparecer,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,3,1
+cerveceria,Barril robot,37,Scroll arriba: reaparecer,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,3,2
+cerveceria,Barril robot,38,Scroll arriba: reaparecer,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,3,3
+cerveceria,Barril robot,39,Scroll arriba: reaparecer,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,3,4
+cerveceria,Barril robot,40,Scroll arriba: reaparecer,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,3,5
+cerveceria,Barril robot,41,Confirmación y logro,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,4,1
+cerveceria,Barril robot,42,Confirmación y logro,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,4,2
+cerveceria,Barril robot,43,Confirmación y logro,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,4,3
+cerveceria,Barril robot,44,Confirmación y logro,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,4,4
+cerveceria,Barril robot,45,Confirmación y logro,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,4,5
+cerveceria,Barril robot,46,Error recuperable y ayuda,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,5,1
+cerveceria,Barril robot,47,Error recuperable y ayuda,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,5,2
+cerveceria,Barril robot,48,Error recuperable y ayuda,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,5,3
+cerveceria,Barril robot,49,Error recuperable y ayuda,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,5,4
+cerveceria,Barril robot,50,Error recuperable y ayuda,cerveceria/barril_robot/secuencias_50/poses_26_50.jpg,5,5
+cerveceria,Escorpión estelar,1,Caminar,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,1,1
+cerveceria,Escorpión estelar,2,Caminar,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,1,2
+cerveceria,Escorpión estelar,3,Caminar,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,1,3
+cerveceria,Escorpión estelar,4,Caminar,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,1,4
+cerveceria,Escorpión estelar,5,Caminar,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,1,5
+cerveceria,Escorpión estelar,6,Correr,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,2,1
+cerveceria,Escorpión estelar,7,Correr,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,2,2
+cerveceria,Escorpión estelar,8,Correr,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,2,3
+cerveceria,Escorpión estelar,9,Correr,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,2,4
+cerveceria,Escorpión estelar,10,Correr,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,2,5
+cerveceria,Escorpión estelar,11,Traer y entregar,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,3,1
+cerveceria,Escorpión estelar,12,Traer y entregar,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,3,2
+cerveceria,Escorpión estelar,13,Traer y entregar,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,3,3
+cerveceria,Escorpión estelar,14,Traer y entregar,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,3,4
+cerveceria,Escorpión estelar,15,Traer y entregar,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,3,5
+cerveceria,Escorpión estelar,16,Aparecer y avisar,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,4,1
+cerveceria,Escorpión estelar,17,Aparecer y avisar,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,4,2
+cerveceria,Escorpión estelar,18,Aparecer y avisar,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,4,3
+cerveceria,Escorpión estelar,19,Aparecer y avisar,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,4,4
+cerveceria,Escorpión estelar,20,Aparecer y avisar,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,4,5
+cerveceria,Escorpión estelar,21,Reposo con vida,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,5,1
+cerveceria,Escorpión estelar,22,Reposo con vida,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,5,2
+cerveceria,Escorpión estelar,23,Reposo con vida,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,5,3
+cerveceria,Escorpión estelar,24,Reposo con vida,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,5,4
+cerveceria,Escorpión estelar,25,Reposo con vida,cerveceria/escorpion_estelar/secuencias_50/poses_01_25.jpg,5,5
+cerveceria,Escorpión estelar,26,Inactividad sin elección o scroll,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,1,1
+cerveceria,Escorpión estelar,27,Inactividad sin elección o scroll,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,1,2
+cerveceria,Escorpión estelar,28,Inactividad sin elección o scroll,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,1,3
+cerveceria,Escorpión estelar,29,Inactividad sin elección o scroll,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,1,4
+cerveceria,Escorpión estelar,30,Inactividad sin elección o scroll,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,1,5
+cerveceria,Escorpión estelar,31,Scroll abajo: caída,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,2,1
+cerveceria,Escorpión estelar,32,Scroll abajo: caída,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,2,2
+cerveceria,Escorpión estelar,33,Scroll abajo: caída,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,2,3
+cerveceria,Escorpión estelar,34,Scroll abajo: caída,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,2,4
+cerveceria,Escorpión estelar,35,Scroll abajo: caída,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,2,5
+cerveceria,Escorpión estelar,36,Scroll arriba: reaparecer,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,3,1
+cerveceria,Escorpión estelar,37,Scroll arriba: reaparecer,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,3,2
+cerveceria,Escorpión estelar,38,Scroll arriba: reaparecer,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,3,3
+cerveceria,Escorpión estelar,39,Scroll arriba: reaparecer,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,3,4
+cerveceria,Escorpión estelar,40,Scroll arriba: reaparecer,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,3,5
+cerveceria,Escorpión estelar,41,Confirmación y logro,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,4,1
+cerveceria,Escorpión estelar,42,Confirmación y logro,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,4,2
+cerveceria,Escorpión estelar,43,Confirmación y logro,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,4,3
+cerveceria,Escorpión estelar,44,Confirmación y logro,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,4,4
+cerveceria,Escorpión estelar,45,Confirmación y logro,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,4,5
+cerveceria,Escorpión estelar,46,Error recuperable y ayuda,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,5,1
+cerveceria,Escorpión estelar,47,Error recuperable y ayuda,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,5,2
+cerveceria,Escorpión estelar,48,Error recuperable y ayuda,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,5,3
+cerveceria,Escorpión estelar,49,Error recuperable y ayuda,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,5,4
+cerveceria,Escorpión estelar,50,Error recuperable y ayuda,cerveceria/escorpion_estelar/secuencias_50/poses_26_50.jpg,5,5
+cerveceria,Hamburguesa,1,Caminar,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,1,1
+cerveceria,Hamburguesa,2,Caminar,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,1,2
+cerveceria,Hamburguesa,3,Caminar,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,1,3
+cerveceria,Hamburguesa,4,Caminar,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,1,4
+cerveceria,Hamburguesa,5,Caminar,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,1,5
+cerveceria,Hamburguesa,6,Correr,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,2,1
+cerveceria,Hamburguesa,7,Correr,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,2,2
+cerveceria,Hamburguesa,8,Correr,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,2,3
+cerveceria,Hamburguesa,9,Correr,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,2,4
+cerveceria,Hamburguesa,10,Correr,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,2,5
+cerveceria,Hamburguesa,11,Traer y entregar,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,3,1
+cerveceria,Hamburguesa,12,Traer y entregar,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,3,2
+cerveceria,Hamburguesa,13,Traer y entregar,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,3,3
+cerveceria,Hamburguesa,14,Traer y entregar,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,3,4
+cerveceria,Hamburguesa,15,Traer y entregar,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,3,5
+cerveceria,Hamburguesa,16,Aparecer y avisar,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,4,1
+cerveceria,Hamburguesa,17,Aparecer y avisar,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,4,2
+cerveceria,Hamburguesa,18,Aparecer y avisar,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,4,3
+cerveceria,Hamburguesa,19,Aparecer y avisar,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,4,4
+cerveceria,Hamburguesa,20,Aparecer y avisar,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,4,5
+cerveceria,Hamburguesa,21,Reposo con vida,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,5,1
+cerveceria,Hamburguesa,22,Reposo con vida,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,5,2
+cerveceria,Hamburguesa,23,Reposo con vida,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,5,3
+cerveceria,Hamburguesa,24,Reposo con vida,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,5,4
+cerveceria,Hamburguesa,25,Reposo con vida,cerveceria/hamburguesa/secuencias_50/poses_01_25.jpg,5,5
+cerveceria,Hamburguesa,26,Inactividad sin elección o scroll,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,1,1
+cerveceria,Hamburguesa,27,Inactividad sin elección o scroll,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,1,2
+cerveceria,Hamburguesa,28,Inactividad sin elección o scroll,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,1,3
+cerveceria,Hamburguesa,29,Inactividad sin elección o scroll,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,1,4
+cerveceria,Hamburguesa,30,Inactividad sin elección o scroll,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,1,5
+cerveceria,Hamburguesa,31,Scroll abajo: caída,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,2,1
+cerveceria,Hamburguesa,32,Scroll abajo: caída,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,2,2
+cerveceria,Hamburguesa,33,Scroll abajo: caída,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,2,3
+cerveceria,Hamburguesa,34,Scroll abajo: caída,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,2,4
+cerveceria,Hamburguesa,35,Scroll abajo: caída,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,2,5
+cerveceria,Hamburguesa,36,Scroll arriba: reaparecer,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,3,1
+cerveceria,Hamburguesa,37,Scroll arriba: reaparecer,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,3,2
+cerveceria,Hamburguesa,38,Scroll arriba: reaparecer,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,3,3
+cerveceria,Hamburguesa,39,Scroll arriba: reaparecer,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,3,4
+cerveceria,Hamburguesa,40,Scroll arriba: reaparecer,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,3,5
+cerveceria,Hamburguesa,41,Confirmación y logro,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,4,1
+cerveceria,Hamburguesa,42,Confirmación y logro,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,4,2
+cerveceria,Hamburguesa,43,Confirmación y logro,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,4,3
+cerveceria,Hamburguesa,44,Confirmación y logro,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,4,4
+cerveceria,Hamburguesa,45,Confirmación y logro,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,4,5
+cerveceria,Hamburguesa,46,Error recuperable y ayuda,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,5,1
+cerveceria,Hamburguesa,47,Error recuperable y ayuda,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,5,2
+cerveceria,Hamburguesa,48,Error recuperable y ayuda,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,5,3
+cerveceria,Hamburguesa,49,Error recuperable y ayuda,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,5,4
+cerveceria,Hamburguesa,50,Error recuperable y ayuda,cerveceria/hamburguesa/secuencias_50/poses_26_50.jpg,5,5
+cerveceria,Lúpulo,1,Caminar,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,1,1
+cerveceria,Lúpulo,2,Caminar,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,1,2
+cerveceria,Lúpulo,3,Caminar,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,1,3
+cerveceria,Lúpulo,4,Caminar,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,1,4
+cerveceria,Lúpulo,5,Caminar,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,1,5
+cerveceria,Lúpulo,6,Correr,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,2,1
+cerveceria,Lúpulo,7,Correr,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,2,2
+cerveceria,Lúpulo,8,Correr,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,2,3
+cerveceria,Lúpulo,9,Correr,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,2,4
+cerveceria,Lúpulo,10,Correr,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,2,5
+cerveceria,Lúpulo,11,Traer y entregar,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,3,1
+cerveceria,Lúpulo,12,Traer y entregar,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,3,2
+cerveceria,Lúpulo,13,Traer y entregar,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,3,3
+cerveceria,Lúpulo,14,Traer y entregar,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,3,4
+cerveceria,Lúpulo,15,Traer y entregar,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,3,5
+cerveceria,Lúpulo,16,Aparecer y avisar,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,4,1
+cerveceria,Lúpulo,17,Aparecer y avisar,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,4,2
+cerveceria,Lúpulo,18,Aparecer y avisar,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,4,3
+cerveceria,Lúpulo,19,Aparecer y avisar,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,4,4
+cerveceria,Lúpulo,20,Aparecer y avisar,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,4,5
+cerveceria,Lúpulo,21,Reposo con vida,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,5,1
+cerveceria,Lúpulo,22,Reposo con vida,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,5,2
+cerveceria,Lúpulo,23,Reposo con vida,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,5,3
+cerveceria,Lúpulo,24,Reposo con vida,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,5,4
+cerveceria,Lúpulo,25,Reposo con vida,cerveceria/lupulo/secuencias_50/poses_01_25.jpg,5,5
+cerveceria,Lúpulo,26,Inactividad sin elección o scroll,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,1,1
+cerveceria,Lúpulo,27,Inactividad sin elección o scroll,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,1,2
+cerveceria,Lúpulo,28,Inactividad sin elección o scroll,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,1,3
+cerveceria,Lúpulo,29,Inactividad sin elección o scroll,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,1,4
+cerveceria,Lúpulo,30,Inactividad sin elección o scroll,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,1,5
+cerveceria,Lúpulo,31,Scroll abajo: caída,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,2,1
+cerveceria,Lúpulo,32,Scroll abajo: caída,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,2,2
+cerveceria,Lúpulo,33,Scroll abajo: caída,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,2,3
+cerveceria,Lúpulo,34,Scroll abajo: caída,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,2,4
+cerveceria,Lúpulo,35,Scroll abajo: caída,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,2,5
+cerveceria,Lúpulo,36,Scroll arriba: reaparecer,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,3,1
+cerveceria,Lúpulo,37,Scroll arriba: reaparecer,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,3,2
+cerveceria,Lúpulo,38,Scroll arriba: reaparecer,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,3,3
+cerveceria,Lúpulo,39,Scroll arriba: reaparecer,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,3,4
+cerveceria,Lúpulo,40,Scroll arriba: reaparecer,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,3,5
+cerveceria,Lúpulo,41,Confirmación y logro,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,4,1
+cerveceria,Lúpulo,42,Confirmación y logro,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,4,2
+cerveceria,Lúpulo,43,Confirmación y logro,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,4,3
+cerveceria,Lúpulo,44,Confirmación y logro,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,4,4
+cerveceria,Lúpulo,45,Confirmación y logro,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,4,5
+cerveceria,Lúpulo,46,Error recuperable y ayuda,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,5,1
+cerveceria,Lúpulo,47,Error recuperable y ayuda,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,5,2
+cerveceria,Lúpulo,48,Error recuperable y ayuda,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,5,3
+cerveceria,Lúpulo,49,Error recuperable y ayuda,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,5,4
+cerveceria,Lúpulo,50,Error recuperable y ayuda,cerveceria/lupulo/secuencias_50/poses_26_50.jpg,5,5
+cerveceria,Oso cervecero,1,Caminar,cerveceria/oso_cervecero/secuencias_50/poses_01_10.jpg,1,1
+cerveceria,Oso cervecero,2,Caminar,cerveceria/oso_cervecero/secuencias_50/poses_01_10.jpg,1,2
+cerveceria,Oso cervecero,3,Caminar,cerveceria/oso_cervecero/secuencias_50/poses_01_10.jpg,1,3
+cerveceria,Oso cervecero,4,Caminar,cerveceria/oso_cervecero/secuencias_50/poses_01_10.jpg,1,4
+cerveceria,Oso cervecero,5,Caminar,cerveceria/oso_cervecero/secuencias_50/poses_01_10.jpg,1,5
+cerveceria,Oso cervecero,6,Correr,cerveceria/oso_cervecero/secuencias_50/poses_01_10.jpg,2,1
+cerveceria,Oso cervecero,7,Correr,cerveceria/oso_cervecero/secuencias_50/poses_01_10.jpg,2,2
+cerveceria,Oso cervecero,8,Correr,cerveceria/oso_cervecero/secuencias_50/poses_01_10.jpg,2,3
+cerveceria,Oso cervecero,9,Correr,cerveceria/oso_cervecero/secuencias_50/poses_01_10.jpg,2,4
+cerveceria,Oso cervecero,10,Correr,cerveceria/oso_cervecero/secuencias_50/poses_01_10.jpg,2,5
+cerveceria,Oso cervecero,11,Traer y entregar,cerveceria/oso_cervecero/secuencias_50/poses_11_20.jpg,1,1
+cerveceria,Oso cervecero,12,Traer y entregar,cerveceria/oso_cervecero/secuencias_50/poses_11_20.jpg,1,2
+cerveceria,Oso cervecero,13,Traer y entregar,cerveceria/oso_cervecero/secuencias_50/poses_11_20.jpg,1,3
+cerveceria,Oso cervecero,14,Traer y entregar,cerveceria/oso_cervecero/secuencias_50/poses_11_20.jpg,1,4
+cerveceria,Oso cervecero,15,Traer y entregar,cerveceria/oso_cervecero/secuencias_50/poses_11_20.jpg,1,5
+cerveceria,Oso cervecero,16,Aparecer y avisar,cerveceria/oso_cervecero/secuencias_50/poses_11_20.jpg,2,1
+cerveceria,Oso cervecero,17,Aparecer y avisar,cerveceria/oso_cervecero/secuencias_50/poses_11_20.jpg,2,2
+cerveceria,Oso cervecero,18,Aparecer y avisar,cerveceria/oso_cervecero/secuencias_50/poses_11_20.jpg,2,3
+cerveceria,Oso cervecero,19,Aparecer y avisar,cerveceria/oso_cervecero/secuencias_50/poses_11_20.jpg,2,4
+cerveceria,Oso cervecero,20,Aparecer y avisar,cerveceria/oso_cervecero/secuencias_50/poses_11_20.jpg,2,5
+cerveceria,Oso cervecero,21,Reposo con vida,cerveceria/oso_cervecero/secuencias_50/poses_21_30.jpg,1,1
+cerveceria,Oso cervecero,22,Reposo con vida,cerveceria/oso_cervecero/secuencias_50/poses_21_30.jpg,1,2
+cerveceria,Oso cervecero,23,Reposo con vida,cerveceria/oso_cervecero/secuencias_50/poses_21_30.jpg,1,3
+cerveceria,Oso cervecero,24,Reposo con vida,cerveceria/oso_cervecero/secuencias_50/poses_21_30.jpg,1,4
+cerveceria,Oso cervecero,25,Reposo con vida,cerveceria/oso_cervecero/secuencias_50/poses_21_30.jpg,1,5
+cerveceria,Oso cervecero,26,Inactividad sin elección o scroll,cerveceria/oso_cervecero/secuencias_50/poses_21_30.jpg,2,1
+cerveceria,Oso cervecero,27,Inactividad sin elección o scroll,cerveceria/oso_cervecero/secuencias_50/poses_21_30.jpg,2,2
+cerveceria,Oso cervecero,28,Inactividad sin elección o scroll,cerveceria/oso_cervecero/secuencias_50/poses_21_30.jpg,2,3
+cerveceria,Oso cervecero,29,Inactividad sin elección o scroll,cerveceria/oso_cervecero/secuencias_50/poses_21_30.jpg,2,4
+cerveceria,Oso cervecero,30,Inactividad sin elección o scroll,cerveceria/oso_cervecero/secuencias_50/poses_21_30.jpg,2,5
+cerveceria,Oso cervecero,31,Scroll abajo: caída,cerveceria/oso_cervecero/secuencias_50/poses_31_40.jpg,1,1
+cerveceria,Oso cervecero,32,Scroll abajo: caída,cerveceria/oso_cervecero/secuencias_50/poses_31_40.jpg,1,2
+cerveceria,Oso cervecero,33,Scroll abajo: caída,cerveceria/oso_cervecero/secuencias_50/poses_31_40.jpg,1,3
+cerveceria,Oso cervecero,34,Scroll abajo: caída,cerveceria/oso_cervecero/secuencias_50/poses_31_40.jpg,1,4
+cerveceria,Oso cervecero,35,Scroll abajo: caída,cerveceria/oso_cervecero/secuencias_50/poses_31_40.jpg,1,5
+cerveceria,Oso cervecero,36,Scroll arriba: reaparecer,cerveceria/oso_cervecero/secuencias_50/poses_31_40.jpg,2,1
+cerveceria,Oso cervecero,37,Scroll arriba: reaparecer,cerveceria/oso_cervecero/secuencias_50/poses_31_40.jpg,2,2
+cerveceria,Oso cervecero,38,Scroll arriba: reaparecer,cerveceria/oso_cervecero/secuencias_50/poses_31_40.jpg,2,3
+cerveceria,Oso cervecero,39,Scroll arriba: reaparecer,cerveceria/oso_cervecero/secuencias_50/poses_31_40.jpg,2,4
+cerveceria,Oso cervecero,40,Scroll arriba: reaparecer,cerveceria/oso_cervecero/secuencias_50/poses_31_40.jpg,2,5
+cerveceria,Oso cervecero,41,Confirmación y logro,cerveceria/oso_cervecero/secuencias_50/poses_41_50.jpg,1,1
+cerveceria,Oso cervecero,42,Confirmación y logro,cerveceria/oso_cervecero/secuencias_50/poses_41_50.jpg,1,2
+cerveceria,Oso cervecero,43,Confirmación y logro,cerveceria/oso_cervecero/secuencias_50/poses_41_50.jpg,1,3
+cerveceria,Oso cervecero,44,Confirmación y logro,cerveceria/oso_cervecero/secuencias_50/poses_41_50.jpg,1,4
+cerveceria,Oso cervecero,45,Confirmación y logro,cerveceria/oso_cervecero/secuencias_50/poses_41_50.jpg,1,5
+cerveceria,Oso cervecero,46,Error recuperable y ayuda,cerveceria/oso_cervecero/secuencias_50/poses_41_50.jpg,2,1
+cerveceria,Oso cervecero,47,Error recuperable y ayuda,cerveceria/oso_cervecero/secuencias_50/poses_41_50.jpg,2,2
+cerveceria,Oso cervecero,48,Error recuperable y ayuda,cerveceria/oso_cervecero/secuencias_50/poses_41_50.jpg,2,3
+cerveceria,Oso cervecero,49,Error recuperable y ayuda,cerveceria/oso_cervecero/secuencias_50/poses_41_50.jpg,2,4
+cerveceria,Oso cervecero,50,Error recuperable y ayuda,cerveceria/oso_cervecero/secuencias_50/poses_41_50.jpg,2,5
+heladeria,Cono nube,1,Caminar,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,1,1
+heladeria,Cono nube,2,Caminar,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,1,2
+heladeria,Cono nube,3,Caminar,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,1,3
+heladeria,Cono nube,4,Caminar,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,1,4
+heladeria,Cono nube,5,Caminar,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,1,5
+heladeria,Cono nube,6,Correr,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,2,1
+heladeria,Cono nube,7,Correr,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,2,2
+heladeria,Cono nube,8,Correr,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,2,3
+heladeria,Cono nube,9,Correr,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,2,4
+heladeria,Cono nube,10,Correr,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,2,5
+heladeria,Cono nube,11,Traer y entregar,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,3,1
+heladeria,Cono nube,12,Traer y entregar,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,3,2
+heladeria,Cono nube,13,Traer y entregar,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,3,3
+heladeria,Cono nube,14,Traer y entregar,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,3,4
+heladeria,Cono nube,15,Traer y entregar,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,3,5
+heladeria,Cono nube,16,Aparecer y avisar,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,4,1
+heladeria,Cono nube,17,Aparecer y avisar,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,4,2
+heladeria,Cono nube,18,Aparecer y avisar,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,4,3
+heladeria,Cono nube,19,Aparecer y avisar,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,4,4
+heladeria,Cono nube,20,Aparecer y avisar,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,4,5
+heladeria,Cono nube,21,Reposo con vida,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,5,1
+heladeria,Cono nube,22,Reposo con vida,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,5,2
+heladeria,Cono nube,23,Reposo con vida,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,5,3
+heladeria,Cono nube,24,Reposo con vida,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,5,4
+heladeria,Cono nube,25,Reposo con vida,heladeria/cono_nube/secuencias_50/poses_01_25.jpg,5,5
+heladeria,Cono nube,26,Inactividad sin elección o scroll,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,1,1
+heladeria,Cono nube,27,Inactividad sin elección o scroll,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,1,2
+heladeria,Cono nube,28,Inactividad sin elección o scroll,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,1,3
+heladeria,Cono nube,29,Inactividad sin elección o scroll,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,1,4
+heladeria,Cono nube,30,Inactividad sin elección o scroll,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,1,5
+heladeria,Cono nube,31,Scroll abajo: caída,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,2,1
+heladeria,Cono nube,32,Scroll abajo: caída,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,2,2
+heladeria,Cono nube,33,Scroll abajo: caída,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,2,3
+heladeria,Cono nube,34,Scroll abajo: caída,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,2,4
+heladeria,Cono nube,35,Scroll abajo: caída,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,2,5
+heladeria,Cono nube,36,Scroll arriba: reaparecer,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,3,1
+heladeria,Cono nube,37,Scroll arriba: reaparecer,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,3,2
+heladeria,Cono nube,38,Scroll arriba: reaparecer,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,3,3
+heladeria,Cono nube,39,Scroll arriba: reaparecer,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,3,4
+heladeria,Cono nube,40,Scroll arriba: reaparecer,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,3,5
+heladeria,Cono nube,41,Confirmación y logro,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,4,1
+heladeria,Cono nube,42,Confirmación y logro,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,4,2
+heladeria,Cono nube,43,Confirmación y logro,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,4,3
+heladeria,Cono nube,44,Confirmación y logro,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,4,4
+heladeria,Cono nube,45,Confirmación y logro,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,4,5
+heladeria,Cono nube,46,Error recuperable y ayuda,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,5,1
+heladeria,Cono nube,47,Error recuperable y ayuda,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,5,2
+heladeria,Cono nube,48,Error recuperable y ayuda,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,5,3
+heladeria,Cono nube,49,Error recuperable y ayuda,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,5,4
+heladeria,Cono nube,50,Error recuperable y ayuda,heladeria/cono_nube/secuencias_50/poses_26_50.jpg,5,5
+heladeria,Frutilla,1,Caminar,heladeria/frutilla/secuencias_50/poses_01_25.jpg,1,1
+heladeria,Frutilla,2,Caminar,heladeria/frutilla/secuencias_50/poses_01_25.jpg,1,2
+heladeria,Frutilla,3,Caminar,heladeria/frutilla/secuencias_50/poses_01_25.jpg,1,3
+heladeria,Frutilla,4,Caminar,heladeria/frutilla/secuencias_50/poses_01_25.jpg,1,4
+heladeria,Frutilla,5,Caminar,heladeria/frutilla/secuencias_50/poses_01_25.jpg,1,5
+heladeria,Frutilla,6,Correr,heladeria/frutilla/secuencias_50/poses_01_25.jpg,2,1
+heladeria,Frutilla,7,Correr,heladeria/frutilla/secuencias_50/poses_01_25.jpg,2,2
+heladeria,Frutilla,8,Correr,heladeria/frutilla/secuencias_50/poses_01_25.jpg,2,3
+heladeria,Frutilla,9,Correr,heladeria/frutilla/secuencias_50/poses_01_25.jpg,2,4
+heladeria,Frutilla,10,Correr,heladeria/frutilla/secuencias_50/poses_01_25.jpg,2,5
+heladeria,Frutilla,11,Traer y entregar,heladeria/frutilla/secuencias_50/poses_01_25.jpg,3,1
+heladeria,Frutilla,12,Traer y entregar,heladeria/frutilla/secuencias_50/poses_01_25.jpg,3,2
+heladeria,Frutilla,13,Traer y entregar,heladeria/frutilla/secuencias_50/poses_01_25.jpg,3,3
+heladeria,Frutilla,14,Traer y entregar,heladeria/frutilla/secuencias_50/poses_01_25.jpg,3,4
+heladeria,Frutilla,15,Traer y entregar,heladeria/frutilla/secuencias_50/poses_01_25.jpg,3,5
+heladeria,Frutilla,16,Aparecer y avisar,heladeria/frutilla/secuencias_50/poses_01_25.jpg,4,1
+heladeria,Frutilla,17,Aparecer y avisar,heladeria/frutilla/secuencias_50/poses_01_25.jpg,4,2
+heladeria,Frutilla,18,Aparecer y avisar,heladeria/frutilla/secuencias_50/poses_01_25.jpg,4,3
+heladeria,Frutilla,19,Aparecer y avisar,heladeria/frutilla/secuencias_50/poses_01_25.jpg,4,4
+heladeria,Frutilla,20,Aparecer y avisar,heladeria/frutilla/secuencias_50/poses_01_25.jpg,4,5
+heladeria,Frutilla,21,Reposo con vida,heladeria/frutilla/secuencias_50/poses_01_25.jpg,5,1
+heladeria,Frutilla,22,Reposo con vida,heladeria/frutilla/secuencias_50/poses_01_25.jpg,5,2
+heladeria,Frutilla,23,Reposo con vida,heladeria/frutilla/secuencias_50/poses_01_25.jpg,5,3
+heladeria,Frutilla,24,Reposo con vida,heladeria/frutilla/secuencias_50/poses_01_25.jpg,5,4
+heladeria,Frutilla,25,Reposo con vida,heladeria/frutilla/secuencias_50/poses_01_25.jpg,5,5
+heladeria,Frutilla,26,Inactividad sin elección o scroll,heladeria/frutilla/secuencias_50/poses_26_50.jpg,1,1
+heladeria,Frutilla,27,Inactividad sin elección o scroll,heladeria/frutilla/secuencias_50/poses_26_50.jpg,1,2
+heladeria,Frutilla,28,Inactividad sin elección o scroll,heladeria/frutilla/secuencias_50/poses_26_50.jpg,1,3
+heladeria,Frutilla,29,Inactividad sin elección o scroll,heladeria/frutilla/secuencias_50/poses_26_50.jpg,1,4
+heladeria,Frutilla,30,Inactividad sin elección o scroll,heladeria/frutilla/secuencias_50/poses_26_50.jpg,1,5
+heladeria,Frutilla,31,Scroll abajo: caída,heladeria/frutilla/secuencias_50/poses_26_50.jpg,2,1
+heladeria,Frutilla,32,Scroll abajo: caída,heladeria/frutilla/secuencias_50/poses_26_50.jpg,2,2
+heladeria,Frutilla,33,Scroll abajo: caída,heladeria/frutilla/secuencias_50/poses_26_50.jpg,2,3
+heladeria,Frutilla,34,Scroll abajo: caída,heladeria/frutilla/secuencias_50/poses_26_50.jpg,2,4
+heladeria,Frutilla,35,Scroll abajo: caída,heladeria/frutilla/secuencias_50/poses_26_50.jpg,2,5
+heladeria,Frutilla,36,Scroll arriba: reaparecer,heladeria/frutilla/secuencias_50/poses_26_50.jpg,3,1
+heladeria,Frutilla,37,Scroll arriba: reaparecer,heladeria/frutilla/secuencias_50/poses_26_50.jpg,3,2
+heladeria,Frutilla,38,Scroll arriba: reaparecer,heladeria/frutilla/secuencias_50/poses_26_50.jpg,3,3
+heladeria,Frutilla,39,Scroll arriba: reaparecer,heladeria/frutilla/secuencias_50/poses_26_50.jpg,3,4
+heladeria,Frutilla,40,Scroll arriba: reaparecer,heladeria/frutilla/secuencias_50/poses_26_50.jpg,3,5
+heladeria,Frutilla,41,Confirmación y logro,heladeria/frutilla/secuencias_50/poses_26_50.jpg,4,1
+heladeria,Frutilla,42,Confirmación y logro,heladeria/frutilla/secuencias_50/poses_26_50.jpg,4,2
+heladeria,Frutilla,43,Confirmación y logro,heladeria/frutilla/secuencias_50/poses_26_50.jpg,4,3
+heladeria,Frutilla,44,Confirmación y logro,heladeria/frutilla/secuencias_50/poses_26_50.jpg,4,4
+heladeria,Frutilla,45,Confirmación y logro,heladeria/frutilla/secuencias_50/poses_26_50.jpg,4,5
+heladeria,Frutilla,46,Error recuperable y ayuda,heladeria/frutilla/secuencias_50/poses_26_50.jpg,5,1
+heladeria,Frutilla,47,Error recuperable y ayuda,heladeria/frutilla/secuencias_50/poses_26_50.jpg,5,2
+heladeria,Frutilla,48,Error recuperable y ayuda,heladeria/frutilla/secuencias_50/poses_26_50.jpg,5,3
+heladeria,Frutilla,49,Error recuperable y ayuda,heladeria/frutilla/secuencias_50/poses_26_50.jpg,5,4
+heladeria,Frutilla,50,Error recuperable y ayuda,heladeria/frutilla/secuencias_50/poses_26_50.jpg,5,5
+heladeria,Palito helado,1,Caminar,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,1,1
+heladeria,Palito helado,2,Caminar,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,1,2
+heladeria,Palito helado,3,Caminar,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,1,3
+heladeria,Palito helado,4,Caminar,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,1,4
+heladeria,Palito helado,5,Caminar,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,1,5
+heladeria,Palito helado,6,Correr,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,2,1
+heladeria,Palito helado,7,Correr,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,2,2
+heladeria,Palito helado,8,Correr,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,2,3
+heladeria,Palito helado,9,Correr,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,2,4
+heladeria,Palito helado,10,Correr,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,2,5
+heladeria,Palito helado,11,Traer y entregar,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,3,1
+heladeria,Palito helado,12,Traer y entregar,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,3,2
+heladeria,Palito helado,13,Traer y entregar,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,3,3
+heladeria,Palito helado,14,Traer y entregar,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,3,4
+heladeria,Palito helado,15,Traer y entregar,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,3,5
+heladeria,Palito helado,16,Aparecer y avisar,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,4,1
+heladeria,Palito helado,17,Aparecer y avisar,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,4,2
+heladeria,Palito helado,18,Aparecer y avisar,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,4,3
+heladeria,Palito helado,19,Aparecer y avisar,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,4,4
+heladeria,Palito helado,20,Aparecer y avisar,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,4,5
+heladeria,Palito helado,21,Reposo con vida,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,5,1
+heladeria,Palito helado,22,Reposo con vida,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,5,2
+heladeria,Palito helado,23,Reposo con vida,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,5,3
+heladeria,Palito helado,24,Reposo con vida,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,5,4
+heladeria,Palito helado,25,Reposo con vida,heladeria/palito_helado/secuencias_50/poses_01_25.jpg,5,5
+heladeria,Palito helado,26,Inactividad sin elección o scroll,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,1,1
+heladeria,Palito helado,27,Inactividad sin elección o scroll,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,1,2
+heladeria,Palito helado,28,Inactividad sin elección o scroll,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,1,3
+heladeria,Palito helado,29,Inactividad sin elección o scroll,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,1,4
+heladeria,Palito helado,30,Inactividad sin elección o scroll,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,1,5
+heladeria,Palito helado,31,Scroll abajo: caída,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,2,1
+heladeria,Palito helado,32,Scroll abajo: caída,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,2,2
+heladeria,Palito helado,33,Scroll abajo: caída,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,2,3
+heladeria,Palito helado,34,Scroll abajo: caída,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,2,4
+heladeria,Palito helado,35,Scroll abajo: caída,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,2,5
+heladeria,Palito helado,36,Scroll arriba: reaparecer,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,3,1
+heladeria,Palito helado,37,Scroll arriba: reaparecer,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,3,2
+heladeria,Palito helado,38,Scroll arriba: reaparecer,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,3,3
+heladeria,Palito helado,39,Scroll arriba: reaparecer,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,3,4
+heladeria,Palito helado,40,Scroll arriba: reaparecer,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,3,5
+heladeria,Palito helado,41,Confirmación y logro,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,4,1
+heladeria,Palito helado,42,Confirmación y logro,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,4,2
+heladeria,Palito helado,43,Confirmación y logro,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,4,3
+heladeria,Palito helado,44,Confirmación y logro,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,4,4
+heladeria,Palito helado,45,Confirmación y logro,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,4,5
+heladeria,Palito helado,46,Error recuperable y ayuda,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,5,1
+heladeria,Palito helado,47,Error recuperable y ayuda,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,5,2
+heladeria,Palito helado,48,Error recuperable y ayuda,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,5,3
+heladeria,Palito helado,49,Error recuperable y ayuda,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,5,4
+heladeria,Palito helado,50,Error recuperable y ayuda,heladeria/palito_helado/secuencias_50/poses_26_50.jpg,5,5
+heladeria,Pingüino,1,Caminar,heladeria/pinguino/secuencias_50/poses_01_10.jpg,1,1
+heladeria,Pingüino,2,Caminar,heladeria/pinguino/secuencias_50/poses_01_10.jpg,1,2
+heladeria,Pingüino,3,Caminar,heladeria/pinguino/secuencias_50/poses_01_10.jpg,1,3
+heladeria,Pingüino,4,Caminar,heladeria/pinguino/secuencias_50/poses_01_10.jpg,1,4
+heladeria,Pingüino,5,Caminar,heladeria/pinguino/secuencias_50/poses_01_10.jpg,1,5
+heladeria,Pingüino,6,Correr,heladeria/pinguino/secuencias_50/poses_01_10.jpg,2,1
+heladeria,Pingüino,7,Correr,heladeria/pinguino/secuencias_50/poses_01_10.jpg,2,2
+heladeria,Pingüino,8,Correr,heladeria/pinguino/secuencias_50/poses_01_10.jpg,2,3
+heladeria,Pingüino,9,Correr,heladeria/pinguino/secuencias_50/poses_01_10.jpg,2,4
+heladeria,Pingüino,10,Correr,heladeria/pinguino/secuencias_50/poses_01_10.jpg,2,5
+heladeria,Pingüino,11,Traer y entregar,heladeria/pinguino/secuencias_50/poses_11_20.jpg,1,1
+heladeria,Pingüino,12,Traer y entregar,heladeria/pinguino/secuencias_50/poses_11_20.jpg,1,2
+heladeria,Pingüino,13,Traer y entregar,heladeria/pinguino/secuencias_50/poses_11_20.jpg,1,3
+heladeria,Pingüino,14,Traer y entregar,heladeria/pinguino/secuencias_50/poses_11_20.jpg,1,4
+heladeria,Pingüino,15,Traer y entregar,heladeria/pinguino/secuencias_50/poses_11_20.jpg,1,5
+heladeria,Pingüino,16,Aparecer y avisar,heladeria/pinguino/secuencias_50/poses_11_20.jpg,2,1
+heladeria,Pingüino,17,Aparecer y avisar,heladeria/pinguino/secuencias_50/poses_11_20.jpg,2,2
+heladeria,Pingüino,18,Aparecer y avisar,heladeria/pinguino/secuencias_50/poses_11_20.jpg,2,3
+heladeria,Pingüino,19,Aparecer y avisar,heladeria/pinguino/secuencias_50/poses_11_20.jpg,2,4
+heladeria,Pingüino,20,Aparecer y avisar,heladeria/pinguino/secuencias_50/poses_11_20.jpg,2,5
+heladeria,Pingüino,21,Reposo con vida,heladeria/pinguino/secuencias_50/poses_21_30.jpg,1,1
+heladeria,Pingüino,22,Reposo con vida,heladeria/pinguino/secuencias_50/poses_21_30.jpg,1,2
+heladeria,Pingüino,23,Reposo con vida,heladeria/pinguino/secuencias_50/poses_21_30.jpg,1,3
+heladeria,Pingüino,24,Reposo con vida,heladeria/pinguino/secuencias_50/poses_21_30.jpg,1,4
+heladeria,Pingüino,25,Reposo con vida,heladeria/pinguino/secuencias_50/poses_21_30.jpg,1,5
+heladeria,Pingüino,26,Inactividad sin elección o scroll,heladeria/pinguino/secuencias_50/poses_21_30.jpg,2,1
+heladeria,Pingüino,27,Inactividad sin elección o scroll,heladeria/pinguino/secuencias_50/poses_21_30.jpg,2,2
+heladeria,Pingüino,28,Inactividad sin elección o scroll,heladeria/pinguino/secuencias_50/poses_21_30.jpg,2,3
+heladeria,Pingüino,29,Inactividad sin elección o scroll,heladeria/pinguino/secuencias_50/poses_21_30.jpg,2,4
+heladeria,Pingüino,30,Inactividad sin elección o scroll,heladeria/pinguino/secuencias_50/poses_21_30.jpg,2,5
+heladeria,Pingüino,31,Scroll abajo: caída,heladeria/pinguino/secuencias_50/poses_31_40.jpg,1,1
+heladeria,Pingüino,32,Scroll abajo: caída,heladeria/pinguino/secuencias_50/poses_31_40.jpg,1,2
+heladeria,Pingüino,33,Scroll abajo: caída,heladeria/pinguino/secuencias_50/poses_31_40.jpg,1,3
+heladeria,Pingüino,34,Scroll abajo: caída,heladeria/pinguino/secuencias_50/poses_31_40.jpg,1,4
+heladeria,Pingüino,35,Scroll abajo: caída,heladeria/pinguino/secuencias_50/poses_31_40.jpg,1,5
+heladeria,Pingüino,36,Scroll arriba: reaparecer,heladeria/pinguino/secuencias_50/poses_31_40.jpg,2,1
+heladeria,Pingüino,37,Scroll arriba: reaparecer,heladeria/pinguino/secuencias_50/poses_31_40.jpg,2,2
+heladeria,Pingüino,38,Scroll arriba: reaparecer,heladeria/pinguino/secuencias_50/poses_31_40.jpg,2,3
+heladeria,Pingüino,39,Scroll arriba: reaparecer,heladeria/pinguino/secuencias_50/poses_31_40.jpg,2,4
+heladeria,Pingüino,40,Scroll arriba: reaparecer,heladeria/pinguino/secuencias_50/poses_31_40.jpg,2,5
+heladeria,Pingüino,41,Confirmación y logro,heladeria/pinguino/secuencias_50/poses_41_50.jpg,1,1
+heladeria,Pingüino,42,Confirmación y logro,heladeria/pinguino/secuencias_50/poses_41_50.jpg,1,2
+heladeria,Pingüino,43,Confirmación y logro,heladeria/pinguino/secuencias_50/poses_41_50.jpg,1,3
+heladeria,Pingüino,44,Confirmación y logro,heladeria/pinguino/secuencias_50/poses_41_50.jpg,1,4
+heladeria,Pingüino,45,Confirmación y logro,heladeria/pinguino/secuencias_50/poses_41_50.jpg,1,5
+heladeria,Pingüino,46,Error recuperable y ayuda,heladeria/pinguino/secuencias_50/poses_41_50.jpg,2,1
+heladeria,Pingüino,47,Error recuperable y ayuda,heladeria/pinguino/secuencias_50/poses_41_50.jpg,2,2
+heladeria,Pingüino,48,Error recuperable y ayuda,heladeria/pinguino/secuencias_50/poses_41_50.jpg,2,3
+heladeria,Pingüino,49,Error recuperable y ayuda,heladeria/pinguino/secuencias_50/poses_41_50.jpg,2,4
+heladeria,Pingüino,50,Error recuperable y ayuda,heladeria/pinguino/secuencias_50/poses_41_50.jpg,2,5
+heladeria,Remolino,1,Caminar,heladeria/remolino/secuencias_50/poses_01_25.jpg,1,1
+heladeria,Remolino,2,Caminar,heladeria/remolino/secuencias_50/poses_01_25.jpg,1,2
+heladeria,Remolino,3,Caminar,heladeria/remolino/secuencias_50/poses_01_25.jpg,1,3
+heladeria,Remolino,4,Caminar,heladeria/remolino/secuencias_50/poses_01_25.jpg,1,4
+heladeria,Remolino,5,Caminar,heladeria/remolino/secuencias_50/poses_01_25.jpg,1,5
+heladeria,Remolino,6,Correr,heladeria/remolino/secuencias_50/poses_01_25.jpg,2,1
+heladeria,Remolino,7,Correr,heladeria/remolino/secuencias_50/poses_01_25.jpg,2,2
+heladeria,Remolino,8,Correr,heladeria/remolino/secuencias_50/poses_01_25.jpg,2,3
+heladeria,Remolino,9,Correr,heladeria/remolino/secuencias_50/poses_01_25.jpg,2,4
+heladeria,Remolino,10,Correr,heladeria/remolino/secuencias_50/poses_01_25.jpg,2,5
+heladeria,Remolino,11,Traer y entregar,heladeria/remolino/secuencias_50/poses_01_25.jpg,3,1
+heladeria,Remolino,12,Traer y entregar,heladeria/remolino/secuencias_50/poses_01_25.jpg,3,2
+heladeria,Remolino,13,Traer y entregar,heladeria/remolino/secuencias_50/poses_01_25.jpg,3,3
+heladeria,Remolino,14,Traer y entregar,heladeria/remolino/secuencias_50/poses_01_25.jpg,3,4
+heladeria,Remolino,15,Traer y entregar,heladeria/remolino/secuencias_50/poses_01_25.jpg,3,5
+heladeria,Remolino,16,Aparecer y avisar,heladeria/remolino/secuencias_50/poses_01_25.jpg,4,1
+heladeria,Remolino,17,Aparecer y avisar,heladeria/remolino/secuencias_50/poses_01_25.jpg,4,2
+heladeria,Remolino,18,Aparecer y avisar,heladeria/remolino/secuencias_50/poses_01_25.jpg,4,3
+heladeria,Remolino,19,Aparecer y avisar,heladeria/remolino/secuencias_50/poses_01_25.jpg,4,4
+heladeria,Remolino,20,Aparecer y avisar,heladeria/remolino/secuencias_50/poses_01_25.jpg,4,5
+heladeria,Remolino,21,Reposo con vida,heladeria/remolino/secuencias_50/poses_01_25.jpg,5,1
+heladeria,Remolino,22,Reposo con vida,heladeria/remolino/secuencias_50/poses_01_25.jpg,5,2
+heladeria,Remolino,23,Reposo con vida,heladeria/remolino/secuencias_50/poses_01_25.jpg,5,3
+heladeria,Remolino,24,Reposo con vida,heladeria/remolino/secuencias_50/poses_01_25.jpg,5,4
+heladeria,Remolino,25,Reposo con vida,heladeria/remolino/secuencias_50/poses_01_25.jpg,5,5
+heladeria,Remolino,26,Inactividad sin elección o scroll,heladeria/remolino/secuencias_50/poses_26_50.jpg,1,1
+heladeria,Remolino,27,Inactividad sin elección o scroll,heladeria/remolino/secuencias_50/poses_26_50.jpg,1,2
+heladeria,Remolino,28,Inactividad sin elección o scroll,heladeria/remolino/secuencias_50/poses_26_50.jpg,1,3
+heladeria,Remolino,29,Inactividad sin elección o scroll,heladeria/remolino/secuencias_50/poses_26_50.jpg,1,4
+heladeria,Remolino,30,Inactividad sin elección o scroll,heladeria/remolino/secuencias_50/poses_26_50.jpg,1,5
+heladeria,Remolino,31,Scroll abajo: caída,heladeria/remolino/secuencias_50/poses_26_50.jpg,2,1
+heladeria,Remolino,32,Scroll abajo: caída,heladeria/remolino/secuencias_50/poses_26_50.jpg,2,2
+heladeria,Remolino,33,Scroll abajo: caída,heladeria/remolino/secuencias_50/poses_26_50.jpg,2,3
+heladeria,Remolino,34,Scroll abajo: caída,heladeria/remolino/secuencias_50/poses_26_50.jpg,2,4
+heladeria,Remolino,35,Scroll abajo: caída,heladeria/remolino/secuencias_50/poses_26_50.jpg,2,5
+heladeria,Remolino,36,Scroll arriba: reaparecer,heladeria/remolino/secuencias_50/poses_26_50.jpg,3,1
+heladeria,Remolino,37,Scroll arriba: reaparecer,heladeria/remolino/secuencias_50/poses_26_50.jpg,3,2
+heladeria,Remolino,38,Scroll arriba: reaparecer,heladeria/remolino/secuencias_50/poses_26_50.jpg,3,3
+heladeria,Remolino,39,Scroll arriba: reaparecer,heladeria/remolino/secuencias_50/poses_26_50.jpg,3,4
+heladeria,Remolino,40,Scroll arriba: reaparecer,heladeria/remolino/secuencias_50/poses_26_50.jpg,3,5
+heladeria,Remolino,41,Confirmación y logro,heladeria/remolino/secuencias_50/poses_26_50.jpg,4,1
+heladeria,Remolino,42,Confirmación y logro,heladeria/remolino/secuencias_50/poses_26_50.jpg,4,2
+heladeria,Remolino,43,Confirmación y logro,heladeria/remolino/secuencias_50/poses_26_50.jpg,4,3
+heladeria,Remolino,44,Confirmación y logro,heladeria/remolino/secuencias_50/poses_26_50.jpg,4,4
+heladeria,Remolino,45,Confirmación y logro,heladeria/remolino/secuencias_50/poses_26_50.jpg,4,5
+heladeria,Remolino,46,Error recuperable y ayuda,heladeria/remolino/secuencias_50/poses_26_50.jpg,5,1
+heladeria,Remolino,47,Error recuperable y ayuda,heladeria/remolino/secuencias_50/poses_26_50.jpg,5,2
+heladeria,Remolino,48,Error recuperable y ayuda,heladeria/remolino/secuencias_50/poses_26_50.jpg,5,3
+heladeria,Remolino,49,Error recuperable y ayuda,heladeria/remolino/secuencias_50/poses_26_50.jpg,5,4
+heladeria,Remolino,50,Error recuperable y ayuda,heladeria/remolino/secuencias_50/poses_26_50.jpg,5,5
