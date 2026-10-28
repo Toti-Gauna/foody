@@ -1,6 +1,6 @@
 # Personajes · selección, poses y reacciones
 
-Fuente: `assets/personajes/` (pack "mascotas gastronómicas": 20 personajes, 15 acciones y 50 poses clave cada uno). Son **referencias de diseño**, no sprites ni animaciones.
+Fuente: `assets/personajes/` (pack "mascotas gastronómicas" de Eclipse para locales de comida: 20 personajes, 15 acciones y 50 poses clave cada uno). Son **referencias de diseño**, no sprites ni animaciones.
 
 ## 1. Los 20 personajes
 

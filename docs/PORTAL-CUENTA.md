@@ -1,6 +1,6 @@
 # Mi Eclipse · portal del suscriptor
 
-Qué ve y qué completa quien se registra en Foody. Es el portal **cliente** (distinto del portal interno de operaciones de Eclipse). Base: V4 del Notion (Mi Eclipse reúne plan, sistema del negocio, contratos, pagos, soporte y entregas).
+Qué ve y qué completa quien se registra en Eclipse para locales de comida. Es el portal **cliente** (distinto del portal interno de operaciones de Eclipse). Base: V4 del Notion (Mi Eclipse reúne plan, sistema del negocio, contratos, pagos, soporte y entregas).
 
 ## 1. Registro y alta (embudo)
 

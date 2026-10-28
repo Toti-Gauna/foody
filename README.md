@@ -1,6 +1,6 @@
-# Foody (nombre provisorio) · Eclipse V6
+# Eclipse para locales de comida · Eclipse V6
 
-Plataforma para comercios gastronómicos de Mar del Plata con varias sucursales: carta y pedido desde la mesa por QR, reservas, juegos de mesa, pasaporte de fidelidad, personajes de marca y visor 3D. **Powered by Eclipse.**
+**Eclipse para locales de comida** (en Eclipse-Web figura como «Foody», nombre provisorio). Plataforma para comercios gastronómicos de Mar del Plata con varias sucursales: carta y pedido desde la mesa por QR, reservas, juegos de mesa, pasaporte de fidelidad, personajes de marca y visor 3D. **Powered by Eclipse.**
 
 Estado: **planificación**. Todavía no hay código de aplicación. Este repo reúne la dirección visual, los personajes y el roadmap.
 
@@ -8,10 +8,10 @@ Estado: **planificación**. Todavía no hay código de aplicación. Este repo re
 
 | Archivo | Contenido |
 |---|---|
-| [`docs/ROADMAP.md`](docs/ROADMAP.md) | Roadmap por tandas de plan, con modelo y esfuerzo por fase |
+| [`docs/ROADMAP.md`](docs/ROADMAP.md) | Roadmap v4 por tandas de plan, estética Efemérides, con modelo y esfuerzo por fase |
 | [`docs/PERSONAJES.md`](docs/PERSONAJES.md) | Selección de personaje, poses, reacciones y reglas |
 | [`docs/PORTAL-CUENTA.md`](docs/PORTAL-CUENTA.md) | Portal Mi Eclipse, datos de cobro, Academy, Media y Utilería |
-| [`docs/PROMPT-IMAGENES.md`](docs/PROMPT-IMAGENES.md) | Prompt completo para generar todas las imágenes |
+| [`docs/PROMPT-IMAGENES.md`](docs/PROMPT-IMAGENES.md) | Prompt completo v4 (estética Efemérides) para generar todas las imágenes |
 
 ## Assets
 
