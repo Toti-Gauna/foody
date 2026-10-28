@@ -1,6 +1,6 @@
 # Eclipse para locales de comida · Roadmap v4
 
-Estado: propuesta para revisar · 2026-10-28. Reemplaza a v3. El repo se llama `foody` por historia; **el producto se llama «Eclipse para locales de comida»** (en Eclipse-Web figura como «Foody», nombre provisional).
+Estado: propuesta para revisar · 2026-10-28 (ajustada con las respuestas de la fase 0.1). Reemplaza a v3. El repo se llama `foody` por historia; **el producto se llama «Eclipse para locales de comida»** (en Eclipse-Web figura como «Foody», nombre provisional).
 
 Fuentes: Notion (V6, V3 «Efemérides», mapa V3–V6, seis planes), repos `Eclipse-Web` (guía `CLAUDE.md`, páginas de producto, precios, hero), `kinetic-studio`, `games-market`, `agents`, `supplements-ecommerce`, y los packs de imágenes y personajes de este repo.
 
@@ -17,6 +17,19 @@ Fuentes: Notion (V6, V3 «Efemérides», mapa V3–V6, seis planes), repos `Ecli
 5. Todo lo demás de v3 se mantiene: tandas por plan, 4 comercios, personajes elegibles, Mi Eclipse con datos de cobro, Academy/Media/Utilería, prompt de imágenes.
 
 ---
+
+## 0.1 Ajustes v4.1 (respuestas de la fase 0.1)
+
+Detalle y fuentes en `SDD-0.1-DESCUBRIMIENTO.md`. Lo que cambia respecto de lo anterior:
+
+1. **Piloto:** un **restó-bar generalista con carta completa** (tipo Barracuda), no la heladería. Se suma como quinto comercio. Se vende mostrando demos; todavía no hay dueño de contacto.
+2. **El pedido no se cobra en la app.** Se paga en caja o con el postnet del local. Eclipse cobra solo su suscripción. Desaparece el estado «pagado» del pedido y el proveedor de pagos del pedido.
+3. **El personaje lo asigna Eclipse al configurar el local** (no lo elige el cliente). Si el local ya tiene mascota, se adapta a medida. Debe ser coherente con el rubro (un helado no representa a un restó-bar).
+4. **Juegos por plan:** Contact ninguno; Growth 6 juegos solos estables; Escalar y superiores suman 5 juegos en red. El local activa o desactiva cada uno.
+5. **Solo salón y reservas** (sin delivery ni retiro). Cuenta dividida y propina por la app: fuera de alcance.
+6. **Suscripción en pesos atada al dólar**; proveedor a elegir entre 3.
+7. **Stack:** Next.js en JavaScript para todo; infraestructura compartida de USD 100/mes y USD 200/mes en suscripciones de IA.
+8. **«Powered by Eclipse» siempre visible** (subtítulo o pie). **Subdominio propio.** Soporte a cargo de Ignacio, incluido.
 
 ## 1. Producto y dónde vive
 
@@ -43,6 +56,8 @@ Nombre en los tres idiomas (propuesta): es «Eclipse para locales de comida» ·
 | **Café** | La Fonte d'Oro | Dorado, crema, mármol | Colibrí · Gota dorada · Medialuna · Mesero · Taza | Retiro, combos, franjas del día, sellos |
 | **Heladería** | Helatto | Pasteles vibrantes | Cono nube · Frutilla · Palito helado · Pingüino · Remolino | Tamaño y sabores con límite, conservación, 3D del cucurucho |
 
+| **Restó-bar (piloto)** | Tipo Barracuda | A definir con el SDD (generalista, carta completa) | A elegir entre los de bar, café y cervecería; recomendado Mesero | Salón de 8 mesas, comandas a cocina y barra, reservas por solicitud, menú del día |
+
 Las marcas reales requieren **autorización escrita**. Las **demos son siempre ficticias** (no pueden parecerse a una marca real). El restaurante queda como variante futura (hay demo Alba, sin personajes).
 
 ---
@@ -58,7 +73,11 @@ Las marcas reales requieren **autorización escrita**. Las **demos son siempre f
 | **Deluxe** | 200 | Hereda + asistente IA interno |
 | **Partner** | 500 (propuesta) | Hereda + varias sucursales, permisos y reportes por sucursal |
 
-Referencia, sujeta a costeo. Pendientes: compra y mantenimiento, comisión, setup, consumos. En la página, los precios se muestran como **«precio de referencia»** con selector de moneda (ARS, BRL, USD) como en el resto de Eclipse, y nunca con tachados ni «antes $X».
+**Juegos por plan:** Contact ninguno. Growth: Serpiente, Vuelo, Saltarín, Catapulta, Ninja y Combinaciones (solos, estables, sin red). Escalar, Hípergrowth, Deluxe y Partner suman Pong (hockey de mesa), Rompeladrillos, Tetris duelo, Ludo y Pinturillo (en red; hoy en beta). El local elige cuáles activa.
+
+**Juegos por plan:** Contact ninguno. Growth: Serpiente, Vuelo, Saltarín, Catapulta, Ninja y Combinaciones (solos, estables, sin red). Escalar, Hípergrowth, Deluxe y Partner suman Pong (hockey de mesa), Rompeladrillos, Tetris duelo, Ludo y Pinturillo (en red; hoy en beta). El local elige cuáles activa.
+
+Referencia, sujeta a costeo. Pendientes: compra y mantenimiento (o pago único del sistema más mantenimiento bajo), setup, consumos. Sin comisión por pedido. En la página, los precios se muestran como **«precio de referencia»** con selector de moneda (ARS, BRL, USD) como en el resto de Eclipse, y nunca con tachados ni «antes $X».
 
 ---
 
@@ -128,7 +147,7 @@ Por plan: la demo de **Contact** muestra la carta, el pedido, la solicitud de re
 
 ## 7. Personajes
 
-20 personajes (5 por comercio), 15 acciones y 50 poses clave cada uno. El cliente elige uno al registrarse y puede cambiarlo desde Mi Eclipse. Un solo sistema de animación con paquetes intercambiables. Reacciones por evento: **anotar al bajar la carta**, agradecer al enviar, esperar al preparar, celebrar un premio real, error con acción; prioridades y pausa mínima de 8 s; movimiento reducido = pose quieta. Antes de animar hay que producir hoja maestra, limpiar variantes, separar o vectorizar y completar intermedios. Detalle en `PERSONAJES.md`.
+20 personajes (5 por comercio), 15 acciones y 50 poses clave cada uno. Eclipse asigna el personaje al configurar el local (el cliente no lo elige); si el local ya tiene mascota, se adapta a medida con Media. Debe ser coherente con el rubro. Un solo sistema de animación con paquetes intercambiables. Reacciones por evento: **anotar al bajar la carta**, agradecer al enviar, esperar al preparar, celebrar un premio real, error con acción; prioridades y pausa mínima de 8 s; movimiento reducido = pose quieta. Antes de animar hay que producir hoja maestra, limpiar variantes, separar o vectorizar y completar intermedios. Detalle en `PERSONAJES.md`.
 
 ---
 
@@ -165,9 +184,9 @@ Modelos: **Sonnet 5.5 por defecto**, **Opus 5.5 en hitos justificados** (direcci
 |---|---|---|
 | 1.1 **Página en Eclipse-Web** | Secciones 01 a 08: hero, qué ofrecemos por tipo, demos, planes, cómo empezamos, resto de Eclipse, preguntas, contacto; es/en/pt; contenido en JSON | Sonnet · high (hero y eclipse con Opus · high) |
 | 1.2 Demos Contact ×4 | Las cuatro demos con carta, pedido, solicitud de reserva y personaje | Sonnet · high |
-| 1.3 Mi Eclipse v1 | Registro, datos de cobro, suscripción mensual, elegir comercio, plan y personaje, onboarding | Opus · high (pagos); Sonnet · high (UI) |
+| 1.3 Mi Eclipse v1 | Registro, datos de cobro, suscripción mensual, elegir comercio y plan, onboarding (el personaje lo configura Eclipse) | Opus · high (pagos); Sonnet · high (UI) |
 | 1.4 Carta y pedido por QR | Carta por sucursal, variantes, carrito por mesa, envío, aceptación, agotados | Sonnet · high |
-| 1.5 Estados, concurrencia y pago | Máquina de estados, idempotencia, pruebas de carrera | Opus · xhigh |
+| 1.5 Estados y concurrencia | Máquina de estados, idempotencia, pruebas de carrera, modificación y anulación por el encargado (el pedido no se cobra en la app) | Opus · xhigh |
 | 1.6 Panel básico y solicitud de reserva | Cola, carta, mesas, clientes, agenda | Sonnet · high |
 | 1.7 Personaje en la carta | Saludar, anotar al bajar, agradecer; logo viajero básico | Sonnet · high |
 | 1.8 Academy, Media y Utilería v1 | Catálogo y pedido simple en el portal | Sonnet · medium |
