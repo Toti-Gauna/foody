@@ -121,6 +121,38 @@ Sin texto, sin sombras de piso.
 
 Después: limpiar, unificar escala y punto de apoyo, separar figuras y armar el atlas (fase 0.6).
 
+### 7.1 Pedido de PNG de Gus (para el diseñador o ChatGPT)
+
+Los recortes automáticos de las láminas tienen límites: escala distinta entre poses, bordes y saltos. Con PNG limpios el personaje se ve parejo y se puede animar cuadro a cuadro.
+
+**Formato, igual para todas:**
+
+- PNG con **fondo transparente** (alfa real, sin blanco ni sombra de piso), una pose por archivo.
+- **Mismo lienzo** para todas: 1024 × 1024 px.
+- **Misma escala**: Gus mide siempre lo mismo (unos 900 px de alto de pies a cabeza).
+- **Pies sobre la misma línea** (unos 40 px del borde inferior), centrado en horizontal.
+- Mirando hacia la **derecha del espectador** cuando camina (lo damos vuelta por código).
+- Mismo contorno, colores y luz que la lámina actual.
+- Nombre: `gus-NN-accion.png` (por ejemplo, `gus-07-anotar.png`); los ciclos llevan `-f1`, `-f2`…
+
+**Lista:**
+
+| Archivo | Cuadros | Uso |
+|---|---|---|
+| `gus-01` a `gus-15` (las 15 acciones de la lámina) | 15 | Reacciones |
+| `gus-saludo-f1..f2` | 2 | Saludo en el logo (mano arriba y abajo) |
+| `gus-asoma` | 1 | Asomado de frente, de la cintura para arriba (se esconde detrás del logo) |
+| `gus-anota-f1..f3` | 3 | Escribiendo en la libreta (ciclo) |
+| `gus-bandeja-tapada` | 1 | Esperando con la bandeja tapada (campana plateada) |
+| `gus-camina-tapada-f1..f5` | 5 | Caminando con la bandeja tapada |
+| `gus-corre-tapada-f1..f5` | 5 | Corriendo con la bandeja tapada |
+| `gus-campana-f1..f3` | 3 | Levantando la campana |
+| `gus-espia` | 1 | Espiando debajo de la campana («No espíes, que es sorpresa») |
+| `gus-mareado` | 1 | Mareado (cuando se baja rápido por la carta) |
+| `gus-busto` | 1 | Busto de frente para el avatar y la barra del celular |
+
+Total: 38 PNG.
+
 ---
 
 ## 8. Qué plan incluye qué (propuesta, decide Ignacio)
@@ -134,7 +166,17 @@ Después: limpiar, unificar escala y punto de apoyo, separar figuras y armar el 
 
 ---
 
-## 9. Lo que no es el prototipo
+## 9. Prototipo v2 (después de la prueba en iPhone)
+
+- **Hero:** Gus asoma por detrás de «Lucero», sube con rebote y saluda con globo escrito a mano. Se puede tocar. El recorte es nuevo, sin el rectángulo ni el halo de la v1.
+- **Salida del hero:** en escritorio salta en arco hasta la columna y aterriza con aplastamiento; en el celular se zambulle detrás del logo y asoma por encima de la barra de abajo. Si volvés arriba, vuelve a aparecer en el logo.
+- **Más vivo:** tres frases por categoría; responde si lo tocás; se marea si bajás rápido; ofrece ayuda si te quedás quieto; sugiere bebida si hay comida sin trago; festeja a los 4, 6 y 9 platos.
+- **Libreta:** el renglón se escribe apenas tocás + (ya no se atrasa el «Van N»).
+- **Rondas:** cada envío es una ronda con su estado. «Seguir pidiendo» abre la ronda siguiente; la hoja «Cuenta de la mesa» muestra las rondas mandadas con estado y la ronda nueva editable. «Pedir la cuenta» se habilita cuando no queda nada en camino.
+- **Escena:** el globo va sobre la cabeza de Gus; la cocina habla («¡Marchando!», «¡Dos minutos, Gus!»); sale caminando con la bandeja tapada, corre cuando está lista y al entregar levanta la campana con chispas.
+- Mientras la ronda está en preparación, el Gus que acompaña la carta también sostiene la bandeja tapada.
+
+## 10. Lo que no es el prototipo
 
 - Las poses son **recortes automáticos** de las láminas de referencia: cambian de golpe, sin cuadros intermedios, y alguno conserva bordes imperfectos.
 - La campana es un **dibujo superpuesto** sobre la bandeja de la pose «servir»; la pose final se genera (§7).
@@ -144,9 +186,9 @@ Después: limpiar, unificar escala y punto de apoyo, separar figuras y armar el 
 
 ---
 
-## 10. Próximos pasos
+## 11. Próximos pasos
 
-1. Ignacio prueba el prototipo en el celular y marca qué cambiar.
-2. **0.3:** generar las 5 poses nuevas con los prompts de §7 y aprobar la hoja maestra de Gus.
+1. Ignacio prueba la v2 en el celular y marca qué cambiar.
+2. **0.3:** pedir los 38 PNG de §7.1 (o generar las poses con los prompts de §7) y aprobar la hoja maestra de Gus.
 3. **0.6:** componente `Companion` con atlas y cuadros intermedios, y la solución para la superposición en celular.
 4. **1.2:** la demo del restó-bar usa esta experiencia completa.
