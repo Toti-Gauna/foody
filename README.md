@@ -2,6 +2,8 @@
 
 **Eclipse para locales de comida** (en Eclipse-Web figura como «Foody», nombre provisorio). Plataforma para locales de comida de Mar del Plata, empezando por un restó-bar: carta y pedido desde la mesa por QR, reservas, juegos de mesa, pasaporte de fidelidad, personajes de marca y visor 3D. **Powered by Eclipse.**
 
+Demo en línea: **https://toti-gauna.github.io/foody/** (La carta de Gus, se publica sola desde `main` con GitHub Actions).
+
 Estado: **planificación**. Todavía no hay código de aplicación. Este repo reúne la dirección visual, los personajes y el roadmap.
 
 ## Documentos
