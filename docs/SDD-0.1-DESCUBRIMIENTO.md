@@ -1,6 +1,6 @@
 # SDD · Fase 0.1 · Descubrimiento · Eclipse para locales de comida
 
-Estado: **borrador para validar** · 2026-10-28 · Responsable: Ignacio · Redacción: Claude.
+Estado: **cerrado con la segunda ronda** · 2026-10-28 · Responsable: Ignacio · Redacción: Claude.
 Basado en las respuestas de Ignacio a la ronda de preguntas A–H. Lo que no fue respondido o es supuesto mío está marcado **(supuesto)** o aparece en §14.
 
 ---
@@ -281,3 +281,27 @@ Pendientes: qué cotización del dólar se usa y con qué frecuencia se recalcul
 ## 16. Próximo paso
 
 Con las respuestas de §15 se cierra la fase 0.1 y se abre la **0.2 Contrato visual de la página**. El roadmap `ROADMAP.md` ya tiene los ajustes v4.1.
+
+
+---
+
+## 17. Segunda ronda de respuestas (cierre de la fase 0.1)
+
+| # | Pregunta | Respuesta | Tratamiento |
+|---|---|---|---|
+| 1 | Personaje del piloto y nombres | Se aprueban los nombres. No eligió personaje del piloto | **Default: Gus (Mesero)**; Barry y Rocco como alternativas |
+| 2 | JavaScript o TypeScript | TypeScript estricto | Next.js con TypeScript estricto |
+| 3 | Cotización del dólar | Referencia de hoy; se cambia por mes | Cotización del día del alta, actualizada una vez por mes (la fuente exacta se define en 1.12) |
+| 4 | Mesas | Está bien | 3 cuadradas chicas, 2 circulares grandes, 3 rectangulares medianas |
+| 5 | ¿El cafetero prepara los tragos? | Sí | Estación de barra única: café y tragos |
+| 6 | Aceptación del encargado | «sip» | Interpretado como **configurable por local** |
+| 7 | Impresora y pantalla | Modelo de impresora: no sabe. Pantalla: celular o PC | Pantallas web adaptables; impresora a relevar con el local |
+| 8 | Subdominio | foody.eclipse-business.com | Definido |
+| 9 | Retención de datos | 12 meses | Anonimizar a los 12 meses |
+| 10 | Mayoría de edad en tragos | Lo define el mesero | Verificación en persona; la app solo avisa |
+
+**Decisiones nuevas:** D34 nombres de personajes aprobados · D35 TypeScript estricto · D36 cotización mensual de referencia · D37 mesas confirmadas · D38 barra única · D39 aceptación configurable · D40 pantalla en celular o PC · D41 subdominio foody.eclipse-business.com · D42 retención de 12 meses · D43 verificación de edad por el mesero.
+
+**Pendientes no bloqueantes con default** (ver `ROADMAP.md`, §11): menú del día dentro de Contact, reservas y señas, reinicio del stock, carta en inglés con IA, premios de juegos, facturación de la suscripción y pago único del sistema.
+
+**Fase 0.1 cerrada.** El roadmap v5 incorpora todo.

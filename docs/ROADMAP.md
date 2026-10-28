@@ -1,257 +1,231 @@
-# Eclipse para locales de comida · Roadmap v4
+# Eclipse para locales de comida · Roadmap v5
 
-Estado: propuesta para revisar · 2026-10-28 (ajustada con las respuestas de la fase 0.1). Reemplaza a v3. El repo se llama `foody` por historia; **el producto se llama «Eclipse para locales de comida»** (en Eclipse-Web figura como «Foody», nombre provisional).
+Estado: **plan cerrado de la fase 0.1** · 2026-10-28 · Reemplaza a v4. El repo se llama `foody` por historia; el producto es **«Eclipse para locales de comida»** y vive en **foody.eclipse-business.com**.
 
-Fuentes: Notion (V6, V3 «Efemérides», mapa V3–V6, seis planes), repos `Eclipse-Web` (guía `CLAUDE.md`, páginas de producto, precios, hero), `kinetic-studio`, `games-market`, `agents`, `supplements-ecommerce`, y los packs de imágenes y personajes de este repo.
+Fuentes: SDD de la fase 0.1 (`SDD-0.1-DESCUBRIMIENTO.md`), Notion (V6, V3 «Efemérides», mapa V3–V6, seis planes), repos `Eclipse-Web`, `kinetic-studio`, `games-market`, `agents`, `supplements-ecommerce`, y los packs de imágenes y personajes de este repo.
 
-**Regla de oro:** pedir nunca depende de juegos, personaje, 3D o video. Cada función se marca real, simulada o prevista.
+**Regla de oro:** pedir nunca depende de juegos, personaje, 3D o video. Cada función se marca como real, simulada o prevista.
 
----
-
-## 0. Qué cambió respecto de v3
-
-1. **Nombre:** «Eclipse para locales de comida». Es un producto de Eclipse, no una marca aparte.
-2. **Estética «Efemérides» completa** (la dirección de arte de Eclipse), en lugar de glass y brasas naranja/rojo en todo el sitio. Ver §5, incluida la nota sobre dónde sobrevive el calor naranja/rojo.
-3. **Orden de la página:** hero → qué ofrecemos para cada tipo de negocio → demos → planes de precios → resto.
-4. **Vive en Eclipse-Web** (página de producto bajo `/[locale]/productos/…`), siguiendo las reglas de ese repo. El producto en sí sigue en el repo `foody`.
-5. Todo lo demás de v3 se mantiene: tandas por plan, 4 comercios, personajes elegibles, Mi Eclipse con datos de cobro, Academy/Media/Utilería, prompt de imágenes.
+**Cómo leer las columnas.** *Modelo y esfuerzo* = modelo de Claude y nivel de razonamiento con que se ejecuta la fase (Sonnet 5.5 por defecto; Opus 5.5 en hitos justificados; Haiku 5.5 en lo mecánico). *Tamaño* = trabajo relativo (S, M, L, XL); no son fechas. Reglas del repo `agents`: SDD antes de tocar código, un lote y un PR a la vez, y el gasto en APIs, Higgsfield o créditos requiere OK de Ignacio.
 
 ---
 
-## 0.1 Ajustes v4.1 (respuestas de la fase 0.1)
+## 1. Producto en una frase
 
-Detalle y fuentes en `SDD-0.1-DESCUBRIMIENTO.md`. Lo que cambia respecto de lo anterior:
-
-1. **Piloto:** un **restó-bar generalista con carta completa** (tipo Barracuda), no la heladería. Se suma como quinto comercio. Se vende mostrando demos; todavía no hay dueño de contacto.
-2. **El pedido no se cobra en la app.** Se paga en caja o con el postnet del local. Eclipse cobra solo su suscripción. Desaparece el estado «pagado» del pedido y el proveedor de pagos del pedido.
-3. **El personaje lo asigna Eclipse al configurar el local** (no lo elige el cliente). Si el local ya tiene mascota, se adapta a medida. Debe ser coherente con el rubro (un helado no representa a un restó-bar).
-4. **Juegos por plan:** Contact ninguno; Growth 6 juegos solos estables; Escalar y superiores suman 5 juegos en red. El local activa o desactiva cada uno.
-5. **Solo salón y reservas** (sin delivery ni retiro). Cuenta dividida y propina por la app: fuera de alcance.
-6. **Suscripción en pesos atada al dólar**; proveedor a elegir entre 3.
-7. **Stack:** Next.js en JavaScript para todo; infraestructura compartida de USD 100/mes y USD 200/mes en suscripciones de IA.
-8. **«Powered by Eclipse» siempre visible** (subtítulo o pie). **Subdominio propio.** Soporte a cargo de Ignacio, incluido.
-
-## 1. Producto y dónde vive
-
-| Pieza | Dónde | Notas |
-|---|---|---|
-| Página comercial «Eclipse para locales de comida» | `Eclipse-Web`, `/[locale]/productos/<id>/` (hoy `foody`, `status: planned`) | es, en, pt con next-intl; contenido comercial en `content/*.json`; export estático |
-| Producto (carta, pedido, reservas, juegos, panel) | repo `foody` | Independiente; TableFlow no se usa |
-| Portal del suscriptor | Mi Eclipse | Plan, pagos, soporte, entregas |
-| Demos | Capa «Ver demo» de Eclipse-Web (`DemoExperienceHost`) | Patrón de la demo Lumen |
-| Subdominio propio | Pendiente (como se hizo con EstateOS, D11) | Decisión de Ignacio |
-
-**Reglas de Eclipse-Web que se heredan:** honestidad (sin testimonios ni clientes inexistentes; todo negocio ficticio lleva la etiqueta «Demo» y no se parece a una marca real); nada de copy fijo en componentes; mobile-first sin scroll horizontal a 360 px y objetivos táctiles de 44 px; accesibilidad AA y foco visible; movimiento reducido en todo; animar solo `transform`, `opacity` y `clip-path`; sin dependencias nuevas sin motivo fuerte; **un solo CTA ámbar sólido por viewport**.
-
-Nombre en los tres idiomas (propuesta): es «Eclipse para locales de comida» · en «Eclipse for food businesses» · pt «Eclipse para locais de comida».
+Un restó-bar escanea un QR por mesa: el comensal ve la carta, pide para sí o para toda la mesa, el mozo también carga pedidos, y las comandas llegan a la cocina y a la barra (pantalla en celular o PC, e impresora). El encargado acepta, cambia y anula, y maneja carta, stock, menú del día, mesas y reservas. **No se cobra nada dentro de la app**: se paga en caja o con el postnet. Eclipse cobra solo una **suscripción mensual o anual al local**. Un personaje de marca acompaña la carta.
 
 ---
 
-## 2. Los 4 comercios
+## 2. Decisiones cerradas
 
-| Comercio | Marca de referencia | Estética de su app | Personajes a elegir | Funciones propias |
-|---|---|---|---|---|
-| **Cervecería** | Antares | Cobre y ámbar, madera y barriles | Barril robot · Escorpión estelar · Hamburguesa · Lúpulo · Oso cervecero | Estilos, tamaños, picadas, maridajes, mayoría de edad |
-| **Bar** | Barracuda | Azul eléctrico y ámbar, nocturna | Barracuda · Copa cóctel · Luna · Mapache · Pizza | Rondas y grupo en mesa, cócteles, eventos, mayoría de edad |
-| **Café** | La Fonte d'Oro | Dorado, crema, mármol | Colibrí · Gota dorada · Medialuna · Mesero · Taza | Retiro, combos, franjas del día, sellos |
-| **Heladería** | Helatto | Pasteles vibrantes | Cono nube · Frutilla · Palito helado · Pingüino · Remolino | Tamaño y sabores con límite, conservación, 3D del cucurucho |
-
-| **Restó-bar (piloto)** | Tipo Barracuda | A definir con el SDD (generalista, carta completa) | A elegir entre los de bar, café y cervecería; recomendado Mesero | Salón de 8 mesas, comandas a cocina y barra, reservas por solicitud, menú del día |
-
-Las marcas reales requieren **autorización escrita**. Las **demos son siempre ficticias** (no pueden parecerse a una marca real). El restaurante queda como variante futura (hay demo Alba, sin personajes).
+| Tema | Decisión |
+|---|---|
+| Piloto | Restó-bar generalista con carta completa (tipo Barracuda), quinto comercio. Se vende primero con demos |
+| Servicio | Solo salón y reservas. Sin delivery, retiro, propina por la app ni cuenta dividida |
+| Cobro del pedido | **Fuera de la app** (caja o postnet). Sin estado «pagado» |
+| Quién pide | Comensal (para sí o para toda la mesa) y mozo. Aceptación del encargado **configurable** por el local |
+| Salida | Pantalla (celular o PC) **e** impresora. Modelo de impresora: a relevar en el local |
+| Salón y equipo | 8 mesas: 3 cuadradas chicas, 2 circulares grandes, 3 rectangulares medianas. 2 en cocina, 1 mozo, 1 encargado, 1 cafetero |
+| Estaciones | **Cocina** y **barra** (el cafetero prepara café y tragos) |
+| Cambios | El encargado cambia o anula platos; queda registro |
+| Stock | El encargado decide si un producto tiene límite; se descuenta solo. El mozo igual avisa en persona |
+| Carta | La carga el local. Demo: 11 tipos × 4 productos = 44. Variantes (punto de la carne, sin gluten) y agregados (extra tomate). Fotos con IA. Carta en español e inglés |
+| Menú del día | En un modal (dentro de Contact). Happy hour y festividades con cambio de estética: más adelante |
+| Reservas | Solicitud que el local confirma. La seña se acuerda por fuera |
+| Mayoría de edad | Lo define y verifica el mesero en persona; la app solo muestra un aviso |
+| Personajes | Los 20 existentes, con **nombres aprobados**. Los **asigna Eclipse** al local, coherentes con el rubro. Si el local ya tiene mascota, se adapta a medida. Piloto: **Gus (Mesero)** por defecto |
+| Juegos | Solo diversión; hay menores. Puntaje para ganar algo que valida el mozo. El local activa los que quiere |
+| Datos | Nombre y mesa. El local es responsable; alojados en Neon de Eclipse. **Retención: 12 meses** |
+| Suscripción | En pesos atada al dólar: **cotización de referencia del día del alta, actualizada una vez por mes**. Proveedor: Mercado Pago, con Pago Nube y Payway como alternativas |
+| Facturación | Eclipse no factura pedidos. La facturación de la suscripción: pendiente |
+| Stack | **Next.js con TypeScript estricto** para todo; Neon (Postgres); es/en/pt |
+| Dominio | **foody.eclipse-business.com** |
+| Marca | «Powered by Eclipse» siempre visible (subtítulo o pie) |
+| Soporte | Lo da Ignacio, incluido |
+| Presupuesto | USD 100/mes de infraestructura compartida y USD 200/mes en suscripciones (Claude, ChatGPT, Higgsfield, Meshy, ElevenLabs) |
+| Estética | Página: **Efemérides** de Eclipse, con hero más chico y rápido. Apps y demos de cada local: identidad propia, sin Efemérides |
 
 ---
 
-## 3. Planes (USD/mes, el mismo precio para los 4 comercios)
+## 3. Planes (USD/mes, el mismo precio para los 4 comercios y el restó-bar)
 
 | Plan | Precio | Qué incluye |
 |---|---|---|
-| **Contact** | 30 | Web de marca, carta por QR, pedido y cola básica, solicitud de reserva, CRM, cuenta y suscripción, personaje en la carta (saludar, anotar, agradecer) |
-| **Growth** | 75 | Hereda + juegos, pasaporte, misiones, Regalos, Estudio, disponibilidad y lista de espera, personaje animado |
-| **Escalar** | 100 | Hereda + web premium hiperrealista, mundo inmersivo Higgsfield, tráiler, visor 3D/RA, plano de mesas y estaciones |
+| **Contact** | 30 | Web del local, carta por QR, pedido de comensal y mozo, panel del encargado, pantalla e impresión de comandas, stock, menú del día, solicitud de reserva, CRM básico, personaje en la carta (saludar, anotar, agradecer) |
+| **Growth** | 75 | Hereda + 6 juegos solos, premios por puntaje, pasaporte y misiones, Regalos, Estudio, disponibilidad y lista de espera, personaje animado completo |
+| **Escalar** | 100 | Hereda + 5 juegos en red (hasta Pinturillo) y Adiviná en la frente, web premium hiperrealista, mundo inmersivo con Higgsfield, tráiler, 3D/RA, plano de mesas y estaciones |
 | **Hípergrowth** | 150 | Hereda + analítica por sucursal |
 | **Deluxe** | 200 | Hereda + asistente IA interno |
 | **Partner** | 500 (propuesta) | Hereda + varias sucursales, permisos y reportes por sucursal |
 
-**Juegos por plan:** Contact ninguno. Growth: Serpiente, Vuelo, Saltarín, Catapulta, Ninja y Combinaciones (solos, estables, sin red). Escalar, Hípergrowth, Deluxe y Partner suman Pong (hockey de mesa), Rompeladrillos, Tetris duelo, Ludo y Pinturillo (en red; hoy en beta). El local elige cuáles activa.
+Referencia, sujeta a costeo. Se muestra como **precio de referencia** en la página, con selector de moneda y sin tachados. Pendientes: pago único del sistema más mantenimiento bajo, costo de alta si lo hubiera, consumos.
 
-**Juegos por plan:** Contact ninguno. Growth: Serpiente, Vuelo, Saltarín, Catapulta, Ninja y Combinaciones (solos, estables, sin red). Escalar, Hípergrowth, Deluxe y Partner suman Pong (hockey de mesa), Rompeladrillos, Tetris duelo, Ludo y Pinturillo (en red; hoy en beta). El local elige cuáles activa.
-
-Referencia, sujeta a costeo. Pendientes: compra y mantenimiento (o pago único del sistema más mantenimiento bajo), setup, consumos. Sin comisión por pedido. En la página, los precios se muestran como **«precio de referencia»** con selector de moneda (ARS, BRL, USD) como en el resto de Eclipse, y nunca con tachados ni «antes $X».
+**Juegos por plan.** Contact: ninguno. Growth: Serpiente, Vuelo, Saltarín, Catapulta, Ninja y Combinaciones (solos, estables en `games-market`, sin red). Escalar y superiores suman Pong (hockey de mesa), Rompeladrillos, Tetris duelo, Ludo y Pinturillo (en red; hoy en beta y desactivados) y «Adiviná en la frente» (a construir). Hípergrowth, Deluxe y Partner: mismo catálogo que Escalar. El local activa o desactiva cada juego. Fuera por ahora: Invasores, Shooter, Carreras, Corredor, Fútbol, Pool y Espacio.
 
 ---
 
-## 4. La página, sección por sección
+## 4. Los 5 comercios
 
-Marcas de sección en mono (`01 / INICIO`…) con el riel de efemérides del sitio.
-
-| # | Sección | Qué muestra | Zona |
+| Comercio | Referencia | Personajes (nombre) | Particularidades |
 |---|---|---|---|
-| 01 | **Hero** | H1 y una acción. Un eclipse total sobre el cielo nocturno; la corona ilumina un plato hiperrealista y lo revela. Un solo CTA ámbar | Noche |
-| 02 | **Qué ofrecemos para cada tipo de negocio** | Índice de 4 líneas (cervecería, bar, café, heladería) con **un preview activo** (vista cenital hiperrealista + qué incluye + su personaje). En móvil, lista plegable. Debajo: «Restaurantes: próximamente» | Noche |
-| 03 | **Demos** | Cuatro demos ficticias, cada una con su propia identidad y etiqueta «Demo». «Ver demo» abre la capa a pantalla completa. Selector «Elegí tu personaje» dentro de cada demo | Noche → amanecer |
-| 04 | **Planes de precios** | Libro de precios (ledger): seis filas con glifo de fase lunar, precio en mono, qué suma cada plan, mensual/anual, moneda. Growth destacada. «Ver demo de este plan» y «Pedir este plan» | Amanecer (dawn) |
-| 05 | **Cómo empezamos** | Tres pasos: elegís comercio y personaje, cargás tu carta, imprimís el QR | Amanecer |
-| 06 | **Y lo demás de Eclipse** | Academy, Media, Utilería (Equipamiento) | Amanecer |
-| 07 | **Preguntas** | Qué pasa si falla algo, pagos, datos, mayoría de edad | Amanecer |
-| 08 | **Contacto** | WhatsApp y registro. Cierre: el eclipse se retira y sale el sol | Amanecer |
+| **Restó-bar (piloto)** | Barracuda | Mesero **Gus** (recomendado), Barracuda **Barry**, Mapache **Rocco** | Carta completa, 8 mesas, cocina y barra, reservas, menú del día |
+| Bar | Barracuda | Barry, Cocó, Lula, Rocco, Pizzi | Rondas, cócteles, aviso de mayoría de edad |
+| Cervecería | Antares | Robi, Antar, Burgi, Lupi, Bruno | Estilos y tamaños, picadas, aviso de mayoría de edad |
+| Café | La Fonte d'Oro | Coli, Dora, Mimi, Gus, Tazzi | Combos, franjas del día, sellos |
+| Heladería | Helatto | Nubi, Fru, Pali, Pingo, Rulo | Tamaño y sabores con límite |
 
-Hero y planes reutilizan componentes de Eclipse-Web (candidatos a verificar): `Hero`, `Eclipse`, `Starfield`, `EphemerisRail`, `PhaseGlyph`, `SkyTransition`, `UnitLedger`, `ProductLevels`/`Levels`, `CurrencySwitcher`, `DemoExperienceHost`.
-
-Copy candidato (rioplatense, concreto): H1 «Tu local, pidiendo desde la mesa.» · Lead «Carta con QR, reservas, juegos y un personaje que atiende con vos. Para cervecerías, bares, cafés y heladerías.» · CTA «Ver las demos» y secundaria «Ver planes». El CTA global «Quiero potenciar mi negocio» sigue flotando y se aparta cuando hay otro ámbar en pantalla.
+Todos solo salón. Las **demos son siempre ficticias** y llevan la etiqueta «Demo»; no pueden parecerse a una marca real. Usar nombre, logo o fotos de una marca real requiere autorización escrita.
 
 ---
 
-## 5. Estética Efemérides aplicada
+## 5. La página (foody.eclipse-business.com)
 
-**Idea:** *observatorio comercial*. La luz revela una capacidad concreta; el visitante elige qué ver y conserva el control. El eclipse es firma, no obstáculo.
+Estética **Efemérides** (observatorio comercial). Hero **más chico y rápido** que el de Eclipse, con H1 y una sola acción en ámbar. Orden: hero → qué ofrecemos para cada tipo de negocio → demos → planes de precios → cómo empezamos → resto de Eclipse → preguntas → contacto. Marcas de sección en mono, Geist, Geist Mono e Instrument Serif; glass solo en el header; zonas de noche que abren a amanecer para leer precios; un ámbar sólido por viewport; es/en/pt; contenido en JSON; movimiento reducido; etiqueta «Demo». El naranja y rojo sobreviven en la corona del eclipse y en la fotografía de comida. Detalle de secciones, copy y partitura de movimiento en la versión anterior del roadmap (`git log`) y en `PROMPT-IMAGENES.md` (tomas E01–E13).
 
-- **Paleta:** noche `void #05050A` → `night #0C0C14`, superficies `ash #1A1A24`; amanecer `dawn #F4EFE6` y `ink #111114`; `corona #F5B942` para fuente de luz, CTA y selección; `flare #FFE8B0` para el evento lumínico; `mist #9A97A6` para texto secundario (sobre dawn, `deep #8A5A00` y `muted #5B5866`).
-- **Tipografía:** Geist (UI y cuerpo), **Geist Mono** (lecturas, índices, unidades y precios) e **Instrument Serif** (un acento editorial por sección).
-- **Estructura:** contenedor máximo 1240 px, gutter 16 móvil y 32 desde 768; líneas de 1 px, glifos de fase e índices como orientación; sin tarjetas genéricas repetidas ni emojis.
-- **Un ámbar sólido por viewport.** El resto, links o contorno.
-- **Glass solo en el header** (superficie fija con blur moderado y fallback opaco). Ninguna tarjeta en glass y ningún blur animado de pantalla completa.
-- **Zonas:** home oscura que abre a zonas dawn para leer precios y método (`SkyTransition`).
-- **Dónde sobreviven el naranja y el rojo:** en la **corona del eclipse** (virando de ámbar a naranja cálido en el hero) y en la **fotografía de comida** (luz de brasa sobre los platos). Es un fondo estático o de movimiento mínimo, con alternativa sin blur en gama baja. **Cambio respecto de lo pedido antes** (fondo animado naranja/rojo con blur y todo en glass): el contrato Efemérides lo restringe, y la instrucción más reciente es usar «toda la estética Efemérides». Si querés recuperar más calor, se puede ampliar en el hero y en las demos.
-- **Demos y apps de cada local: fuera de Efemérides.** Cada una con su paleta, su tipografía y su personaje. Antares no se parece a Helatto, y ninguna se parece a una marca real.
-- **«Powered by Eclipse»:** firma discreta en el pie de la carta y de la web de cada local (en la página de Eclipse no hace falta).
-
-**Partitura de movimiento (a especificar y medir antes de implementar):**
-
-1. Carga: loader actual salteable; H1 y CTA renderizados desde servidor.
-2. Header: superficie que flota con `data-scrolled`, blur fijo.
-3. Hero: el eclipse cubre y descubre el plato (un solo evento), parallax de estrellas, vapor del plato en loop corto y pausado fuera de pantalla.
-4. Índice «Qué ofrecemos»: cambio de preview con crossfade de 180–240 ms y desplazamiento máximo de 12 px.
-5. Demos: se abren como el eclipse existente («hacia la luz»), con «Saltar» siempre operativo; no dos eclipses seguidos.
-6. Planes: filas que se encienden al entrar; glifo de fase que cambia por plan.
-7. Cierre: amanecer.
-
-Límites: máximo dos movimientos principales simultáneos; sin animación decorativa en reposo; todo con limpieza; movimiento reducido = estático o fundido ≤ 150 ms; audio apagado por defecto.
+**Demos:** una por comercio (restó-bar ficticio, bar «Neón 21», café «Grano», heladería «Gelato Pop», cervecería a nombrar) con identidad propia. La demo de cada plan crece con su tanda.
 
 ---
 
-## 6. Demos
+## 6. Personajes y reacciones
 
-Cuatro demos ficticias, una por comercio, con etiqueta «Demo» visible y estado simulado identificado. Cada una crece con la tanda de plan:
-
-| Demo (ficticia) | Comercio | Identidad |
-|---|---|---|
-| Cervecería ficticia (nombre a elegir) | Cervecería | Cobre y ámbar, madera |
-| Neón 21 | Bar | Azul eléctrico y ámbar |
-| Grano | Café | Kraft, crema y verde bosque |
-| Gelato Pop | Heladería | Pasteles redondeados |
-
-Por plan: la demo de **Contact** muestra la carta, el pedido, la solicitud de reserva y el personaje; la de **Growth** suma juegos y pasaporte; la de **Escalar** suma mundo inmersivo, 3D y plano de mesas. Una capa «Ver demo de este plan» por fila del libro de precios, como en Roofy. Las demos usan datos de ejemplo claramente identificados y no tocan datos reales.
+20 personajes con nombre aprobado, 15 acciones y 50 poses clave cada uno (`assets/personajes/`, `personajes.json`). Reacciones por evento: **anotar al bajar la carta** (al cambiar de categoría), saludar al entrar, agradecer al enviar, esperar al preparar, celebrar un premio real, error con acción, pedir la cuenta. Pausa mínima de 8 s entre reacciones; esquina fija sin tapar precios ni botones; éxito solo tras una confirmación real; movimiento reducido = pose quieta. Antes de animar: hoja maestra, limpiar variantes, separar o vectorizar y completar intermedios. Detalle en `PERSONAJES.md`.
 
 ---
 
-## 7. Personajes
+## 7. Mi Eclipse
 
-20 personajes (5 por comercio), 15 acciones y 50 poses clave cada uno. Eclipse asigna el personaje al configurar el local (el cliente no lo elige); si el local ya tiene mascota, se adapta a medida con Media. Debe ser coherente con el rubro. Un solo sistema de animación con paquetes intercambiables. Reacciones por evento: **anotar al bajar la carta**, agradecer al enviar, esperar al preparar, celebrar un premio real, error con acción; prioridades y pausa mínima de 8 s; movimiento reducido = pose quieta. Antes de animar hay que producir hoja maestra, limpiar variantes, separar o vectorizar y completar intermedios. Detalle en `PERSONAJES.md`.
-
----
-
-## 8. Mi Eclipse
-
-Alta guiada (cuenta, negocio, plan, personaje, cobro), datos para cobrar (titular, CUIT, condición frente al IVA, domicilio fiscal, email de facturación, método tokenizado), suscripción mensual, facturación, equipo, y dentro: Academy, Media y Utilería. El acceso se habilita solo con el pago acreditado. Detalle en `PORTAL-CUENTA.md`.
+Registro, datos de cobro de la suscripción (titular, CUIT, condición frente al IVA, domicilio fiscal, email de facturación, método tokenizado), plan, equipo y soporte; dentro, Academy, Media y Utilería. El acceso se habilita solo con la suscripción acreditada. No hay cobros de pedidos. Detalle en `PORTAL-CUENTA.md`.
 
 ---
 
-## 9. Producción visual
+## 8. Roadmap por tandas
 
-Con ChatGPT: vista cenital hiperrealista de barras y mesas, platos y bebidas, fondos, recortes individuales, mockups. Con SVG: íconos simples como código; personajes y fondos complejos se vectorizan después. Con Higgsfield (desde Escalar, con OK de gasto): un mundo inmersivo por comercio. Prompt completo en `PROMPT-IMAGENES.md` (v4, estética Efemérides).
-
----
-
-## 10. Roadmap por tandas
-
-Modelos: **Sonnet 5.5 por defecto**, **Opus 5.5 en hitos justificados** (dirección creativa, arquitectura, seguridad, pagos, netcode, QA final), **Haiku 5.5** en lo mecánico. Reglas del repo `agents`: SDD antes de tocar código; el gasto en APIs, Higgsfield o créditos requiere OK de Ignacio. Cada tanda termina con un hito vendible probado en un piloto. Un lote por vez y un PR a la vez.
+Cada tanda termina con un **hito vendible** probado en un piloto.
 
 ### Tanda 0 · Cimientos
 
-| Fase | Entregable | Modelo · esfuerzo |
-|---|---|---|
-| 0.1 Descubrimiento y SDD | Brief por comercio y marca, sucursales, autorizaciones, orden de ataque (propuesta: cervecería, bar, café, heladería) | Sonnet · medium |
-| 0.2 Contrato visual de la página | Aplicar Efemérides al producto: matriz de animaciones (trigger, duración, easing, reducido, audio, limpieza), presupuesto visual por viewport, rúbrica de 14 puntos | Opus · high |
-| 0.3 Curación de personajes | Hoja maestra aprobada de cada uno de los 20, tabla pose↔evento, manifiesto | Opus · high |
-| 0.4 Lote 1 de imágenes | Hero, previews cenitales, fondos, íconos, mockups con el prompt v4 | Sonnet · medium |
-| 0.5 Arquitectura y repo | ADR de stack, modelo comercio → marca → sucursal → mesa → sesión → pedido, paquetes de tema y de personaje, auth, QR firmado, suscripciones | Opus · xhigh |
-| 0.6 Personaje a código | Componente `Companion`, máquina de estados, atlas, galería, 3 poses piloto por personaje | Sonnet · high |
+| Fase | Entregable | Modelo y esfuerzo | Tamaño |
+|---|---|---|---|
+| 0.1 Descubrimiento y SDD | **Cerrada** con estas decisiones | Sonnet · medium | S |
+| 0.2 Contrato visual de la página | Efemérides aplicada a una página corta y rápida: matriz de animaciones, presupuesto visual por viewport, rúbrica de 14 puntos, hero chico | Opus · high | M |
+| 0.3 Personaje piloto | Hoja maestra de **Gus** (y de Barry y Rocco si se quieren), tabla pose↔evento, manifiesto | Opus · high | M |
+| 0.4 Lote 1 de imágenes | Hero, previews cenitales, fondos y restó-bar piloto (C01–C10); 44 productos de la carta demo con IA | Sonnet · medium (prompts de producto con Haiku · low) | M |
+| 0.5 Arquitectura y repo | ADR con Next.js TypeScript estricto, Neon, roles y permisos, sesión de mesa firmada por QR, **decisión de tiempo real** (conexiones persistentes o alternativa), **decisión de impresión** (formato térmico del navegador o programa local), retención de 12 meses, aislamiento entre locales, suscripciones, i18n, CI | **Opus · xhigh** | L |
+| 0.6 Personaje a código | Componente `Companion` con máquina de estados, atlas y manifiesto, galería de prueba, 3 poses piloto | Sonnet · high | M |
 
-### Tanda 1 · **Contact (USD 30)** × 4 comercios
+### Tanda 1 · **Contact (USD 30)**
 
-| Fase | Entregable | Modelo · esfuerzo |
-|---|---|---|
-| 1.1 **Página en Eclipse-Web** | Secciones 01 a 08: hero, qué ofrecemos por tipo, demos, planes, cómo empezamos, resto de Eclipse, preguntas, contacto; es/en/pt; contenido en JSON | Sonnet · high (hero y eclipse con Opus · high) |
-| 1.2 Demos Contact ×4 | Las cuatro demos con carta, pedido, solicitud de reserva y personaje | Sonnet · high |
-| 1.3 Mi Eclipse v1 | Registro, datos de cobro, suscripción mensual, elegir comercio y plan, onboarding (el personaje lo configura Eclipse) | Opus · high (pagos); Sonnet · high (UI) |
-| 1.4 Carta y pedido por QR | Carta por sucursal, variantes, carrito por mesa, envío, aceptación, agotados | Sonnet · high |
-| 1.5 Estados y concurrencia | Máquina de estados, idempotencia, pruebas de carrera, modificación y anulación por el encargado (el pedido no se cobra en la app) | Opus · xhigh |
-| 1.6 Panel básico y solicitud de reserva | Cola, carta, mesas, clientes, agenda | Sonnet · high |
-| 1.7 Personaje en la carta | Saludar, anotar al bajar, agradecer; logo viajero básico | Sonnet · high |
-| 1.8 Academy, Media y Utilería v1 | Catálogo y pedido simple en el portal | Sonnet · medium |
-| 1.9 QA visual y piloto | Gate adversarial contra la línea base, LCP ≤ 2,5 s, CLS ≤ 0,1, INP ≤ 200 ms (objetivos, no mediciones); 1 marca real | Opus · high |
+**Orden:** primero la página y las demos (hito vendible 1), después el motor, y al final el piloto con un local real.
 
-Entrega por comercio dentro de la tanda (1A cervecería, 1B bar, 1C café, 1D heladería; la primera con autorización manda):
+| Fase | Entregable | Modelo y esfuerzo | Tamaño |
+|---|---|---|---|
+| 1.1 Página en foody.eclipse-business.com | Secciones de §5, es/en/pt, contenido en JSON, planes con precio de referencia | Sonnet · high (hero con Opus · high) | L |
+| 1.2 Demos ×5 | Restó-bar, bar, café, heladería y cervecería ficticios, con carta, pedido y personaje, simulados e identificados | Sonnet · high | L |
+| **Hito 1: demo vendible** | | | |
+| 1.3 Base del producto | Locales, usuarios y roles, mesas y QR firmado | Sonnet · high; revisión de seguridad Opus · high | L |
+| 1.4 Carta y catálogo | Tipos, productos, variantes, agregados, stock con límite, agotados, es/en | Sonnet · high | L |
+| 1.5 Pedido del comensal y del mozo | Sesión de mesa, nombre, carrito, enviar, pedir para toda la mesa, cuenta de mesa, pedir la cuenta | Sonnet · high | L |
+| 1.6 Estados, concurrencia y stock | Máquina de estados, idempotencia, pruebas de carrera, aceptación configurable, modificación y anulación con auditoría | **Opus · xhigh** | L |
+| 1.7 Pantallas e impresión de comandas | Pantalla de cocina y de barra (celular o PC), impresión, sin duplicar | Sonnet · high; Opus · high en impresión | L |
+| 1.8 Panel del encargado | Aceptar, cambiar, anular, stock, carta, menú del día, mesas, cierre de mesa | Sonnet · high | L |
+| 1.9 Menú del día | Modal con foto, texto y precio | Sonnet · medium | S |
+| 1.10 Reservas por solicitud | Formulario, agenda, confirmar, rechazar, reprogramar | Sonnet · high | M |
+| 1.11 Personaje en la carta | Saludar, anotar al bajar, agradecer, esperar, pedir la cuenta (Gus) | Sonnet · high | M |
+| 1.12 Mi Eclipse v1 | Registro, datos fiscales, suscripción con Mercado Pago, precio en pesos con cotización de referencia mensual, onboarding | **Opus · high** (pagos); Sonnet · high (UI) | L |
+| 1.13 Privacidad y retención | Términos, roles de responsable y encargado, anonimización a los 12 meses | Sonnet · medium | S |
+| 1.14 Academy, Media y Utilería v1 | Catálogo y pedido simple en el portal | Sonnet · medium | M |
+| 1.15 QA y piloto | E2E, carrera de stock, impresión real, 360 px, AA, LCP 2,5 s, CLS 0,1, INP 200 ms como objetivos | **Opus · high** | L |
+| **Hito 2: Contact operando en un local** | | | |
 
-| | 1A Cervecería | 1B Bar | 1C Café | 1D Heladería |
+**Adaptaciones al resto de comercios** (reusan el motor; solo tema, carta, personaje y particularidades):
+
+| Fase | Comercio | Entregable | Modelo y esfuerzo | Tamaño |
 |---|---|---|---|---|
-| Carta | Estilos, tamaños, picadas, maridajes | Cócteles, rondas por persona o grupo | Combos, franjas, retiro | Tamaño y sabores con límite |
-| Particularidad | Mayoría de edad | Mayoría de edad | Retiro en mostrador | Conservación en entrega |
-| Reserva | Sí | Sí | Opcional | No |
+| 1A | Bar | Tema, carta de cócteles y rondas, personaje, aviso de mayoría de edad | Sonnet · high | M |
+| 1B | Cervecería | Estilos, tamaños, picadas, personaje, aviso | Sonnet · high | M |
+| 1C | Café | Combos, franjas del día, sellos, personaje | Sonnet · high | M |
+| 1D | Heladería | Tamaños, sabores con límite, personaje | Sonnet · high | M |
 
-### Tanda 2 · **Growth (USD 75)** × 4
+### Tanda 2 · **Growth (USD 75)**
 
-| Fase | Entregable | Modelo · esfuerzo |
-|---|---|---|
-| 2.1 Motor de juegos | Extraer motor y red de `games-market`; verificar salas en tiempo real para producción (peerNet es P2P) | Opus · high |
-| 2.2 Juegos por comercio | Skin con el personaje elegido | Sonnet · high |
-| 2.3 Pasaporte y misiones | Sellos por visita, consumo, exploración y temporada; canje validado por personal | Sonnet · high; revisión Opus · high |
-| 2.4 Regalos y Estudio | Regalos de producto; plantillas de contenido | Sonnet · high |
-| 2.5 Reservas con disponibilidad | Capacidad, recordatorios, lista de espera | Sonnet · high |
-| 2.6 Personaje animado | Las 15 acciones ligadas a eventos reales | Sonnet · high |
-| 2.7 Academy y demos Growth | Rutas por comercio; capa de demo con juegos y pasaporte | Sonnet · medium |
-| 2.8 QA y piloto | Salas, reconexión, canjes | Opus · high |
+| Fase | Entregable | Modelo y esfuerzo | Tamaño |
+|---|---|---|---|
+| 2.1 Juegos en la app | Integrar los 6 juegos estables de `games-market` en Next.js; skin con el personaje y contenido gastronómico | Sonnet · high | L |
+| 2.2 Premios por puntaje | El local define puntaje y premio; validación del mozo en persona | Sonnet · high | M |
+| 2.3 Disponibilidad de juegos | Activar y desactivar cada juego; flags por plan | Sonnet · medium | S |
+| 2.4 Pasaporte y misiones | Sellos por visita validada por personal, sin doble sello ni doble canje | Sonnet · high; revisión Opus · high | L |
+| 2.5 Regalos y Estudio | Regalos de producto; plantillas de contenido | Sonnet · high | M |
+| 2.6 Reservas con disponibilidad | Capacidad, recordatorios, lista de espera | Sonnet · high | M |
+| 2.7 Personaje animado | Las 15 acciones ligadas a eventos reales | Sonnet · high | L |
+| 2.8 Academy y demo Growth | Rutas por comercio; demo con juegos y pasaporte | Sonnet · medium | M |
+| 2.9 QA y piloto | Juegos, canjes, accesibilidad | Opus · high | M |
 
-Juegos propuestos: cervecería (trivia, brindis); bar (dibujo y adivinanza, adiviná en la frente: hay que construirlo); café (memoria, palabras); heladería (match-3 de sabores, ninja de frutas).
+### Tanda 3 · **Escalar (USD 100)**
 
-### Tanda 3 · **Escalar (USD 100)** × 4
-
-| Fase | Entregable | Modelo · esfuerzo |
-|---|---|---|
-| 3.1 Web premium | Hiperrealismo, parallax, motion del local | Sonnet · high (dirección Opus · high) |
-| 3.2 Mundo inmersivo | Escena Higgsfield por comercio atada al scroll, con foto fija de respaldo (con OK de gasto) | Opus · high; Sonnet · medium |
-| 3.3 Tráiler de marca | 30–45 s en Kinetic Studio con el personaje | Opus · high (guion); Sonnet · high |
-| 3.4 3D / RA | Visor y 3 productos piloto por comercio | Sonnet · medium |
-| 3.5 Salón y estaciones | Plano de mesas, enrutamiento, demoras | Sonnet · high |
-| 3.6 Secuencias completas | Las 10 secuencias de 5 poses | Sonnet · high |
-| 3.7 Demos Escalar y QA | Capa de demo con mundo inmersivo y 3D | Opus · high |
-
-Mundos: cervecería = bodega nocturna estrellada; bar = puerto y mar al atardecer; café = salón dorado con fuente; heladería = mundo de sabores.
+| Fase | Entregable | Modelo y esfuerzo | Tamaño |
+|---|---|---|---|
+| 3.1 Salas en tiempo real | Verificar `peerNet` (P2P) para producción y decidir servicio de salas | **Opus · high** | L |
+| 3.2 Juegos en red | Pong (hockey), Rompeladrillos, Tetris duelo, Ludo y Pinturillo; reconexión sin duplicar puntos | Sonnet · high | XL |
+| 3.3 Adiviná en la frente | Juego nuevo | Sonnet · high | M |
+| 3.4 Web premium | Hiperrealismo, parallax, motion del local | Sonnet · high; dirección Opus · high | L |
+| 3.5 Mundo inmersivo | Escena con Higgsfield atada al scroll, con foto fija de respaldo (con OK de gasto) | Opus · high; Sonnet · medium | L |
+| 3.6 Tráiler de marca | 30–45 s en Kinetic Studio con el personaje | Opus · high (guion); Sonnet · high | L |
+| 3.7 3D / RA | 3 platos piloto con Meshy y visor, probado en dispositivos | Sonnet · medium | M |
+| 3.8 Plano de mesas y estaciones | Plano del salón, enrutamiento por estación, demoras | Sonnet · high | M |
+| 3.9 Secuencias completas | Las 10 secuencias de 5 poses del personaje | Sonnet · high | L |
+| 3.10 Sonido | Efectos y voz con ElevenLabs o WebAudio, apagado por defecto | Sonnet · medium | S |
+| 3.11 QA y piloto | Rendimiento en celulares reales, red degradada | Opus · high | M |
 
 ### Tandas 4 a 7
 
-- **Tanda 4 · Hípergrowth (150):** analítica por sucursal sin atribuir causalidad inexistente. Sonnet · high; Opus · high en métricas.
-- **Tanda 5 · Deluxe (200):** asistente IA interno, acciones sensibles confirmadas, topes de costo. Opus · high.
-- **Tanda 6 · Partner (500, propuesta):** varias sucursales, permisos y reportes por sucursal, aislamiento entre sucursales. Opus · xhigh.
-- **Tanda 7 · Escala comercial:** las 4 marcas con su contrato de marca, personaje y juegos; migración de cartas; capacitación en Academy; materiales en Utilería. Sonnet · medium.
+| Tanda | Entregable | Modelo y esfuerzo | Tamaño |
+|---|---|---|---|
+| 4 · Hípergrowth (150) | Embudo, ticket, ocupación, ausencias, tiempos de preparación, canjes y costo de incentivos, sin atribuir causalidad inexistente | Sonnet · high; Opus · high en métricas | L |
+| 5 · Deluxe (200) | Asistente IA interno; acciones sensibles confirmadas y registradas; topes de costo | Opus · high | L |
+| 6 · Partner (500) | Varias sucursales: permisos, reglas y reportes por sucursal; aislamiento | **Opus · xhigh** | XL |
+| 7 · Escala comercial | Incorporar los comercios con su contrato de marca, personaje y juegos; migración de cartas; capacitación en Academy; materiales en Utilería | Sonnet · medium | M |
 
 ---
 
-## 11. Aceptación mínima
+## 9. Aceptación mínima
 
-- **Visual:** gate adversarial contra la línea base; foco, contraste AA, Back, movimiento reducido y etiqueta «Demo» son binarios y bloqueantes; si se ve peor que la base, no se mergea.
-- Dos pedidos simultáneos no venden la misma unidad; un reintento no duplica pedido ni cobro.
-- Dos reservas no ocupan el mismo cupo.
-- Un comercio o sucursal nunca lee datos de otro.
-- Un sello o canje no se otorga dos veces; el puntaje del navegador no acredita premios.
-- Si falla personaje, juego, 3D o video, la carta y el pedido siguen funcionando.
-- El personaje no tapa precios ni botones; «éxito» solo tras una confirmación real.
-- No se guardan números de tarjeta.
-- Una demo nunca se hace pasar por un cliente real.
+- Dos pedidos simultáneos no venden la última unidad; un reintento no duplica el pedido.
+- El encargado cambia o anula un plato y la estación lo ve en segundos (umbral a fijar).
+- Un pedido mixto llega a cada estación y la mesa lo ve completo.
+- Nunca se muestra una reserva «confirmada» si solo es solicitud.
+- Una mesa o un local nunca ve datos de otro.
+- La app no procesa ni menciona pagos de pedidos.
+- Si falla personaje, menú del día, juego, 3D o video, la carta y el pedido siguen.
+- El personaje no tapa precios ni botones; éxito solo tras confirmación real.
+- Un sello o canje no se otorga dos veces; el puntaje del navegador no acredita premios por sí solo.
+- AA, 360 px sin scroll horizontal, movimiento reducido y etiqueta «Demo»; si se ve peor que la línea base, no se mergea.
 
 ---
 
-## 12. Abierto
+## 10. Riesgos
 
-Comercio piloto y orden de ataque · autorización de cada marca · nombre de la cervecería ficticia · subdominio propio · stack (Next.js como Eclipse-Web y Volta, o Vite como games-market) · servicio de salas en tiempo real · proveedor de pagos y de facturación electrónica · precios de compra, mantenimiento, comisión y Partner · restaurante como quinto comercio · CTA exacto del hero · cuánto calor naranja/rojo se mantiene más allá de la corona · gasto en ChatGPT, Higgsfield y APIs (requiere OK).
+| Riesgo | Mitigación |
+|---|---|
+| Tiempo real en Next.js (funciones sin conexiones largas) | ADR en 0.5: servicio de conexiones persistentes o alternativa para las comandas |
+| Impresión de comandas desde la web | Probar con la impresora real; formato térmico del navegador o programa local |
+| Mercado Pago: monto atado al dólar | Verificar antes de 1.12 que permita actualizar el monto cada mes; si no, evaluar Pago Nube |
+| Juegos en red en beta | No se venden hasta superar 3.1 y 3.2 |
+| Personajes sin producción | 0.3 y 0.6 antes de animar; no se promete animación fluida con las láminas |
+| Datos de comensales | Local responsable, Eclipse encargado, 12 meses, términos |
+| Demo que parezca un cliente real | Etiqueta «Demo», marcas ficticias |
+| Alcohol y menores | Aviso en la app; verificación del mesero; sin premios con alcohol |
+
+---
+
+## 11. Pendientes no bloqueantes (defaults propuestos; se cierran si no se objeta)
+
+- **Personaje del piloto:** Gus (Mesero). Barry o Rocco como alternativas.
+- **Cotización del dólar:** oficial vendedor del día del alta; se actualiza una vez por mes. Reutilizar la fuente de cotizaciones de Eclipse-Web.
+- **Aceptación del encargado:** configurable por local («sip»).
+- **Reservas:** turnos y duración configurables por el encargado; la seña se anota como dato informativo.
+- **Stock con límite:** se reinicia a mano o cada día, a elegir por producto.
+- **Carta en inglés:** traducida con IA y revisada por el encargado.
+- **Premios de juegos:** el local define puntaje y premio; ejemplo: un postre al llegar a un puntaje.
+- **Facturación de la suscripción de Eclipse:** a definir con el contador.
+- **Pago único del sistema más mantenimiento:** pendiente de costeo.
+- **Modelo de impresora:** a relevar en el local.
