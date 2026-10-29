@@ -1,0 +1,235 @@
+{
+ "canvas": 696,
+ "baseline": 672,
+ "axis": 348,
+ "poses": {
+  "01-saludar": {
+   "sheet": 1,
+   "parts": 1,
+   "w": 356,
+   "h": 540
+  },
+  "02-agradecer": {
+   "sheet": 1,
+   "parts": 1,
+   "w": 261,
+   "h": 497
+  },
+  "03-presentar-carta": {
+   "sheet": 1,
+   "parts": 1,
+   "w": 340,
+   "h": 539
+  },
+  "04-servir": {
+   "sheet": 1,
+   "parts": 1,
+   "w": 444,
+   "h": 541
+  },
+  "05-esperar": {
+   "sheet": 1,
+   "parts": 1,
+   "w": 244,
+   "h": 538
+  },
+  "06-irse-con-cuenta": {
+   "sheet": 2,
+   "parts": 1,
+   "w": 392,
+   "h": 568
+  },
+  "07-anotar": {
+   "sheet": 2,
+   "parts": 1,
+   "w": 254,
+   "h": 534
+  },
+  "08-sorpresa": {
+   "sheet": 2,
+   "parts": 1,
+   "w": 393,
+   "h": 545
+  },
+  "09-triste": {
+   "sheet": 2,
+   "parts": 1,
+   "w": 267,
+   "h": 513
+  },
+  "10-celular": {
+   "sheet": 2,
+   "parts": 1,
+   "w": 325,
+   "h": 545
+  },
+  "11-celebrar": {
+   "sheet": 3,
+   "parts": 1,
+   "w": 404,
+   "h": 558
+  },
+  "12-pensar": {
+   "sheet": 3,
+   "parts": 1,
+   "w": 257,
+   "h": 549
+  },
+  "13-senalar": {
+   "sheet": 3,
+   "parts": 1,
+   "w": 383,
+   "h": 542
+  },
+  "14-caminar-con-cuenta": {
+   "sheet": 3,
+   "parts": 1,
+   "w": 359,
+   "h": 544
+  },
+  "15-limpiar": {
+   "sheet": 3,
+   "parts": 1,
+   "w": 392,
+   "h": 504
+  },
+  "saludo-f1": {
+   "sheet": 4,
+   "parts": 1,
+   "w": 333,
+   "h": 543
+  },
+  "saludo-f2": {
+   "sheet": 4,
+   "parts": 1,
+   "w": 338,
+   "h": 543
+  },
+  "asoma": {
+   "sheet": 4,
+   "parts": 1,
+   "w": 327,
+   "h": 317
+  },
+  "mareado": {
+   "sheet": 4,
+   "parts": 1,
+   "w": 324,
+   "h": 523
+  },
+  "busto": {
+   "sheet": 4,
+   "parts": 1,
+   "w": 238,
+   "h": 238
+  },
+  "anota-f1": {
+   "sheet": 5,
+   "parts": 1,
+   "w": 286,
+   "h": 570
+  },
+  "anota-f2": {
+   "sheet": 5,
+   "parts": 1,
+   "w": 284,
+   "h": 566
+  },
+  "anota-f3": {
+   "sheet": 5,
+   "parts": 1,
+   "w": 289,
+   "h": 572
+  },
+  "bandeja-tapada": {
+   "sheet": 5,
+   "parts": 1,
+   "w": 414,
+   "h": 573
+  },
+  "espia": {
+   "sheet": 5,
+   "parts": 1,
+   "w": 326,
+   "h": 571
+  },
+  "camina-tapada-f1": {
+   "sheet": 6,
+   "parts": 1,
+   "w": 403,
+   "h": 552
+  },
+  "camina-tapada-f2": {
+   "sheet": 6,
+   "parts": 1,
+   "w": 395,
+   "h": 552
+  },
+  "camina-tapada-f3": {
+   "sheet": 6,
+   "parts": 1,
+   "w": 389,
+   "h": 552
+  },
+  "camina-tapada-f4": {
+   "sheet": 6,
+   "parts": 1,
+   "w": 395,
+   "h": 557
+  },
+  "camina-tapada-f5": {
+   "sheet": 6,
+   "parts": 1,
+   "w": 403,
+   "h": 553
+  },
+  "corre-tapada-f1": {
+   "sheet": 7,
+   "parts": 1,
+   "w": 487,
+   "h": 552
+  },
+  "corre-tapada-f2": {
+   "sheet": 7,
+   "parts": 1,
+   "w": 517,
+   "h": 558
+  },
+  "corre-tapada-f3": {
+   "sheet": 7,
+   "parts": 1,
+   "w": 537,
+   "h": 511
+  },
+  "corre-tapada-f4": {
+   "sheet": 7,
+   "parts": 1,
+   "w": 494,
+   "h": 549
+  },
+  "corre-tapada-f5": {
+   "sheet": 7,
+   "parts": 1,
+   "w": 498,
+   "h": 556
+  },
+  "campana-f1": {
+   "sheet": 8,
+   "parts": 1,
+   "w": 348,
+   "h": 551
+  },
+  "campana-f2": {
+   "sheet": 8,
+   "parts": 1,
+   "w": 362,
+   "h": 550
+  },
+  "campana-f3": {
+   "sheet": 8,
+   "parts": 1,
+   "w": 369,
+   "h": 565
+  }
+ }
+}
