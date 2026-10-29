@@ -121,7 +121,7 @@ Sin texto, sin sombras de piso.
 
 Después: limpiar, unificar escala y punto de apoyo, separar figuras y armar el atlas (fase 0.6).
 
-### 7.1 Pedido de PNG de Gus (para el diseñador o ChatGPT)
+### 7.1 Pedido de PNG de Gus (para el diseñador o ChatGPT) · entregado, ver §10
 
 Los recortes automáticos de las láminas tienen límites: escala distinta entre poses, bordes y saltos. Con PNG limpios el personaje se ve parejo y se puede animar cuadro a cuadro.
 
@@ -176,19 +176,48 @@ Total: 38 PNG.
 - **Escena:** el globo va sobre la cabeza de Gus; la cocina habla («¡Marchando!», «¡Dos minutos, Gus!»); sale caminando con la bandeja tapada, corre cuando está lista y al entregar levanta la campana con chispas.
 - Mientras la ronda está en preparación, el Gus que acompaña la carta también sostiene la bandeja tapada.
 
-## 10. Lo que no es el prototipo
+## 10. Prototipo v3 (con las 38 poses nuevas)
 
-- Las poses son **recortes automáticos** de las láminas de referencia: cambian de golpe, sin cuadros intermedios, y alguno conserva bordes imperfectos.
-- La campana es un **dibujo superpuesto** sobre la bandeja de la pose «servir»; la pose final se genera (§7).
+**Poses.** Las 8 láminas generadas están en `assets/personajes/cafe/mesero/laminas/`. Los 38 PNG transparentes están en `.../png/`, con `manifest.json`; se regeneran con `tools/recortar-laminas.py`.
+
+- Lienzo cuadrado de 696 px. El pedido decía 1024, pero las láminas traen a Gus a unos 540 px de alto y agrandarlo no suma detalle.
+- Pies sobre la misma línea (y = 672) y cadera sobre el eje central.
+- Escala igualada midiendo la cara en cada pose: la lámina 7 (correr) salió 15 % más chica y se corrigió; la 6, la 8 y el «asoma», un 3 a 9 %.
+
+**Animación con cuadros reales.**
+- Saludo de dos cuadros en el logo.
+- Escritura de tres cuadros cada vez que anota.
+- Camina con la bandeja tapada desde la cocina y corre a la mesa cuando la ronda está lista.
+- Destapa la campana en tres cuadros, con chispas desde el plato.
+- Espía debajo de la campana mientras la ronda se prepara («No le digas a la cocina que espié»).
+- Mira el celular si te quedás quieto.
+- Se marea si bajás rápido.
+- Limpia la mesa cuando pediste la cuenta.
+
+**Estética.**
+- Fondo con dos luces cálidas que se mueven lento y grano de película.
+- Vidrio ahumado en el encabezado, las categorías, la barra y la hoja.
+- El nombre «Lucero» en bronce con un brillo que lo cruza una vez.
+- Categorías numeradas con línea de bronce y fotos con viñeta y la etiqueta «Imagen ilustrativa».
+- Escena con lámpara, vela que titila y ojo de buey de la cocina que late mientras cocinan.
+
+**Celular.**
+- La barra flota con bordes redondeados.
+- Gus está parado sobre la barra: en reposo muestra el busto y para reaccionar sube entero.
+- Ya no tapa los botones +, que quedan a la derecha.
+
+## 11. Lo que no es el prototipo
+
+- Las poses cambian por cuadros sueltos, sin interpolación entre poses distintas.
 - No hay servidor: el envío espera 700 ms y los pasos del local se simulan con botones.
-- Fotos: 5 del pack de imágenes; faltan entradas y parrilla.
+- Fotos: 5 del pack de imágenes, ilustrativas; faltan entradas y parrilla.
 - Lucero es un local ficticio (demo).
 
 ---
 
-## 11. Próximos pasos
+## 12. Próximos pasos
 
-1. Ignacio prueba la v2 en el celular y marca qué cambiar.
-2. **0.3:** pedir los 38 PNG de §7.1 (o generar las poses con los prompts de §7) y aprobar la hoja maestra de Gus.
+1. Ignacio prueba la v3 en el celular y marca qué cambiar.
+2. **0.3:** aprobar los 38 PNG como hoja maestra de Gus (§10).
 3. **0.6:** componente `Companion` con atlas y cuadros intermedios, y la solución para la superposición en celular.
 4. **1.2:** la demo del restó-bar usa esta experiencia completa.
