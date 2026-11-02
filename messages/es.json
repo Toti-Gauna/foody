@@ -464,6 +464,39 @@
         "handed": "Premios de esta noche",
         "noneYet": "Todavía nadie ganó nada esta noche.",
         "games": "Juegos que ven tus clientes"
+      },
+      "academy": {
+        "title": "Eclipse Academy",
+        "sub": "Ideas para que tu local venda más, listas para usar esta semana.",
+        "sectionsLabel": "Secciones de la Academy",
+        "sections": {
+          "digital": {
+            "title": "Ideas para marketing digital",
+            "sub": "Redes, Google y tu carta en el celular."
+          },
+          "fisico": {
+            "title": "Ideas para marketing físico",
+            "sub": "La vereda, la vidriera y la mesa."
+          }
+        },
+        "filterLabel": "Mostrar",
+        "filter": {
+          "all": "Todo",
+          "video": "Videos",
+          "doc": "Documentos",
+          "photo": "Fotos"
+        },
+        "kind": {
+          "video": "Video",
+          "doc": "Documento",
+          "photo": "Foto"
+        },
+        "read": "{n} min de lectura",
+        "watch": "{n} min",
+        "sample": "Ejemplo",
+        "sampleNote": "Las guías son reales. Videos y fotos son de ejemplo hasta tener los definitivos.",
+        "videoSoon": "Acá va el video. Lo grabamos antes del lanzamiento.",
+        "close": "Cerrar"
       }
     },
     "games": {

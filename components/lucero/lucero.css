@@ -47,15 +47,28 @@
   border-bottom: 1px solid var(--l-line);
 }
 .ld-back span {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 @media (min-width: 560px) {
   .ld-back span,
   .ld-note {
     display: inline;
   }
+  .ld-back span {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+  }
 }
 .ld-back {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -98,14 +111,24 @@
   color: var(--l-muted);
 }
 .ld-plan span {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 @media (min-width: 420px) {
   .ld-plan span {
-    display: inline;
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
   }
 }
 .ld-plan {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 8px;
