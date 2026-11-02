@@ -1,0 +1,195 @@
+/* 03 · Demo */
+.ds {
+  background: linear-gradient(180deg, #2a0f17 0%, var(--night) 55%, var(--void) 100%);
+  padding-block: 96px;
+  overflow: hidden;
+}
+.ds-wrap {
+  display: grid;
+  gap: 48px;
+}
+.ds-index {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ds-title {
+  margin-top: 16px;
+  font-size: clamp(2.6rem, 9vw, 5.25rem);
+  line-height: 0.94;
+}
+.ds-lead {
+  margin-top: 16px;
+  max-width: 34rem;
+  color: var(--fg-muted);
+}
+.ds-steps {
+  margin-top: 26px;
+  border-top: 1px solid var(--line);
+}
+.ds-steps li {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.ds-step-n {
+  font-size: 0.75rem;
+  color: var(--fg-muted);
+}
+.ds-step-name {
+  font-size: 1.45rem;
+  line-height: 1.1;
+}
+.ds-step-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.ds-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--corona);
+  box-shadow: 0 0 10px var(--corona);
+}
+.ds-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+.ds-plans {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin-top: 22px;
+}
+.ds-plans ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ds-plan {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--fg);
+}
+.ds-plan:hover {
+  border-color: var(--corona);
+}
+.ds-stage {
+  position: relative;
+  min-height: 360px;
+}
+.ds-window {
+  position: absolute;
+  inset: 0 18% 8% 0;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #1a1113;
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 60px 120px -24px rgb(0 0 0 / 0.95), 0 0 120px -20px rgb(194 101 47 / 0.55);
+  transform: perspective(1800px) rotateY(-8deg) rotateX(3deg);
+  transform-origin: 30% 50%;
+}
+.ds-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 12px;
+  background: #120a0c;
+}
+.ds-bar i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4a3438;
+}
+.ds-url {
+  flex: 1;
+  margin-left: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: #bfae98;
+}
+.ds-badge,
+.ds-phone-badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #f3e6d0;
+  color: #1a1113;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.ds-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 16px;
+}
+.ds-col {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+.ds-ticket {
+  padding: 10px;
+  border-radius: 8px;
+  background: #2a1b1e;
+  border: 1px solid #4a3438;
+  color: #f3e6d0;
+  font-size: 0.8125rem;
+}
+.ds-ticket.is-new {
+  border-color: var(--corona);
+  box-shadow: 0 0 0 3px rgb(242 163 92 / 0.18);
+}
+.ds-phone {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 42%;
+  max-width: 230px;
+  aspect-ratio: 9 / 18;
+  border-radius: 30px;
+  border: 6px solid #0a0506;
+  background: radial-gradient(120% 80% at 50% 10%, #3b1220, #1a1113 70%);
+  box-shadow: 0 40px 90px -16px rgb(0 0 0 / 0.95), 0 0 80px -10px rgb(194 101 47 / 0.6);
+  overflow: hidden;
+}
+.ds-phone img {
+  position: absolute;
+  left: -10%;
+  bottom: 0;
+  width: 120%;
+  height: auto;
+}
+.ds-phone-badge {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media (min-width: 1024px) {
+  .ds-wrap {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: 56px;
+    align-items: center;
+  }
+  .ds-stage {
+    min-height: 520px;
+  }
+}

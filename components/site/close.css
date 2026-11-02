@@ -1,0 +1,58 @@
+/* 06 · Cierre: the sun comes out */
+.cl {
+  background: linear-gradient(180deg, var(--void) 0%, #3b1220 55%, #7a3b22 100%);
+  padding-block: 104px 88px;
+  overflow: hidden;
+}
+.cl-sun {
+  position: absolute;
+  right: -25vmax;
+  bottom: -40vmax;
+  width: 80vmax;
+  height: 80vmax;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(255 246 223 / 0.85) 0 12%, rgb(255 217 138 / 0.6) 22%, rgb(245 162 58 / 0.35) 44%, transparent 72%);
+  pointer-events: none;
+}
+.cl-wrap {
+  position: relative;
+  display: grid;
+  gap: 48px;
+}
+.cl-index {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cl-title {
+  margin-top: 16px;
+  font-size: clamp(3rem, 12vw, 8rem);
+  line-height: 0.9;
+}
+.cl-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+.cl-faq {
+  display: grid;
+  gap: 0 40px;
+}
+.cl-faq > div {
+  padding: 18px 0;
+  border-top: 1px solid var(--line-strong);
+}
+.cl-faq dt {
+  font-size: 1.6rem;
+  line-height: 1.1;
+}
+.cl-faq dd {
+  margin-top: 6px;
+  color: var(--fg-muted);
+}
+@media (min-width: 1024px) {
+  .cl-faq {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

@@ -13,8 +13,254 @@
     "title": "This page does not exist.",
     "back": "Go home"
   },
-  "placeholder": {
-    "title": "Eclipse for restaurants",
-    "text": "We are building the site. Coming very soon."
+  "site": {
+    "skip": "Skip to content",
+    "brand": "Eclipse",
+    "tagline": "for restaurants",
+    "demoBadge": "Demo",
+    "nav": {
+      "label": "Sections",
+      "offer": "What we offer",
+      "demo": "Demo",
+      "plans": "Plans",
+      "others": "Other businesses"
+    },
+    "hero": {
+      "section": "Home",
+      "sub": "Your venue on the phone too: the menu with Gus, the waiter who takes every order, the venue CRM and games for the table.",
+      "cta": "See what we offer",
+      "demo": "Try the demo",
+      "status": "In the works",
+      "from": "From {price} a month",
+      "statusNote": "Three plans with published prices. We set it up over WhatsApp.",
+      "demoNote": "Lucero is a fictional venue, built to show the product."
+    },
+    "offer": {
+      "section": "What we offer",
+      "title": "Everything that happens <em>at the table</em>.",
+      "lead": "Guests scan the QR, browse the menu and order. Gus writes it down, takes the ticket to the kitchen and comes back with the dish. You see it all in the CRM.",
+      "from": "From the {price} plan",
+      "items": {
+        "carta": {
+          "name": "Menu with Gus",
+          "text": "The menu on the phone, with an animated waiter who writes down every dish, takes the ticket and comes back with the tray."
+        },
+        "crm": {
+          "name": "Venue CRM",
+          "text": "Live orders, kitchen, customers with their history and the menu with stock, on one screen."
+        },
+        "juegos": {
+          "name": "Games and wheel",
+          "text": "While the food is on its way: phone games and a prize wheel to win the daily menu or a deal."
+        },
+        "academy": {
+          "name": "Table and Academy",
+          "text": "Games for everyone at the table —draw and guess, hockey— and Eclipse Academy: ideas for digital and on-site marketing."
+        }
+      },
+      "soonLabel": "Coming soon",
+      "soonNote": "Not in any plan yet",
+      "soon": {
+        "reservas": "Bookings",
+        "web": "Venue website",
+        "platos": "3D dishes"
+      }
+    },
+    "demo": {
+      "section": "Demo",
+      "title": "Try it before you <em>choose</em>.",
+      "lead": "Lucero is a fictional venue. Order from the table as a guest and watch the venue CRM at the same time.",
+      "steps": {
+        "pedir": "Order from the table",
+        "gus": "Watch Gus take the ticket",
+        "jugar": "Play while the food comes",
+        "crm": "Handle the order in the CRM"
+      },
+      "inDemo": "In the demo",
+      "open": "Open the demo",
+      "crm": "See the venue CRM",
+      "asPlan": "See the demo as the plan",
+      "plan": "{price} plan"
+    },
+    "plans": {
+      "section": "Plans",
+      "title": "Three plans. <em>Pick yours.</em>",
+      "lead": "In US dollars, per month. Each plan includes everything in the one before.",
+      "perMonth": "a month",
+      "includes": "Includes",
+      "plus": "Everything in the {price} plan, plus",
+      "cta": "I want this plan",
+      "demo": "See this plan’s demo",
+      "whatsappNote": "Opens in WhatsApp",
+      "message": "Hi, I want the {price} a month plan of Eclipse for restaurants for my venue.",
+      "note": "Eclipse for restaurants is in the works: message us and we set up the start. Nothing is charged on this site.",
+      "items": {
+        "25": {
+          "name": "Menu and CRM",
+          "tagline": "Your menu on the phone and your venue in order.",
+          "points": {
+            "carta": "QR menu on every table",
+            "gus": "Gus, the animated waiter who writes and carries the ticket",
+            "crm": "Venue CRM: orders, kitchen, customers and stock"
+          }
+        },
+        "50": {
+          "name": "Games and wheel",
+          "tagline": "More reasons to stay and come back.",
+          "points": {
+            "juegos": "Phone games while they wait",
+            "ruleta": "A wheel to win the daily menu or a deal",
+            "premios": "Prizes and odds you set in the CRM"
+          }
+        },
+        "75": {
+          "name": "Table and Academy",
+          "tagline": "The table plays together and your venue learns.",
+          "points": {
+            "mesa": "Games for the whole table: draw and guess, hockey",
+            "salas": "Rooms you join with a link, a code or a QR",
+            "academy": "Eclipse Academy: digital and on-site marketing"
+          }
+        }
+      }
+    },
+    "others": {
+      "section": "Other businesses",
+      "title": "And for <em>other businesses</em>.",
+      "sub": "Eclipse has one product per industry. Today Eclipse for real estate is on sale; the rest are in the works or coming next. No prices here.",
+      "listLabel": "Eclipse products for other businesses",
+      "status": {
+        "available": "Available",
+        "planned": "In the works",
+        "launch": "Launches {date}",
+        "soon": "Coming soon"
+      },
+      "noPrice": "No published price yet",
+      "soonNote": "No price or date yet",
+      "forLabel": "Eclipse for",
+      "notify": "Let me know when it’s ready",
+      "ask": "Ask for information",
+      "visit": "See Eclipse for real estate",
+      "whatsappNote": "Opens in WhatsApp",
+      "siteNote": "Opens its website",
+      "items": {
+        "roofy": {
+          "name": "Eclipse for real estate",
+          "title": "Real estate",
+          "rubro": "real estate",
+          "line": "Your agency on one screen: the website, the contacts and the viewings.",
+          "points": {
+            "web": "A website with your listings and your brand",
+            "crm": "Full CRM: contacts, inquiries and opportunities",
+            "visits": "Viewings calendar, tasks and history",
+            "chat": "A guided chat that takes every inquiry"
+          },
+          "ask": "Hi Eclipse. I'd like to know more about Roofy for my real estate agency."
+        },
+        "markyt": {
+          "name": "Eclipse for ecommerce",
+          "title": "Ecommerce",
+          "rubro": "ecommerce",
+          "line": "Your online store with everything behind it: orders, stock and customers.",
+          "points": {
+            "store": "A store with your identity and your products",
+            "catalog": "Catalog with variants, cart and checkout",
+            "orders": "Orders, payments and stock",
+            "crm": "Customers, history and after-sales"
+          },
+          "ask": "Hi Eclipse. I run a store and I'd like to hear when Eclipse for ecommerce is ready."
+        },
+        "handy": {
+          "name": "Handy",
+          "rubro": "home services",
+          "line": "Home repair specialists in Mar del Plata, from your phone.",
+          "points": {
+            "trades": "Electrical, plumbing, gas, locksmith, masonry and air conditioning",
+            "choose": "You choose the specialist; they set or accept the price",
+            "app": "A web app you can install on your phone",
+            "city": "Starting in Mar del Plata"
+          },
+          "ask": "Hi Eclipse. I'd like to know more about Handy."
+        },
+        "gym": {
+          "name": "Gyms",
+          "rubro": "fitness",
+          "line": "Your gym with an app for members: classes, streaks and challenges that bring them back.",
+          "points": {
+            "classes": "Classes and bookings from the phone",
+            "streaks": "Streaks, missions and a ranking for members",
+            "churn": "A panel of members who stop coming",
+            "winback": "Messages to win them back"
+          },
+          "ask": "Hi Eclipse. I run a gym and I'd like to hear when it's ready."
+        },
+        "dental": {
+          "name": "DentalOS",
+          "rubro": "health · dental",
+          "line": "Every visit has a next step: appointments, check-ups and the front desk in order.",
+          "points": {
+            "booking": "Appointment requests by specialty and dentist",
+            "reschedule": "Rescheduling over WhatsApp without losing the check-up",
+            "reception": "A front desk with the day's schedule and requests",
+            "patients": "Patients, estimates and payments"
+          },
+          "ask": "Hi Eclipse. I run a dental practice and I'd like to hear when DentalOS is ready."
+        },
+        "clinic": {
+          "name": "Clinics",
+          "rubro": "health",
+          "line": "Online appointments, WhatsApp reminders and fewer patients who miss them.",
+          "points": {
+            "booking": "Appointment booking from the website",
+            "reminders": "WhatsApp reminders",
+            "noshow": "A no-show panel",
+            "reception": "A front-desk schedule per practitioner"
+          },
+          "ask": "Hi Eclipse. I run a clinic and I'd like to hear when it's ready."
+        },
+        "vet": {
+          "name": "VetOS",
+          "rubro": "pets · veterinary",
+          "line": "Each pet's history together with its owner, at the practice and at home.",
+          "points": {
+            "record": "Owner, pet and front desk in one record",
+            "visits": "Appointments at the practice and home visits",
+            "zones": "Routes by area for home visits",
+            "reminders": "Notices and reminders for owners"
+          },
+          "ask": "Hi Eclipse. I run a veterinary practice and I'd like to hear when VetOS is ready."
+        }
+      }
+    },
+    "close": {
+      "section": "Closing",
+      "title": "Your venue, in <em>full light</em>.",
+      "cta": "Talk on WhatsApp",
+      "demo": "Try the demo",
+      "message": "Hi, I run a food venue and want to know more about Eclipse for restaurants.",
+      "faq": {
+        "pay": {
+          "q": "How do I pay?",
+          "a": "We set it up over WhatsApp once you pick a plan. Nothing is charged on this site."
+        },
+        "who": {
+          "q": "Does any venue use it yet?",
+          "a": "Not yet: it is in the works. Lucero, the demo venue, is fictional."
+        },
+        "need": {
+          "q": "What does my venue need?",
+          "a": "A phone or a computer for the CRM, and the QR codes on the tables."
+        }
+      }
+    },
+    "footer": {
+      "label": "Footer",
+      "back": "Back to Eclipse",
+      "note": "Test site · Lucero and its data are fictional"
+    }
+  },
+  "autoTour": {
+    "resume": "Continue the automatic tour",
+    "stop": "End the tour"
   }
 }
