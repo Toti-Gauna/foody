@@ -53,3 +53,15 @@ carga solo al abrir Catapulta. `eslint.config.mjs` apaga las reglas del compilad
 
 Escrito en foody: `games/registry.ts`, `components/lucero/games/*` (anfitrión, modal, ruleta), `components/lucero/crm/JuegosAdmin.tsx`,
 `content/lucero-prizes.json`, `public/lucero/games/*.svg`.
+
+## Fases 7–9 · salas, Dibujá y adiviná, Hockey
+
+| Archivo en foody | Origen | Cambios |
+|---|---|---|
+| `games/core/net/peerNet.ts` | games-market `src/core/net/peerNet.ts` (`477d574`) | Rutas de import y canal confiable (`reliable: true`): un trazo perdido rompe el dibujo |
+
+Nuevo en foody: `games/mesa/` (transporte intercambiable local/WebRTC/relay, `useRoom`, lobby con código, link y QR, el árbitro
+y la interfaz de «Dibujá y adiviná» para celulares, el hockey con su física), `components/lucero/games/TableGames.tsx` y la
+página `/<idioma>/sala/`. De Pinturillo de games-market se tomaron ideas (palabras dibujables en tres niveles, puntos por
+adivinar rápido), no código: aquel juego es de proyector y este es de celulares. Dependencias aprobadas: `peerjs@1.5.5`,
+`qrcode@1.5.4` (+ `@types/qrcode`). `perfect-freehand` no hizo falta.

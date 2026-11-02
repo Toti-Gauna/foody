@@ -30,11 +30,11 @@ Este archivo es el registro de avance: se actualiza al cerrar cada fase, así se
 | 2 | Secciones: Qué ofrecemos, Demo, Planes, Otros negocios, Cierre; WhatsApp con el plan | Mergeada (#5) |
 | 3 | Lucero: carta con Gus (más grande), comanda limpia, ciclo automático pedido → cocina → plato, «Tu pedido fue realizado» | Mergeada (#6) |
 | 4 | CRM de Lucero: pedidos, cocina, clientes, carta y stock, candados por plan | Mergeada (#6) |
-| 5 | Capa de juegos: modal «Mientras esperás la comida…», lista en columna a todo el ancho | Hecha (PR de fases 5–6) |
-| 6 | Juegos de 50: Ninja, Combinaciones, Catapulta y la ruleta (configurable en el CRM) | Hecha (PR de fases 5–6) |
-| 7 | Salas: crear, link, código y QR, lobby | Pendiente |
-| 8 | Dibujá y adiviná en celulares | Pendiente |
-| 9 | Hockey 1 contra 1 (nuevo) | Pendiente |
+| 5 | Capa de juegos: modal «Mientras esperás la comida…», lista en columna a todo el ancho | Mergeada (#7) |
+| 6 | Juegos de 50: Ninja, Combinaciones, Catapulta y la ruleta (configurable en el CRM) | Mergeada (#7) |
+| 7 | Salas: crear, link, código y QR, lobby | Hecha (PR de fases 7–9) |
+| 8 | Dibujá y adiviná en celulares | Hecha (PR de fases 7–9) |
+| 9 | Hockey 1 contra 1 (nuevo) | Hecha (PR de fases 7–9) |
 | 10 | Eclipse Academy en el CRM (75) | Pendiente |
 | 11 | QA: lente de plan, honestidad, accesibilidad, movimiento reducido, Playwright 360–1920 | Pendiente |
 | 12 | Backend en Foody-be: relay de salas y sincronización de pedidos entre aparatos | Pendiente |
@@ -49,6 +49,9 @@ Este archivo es el registro de avance: se actualiza al cerrar cada fase, así se
 - Lo copiado se anota con su origen en `docs/procedencia.md`.
 
 ## Pendientes conocidos
+
+- Salas sin backend: WebRTC por el broker público de PeerJS. En la WiFi del local anda; entre redes distintas (datos
+  móviles) puede no conectar sin un servidor TURN. Con Foody-be (fase 12) las salas pasan por su relay y andan en cualquier red.
 
 - Los textos dentro de los juegos copiados de games-market (pantalla de inicio, HUD) están en español en los tres idiomas:
   traducirlos obliga a tocar el código copiado. Se hace cuando se decida.

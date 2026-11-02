@@ -517,6 +517,80 @@
         "nothingShort": "Outra vez",
         "note": "Um giro por pedido. Prêmios de exemplo: cada local escolhe os seus."
       }
+    },
+    "mesa": {
+      "metaTitle": "Sala de jogo · Lucero (demo)",
+      "demo": "Demo",
+      "code": "Código da sala",
+      "qrAlt": "QR para entrar na sala {code}",
+      "shareHow": "Escaneiem o QR, abram o link ou digitem o código.",
+      "copy": "Copiar o link",
+      "copied": "Link copiado",
+      "waitHost": "Esperando quem criou a sala começar…",
+      "players": "{n, plural, one {# na sala} other {# na sala}}",
+      "hostLabel": "Criou a sala",
+      "you": "você",
+      "status": {
+        "connecting": "Conectando…",
+        "online": "Conectado",
+        "reconnecting": "Reconectando…",
+        "failed": "Não deu para conectar. Tente na mesma WiFi."
+      },
+      "start": "Começar",
+      "needMore": "Precisa de {n} para começar",
+      "vsGus": "Jogar contra o Gus",
+      "leave": "Sair da sala",
+      "hostName": "Mesa 4",
+      "badLink": "Esse link de sala não funciona.",
+      "toDemo": "Ir para a demo",
+      "invited": "Você foi convidado para jogar",
+      "yourName": "Seu nome",
+      "namePlaceholder": "Como a sala vê você",
+      "join": "Entrar na sala",
+      "note": "O Lucero é um local fictício: a sala é de teste.",
+      "dibujo": {
+        "starting": "Começando…",
+        "draw": "Desenhe",
+        "was": "Era",
+        "maskLabel": "Palavra de {n} letras",
+        "round": "Rodada {n} de {total}",
+        "choose": "Escolha o que desenhar:",
+        "level": {
+          "0": "Fácil",
+          "1": "Média",
+          "2": "Difícil"
+        },
+        "choosing": "{name} está escolhendo o que desenhar…",
+        "undo": "Desfazer",
+        "clear": "Apagar tudo",
+        "colors": "Cores",
+        "sizes": "Espessura",
+        "canvasMine": "Seu desenho",
+        "canvasOf": "O desenho de {name}",
+        "feedRight": "{name} acertou",
+        "feedClose": "{name} está quase",
+        "gotIt": "Acertou! Espere os outros.",
+        "guessLabel": "Sua resposta",
+        "guessPlaceholder": "O que é?",
+        "send": "Enviar",
+        "winner": "{name} ganhou",
+        "again": "Outra partida",
+        "waitAgain": "Esperando outra partida…"
+      },
+      "hockey": {
+        "you": "Você",
+        "to": "até {n}",
+        "gus": "Gus",
+        "rival": "Rival",
+        "tableLabel": "Mesa de hóquei: seu taco está embaixo",
+        "goalYou": "Gol!",
+        "goalThem": "Gol deles",
+        "won": "Você ganhou!",
+        "lost": "Você perdeu",
+        "again": "Revanche",
+        "waitAgain": "Esperando a revanche…",
+        "help": "Mova o taco com o dedo. O seu gol é o de baixo."
+      }
     }
   }
 }

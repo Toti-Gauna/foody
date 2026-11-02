@@ -517,6 +517,80 @@
         "nothingShort": "Next time",
         "note": "One spin per order. Example prizes: each venue picks its own."
       }
+    },
+    "mesa": {
+      "metaTitle": "Game room · Lucero (demo)",
+      "demo": "Demo",
+      "code": "Room code",
+      "qrAlt": "QR to join room {code}",
+      "shareHow": "They scan the QR, open the link or type the code.",
+      "copy": "Copy the link",
+      "copied": "Link copied",
+      "waitHost": "Waiting for the room’s creator to start…",
+      "players": "{n, plural, one {# in the room} other {# in the room}}",
+      "hostLabel": "Created the room",
+      "you": "you",
+      "status": {
+        "connecting": "Connecting…",
+        "online": "Connected",
+        "reconnecting": "Reconnecting…",
+        "failed": "Could not connect. Try the same WiFi."
+      },
+      "start": "Start",
+      "needMore": "You need {n} to start",
+      "vsGus": "Play against Gus",
+      "leave": "Leave the room",
+      "hostName": "Table 4",
+      "badLink": "That room link doesn’t work.",
+      "toDemo": "Go to the demo",
+      "invited": "You’re invited to play",
+      "yourName": "Your name",
+      "namePlaceholder": "How the room sees you",
+      "join": "Join the room",
+      "note": "Lucero is a fictional venue: the room is a test.",
+      "dibujo": {
+        "starting": "Starting…",
+        "draw": "Draw",
+        "was": "It was",
+        "maskLabel": "{n}-letter word",
+        "round": "Round {n} of {total}",
+        "choose": "Pick what to draw:",
+        "level": {
+          "0": "Easy",
+          "1": "Medium",
+          "2": "Hard"
+        },
+        "choosing": "{name} is picking what to draw…",
+        "undo": "Undo",
+        "clear": "Clear all",
+        "colors": "Colours",
+        "sizes": "Brush size",
+        "canvasMine": "Your drawing",
+        "canvasOf": "{name}’s drawing",
+        "feedRight": "{name} got it",
+        "feedClose": "{name} is very close",
+        "gotIt": "You got it! Wait for the others.",
+        "guessLabel": "Your answer",
+        "guessPlaceholder": "What is it?",
+        "send": "Send",
+        "winner": "{name} wins",
+        "again": "Another game",
+        "waitAgain": "Waiting for another game…"
+      },
+      "hockey": {
+        "you": "You",
+        "to": "to {n}",
+        "gus": "Gus",
+        "rival": "Rival",
+        "tableLabel": "Hockey table: your paddle is at the bottom",
+        "goalYou": "Goal!",
+        "goalThem": "Their goal",
+        "won": "You won!",
+        "lost": "You lost",
+        "again": "Rematch",
+        "waitAgain": "Waiting for the rematch…",
+        "help": "Move your paddle with your finger. Your goal is the bottom one."
+      }
     }
   }
 }
