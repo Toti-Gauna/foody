@@ -262,5 +262,194 @@
   "autoTour": {
     "resume": "Continue the automatic tour",
     "stop": "End the tour"
+  },
+  "lucero": {
+    "meta": {
+      "title": "Lucero · Eclipse for restaurants demo",
+      "description": "Order from the table with Gus and watch the venue CRM. Lucero is a fictional venue."
+    },
+    "shell": {
+      "back": "Back to the site",
+      "demo": "Demo",
+      "note": "Fictional venue · test data",
+      "planLabel": "View as",
+      "planAll": "Everything open",
+      "planOption": "{price} plan",
+      "viewLabel": "What to look at",
+      "viewCarta": "Guest",
+      "viewCrm": "Venue CRM",
+      "crmLabel": "Venue CRM",
+      "cartaLabel": "The guest’s menu",
+      "phoneLabel": "The guest’s phone · table 4"
+    },
+    "carta": {
+      "demo": "Demo",
+      "table": "Table {n}",
+      "hello": "Hi! I’m Gus, your waiter.",
+      "helloSub": "What can I bring you? Pick and I’ll write it down.",
+      "catsLabel": "Menu categories",
+      "footNote": "Lucero is a fictional venue: the menu and prices are examples.",
+      "barLabel": "Your order",
+      "countN": "{n, plural, one {# item} other {# items}}",
+      "status": {
+        "sent": "Order sent",
+        "kitchen": "In the kitchen",
+        "ready": "Ready: on its way",
+        "delivered": "Delivered · enjoy!"
+      },
+      "roundN": "Order {n}",
+      "empty": "Nothing yet",
+      "emptySub": "Tap + to order",
+      "viewOrder": "See my order",
+      "viewStatus": "See how it’s going",
+      "noted1": "Got it! Let’s start.",
+      "notedN": "Got it. That’s {n}.",
+      "soldOut": "Sold out today",
+      "adult": "Over 18 only. The waiter checks at the table.",
+      "optionsOf": "Options for {dish}",
+      "less": "Remove one {dish}",
+      "more": "Add another {dish}",
+      "add": "Add {dish}"
+    },
+    "comanda": {
+      "back": "Back to the menu",
+      "title": "Your order",
+      "sub": "Table {table} · order {round}",
+      "gusAsk": "Shall I send it to the kitchen?",
+      "gusEmpty": "Nothing written down yet.",
+      "empty": "Pick something from the menu and it shows up here.",
+      "name": "Under what name?",
+      "namePlaceholder": "Your name",
+      "note": "Notes for the kitchen",
+      "notePlaceholder": "For example: no salt on the steak",
+      "total": "Total",
+      "send": "Send to the kitchen",
+      "payNote": "Nothing is paid here: you pay at the venue, as usual.",
+      "defaultName": "Table 4",
+      "less": "Remove one {dish}",
+      "more": "Add another {dish}"
+    },
+    "pedido": {
+      "title": "Your order is in!",
+      "deliveredTitle": "Enjoy your meal!",
+      "now": {
+        "sent": "Gus is taking the ticket to the kitchen.",
+        "kitchen": "The kitchen is preparing it.",
+        "ready": "It’s ready: Gus is on his way.",
+        "delivered": "It’s on your table."
+      },
+      "step": {
+        "sent": "Sent",
+        "kitchen": "In the kitchen",
+        "ready": "Ready",
+        "delivered": "On your table"
+      },
+      "play": "Play while you wait",
+      "ticket": "Order {round}",
+      "more": "Order more",
+      "bill": "Ask for the bill",
+      "billAsked": "Bill requested",
+      "tableTotal": "Table total:",
+      "payNote": "paid at the venue.",
+      "say": {
+        "sent": "Taking it to the kitchen.",
+        "kitchen": "It’s in the kitchen. I’m waiting for it.",
+        "peek": "Shh… don’t tell the kitchen I peeked.",
+        "ready": "Coming to table 4!",
+        "delivered": "Enjoy!",
+        "bill": "Bringing the bill. You pay at the venue."
+      },
+      "tableLabel": "TABLE 4",
+      "kitchen": "KITCHEN"
+    },
+    "crm": {
+      "navLabel": "CRM sections",
+      "brandSub": "Venue CRM · demo",
+      "locked": "Not in this plan",
+      "nav": {
+        "servicio": "Service",
+        "cocina": "Kitchen",
+        "clientes": "Customers",
+        "carta": "Menu and stock",
+        "juegos": "Games and wheel",
+        "academy": "Eclipse Academy"
+      },
+      "lockedText": "This section is not in the plan you are viewing. It starts in the {price} plan.",
+      "seePlan": "See the {price} plan demo",
+      "soon": "This section comes in a later phase.",
+      "servicio": {
+        "title": "Tonight’s service",
+        "sub": "Everything happening in the room, live.",
+        "kpi": {
+          "orders": "Orders today",
+          "kitchen": "In the kitchen",
+          "tables": "Tables with an order",
+          "sales": "Sales today"
+        },
+        "feed": "Latest orders",
+        "table": "Table {n}",
+        "status": {
+          "sent": "New",
+          "kitchen": "Cooking",
+          "ready": "Ready",
+          "delivered": "Delivered"
+        },
+        "ago": "{n} min ago",
+        "toKitchen": "Go to the kitchen"
+      },
+      "cocina": {
+        "title": "Kitchen",
+        "sub": "QR orders arrive on their own. Move them with a tap.",
+        "col": {
+          "sent": "New",
+          "kitchen": "Cooking",
+          "ready": "Ready",
+          "delivered": "Delivered"
+        },
+        "table": "Table {n}",
+        "ago": "{n} min ago",
+        "byQr": "via QR",
+        "byWaiter": "by the waiter",
+        "round": "order {n}",
+        "next": {
+          "sent": "Accept",
+          "kitchen": "Mark ready",
+          "ready": "Delivered"
+        }
+      },
+      "clientes": {
+        "title": "Customers",
+        "sub": "Who comes, how often they return and what they order.",
+        "listLabel": "Venue customers",
+        "visits": "{n, plural, one {# visit} other {# visits}}",
+        "tag": {
+          "frequent": "Regular",
+          "glutenFree": "Gluten-free",
+          "new": "New",
+          "birthday": "Birthday this month"
+        },
+        "fact": {
+          "visits": "Visits",
+          "spent": "Total spent",
+          "favourite": "Orders most",
+          "last": "Last visit"
+        },
+        "last": {
+          "today": "Today",
+          "lastWeek": "Last week"
+        },
+        "note": "Venue note",
+        "notePlaceholder": "For example: likes the window table",
+        "history": "Orders",
+        "order": "Order {n} · table {table}",
+        "noHistory": "No orders today yet."
+      },
+      "carta": {
+        "title": "Menu and stock",
+        "sub": "Mark a dish as sold out and the guest sees it at once.",
+        "in": "Available",
+        "out": "Sold out"
+      }
+    }
   }
 }

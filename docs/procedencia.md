@@ -30,3 +30,11 @@ Escrito en foody: `lib/env.ts`, `messages/*`, `app/[locale]/page.tsx`, `CLAUDE.m
 
 Escrito en foody: `components/site/Offer.tsx`, `DemoSection.tsx`, `Plans.tsx`, `Close.tsx` y sus CSS, `components/SiteNav.tsx`,
 `lib/sections.ts`, `lib/plans.ts`, `content/plans.json`, textos `site.*` y `tests/plans.test.ts`, `tests/products.test.ts`.
+
+## Fases 3–4 · Lucero (carta con Gus y CRM)
+
+Reescrito en React a partir del prototipo de este repo (`prototipos/carta-gus/index.html`, v3): mismas poses, misma carta y
+la misma escena (lámpara, puerta de la cocina, mesa 4, chispas al levantar la campana). Cambios pedidos por Ignacio
+(02/11/2026): Gus más grande, la comanda como una hoja limpia y el pedido que avanza solo (enviado → cocina → listo →
+entregado) sin la barra «Simular». Fotos de comida: las 5 del prototipo (`public/lucero/food/`). Carta en
+`content/lucero-menu.json` (es/en/pt). El CRM es nuevo (`components/lucero/crm/`).

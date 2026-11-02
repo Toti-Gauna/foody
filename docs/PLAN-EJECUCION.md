@@ -26,10 +26,10 @@ Este archivo es el registro de avance: se actualiza al cerrar cada fase, así se
 | # | Fase | Estado |
 |---|---|---|
 | 0 | Base: Next 16 en la raíz (copia de roofy), CI, Pages en `/foody`, prototipo en `/prototipos/carta-gus/` | Mergeada (#4) |
-| 1 | Sistema visual: paleta Brasa, hero con eclipse, header, idiomas, tour automático | Hecha (PR de fases 1–2) |
-| 2 | Secciones: Qué ofrecemos, Demo, Planes, Otros negocios, Cierre; WhatsApp con el plan | Hecha (PR de fases 1–2) |
-| 3 | Lucero: carta con Gus (más grande), comanda limpia, ciclo automático pedido → cocina → plato, «Tu pedido fue realizado» | Pendiente |
-| 4 | CRM de Lucero: pedidos, cocina, clientes, carta y stock, candados por plan | Pendiente |
+| 1 | Sistema visual: paleta Brasa, hero con eclipse, header, idiomas, tour automático | Mergeada (#5) |
+| 2 | Secciones: Qué ofrecemos, Demo, Planes, Otros negocios, Cierre; WhatsApp con el plan | Mergeada (#5) |
+| 3 | Lucero: carta con Gus (más grande), comanda limpia, ciclo automático pedido → cocina → plato, «Tu pedido fue realizado» | Hecha (PR de fases 3–4) |
+| 4 | CRM de Lucero: pedidos, cocina, clientes, carta y stock, candados por plan | Hecha (PR de fases 3–4) |
 | 5 | Capa de juegos: modal «Mientras esperás la comida…», lista en columna a todo el ancho | Pendiente |
 | 6 | Juegos de 50: Ninja, Combinaciones, Catapulta y la ruleta (configurable en el CRM) | Pendiente |
 | 7 | Salas: crear, link, código y QR, lobby | Pendiente |
