@@ -280,7 +280,15 @@
       "viewCrm": "Venue CRM",
       "crmLabel": "Venue CRM",
       "cartaLabel": "The guest’s menu",
-      "phoneLabel": "The guest’s phone · table 4"
+      "phoneLabel": "The guest’s phone · table 4",
+      "sync": {
+        "button": "Order from your phone",
+        "kicker": "Demo on two devices",
+        "title": "Scan and order from your phone",
+        "text": "Lucero’s menu opens on your phone, linked to this screen: whatever you order there shows up here in the CRM.",
+        "qrAlt": "QR code to open the menu on your phone",
+        "close": "Close"
+      }
     },
     "carta": {
       "demo": "Demo",

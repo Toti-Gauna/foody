@@ -3,12 +3,14 @@
 import { useCallback, useEffect, useState, useSyncExternalStore, type ReactNode } from 'react';
 import { useTranslations } from 'next-intl';
 import { ArrowLeft, LayoutDashboard, Smartphone } from 'lucide-react';
-import { BASE_PATH } from '@/lib/env';
+import { API_URL, BASE_PATH } from '@/lib/env';
+import { isRoomCode, newRoomCode } from '@/games/mesa/transport';
 import { formatUsd, includes, isPlanId, plans, PLAN_IDS, type PlanId } from '@/lib/plans';
 import { LuceroProvider, useLucero, type Lang } from './store';
 import { preloadGus } from './Gus';
 import { CartaApp } from './carta/CartaApp';
 import { Crm, type CrmSection } from './crm/Crm';
+import { SyncInvite } from './SyncInvite';
 import './lucero.css';
 import './crm/crm.css';
 
@@ -25,7 +27,9 @@ function readUrl(search: string) {
   const plan = q.get('plan');
   const vista = q.get('vista');
   const area = q.get('area');
+  const sync = q.get('sync');
   return {
+    sync: isRoomCode(sync) ? sync : null,
     plan: isPlanId(plan) ? plan : null,
     view: (vista === 'crm' ? 'crm' : 'carta') as View,
     section: (SECTIONS as string[]).includes(area ?? '') ? (area as CrmSection) : 'servicio',
@@ -47,7 +51,8 @@ export interface DemoExtras {
 export function LuceroDemo({ lang, extras }: { lang: Lang; extras?: DemoExtras }) {
   const fromUrl = readUrl(useSearchString());
   // What the visitor picked here wins over the URL it came with (the URL is then kept in step with replaceState).
-  const [picked, setPicked] = useState<{ plan?: PlanId | null; view?: View; section?: CrmSection }>({});
+  const [picked, setPicked] = useState<{ plan?: PlanId | null; view?: View; section?: CrmSection; sync?: string }>({});
+  const syncCode = API_URL ? (picked.sync ?? fromUrl.sync) : null;
   const plan = picked.plan !== undefined ? picked.plan : fromUrl.plan;
   const view = picked.view ?? fromUrl.view;
   const section = picked.section ?? fromUrl.section;
@@ -59,8 +64,9 @@ export function LuceroDemo({ lang, extras }: { lang: Lang; extras?: DemoExtras }
     preloadGus();
   }, []);
 
-  const sync = useCallback((next: { plan?: PlanId | null; view?: View; section?: CrmSection }) => {
+  const sync = useCallback((next: { plan?: PlanId | null; view?: View; section?: CrmSection; sync?: string }) => {
     const q = new URLSearchParams(window.location.search);
+    if (next.sync) q.set('sync', next.sync);
     if (next.plan) q.set('plan', next.plan);
     else if (next.plan === null) q.delete('plan');
     if (next.view) q.set('vista', next.view);
@@ -70,9 +76,16 @@ export function LuceroDemo({ lang, extras }: { lang: Lang; extras?: DemoExtras }
   }, []);
 
   return (
-    <LuceroProvider plan={plan} lang={lang}>
+    <LuceroProvider plan={plan} lang={lang} syncCode={syncCode}>
       <Shell
         lang={lang}
+        syncCode={syncCode}
+        onPair={() => {
+          if (syncCode) return;
+          const code = newRoomCode();
+          setPicked((c) => ({ ...c, sync: code }));
+          sync({ sync: code });
+        }}
         view={view}
         section={section}
         extras={extras}
@@ -95,6 +108,8 @@ export function LuceroDemo({ lang, extras }: { lang: Lang; extras?: DemoExtras }
 
 function Shell({
   lang,
+  syncCode,
+  onPair,
   view,
   section,
   extras,
@@ -103,6 +118,8 @@ function Shell({
   onSection,
 }: {
   lang: Lang;
+  syncCode: string | null;
+  onPair: () => void;
   view: View;
   section: CrmSection;
   extras?: DemoExtras;
@@ -114,6 +131,7 @@ function Shell({
   const { plan } = useLucero();
   const canPlay = !plan || includes(plan, 'juegos');
   const planHref = (p: PlanId) => `${BASE_PATH}/${lang}/demo/?plan=${p}&vista=crm&area=${section}`;
+  const pairLink = syncCode && typeof window !== 'undefined' ? `${window.location.origin}${BASE_PATH}/${lang}/demo/?${plan ? `plan=${plan}&` : ''}vista=carta&sync=${syncCode}` : null;
 
   return (
     <div className="ld" data-view={view}>
@@ -127,6 +145,7 @@ function Shell({
           <span className="ld-demo">{t('demo')}</span>
           <span className="ld-note">{t('note')}</span>
         </p>
+        {API_URL ? <SyncInvite link={pairLink} onOpen={onPair} /> : null}
         <label className="ld-plan">
           <span>{t('planLabel')}</span>
           <select value={plan ?? ''} onChange={(e) => onPlan(isPlanId(e.target.value) ? e.target.value : null)}>

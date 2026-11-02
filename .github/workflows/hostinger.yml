@@ -1,0 +1,49 @@
+# Deploy a Hostinger por FTPS. Solo a mano (Actions → «Deploy a Hostinger» → Run workflow, escribiendo PUBLICAR):
+# nunca corre solo. Necesita los secrets FTP_SERVER, FTP_USERNAME, FTP_PASSWORD, FTP_DIR y las variables NEXT_PUBLIC_*
+# que arma deploy/kit.mjs en github-secrets.txt.
+name: Deploy a Hostinger
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Escribí PUBLICAR para subir el sitio a Hostinger'
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: hostinger
+  cancel-in-progress: false
+jobs:
+  deploy:
+    if: inputs.confirm == 'PUBLICAR'
+    runs-on: ubuntu-latest
+    environment: hostinger
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
+          NEXT_PUBLIC_BASE_PATH: ${{ vars.NEXT_PUBLIC_BASE_PATH }}
+          NEXT_PUBLIC_API_URL: ${{ vars.NEXT_PUBLIC_API_URL }}
+          NEXT_PUBLIC_ECLIPSE_URL: ${{ vars.NEXT_PUBLIC_ECLIPSE_URL }}
+          NEXT_PUBLIC_ROOFY_URL: ${{ vars.NEXT_PUBLIC_ROOFY_URL }}
+          NEXT_PUBLIC_WHATSAPP: ${{ vars.NEXT_PUBLIC_WHATSAPP }}
+      - name: .htaccess
+        run: node --input-type=module -e "import { writeFileSync } from 'node:fs'; import { htaccess } from './deploy/htaccess.mjs'; writeFileSync('out/.htaccess', htaccess(process.env.BP));"
+        env:
+          BP: ${{ vars.NEXT_PUBLIC_BASE_PATH }}
+      - name: Subir por FTPS
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_DIR: ${{ secrets.FTP_DIR }}
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+          lftp -u "$FTP_USERNAME","$FTP_PASSWORD" -e "set ftp:ssl-force true; mirror -R --delete --parallel=4 --exclude-glob .git* out/ \"$FTP_DIR\"/; bye" "$FTP_SERVER"

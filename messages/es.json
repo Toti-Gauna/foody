@@ -280,7 +280,15 @@
       "viewCrm": "CRM del local",
       "crmLabel": "CRM del local",
       "cartaLabel": "La carta del comensal",
-      "phoneLabel": "El celular del comensal · mesa 4"
+      "phoneLabel": "El celular del comensal · mesa 4",
+      "sync": {
+        "button": "Pedí desde tu celular",
+        "kicker": "Demo en dos aparatos",
+        "title": "Escaneá y pedí desde tu celular",
+        "text": "Se abre la carta de Lucero en tu celular, conectada a esta pantalla: lo que pidas allá aparece acá en el CRM.",
+        "qrAlt": "Código QR para abrir la carta en el celular",
+        "close": "Cerrar"
+      }
     },
     "carta": {
       "demo": "Demo",

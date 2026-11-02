@@ -164,3 +164,6 @@ next-env.d.ts
 # video factory work dir (frames, mixes, QA stills)
 /.render/
 .lab-shots/
+
+# deploy kit output (has secrets)
+/deploy-out/

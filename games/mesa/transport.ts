@@ -19,7 +19,8 @@ export interface Wire {
 
 export interface MesaTransport {
   readonly id: string;
-  send(type: string, payload: unknown): void;
+  /** `to` (a peer id) is a hint: the relay sends to that one guest only; the others broadcast and the guest filters. */
+  send(type: string, payload: unknown, to?: string): void;
   on(handler: (msg: Wire) => void): () => void;
   onStatus(cb: (status: TransportStatus) => void): () => void;
   close(): void;
@@ -104,8 +105,8 @@ function wsTransport(room: string, isHost: boolean, apiUrl: string): MesaTranspo
   open();
   return {
     id,
-    send: (type, payload) => {
-      const data = JSON.stringify({ type, from: id, payload });
+    send: (type, payload, to) => {
+      const data = JSON.stringify(to ? { type, from: id, payload, to } : { type, from: id, payload });
       if (ws?.readyState === WebSocket.OPEN) ws.send(data);
       else if (queue.length < 200) queue.push(data);
     },

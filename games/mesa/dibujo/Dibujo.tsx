@@ -27,7 +27,8 @@ export function Dibujo({ room, lang }: { room: Room; lang: Lang }) {
   useEffect(() => {
     if (!room.isHost) return;
     const e = new DibujoEngine(lang, (type, payload) => {
-      room.send(type, payload);
+      // The word goes to the drawer only when the transport can (Foody-be's relay); otherwise the drawer's phone filters.
+      room.send(type, payload, type === 'secret' ? (payload as Secret).to : undefined);
       if (type === 'state') setPub({ s: payload as Pub, at: Date.now() });
       else if (type === 'secret') setSecret((payload as Secret).to === room.me ? (payload as Secret) : null);
       else if (type === 'strokes') setStrokes(payload as Stroke[]);

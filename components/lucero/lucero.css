@@ -942,3 +942,30 @@
     display: none;
   }
 }
+
+/* «Pedí desde tu celular» (with Foody-be): from tablet up; on a phone you already are on the phone. */
+.ld-sync {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--l-line-strong);
+  color: var(--l-ink);
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+@media (min-width: 768px) {
+  .ld-sync {
+    display: inline-flex;
+  }
+}
+.ld-sync-qr {
+  display: block;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto;
+  border-radius: 14px;
+  background: var(--l-paper);
+}

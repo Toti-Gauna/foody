@@ -35,10 +35,10 @@ Este archivo es el registro de avance: se actualiza al cerrar cada fase, así se
 | 7 | Salas: crear, link, código y QR, lobby | Mergeada (#8) |
 | 8 | Dibujá y adiviná en celulares | Mergeada (#8) |
 | 9 | Hockey 1 contra 1 (nuevo) | Mergeada (#8) |
-| 10 | Eclipse Academy en el CRM (75): marketing digital y físico, con videos, documentos y fotos | Hecha (PR de fases 10–11) |
-| 11 | QA: lente de plan, honestidad, accesibilidad, movimiento reducido, Playwright 360–1920 | Hecha (PR de fases 10–11) |
-| 12 | Backend en Foody-be: relay de salas y sincronización de pedidos entre aparatos | Pendiente |
-| 13 | Kit de deploy con Docker | Pendiente |
+| 10 | Eclipse Academy en el CRM (75): marketing digital y físico, con videos, documentos y fotos | Mergeada (#9) |
+| 11 | QA: lente de plan, honestidad, accesibilidad, movimiento reducido, Playwright 360–1920 | Mergeada (#9) |
+| 12 | Backend en Foody-be: relay de salas y sincronización de pedidos entre aparatos | Hecha (Foody-be #1 y PR de fases 12–13) |
+| 13 | Kit de deploy con Docker (`docs/DEPLOY.md`) | Hecha (PR de fases 12–13) |
 
 ## Cómo se trabaja
 
@@ -61,13 +61,14 @@ Con el export servido en `localhost:4100` (`python3 -m http.server 4100 --direct
 ## Pendientes conocidos
 
 - Salas sin backend: WebRTC por el broker público de PeerJS. En la WiFi del local anda; entre redes distintas (datos
-  móviles) puede no conectar sin un servidor TURN. Con Foody-be (fase 12) las salas pasan por su relay y andan en cualquier red.
+  móviles) puede no conectar sin un servidor TURN. Con Foody-be (`NEXT_PUBLIC_API_URL`) pasan por su relay y andan en
+  cualquier red. Mientras Foody-be no esté publicado en Render, la prueba en Pages corre sin backend.
 
 - Eclipse Academy: las guías son reales; los videos y las fotos son de ejemplo (marcados «Ejemplo») hasta tener los
   definitivos. Se reemplazan en `content/academy.json`.
 
-- En «Dibujá y adiviná» la palabra viaja a todos los celulares y solo el que dibuja la muestra (la sala es una estrella sin
-  canal privado). Alcanza para jugar en la mesa; con Foody-be se puede mandar solo al que dibuja.
+- En «Dibujá y adiviná», sin backend la palabra viaja a todos los celulares y solo el que dibuja la muestra. Con Foody-be le
+  llega solo al que dibuja.
 
 - Los textos dentro de los juegos copiados de games-market (pantalla de inicio, HUD) están en español en los tres idiomas:
   traducirlos obliga a tocar el código copiado. Se hace cuando se decida.

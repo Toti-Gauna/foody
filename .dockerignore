@@ -1,0 +1,11 @@
+node_modules
+.next
+.next-*
+out
+deploy-out
+.git
+.lab-shots
+.render
+coverage
+*.log
+.env*
