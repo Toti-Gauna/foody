@@ -1,0 +1,385 @@
+/* Table rooms: lobby, «Dibujá y adiviná» and hockey. Lucero's palette (lucero.css tokens). */
+.ms-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 14px 16px 24px;
+}
+.ms-body-page {
+  max-width: 560px;
+  margin: 0 auto;
+  width: 100%;
+}
+.ms-lobby {
+  display: grid;
+  gap: 12px;
+}
+.ms-code {
+  display: flex;
+  gap: 8px;
+}
+.ms-code span {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 64px;
+  border-radius: 14px;
+  background: var(--l-paper);
+  color: var(--l-paper-ink);
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 600;
+}
+.ms-share {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+}
+.ms-qr {
+  width: 132px;
+  height: 132px;
+  border-radius: 12px;
+  background: var(--l-paper);
+}
+.ms-qr-wait {
+  display: block;
+  opacity: 0.4;
+}
+.ms-share-text {
+  display: grid;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--l-muted);
+}
+.ms-link {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--l-ink);
+  overflow-wrap: anywhere;
+  user-select: all;
+}
+.ms-players {
+  display: grid;
+  gap: 4px;
+}
+.ms-players li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: 12px;
+  background: var(--l-surface);
+}
+.ms-players small {
+  margin-left: auto;
+  color: var(--l-muted);
+}
+.ms-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #a7b65f;
+}
+.ms-status,
+.ms-wait {
+  color: var(--l-muted);
+  font-size: 0.875rem;
+}
+.ms-wait {
+  padding: 18px 0;
+  text-align: center;
+}
+.ms-actions {
+  display: grid;
+  gap: 8px;
+}
+
+/* Dibujá y adiviná */
+.dj {
+  display: grid;
+  gap: 10px;
+}
+.dj-top {
+  display: grid;
+  gap: 4px;
+}
+.dj-mask {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  min-height: 46px;
+}
+.dj-mask span {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 40px;
+  border-bottom: 3px solid var(--l-ink);
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+.dj-mask span[data-space] {
+  width: 12px;
+  border: 0;
+}
+.dj-mask span[data-shown] {
+  color: var(--l-amber);
+  border-color: var(--l-amber);
+}
+.dj-word {
+  display: grid;
+}
+.dj-word b {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 2.1rem;
+  line-height: 1;
+  text-transform: capitalize;
+}
+.dj-meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--l-muted);
+}
+.dj-timer {
+  color: var(--l-amber);
+  font-size: 0.875rem;
+}
+.dj-choose {
+  display: grid;
+  gap: 8px;
+}
+.dj-level {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--l-muted);
+  margin-right: 6px;
+}
+.dj-sketch {
+  display: grid;
+  gap: 8px;
+}
+.dj-canvas {
+  width: 100%;
+  aspect-ratio: 1;
+  max-width: 100%;
+  border-radius: 16px;
+  background: #fbf6ec;
+  touch-action: none;
+  box-shadow: 0 0 0 1px var(--l-line-strong);
+}
+.dj-canvas[data-editable] {
+  cursor: crosshair;
+}
+.dj-tools {
+  display: grid;
+  gap: 8px;
+}
+.dj-colors,
+.dj-sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.dj-colors button {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid var(--l-line-strong);
+}
+.dj-colors button[aria-pressed='true'] {
+  outline: 3px solid var(--l-amber);
+  outline-offset: 2px;
+}
+.dj-sizes button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--l-line-strong);
+}
+.dj-sizes button[aria-pressed='true'] {
+  border-color: var(--l-amber);
+}
+.dj-sizes span {
+  border-radius: 50%;
+}
+.dj-feed {
+  display: grid;
+  gap: 2px;
+  min-height: 24px;
+  font-size: 0.875rem;
+  color: var(--l-muted);
+}
+.dj-feed li[data-kind='right'] {
+  color: #b4c06e;
+  font-weight: 600;
+}
+.dj-feed li[data-kind='close'] {
+  color: var(--l-amber);
+}
+.dj-guess {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  gap: 8px;
+  padding: 8px 0 calc(8px + env(safe-area-inset-bottom, 0px));
+  background: var(--l-bg);
+}
+.dj-guess input {
+  flex: 1;
+  min-width: 0;
+  min-height: 48px;
+  padding: 0 14px;
+  border-radius: 14px;
+  border: 1px solid var(--l-line-strong);
+  background: var(--l-bg-2);
+  color: var(--l-ink);
+  font: inherit;
+  font-size: 16px;
+}
+.dj-got {
+  padding: 12px;
+  border-radius: 12px;
+  background: rgb(167 182 95 / 0.18);
+  text-align: center;
+}
+.dj-scores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.dj-scores li {
+  display: flex;
+  gap: 8px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--l-line);
+  font-size: 0.8125rem;
+}
+.dj-scores li[data-me] {
+  border-color: var(--l-amber);
+}
+.dj-end {
+  justify-items: center;
+  text-align: center;
+  padding-top: 20px;
+}
+.dj-trophy {
+  color: var(--l-amber);
+}
+.dj-final {
+  flex-direction: column;
+  width: 100%;
+}
+.dj-final li {
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-radius: 12px;
+}
+
+/* Hockey */
+.hk {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+}
+.hk-score {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+  font-size: 0.9rem;
+}
+.hk-score b {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 2rem;
+}
+.hk-to {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--l-muted);
+}
+.hk-table {
+  position: relative;
+  width: min(100%, calc((100dvh - 230px) / 1.6));
+}
+.hk-canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1.6;
+  border-radius: 20px;
+  touch-action: none;
+  box-shadow: 0 0 0 2px rgb(245 185 66 / 0.35), 0 30px 60px -20px rgb(0 0 0 / 0.8);
+}
+.hk-goal {
+  position: absolute;
+  inset: 40% 0 auto;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 2.6rem;
+  color: var(--l-amber);
+  text-shadow: 0 4px 24px rgb(0 0 0 / 0.6);
+  pointer-events: none;
+}
+.hk-end {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 10px;
+  border-radius: 20px;
+  background: rgb(18 11 12 / 0.82);
+  color: var(--l-amber);
+}
+.hk-help {
+  font-size: 0.75rem;
+  color: var(--l-muted);
+  text-align: center;
+}
+
+/* The guest's page (/sala/) */
+.sala {
+  height: auto;
+  min-height: 100dvh;
+}
+.sala-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.sala-card {
+  display: grid;
+  gap: 10px;
+  width: min(440px, 100%);
+  margin: 24px auto;
+  padding: 0 16px;
+}
+.sala-code b {
+  font-family: var(--font-mono);
+  letter-spacing: 0.12em;
+}
+.sala-input {
+  min-height: 48px;
+  padding: 0 14px;
+  border-radius: 14px;
+  border: 1px solid var(--l-line-strong);
+  background: var(--l-bg-2);
+  color: var(--l-ink);
+  font: inherit;
+  font-size: 16px;
+}
+.gl-art-mesa {
+  display: grid;
+  place-items: center;
+  color: var(--l-amber);
+}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, type ReactNode } from 'react';
+import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { ArrowLeft, Play, Users } from 'lucide-react';
 import { asset } from '@/lib/env';
@@ -9,6 +9,8 @@ import { GAMES } from '@/games/registry';
 import { useLucero } from '../store';
 import { GameHost } from './GameHost';
 import { Ruleta } from './Ruleta';
+import { TableGames, TableRoom } from './TableGames';
+import type { RoomGame } from '@/games/mesa/useRoom';
 import './games-layer.css';
 
 const ART: Partial<Record<GameId, string>> = {
@@ -20,12 +22,13 @@ const ART: Partial<Record<GameId, string>> = {
 /**
  * «Mientras esperás la comida, podés jugar»: opens by itself right after «Tu pedido fue realizado» when the plan has
  * games (50 and up). The wheel first (one spin per order), then the solo games in one column, each as wide as the phone
- * (Ignacio, 02/11/2026). Table games (plan 75) come in through `tableGames`. Through a plan, only its games show.
+ * (Ignacio, 02/11/2026). Table games (plan 75) open a room on this phone (TableGames). Through a plan, only its games show.
  */
-export function GamesLayer({ open, onClose, orderId, tableGames }: { open: boolean; onClose: () => void; orderId: string | null; tableGames?: (play: (id: GameId) => void) => ReactNode }) {
+export function GamesLayer({ open, onClose, orderId }: { open: boolean; onClose: () => void; orderId: string | null }) {
   const t = useTranslations('lucero.games');
   const { plan } = useLucero();
   const [playing, setPlaying] = useState<GameId | null>(null);
+  const [room, setRoom] = useState<RoomGame | null>(null);
   const allowed = (id: GameId) => (plan ? planById(plan).games.includes(id) : true);
   const solo = GAMES.filter((g) => g.kind === 'solo' && allowed(g.id));
   const wheel = !plan || includes(plan, 'ruleta');
@@ -43,6 +46,7 @@ export function GamesLayer({ open, onClose, orderId, tableGames }: { open: boole
         }}
       />
     );
+  if (room) return <TableRoom game={room} onClose={() => setRoom(null)} />;
   if (!open) return null;
 
   return (
@@ -96,12 +100,12 @@ export function GamesLayer({ open, onClose, orderId, tableGames }: { open: boole
           </ul>
         </section>
 
-        {table && tableGames ? (
+        {table ? (
           <section className="gl-block" aria-labelledby="gl-table">
             <h3 id="gl-table" className="gl-h">
               <Users aria-hidden className="size-4" /> {t('tableTitle')}
             </h3>
-            {tableGames(setPlaying)}
+            <TableGames onOpen={setRoom} />
           </section>
         ) : null}
 
