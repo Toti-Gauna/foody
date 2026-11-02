@@ -15,24 +15,19 @@ export interface HeroText {
   sub: string;
   cta: string;
   demo: string;
+  status: string;
+  /** «Desde USD 25 por mes», with the price already read from content/plans.json. */
+  from: string;
+  statusNote: string;
   demoBadge: string;
   demoNote: string;
 }
 
 /**
- * 01 · Inicio (lote B2). The composition of Eclipse-Web's hero (components/hero/Hero.tsx, 5cdb887): a
- * one-cell grid with the stage (eclipse, stars) as a full-bleed layer behind the copy. Phones and
- * portrait tablets stack the eclipse above the copy; landscape from 768px and everything from 1024px put it
- * on the right, and the copy column never reaches the eclipse (hero.css).
- *
- * The H1 is the name, «Eclipse», with «para inmobiliarias» under it (decision of Ignacio, 28/10/2026). It is
- * server-rendered and visible from the first paint (the LCP element): no entrance ever hides it.
- *
- * The primary action is «Ver qué ofrecemos» (Ignacio, 28/10/2026), the screen's only solid amber (`data-hero-cta`): it
- * starts the automatic tour through the page (components/tour), and without motion it is a plain link to `next`. The
- * demo stays one tap away: «Probar la demo», the quiet button beside it.
- *
- * [data-hero-pin-spacer] is the pinned scroll's spacer (useHeroMotion): ScrollTrigger never re-parents the section.
+ * 01 · Inicio. roofy's hero (components/hero/Hero.tsx) with this site's name and status: the H1 is «Eclipse» with «para
+ * restaurantes» under it, server-rendered and visible from the first paint. «Ver qué ofrecemos» is the screen's one solid
+ * button (`data-hero-cta`) and starts the automatic tour; «Probar la demo» stays beside it. Under them, the honest status
+ * («En preparación») and the entry price, read from the plan catalog.
  */
 export function Hero({ locale, id, next, text }: { locale: Locale; id: 'inicio'; next: string; text: HeroText }) {
   return (
@@ -63,6 +58,15 @@ export function Hero({ locale, id, next, text }: { locale: Locale; id: 'inicio';
                   {text.demo}
                   <ArrowUpRight aria-hidden className="size-4" strokeWidth={1.5} />
                 </DemoLink>
+              </div>
+              <div className="hero-status">
+                <p className="hero-status-main">
+                  <span aria-hidden className="hero-pulse" />
+                  <span className="readout">{text.status}</span>
+                  <span aria-hidden className="hero-status-sep" />
+                  <span className="readout hero-status-price">{text.from}</span>
+                </p>
+                <p className="hero-status-note">{text.statusNote}</p>
               </div>
               <HeroNote badge={text.demoBadge}>{text.demoNote}</HeroNote>
             </div>

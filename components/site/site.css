@@ -1,0 +1,96 @@
+/*
+ * «Eclipse para restaurantes», the home: the page frame, the top row over the hero and the footer.
+ * The hero lives in components/hero (lote B2). Mobile-first: 16 px gutter (.container-x), touch
+ * targets ≥ 44 px.
+ */
+.site {
+  position: relative;
+  min-height: 100dvh;
+  background: var(--void);
+  color: var(--fg);
+}
+
+.site-skip:focus {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 50;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--night);
+  color: var(--fg);
+}
+
+/* The top row sits over the hero (the hero reserves --header-h for it) and scrolls away with it. */
+.site-top {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  min-height: var(--header-h);
+}
+.site-top > * {
+  flex: 1;
+}
+
+/* The name: «Eclipse» with «para restaurantes» beside it. */
+.site-mark {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--fg);
+  text-decoration: none;
+}
+.site-mark-lockup {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.5rem;
+}
+.site-mark-brand {
+  font-family: var(--font-serif);
+  font-size: 1.375rem;
+  line-height: 1;
+}
+.site-mark-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+/* The «Demo» label in outline: the hero's CTA is the screen's one solid amber. */
+.site-demo {
+  padding: 2px 8px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg);
+}
+
+/* ---- Footer --------------------------------------------------------- */
+.site-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding-block: 24px 32px;
+  border-top: 1px solid var(--line);
+}
+
+/* Phones: «para restaurantes» goes under «Eclipse», so the languages keep to the same row. */
+@media (max-width: 479.98px) {
+  .site-mark-lockup {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .site-mark-tagline {
+    font-size: 0.625rem;
+  }
+}

@@ -17,3 +17,16 @@ Qué se copió de otros repos y qué cambió. Si el origen corrige un archivo, s
 | `public/prototipos/carta-gus/index.html` | `prototipos/carta-gus/index.html` de este repo | Ninguno: el prototipo sigue en la misma URL de Pages |
 
 Escrito en foody: `lib/env.ts`, `messages/*`, `app/[locale]/page.tsx`, `CLAUDE.md`, `docs/PLAN-EJECUCION.md`.
+
+## Fases 1–2 · sitio comercial
+
+| Archivo en foody | Origen | Cambios |
+|---|---|---|
+| `components/hero/Hero.tsx`, `hero.css` | roofy | Nombre «para restaurantes»; línea de estado con el precio de entrada leído de `content/plans.json` |
+| `components/site/Others.tsx`, `others.css`, `site.css` | roofy (`3c30777`) | Roofy (Eclipse para inmobiliarias) entra en la lista con «Disponible» y enlaza a su sitio; Foody sale |
+| Textos `site.others.*` | roofy `site.others` + Eclipse-Web `products.items.roofy` | Nombre visible «Eclipse para inmobiliarias»; título y sub propios |
+| `scripts/shot.mjs` | Eclipse-Web | Usa el Playwright global del entorno (no es dependencia) |
+| `public/gus/*.webp` | `assets/personajes/cafe/mesero/png/` (las 38 poses) | WebP a 696 px |
+
+Escrito en foody: `components/site/Offer.tsx`, `DemoSection.tsx`, `Plans.tsx`, `Close.tsx` y sus CSS, `components/SiteNav.tsx`,
+`lib/sections.ts`, `lib/plans.ts`, `content/plans.json`, textos `site.*` y `tests/plans.test.ts`, `tests/products.test.ts`.
