@@ -1,7 +1,7 @@
 // QA of Eclipse Academy (plan 75) and its lock on plan 50, at phone and desktop width.
 import { createRequire } from 'node:module';
 const { chromium } = createRequire(import.meta.url)('playwright');
-const out = process.env.QA_OUT ?? 'qa-shots';
+const out = process.env.QA_OUT ?? '.lab-shots';
 const b = await chromium.launch();
 const errors = [];
 for (const [w, h] of [[360, 760], [1440, 900]]) {
@@ -9,7 +9,8 @@ for (const [w, h] of [[360, 760], [1440, 900]]) {
   p.on('pageerror', (e) => errors.push(String(e)));
   p.on('console', (m) => m.type() === 'error' && errors.push(m.text()));
   await p.goto('http://localhost:4100/es/demo/?plan=75&vista=crm&area=academy');
-  await p.waitForTimeout(900);
+  await p.waitForSelector('.ls', { state: 'detached', timeout: 8000 });
+  await p.waitForTimeout(400);
   const sw = await p.evaluate(() => document.documentElement.scrollWidth);
   await p.screenshot({ path: `${out}/ac-${w}.png` });
   await p.locator('.ac-card[data-kind=doc]').first().click();
@@ -27,7 +28,8 @@ for (const [w, h] of [[360, 760], [1440, 900]]) {
   console.log(w, 'scrollWidth', sw, 'dialog', open, 'steps', steps, 'photos', photos);
   await p.goto('http://localhost:4100/es/demo/?plan=50&vista=crm&area=academy');
   await p.waitForTimeout(700);
-  console.log(w, 'plan 50 locked:', await p.locator('.crm-locked').count(), await p.locator('.crm-locked p').innerText());
+  // A plan shows only what it has: no Academy in the CRM of plan 50, and it opens on Servicio.
+  console.log(w, 'plan 50 has Academy:', await p.locator('.crm-nav', { hasText: 'Eclipse Academy' }).count(), '| shows:', await p.locator('.crm-main h2').first().innerText());
 }
 console.log('errors', JSON.stringify(errors));
 await b.close();

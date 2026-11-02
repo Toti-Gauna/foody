@@ -1,0 +1,484 @@
+/*
+ * Fechas especiales: the same demo, dressed for the date (lib/seasons.ts). Lucero's tokens live on `.ld`; the games read
+ * theirs (--sn-*) from the document, so the season is also set on <html> while the demo is open. Buttons keep white
+ * text on their main colour at AA (checked: Halloween #b8480c 4.9:1, Navidad #b5202f 6.3:1, San Valentín #b3134f 6.6:1).
+ */
+.ld {
+  /* La ruleta: one colour and its ink per slice. */
+  --rs-s1: #b23a52;
+  --rs-i1: #fff6ee;
+  --rs-s2: #f6edda;
+  --rs-i2: #2b1d18;
+  --rs-s3: #d9783a;
+  --rs-i3: #1a1113;
+  --rs-s4: #2e1e21;
+  --rs-i4: #f3e6d0;
+  --rs-s5: #8a2a3f;
+  --rs-i5: #fff6ee;
+  --rs-s6: #f5b942;
+  --rs-i6: #1a1113;
+  --rs-glow: rgb(178 58 82 / 0.55);
+}
+
+/* ---- Halloween: calabaza, velas y violeta ---- */
+.ld[data-season='halloween'] {
+  --l-bg: #140d1a;
+  --l-bg-2: #0e0913;
+  --l-surface: #1f1529;
+  --l-surface-2: #2a1d37;
+  --l-line: rgb(244 234 216 / 0.13);
+  --l-line-strong: rgb(244 234 216 / 0.25);
+  --l-ink: #f6ecda;
+  --l-muted: #cdbcd8;
+  --l-wine: #b8480c;
+  --l-wine-hi: #d2560f;
+  --l-wine-text: #ffab66;
+  --l-amber: #ffc24a;
+  --l-paper: #f7e8cf;
+  --l-paper-ink: #2a1a10;
+  --rs-s1: #e8661c;
+  --rs-i1: #1a0f08;
+  --rs-s2: #2a1d37;
+  --rs-i2: #ffd9a8;
+  --rs-s3: #7c3aed;
+  --rs-i3: #fff4e6;
+  --rs-s4: #f7e8cf;
+  --rs-i4: #2a1a10;
+  --rs-s5: #8be04e;
+  --rs-i5: #142008;
+  --rs-s6: #1a1120;
+  --rs-i6: #ffc24a;
+  --rs-glow: rgb(232 102 28 / 0.5);
+  background: radial-gradient(120% 60% at 70% 0%, #3a1a4a, #0b0710 70%);
+}
+html:root[data-season='halloween'] {
+  --sn-bg: #110b16;
+  --sn-bg-elev: #1a1221;
+  --sn-panel: #231830;
+  --sn-panel-hi: #2e2040;
+  --sn-line: #4a3760;
+  --sn-line-soft: #2e2040;
+  --sn-text: #f6ecda;
+  --sn-text-muted: #cdbcd8;
+  --sn-text-dim: #9a88a8;
+  --sn-violet-300: #ffb37a;
+  --sn-violet-400: #ff8a3d;
+  --sn-violet-500: #e8661c;
+  --sn-violet-600: #b34a0e;
+  --sn-magenta-300: #d6c2ff;
+  --sn-magenta-400: #b197fc;
+  --sn-magenta-500: #7c3aed;
+  --sn-cyan-300: #ffe0a0;
+  --sn-cyan-400: #ffc24a;
+  --sn-cyan-500: #d99a1f;
+  --sn-success: #8be04e;
+  --sn-warn: #ffb020;
+  --sn-danger: #ff5f6d;
+}
+
+/* ---- Navidad: pino, rojo y dorado ---- */
+.ld[data-season='navidad'] {
+  --l-bg: #0d1813;
+  --l-bg-2: #08110d;
+  --l-surface: #14251d;
+  --l-surface-2: #1c3228;
+  --l-line: rgb(245 239 226 / 0.13);
+  --l-line-strong: rgb(245 239 226 / 0.25);
+  --l-ink: #f6f0e2;
+  --l-muted: #c6d5c8;
+  --l-wine: #b5202f;
+  --l-wine-hi: #cc2a3b;
+  --l-wine-text: #ff9ea8;
+  --l-amber: #f2c14e;
+  --l-paper: #f8f2e4;
+  --l-paper-ink: #1d2a22;
+  --rs-s1: #c0283a;
+  --rs-i1: #fff6ee;
+  --rs-s2: #f8f2e4;
+  --rs-i2: #1d2a22;
+  --rs-s3: #2e8b57;
+  --rs-i3: #f6fff8;
+  --rs-s4: #f2c14e;
+  --rs-i4: #1d1a08;
+  --rs-s5: #13402b;
+  --rs-i5: #f2c14e;
+  --rs-s6: #8e1a28;
+  --rs-i6: #fff6ee;
+  --rs-glow: rgb(46 139 87 / 0.5);
+  background: radial-gradient(120% 60% at 70% 0%, #173a2a, #070e0a 70%);
+}
+html:root[data-season='navidad'] {
+  --sn-bg: #0b1510;
+  --sn-bg-elev: #112019;
+  --sn-panel: #182b22;
+  --sn-panel-hi: #20382c;
+  --sn-line: #345847;
+  --sn-line-soft: #20382c;
+  --sn-text: #f6f0e2;
+  --sn-text-muted: #c6d5c8;
+  --sn-text-dim: #8fa596;
+  --sn-violet-300: #a6e6bd;
+  --sn-violet-400: #5cc98a;
+  --sn-violet-500: #2e8b57;
+  --sn-violet-600: #1f6b41;
+  --sn-magenta-300: #ffb0b8;
+  --sn-magenta-400: #ff6b7d;
+  --sn-magenta-500: #c0283a;
+  --sn-cyan-300: #fff0b8;
+  --sn-cyan-400: #f2c14e;
+  --sn-cyan-500: #c9971f;
+  --sn-success: #6fd38f;
+  --sn-warn: #f2c14e;
+  --sn-danger: #ff5a6e;
+}
+
+/* ---- San Valentín: rosa, frambuesa y oro rosa ---- */
+.ld[data-season='sanvalentin'] {
+  --l-bg: #1a0d15;
+  --l-bg-2: #13090f;
+  --l-surface: #26121e;
+  --l-surface-2: #331828;
+  --l-line: rgb(251 233 239 / 0.13);
+  --l-line-strong: rgb(251 233 239 / 0.25);
+  --l-ink: #fcebf1;
+  --l-muted: #e2bccb;
+  --l-wine: #b3134f;
+  --l-wine-hi: #cc1a5c;
+  --l-wine-text: #ff9cc2;
+  --l-amber: #f7b7c8;
+  --l-paper: #fdeef3;
+  --l-paper-ink: #3a1626;
+  --rs-s1: #d81b60;
+  --rs-i1: #fff3f7;
+  --rs-s2: #fdeef3;
+  --rs-i2: #3a1626;
+  --rs-s3: #ff8fab;
+  --rs-i3: #3a1626;
+  --rs-s4: #4a1730;
+  --rs-i4: #ffd1df;
+  --rs-s5: #f4a7b9;
+  --rs-i5: #3a1626;
+  --rs-s6: #8c0f3e;
+  --rs-i6: #fff3f7;
+  --rs-glow: rgb(216 27 96 / 0.55);
+  background: radial-gradient(120% 60% at 70% 0%, #4a1430, #100709 70%);
+}
+html:root[data-season='sanvalentin'] {
+  --sn-bg: #170b12;
+  --sn-bg-elev: #20101a;
+  --sn-panel: #2b1523;
+  --sn-panel-hi: #381c2e;
+  --sn-line: #5a2c45;
+  --sn-line-soft: #381c2e;
+  --sn-text: #fcebf1;
+  --sn-text-muted: #e2bccb;
+  --sn-text-dim: #a8849a;
+  --sn-violet-300: #ffc6a8;
+  --sn-violet-400: #ff9b7a;
+  --sn-violet-500: #e86a5a;
+  --sn-violet-600: #b44a3d;
+  --sn-magenta-300: #ffc2d6;
+  --sn-magenta-400: #ff6b9a;
+  --sn-magenta-500: #c2185b;
+  --sn-cyan-300: #ffe3ec;
+  --sn-cyan-400: #ffa3c4;
+  --sn-cyan-500: #e5739f;
+  --sn-success: #9be08a;
+  --sn-warn: #ffb020;
+  --sn-danger: #ff5a6e;
+}
+
+/* ---- Decorations over the guest's screen ---- */
+.sd {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  overflow: hidden;
+  pointer-events: none;
+}
+.sd-bat {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  color: #0b0710;
+  transform: scale(var(--s));
+  animation: sd-fly var(--t) ease-in-out var(--d) infinite;
+}
+.sd-bat svg {
+  fill: #0b0710;
+  filter: drop-shadow(0 0 6px rgb(255 140 50 / 0.35));
+}
+.sd-wing {
+  transform-origin: 32px 13px;
+  animation: sd-flap 0.32s ease-in-out infinite alternate;
+}
+@keyframes sd-flap {
+  to {
+    transform: scaleY(0.45);
+  }
+}
+@keyframes sd-fly {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(var(--s));
+  }
+  25% {
+    transform: translate(40px, -18px) scale(var(--s));
+  }
+  50% {
+    transform: translate(-30px, 12px) scale(var(--s));
+  }
+  75% {
+    transform: translate(20px, 24px) scale(var(--s));
+  }
+}
+.sd-web {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: rgb(246 236 218 / 0.22);
+}
+.sd-lights {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.sd-bulb {
+  animation: sd-twinkle 1.6s ease-in-out var(--d) infinite alternate;
+}
+.sd-bulb ellipse {
+  filter: drop-shadow(0 0 4px currentColor);
+}
+@keyframes sd-twinkle {
+  from {
+    opacity: 0.45;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.sd-snow {
+  position: absolute;
+  top: -10px;
+  left: var(--x);
+  width: var(--s);
+  height: var(--s);
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.8;
+  animation: sd-fall var(--t) linear var(--d) infinite;
+}
+@keyframes sd-fall {
+  to {
+    transform: translate(var(--w), 110vh);
+  }
+}
+.sd-heart {
+  position: absolute;
+  bottom: -40px;
+  left: var(--x);
+  animation: sd-rise var(--t) ease-in var(--d) infinite;
+}
+.sd-heart svg {
+  fill: #ff6b9a;
+  opacity: 0.55;
+  transform: scale(var(--s));
+}
+@keyframes sd-rise {
+  0% {
+    transform: translateY(0) rotate(-8deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-115vh) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+/* The prop next to Gus in the hero. */
+.sp {
+  position: absolute;
+  left: -8%;
+  bottom: 2%;
+  z-index: 2;
+  width: 42%;
+  max-width: 120px;
+  filter: drop-shadow(0 10px 18px rgb(0 0 0 / 0.55));
+  animation: sp-bob 3.2s ease-in-out infinite;
+}
+.sp svg {
+  width: 100%;
+  height: auto;
+}
+.sp[data-season='halloween'] {
+  filter: drop-shadow(0 0 22px rgb(255 154 31 / 0.55)) drop-shadow(0 10px 18px rgb(0 0 0 / 0.55));
+}
+@keyframes sp-bob {
+  50% {
+    transform: translateY(-5px) rotate(-2deg);
+  }
+}
+
+/* The season's line in the carta's hero. */
+.lc-season-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--l-amber) 55%, transparent);
+  background: color-mix(in srgb, var(--l-amber) 12%, transparent);
+  color: var(--l-amber);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sd-bat,
+  .sd-wing,
+  .sd-bulb,
+  .sd-snow,
+  .sd-heart,
+  .sp {
+    animation: none;
+  }
+  .sd-snow {
+    top: var(--x);
+  }
+  .sd-heart {
+    bottom: var(--x);
+  }
+}
+
+/* ---- The demo's loading screen ---- */
+.ls {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(60% 45% at 50% 42%, color-mix(in srgb, var(--l-wine) 45%, transparent), transparent 70%),
+    var(--l-bg-2);
+  color: var(--l-ink);
+  transition: opacity 0.6s ease, visibility 0.6s;
+}
+.ls[data-phase='leaving'] {
+  opacity: 0;
+  visibility: hidden;
+}
+.ls-center {
+  position: relative;
+  z-index: 4;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  width: min(320px, calc(100% - 32px));
+  text-align: center;
+}
+.ls-halo {
+  position: relative;
+  width: 190px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 60%, color-mix(in srgb, var(--l-amber) 30%, transparent), transparent 66%);
+}
+.ls-halo::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  border: 1.5px solid color-mix(in srgb, var(--l-amber) 50%, transparent);
+  border-top-color: var(--l-amber);
+  animation: ls-spin 1.6s linear infinite;
+}
+@keyframes ls-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+.ls-gus {
+  position: absolute;
+  inset: 4% 0 0;
+  width: 100%;
+}
+.ls-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-serif);
+  font-size: 2.6rem;
+  line-height: 1;
+}
+.ls-line {
+  color: var(--l-muted);
+  font-size: 0.95rem;
+}
+.ls-bar {
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--l-line);
+}
+.ls-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--l-wine), var(--l-amber));
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.ls-pct {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  color: var(--l-muted);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ls {
+    transition: none;
+  }
+  .ls-halo::before {
+    animation: none;
+  }
+}
+
+/* Where the decorations live: the carta's hero (behind its words), the wheel, the loading screen. */
+.lc-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.lc-hero > .sd {
+  z-index: -1;
+}
+.lc-hero-copy,
+.lc-hero-gus {
+  position: relative;
+}
+.rs > .sd {
+  z-index: 0;
+}
+.rs > :not(.sd):not(.rs-rays) {
+  position: relative;
+  z-index: 1;
+}
+.rs > .rs-close {
+  position: absolute;
+  z-index: 2;
+}
+.sp[data-season='sanvalentin'] {
+  left: -14%;
+  width: 30%;
+  max-width: 84px;
+}
+.lc-hero[data-season='navidad'] {
+  padding-top: 44px;
+}

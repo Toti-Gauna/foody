@@ -1,5 +1,7 @@
 import type { ReactNode, RefObject } from "react";
 import { useFullscreen } from "./useFullscreen";
+import { useGameSkin } from "./skin";
+import { Pause, Volume2, VolumeX } from "lucide-react";
 import type { GamePhase } from "@/games/core/engine/useGame2D";
 
 /**
@@ -109,9 +111,41 @@ export function GameStage({
 }: GameStageProps) {
   const fullscreen = useFullscreen(containerRef);
   const showOverlay = phase !== "playing";
+  // Foody: the host's skin (art, name, translated labels). Without it, games-market's own look and words.
+  const skin = useGameSkin();
+  const L = skin?.labels ?? {
+    play: "Jugar",
+    sound: "Sonido",
+    soundOff: "Sonido apagado",
+    fullscreen: "Pantalla completa",
+    exitFullscreen: "Salir",
+    pause: "Pausa",
+    paused: "En pausa",
+    pausedHint: "Escape o P para seguir.",
+    resume: "Seguir",
+    restart: "Reiniciar",
+    again: "Jugar de nuevo",
+    go: "Ya",
+  };
 
   return (
     <div className="flex h-full w-full flex-col">
+      {skin && (
+        // Foody: with a skin the HUD is a bar above the game, so it never covers the board.
+        <div data-game-ui className="sn-skin-hud" aria-live="polite">
+          <div className="sn-skin-stats">{hud}</div>
+          <div className="sn-skin-tools">
+            <button type="button" className="sn-skin-tool" onClick={onToggleMuted} aria-pressed={!muted} aria-label={muted ? L.soundOff : L.sound}>
+              {muted ? <VolumeX aria-hidden size={18} /> : <Volume2 aria-hidden size={18} />}
+            </button>
+            {phase === "playing" && (
+              <button type="button" className="sn-skin-tool" onClick={onPause} aria-label={L.pause}>
+                <Pause aria-hidden size={18} />
+              </button>
+            )}
+          </div>
+        </div>
+      )}
       <div
         ref={containerRef}
         className={
@@ -143,7 +177,7 @@ export function GameStage({
         )}
 
         {/* HUD: no se come los clicks del juego. */}
-        <div
+        {!skin && <div
           data-game-ui
           className="pointer-events-none absolute inset-x-0 top-0 flex items-start justify-between gap-3 p-3"
           aria-live="polite"
@@ -166,7 +200,7 @@ export function GameStage({
               aria-pressed={!muted}
               title={muted ? "Activar sonido" : "Silenciar"}
             >
-              {muted ? "Sonido apagado" : "Sonido"}
+              {muted ? L.soundOff : L.sound}
             </button>
             {fullscreen.supported && (
               <button
@@ -176,16 +210,16 @@ export function GameStage({
                 aria-pressed={fullscreen.active}
                 title={fullscreen.active ? "Salir de pantalla completa" : "Pantalla completa"}
               >
-                {fullscreen.active ? "Salir" : "Pantalla completa"}
+                {fullscreen.active ? L.exitFullscreen : L.fullscreen}
               </button>
             )}
             {phase === "playing" && (
               <button type="button" className="sn-btn sn-btn--ghost h-7 px-2 text-xs" onClick={onPause}>
-                Pausa
+                {L.pause}
               </button>
             )}
           </div>
-        </div>
+        </div>}
 
         {phase === "countdown" && (
           <div className="pointer-events-none absolute inset-0 grid place-items-center">
@@ -194,7 +228,7 @@ export function GameStage({
               className="sn-num text-7xl font-bold text-sn-cyan"
               style={{ textShadow: "0 0 32px var(--sn-cyan-400)" }}
             >
-              {countdownLeft > 0 ? countdownLeft : "Ya"}
+              {countdownLeft > 0 ? countdownLeft : L.go}
             </span>
           </div>
         )}
@@ -202,8 +236,11 @@ export function GameStage({
         {showOverlay && phase !== "countdown" && (
           <div
             data-game-ui
+            data-skin={skin ? phase : undefined}
             className={
-              introShowcase && phase === "intro"
+              skin
+                ? "sn-skin-veil absolute inset-0 grid place-items-center overflow-y-auto p-4"
+                : introShowcase && phase === "intro"
                 ? // A un costado y sin velo: atras hay algo que mirar.
                   "absolute inset-0 grid items-end justify-center p-3 sm:items-center sm:justify-end sm:p-6"
                 : "absolute inset-0 grid place-items-center bg-sn-bg/78 backdrop-blur-sm"
@@ -211,31 +248,43 @@ export function GameStage({
           >
             <div
               className={
-                introShowcase && phase === "intro"
+                skin
+                  ? "sn-skin-card w-full max-w-sm text-center"
+                  : introShowcase && phase === "intro"
                   ? "w-full max-w-sm rounded-xl border border-sn-line bg-sn-panel/92 px-6 py-5 text-center shadow-lg backdrop-blur-sm"
                   : "w-full max-w-sm px-6 text-center"
               }
             >
               {phase === "intro" && (
                 <>
-                  <p className="mb-5 text-sm text-sn-muted">{instructions}</p>
+                  {skin && (
+                    <>
+                      {skin.art && (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={skin.art} alt="" className="sn-skin-art" width={120} height={120} />
+                      )}
+                      <h3 className="sn-skin-title">{skin.title}</h3>
+                      {skin.tagline && <p className="sn-skin-tagline">{skin.tagline}</p>}
+                    </>
+                  )}
+                  <p className={skin ? "sn-skin-how" : "mb-5 text-sm text-sn-muted"}>{instructions}</p>
                   {introExtra && <div className="mb-3">{introExtra}</div>}
-                  <button type="button" className="sn-btn sn-btn--primary h-10 w-full text-sm" onClick={onStart} autoFocus>
-                    Jugar
+                  <button type="button" className={skin ? "sn-skin-play" : "sn-btn sn-btn--primary h-10 w-full text-sm"} onClick={onStart} autoFocus>
+                    {L.play}
                   </button>
                 </>
               )}
 
               {phase === "paused" && (
                 <>
-                  <h3 className="mb-1 text-lg">En pausa</h3>
-                  <p className="mb-5 text-xs text-sn-dim">Escape o P para seguir.</p>
+                  <h3 className={skin ? "sn-skin-title" : "mb-1 text-lg"}>{L.paused}</h3>
+                  <p className="mb-5 text-xs text-sn-dim">{L.pausedHint}</p>
                   <div className="flex gap-2">
-                    <button type="button" className="sn-btn sn-btn--primary h-10 flex-1" onClick={onResume} autoFocus>
-                      Seguir
+                    <button type="button" className={skin ? "sn-skin-play flex-1" : "sn-btn sn-btn--primary h-10 flex-1"} onClick={onResume} autoFocus>
+                      {L.resume}
                     </button>
                     <button type="button" className="sn-btn h-10" onClick={onRestart}>
-                      Reiniciar
+                      {L.restart}
                     </button>
                   </div>
                 </>
@@ -245,8 +294,8 @@ export function GameStage({
                 <>
                   {summary}
                   {/* Reintentar es la accion principal y va donde ya esta el pulgar. */}
-                  <button type="button" className="sn-btn sn-btn--primary mt-5 h-10 w-full text-sm" onClick={onRestart} autoFocus>
-                    Jugar de nuevo
+                  <button type="button" className={skin ? "sn-skin-play mt-5" : "sn-btn sn-btn--primary mt-5 h-10 w-full text-sm"} onClick={onRestart} autoFocus>
+                    {L.again}
                   </button>
                 </>
               )}
@@ -279,7 +328,7 @@ export function HudStat({
   }[tone];
 
   return (
-    <div className="rounded-sn border border-sn-line-soft bg-sn-bg/70 px-2.5 py-1 backdrop-blur-sm">
+    <div data-hud-stat className="rounded-sn border border-sn-line-soft bg-sn-bg/70 px-2.5 py-1 backdrop-blur-sm">
       <div className="text-[10px] uppercase leading-tight tracking-wider text-sn-dim">{label}</div>
       <div
         className={`sn-num leading-tight ${dominant ? "text-xl font-semibold" : "text-sm"}`}

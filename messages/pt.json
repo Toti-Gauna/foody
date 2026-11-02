@@ -73,7 +73,14 @@
       "open": "Abrir a demo",
       "crm": "Ver o CRM do local",
       "asPlan": "Ver a demo como o plano",
-      "plan": "Plano {price}"
+      "plan": "Plano {price}",
+      "seasons": {
+        "label": "Vestida para cada data",
+        "note": "O cardápio, a roleta e os jogos mudam sozinhos com a data. Veja como ficou no Halloween.",
+        "halloween": "Halloween",
+        "navidad": "Natal",
+        "sanvalentin": "Dia dos Namorados"
+      }
     },
     "plans": {
       "section": "Planos",
@@ -514,7 +521,10 @@
       "result": {
         "done": "Terminou",
         "stopped": "Partida interrompida",
-        "points": "{n, plural, one {# ponto} other {# pontos}}"
+        "points": "{n, plural, one {# ponto} other {# pontos}}",
+        "record": "Novo recorde!",
+        "pointsWord": "{n, plural, one {ponto} other {pontos}}",
+        "best": "Seu melhor: {n}"
       },
       "items": {
         "ninja": {
@@ -554,6 +564,19 @@
         "code": "Seu código",
         "nothingTitle": "Dessa vez não saiu",
         "next": "Continuar"
+      },
+      "stage": {
+        "play": "Jogar",
+        "sound": "Som",
+        "soundOff": "Sem som",
+        "fullscreen": "Tela cheia",
+        "exitFullscreen": "Sair",
+        "pause": "Pausa",
+        "paused": "Pausado",
+        "pausedHint": "Esc ou P para continuar.",
+        "resume": "Continuar",
+        "restart": "Reiniciar",
+        "go": "Já!"
       }
     },
     "mesa": {
@@ -631,6 +654,37 @@
         "watching": "Você está assistindo: a mesa é para dois. Você joga na próxima.",
         "goal": "Gol!",
         "wins": "{name} venceu"
+      }
+    },
+    "season": {
+      "label": "Data",
+      "auto": "Pela data ({season})",
+      "demo": "Demo",
+      "loadingLabel": "Carregando a demo do Lucero",
+      "clasica": {
+        "name": "Clássica",
+        "loading": "Preparando a sua mesa…"
+      },
+      "halloween": {
+        "name": "Halloween",
+        "chip": "Edição Halloween",
+        "hello": "Feliz Halloween! Sou o Gus.",
+        "helloSub": "Hoje o cardápio vem com sustos. Escolha e eu anoto.",
+        "loading": "Acendendo as abóboras…"
+      },
+      "navidad": {
+        "name": "Natal",
+        "chip": "Edição Natal",
+        "hello": "Feliz Natal! Sou o Gus.",
+        "helloSub": "Vamos brindar: escolha o que quiser e eu anoto.",
+        "loading": "Pendurando as luzes…"
+      },
+      "sanvalentin": {
+        "name": "Dia dos Namorados",
+        "chip": "Edição Namorados",
+        "hello": "Mesa para dois. Sou o Gus.",
+        "helloSub": "Hoje tudo é para dividir. Escolha e eu anoto.",
+        "loading": "Arrumando a mesa para dois…"
       }
     }
   }

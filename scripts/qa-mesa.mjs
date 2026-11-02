@@ -18,7 +18,9 @@ await a.getByRole('button', { name: 'Agregar Provoleta' }).click();
 await a.getByRole('button', { name: 'Ver mi pedido' }).click();
 await a.getByLabel('¿A nombre de quién?').fill('Sofi');
 await a.getByRole('button', { name: 'Mandar a la cocina' }).click();
-await a.waitForTimeout(2600);
+await a.waitForTimeout(1800);
+await a.getByRole('button', { name: 'Ahora no' }).click(); // the wheel comes first
+await a.waitForTimeout(600);
 await a.locator('.gl-card', { hasText: 'Dibujá y adiviná' }).click();
 await a.waitForTimeout(1200);
 await a.screenshot({ path: `${out}/mesa-1-lobby.png` });

@@ -152,13 +152,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 52px;
-  padding: 0 8px 0 16px;
+  height: 56px;
+  padding: 0 8px 0 12px;
   border-bottom: 1px solid var(--l-line);
+  background: linear-gradient(180deg, var(--l-surface), var(--l-bg));
 }
 .gh-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-serif);
-  font-size: 1.35rem;
+  font-size: 1.4rem;
+}
+.gh-title-art {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: var(--l-bg-2);
+  box-shadow: 0 0 0 1px var(--l-line-strong);
 }
 .gh-close {
   display: grid;
@@ -166,6 +177,7 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
+  background: rgb(255 255 255 / 0.05);
 }
 .gh-stage {
   position: relative;
@@ -174,39 +186,233 @@
   background: var(--sn-bg);
   touch-action: none;
 }
+/* Loading a game: its art inside a turning ring. */
 .gh-loading {
   display: grid;
-  place-items: center;
+  place-content: center;
+  justify-items: center;
+  gap: 14px;
   height: 100%;
   color: var(--l-muted);
+  background: radial-gradient(60% 40% at 50% 45%, color-mix(in srgb, var(--l-wine) 35%, transparent), transparent 70%), var(--sn-bg);
 }
+.gh-loading-ring {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+}
+.gh-loading-ring::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid var(--l-line);
+  border-top-color: var(--l-amber);
+  animation: ls-spin 0.9s linear infinite;
+}
+.gh-loading-ring img {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  animation: gh-pulse 1.4s ease-in-out infinite;
+}
+@keyframes gh-pulse {
+  50% {
+    transform: scale(0.92);
+    opacity: 0.8;
+  }
+}
+@keyframes ls-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+/* The result: a badge, the points counting up, the best of the night, confetti on a record. */
 .gh-result {
+  position: relative;
   height: 100%;
   display: grid;
   place-content: center;
   justify-items: center;
-  gap: 10px;
+  gap: 8px;
   padding: 24px;
+  overflow: hidden;
   text-align: center;
+  background:
+    radial-gradient(70% 45% at 50% 38%, color-mix(in srgb, var(--l-amber) 22%, transparent), transparent 70%),
+    radial-gradient(90% 60% at 50% 100%, color-mix(in srgb, var(--l-wine) 35%, transparent), transparent 70%),
+    var(--sn-bg);
+  animation: gl-in 0.45s var(--ease-expo) both;
+}
+.gh-result-badge {
+  display: grid;
+  place-items: center;
+  width: 112px;
+  height: 112px;
+  margin-bottom: 6px;
+  border-radius: 30px;
+  background: linear-gradient(160deg, var(--l-surface-2), var(--l-bg-2));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--l-amber) 45%, transparent), 0 20px 50px -10px rgb(0 0 0 / 0.7), 0 0 60px -10px color-mix(in srgb, var(--l-amber) 45%, transparent);
+  color: var(--l-amber);
+}
+.gh-result-badge img {
+  width: 92px;
+  height: 92px;
+  border-radius: 22px;
 }
 .gh-result-label {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--l-muted);
+  color: var(--l-amber);
 }
 .gh-result-points {
-  font-family: var(--font-serif);
-  font-size: 3.2rem;
+  display: grid;
+  justify-items: center;
   line-height: 1;
+}
+.gh-result-points b {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 4.6rem;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(180deg, var(--l-ink), var(--l-amber));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.gh-result-points span {
+  color: var(--l-muted);
+  font-size: 0.95rem;
+}
+.gh-result-best {
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--l-line-strong);
+  color: var(--l-muted);
+  font-size: 0.8125rem;
 }
 .gh-result-actions {
   display: grid;
   gap: 8px;
   width: min(280px, 100%);
-  margin-top: 10px;
+  margin-top: 12px;
 }
+.gh-confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.gh-confetti i {
+  position: absolute;
+  top: 34%;
+  left: 50%;
+  width: 8px;
+  height: 13px;
+  border-radius: 2px;
+  background: hsl(calc(var(--i) * 41deg) 85% 62%);
+  opacity: 0;
+  animation: rs-confetti 1.6s cubic-bezier(0.2, 0.7, 0.3, 1) calc(var(--i) * 0.025s) both;
+}
+
+/* The shared game stage, dressed by the skin (games/ui/game/skin.tsx). */
+.gh .sn-skin-veil {
+  background:
+    radial-gradient(70% 45% at 50% 30%, color-mix(in srgb, var(--l-amber) 18%, transparent), transparent 70%),
+    radial-gradient(100% 60% at 50% 110%, color-mix(in srgb, var(--l-wine) 45%, transparent), transparent 70%),
+    color-mix(in srgb, var(--sn-bg) 82%, transparent);
+  backdrop-filter: blur(10px);
+}
+.gh .sn-skin-card {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 22px 18px 18px;
+  border-radius: 26px;
+  border: 1px solid var(--l-line-strong);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--l-surface-2) 92%, transparent), color-mix(in srgb, var(--l-bg) 92%, transparent));
+  box-shadow: 0 30px 70px -20px rgb(0 0 0 / 0.8);
+  animation: rs-pop 0.5s var(--ease-expo) both;
+}
+.gh [data-skin='countdown'] .sn-skin-card,
+.gh [data-skin='over'] .sn-skin-card {
+  animation: none;
+}
+.gh .sn-skin-art {
+  width: 120px;
+  height: 120px;
+  margin-top: -64px;
+  border-radius: 30px;
+  background: var(--l-bg-2);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--l-amber) 45%, transparent), 0 18px 40px -10px rgb(0 0 0 / 0.8), 0 0 50px -10px color-mix(in srgb, var(--l-amber) 50%, transparent);
+  animation: sn-float 3.4s ease-in-out infinite;
+}
+@keyframes sn-float {
+  50% {
+    transform: translateY(-6px) rotate(-2deg);
+  }
+}
+.gh .sn-skin-veil[data-skin='intro'] {
+  padding-top: 72px;
+}
+.gh .sn-skin-title {
+  font-family: var(--font-serif);
+  font-size: 2.3rem;
+  line-height: 1;
+  color: var(--l-ink);
+}
+.gh .sn-skin-tagline {
+  color: var(--l-amber);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.gh .sn-skin-how {
+  margin: 4px 0 10px;
+  color: var(--l-muted);
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+.gh .sn-skin-play {
+  width: 100%;
+  min-height: 54px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, var(--l-wine-hi), var(--l-wine));
+  color: #fff6ee;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 14px 30px -10px color-mix(in srgb, var(--l-wine) 75%, transparent), inset 0 1px 0 rgb(255 255 255 / 0.18);
+  transition: transform 0.15s;
+}
+.gh .sn-skin-play:active {
+  transform: scale(0.98);
+}
+/* The stage's small buttons and HUD chips, in the venue's colours. */
+.gh .sn-btn--ghost {
+  border-radius: 999px;
+  border-color: var(--l-line-strong);
+  background: color-mix(in srgb, var(--l-bg) 70%, transparent);
+  color: var(--l-ink);
+  backdrop-filter: blur(6px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .gh-loading-ring::before,
+  .gh-loading-ring img,
+  .gh .sn-skin-art,
+  .gh .sn-skin-card,
+  .gh-result,
+  .gh-confetti {
+    animation: none;
+  }
+  .gh-confetti {
+    display: none;
+  }
+}
+
 .gh-arrived {
   position: absolute;
   left: 12px;
@@ -248,9 +454,9 @@
   overflow: hidden auto;
   padding: 22px 18px calc(22px + env(safe-area-inset-bottom, 0px));
   background:
-    radial-gradient(120% 70% at 50% 46%, rgb(178 58 82 / 0.55) 0%, transparent 60%),
+    radial-gradient(120% 70% at 50% 46%, var(--rs-glow) 0%, transparent 60%),
     radial-gradient(80% 50% at 50% 100%, rgb(245 185 66 / 0.18) 0%, transparent 70%),
-    #120b0c;
+    var(--l-bg-2);
   color: var(--l-ink);
   text-align: center;
   animation: rs-in 0.45s var(--ease-expo) both;
@@ -479,4 +685,47 @@
     position: fixed;
     z-index: 100;
   }
+}
+
+/* With a skin, the HUD is a bar above the board (games/ui/game/GameStage.tsx). */
+.gh .sn-skin-hud {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 56px;
+  padding: 8px 10px;
+  background: linear-gradient(180deg, var(--l-bg), color-mix(in srgb, var(--sn-bg) 80%, var(--l-bg)));
+  border-bottom: 1px solid var(--l-line);
+}
+.gh .sn-skin-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 0;
+}
+.gh [data-hud-stat] {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--l-line-strong);
+  background: color-mix(in srgb, var(--l-surface) 85%, transparent);
+  backdrop-filter: none;
+}
+.gh .sn-skin-tools {
+  display: flex;
+  gap: 6px;
+}
+.gh .sn-skin-tool {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--l-line-strong);
+  background: color-mix(in srgb, var(--l-surface) 85%, transparent);
+  color: var(--l-ink);
 }

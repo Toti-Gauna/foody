@@ -5,16 +5,10 @@ import { useTranslations } from 'next-intl';
 import { X } from 'lucide-react';
 import { useReducedMotion } from '@/components/motion/useReducedMotion';
 import { pickPrize, useLucero, type Prize } from '../store';
+import { SeasonDecor } from '../season';
 
-/** Slices alternate the house colours; each one says which ink reads on it. */
-const SLICES = [
-  { fill: '#b23a52', ink: '#fff6ee' },
-  { fill: '#f6edda', ink: '#2b1d18' },
-  { fill: '#d9783a', ink: '#1a1113' },
-  { fill: '#2e1e21', ink: '#f3e6d0' },
-  { fill: '#8a2a3f', ink: '#fff6ee' },
-  { fill: '#f5b942', ink: '#1a1113' },
-];
+/** Slices alternate the house colours (or the season's: components/lucero/seasons.css); each one says which ink reads on it. */
+const SLICES = [1, 2, 3, 4, 5, 6].map((n) => ({ fill: `var(--rs-s${n})`, ink: `var(--rs-i${n})` }));
 const BULBS = 20;
 const SPIN_MS = 4600;
 
@@ -72,6 +66,7 @@ export function Ruleta({ orderId, onDone, onClose }: { orderId: string | null; o
   return (
     <div className="rs" role="dialog" aria-modal="true" aria-labelledby="rs-title" data-state={result ? (won ? 'won' : 'lost') : spinning ? 'spinning' : 'ready'}>
       <div aria-hidden className="rs-rays" />
+      <SeasonDecor />
       <button type="button" className="rs-close" onClick={onClose} aria-label={t('later')}>
         <X aria-hidden className="size-5" />
       </button>
@@ -112,9 +107,9 @@ export function Ruleta({ orderId, onDone, onClose }: { orderId: string | null; o
               // Radial labels, from the rim towards the hub, like a real wheel: none reads upside down.
               return (
                 <g key={p.id}>
-                  <path d={`M${C} ${C} L${point(i * per)} A${R} ${R} 0 ${per > 180 ? 1 : 0} 1 ${point((i + 1) * per)} Z`} fill={s.fill} stroke="#1a1113" strokeWidth="1.5" />
+                  <path d={`M${C} ${C} L${point(i * per)} A${R} ${R} 0 ${per > 180 ? 1 : 0} 1 ${point((i + 1) * per)} Z`} style={{ fill: s.fill }} stroke="#1a1113" strokeWidth="1.5" />
                   <g transform={`rotate(${i * per + per / 2} ${C} ${C})`}>
-                    <text x={C} y={C - R + 14} transform={`rotate(90 ${C} ${C - R + 14})`} dominantBaseline="central" className="rs-label" fill={s.ink}>
+                    <text x={C} y={C - R + 14} transform={`rotate(90 ${C} ${C - R + 14})`} dominantBaseline="central" className="rs-label" style={{ fill: s.ink }}>
                       {label}
                     </text>
                   </g>

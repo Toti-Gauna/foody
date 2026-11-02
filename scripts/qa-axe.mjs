@@ -12,7 +12,8 @@ for (const [w, h] of [[390, 844], [1440, 900]]) {
   const p = await browser.newPage({ viewport: { width: w, height: h } });
   for (const path of PAGES) {
     await p.goto(base + path, { waitUntil: 'networkidle' });
-    await p.waitForTimeout(800);
+    await p.waitForSelector('.ls', { state: 'detached', timeout: 8000 }).catch(() => {});
+    await p.waitForTimeout(500);
     await p.addScriptTag({ path: axePath });
     const res = await p.evaluate(() => window.axe.run(document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'] } }));
     for (const v of res.violations) {

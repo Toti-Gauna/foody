@@ -73,7 +73,14 @@
       "open": "Open the demo",
       "crm": "See the venue CRM",
       "asPlan": "See the demo as the plan",
-      "plan": "{price} plan"
+      "plan": "{price} plan",
+      "seasons": {
+        "label": "Dressed for every date",
+        "note": "The menu, the wheel and the games change by themselves with the date. See how it looked for Halloween.",
+        "halloween": "Halloween",
+        "navidad": "Christmas",
+        "sanvalentin": "Valentine’s Day"
+      }
     },
     "plans": {
       "section": "Plans",
@@ -514,7 +521,10 @@
       "result": {
         "done": "Finished",
         "stopped": "Game stopped",
-        "points": "{n, plural, one {# point} other {# points}}"
+        "points": "{n, plural, one {# point} other {# points}}",
+        "record": "New record!",
+        "pointsWord": "{n, plural, one {point} other {points}}",
+        "best": "Your best: {n}"
       },
       "items": {
         "ninja": {
@@ -554,6 +564,19 @@
         "code": "Your code",
         "nothingTitle": "No luck this time",
         "next": "Continue"
+      },
+      "stage": {
+        "play": "Play",
+        "sound": "Sound",
+        "soundOff": "Sound off",
+        "fullscreen": "Full screen",
+        "exitFullscreen": "Exit",
+        "pause": "Pause",
+        "paused": "Paused",
+        "pausedHint": "Escape or P to resume.",
+        "resume": "Resume",
+        "restart": "Restart",
+        "go": "Go!"
       }
     },
     "mesa": {
@@ -631,6 +654,37 @@
         "watching": "You’re watching: the table is for two. You play next time.",
         "goal": "Goal!",
         "wins": "{name} wins"
+      }
+    },
+    "season": {
+      "label": "Date",
+      "auto": "By date ({season})",
+      "demo": "Demo",
+      "loadingLabel": "Loading the Lucero demo",
+      "clasica": {
+        "name": "Classic",
+        "loading": "Setting your table…"
+      },
+      "halloween": {
+        "name": "Halloween",
+        "chip": "Halloween edition",
+        "hello": "Happy Halloween! I’m Gus.",
+        "helloSub": "Tonight the menu comes with a scare. Pick and I’ll take it down.",
+        "loading": "Lighting the pumpkins…"
+      },
+      "navidad": {
+        "name": "Christmas",
+        "chip": "Christmas edition",
+        "hello": "Merry Christmas! I’m Gus.",
+        "helloSub": "Let’s toast: pick whatever you like and I’ll take it down.",
+        "loading": "Hanging the lights…"
+      },
+      "sanvalentin": {
+        "name": "Valentine’s Day",
+        "chip": "Valentine’s edition",
+        "hello": "Table for two. I’m Gus.",
+        "helloSub": "Tonight everything is for sharing. Pick and I’ll take it down.",
+        "loading": "Setting a table for two…"
       }
     }
   }

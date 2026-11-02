@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { SeasonDecor, SeasonProp, useSeason } from '../season';
 import { Minus, Plus } from 'lucide-react';
 import { asset } from '@/lib/env';
 import { Gus, FRAMES, useFrames, type GusPose } from '../Gus';
@@ -57,6 +58,8 @@ export function Menu({ onOpenOrder, onOpenStatus, scrollRoot }: { onOpenOrder: (
     return () => window.clearTimeout(id);
   }, [reaction]);
 
+  const season = useSeason();
+  const ts = useTranslations('lucero.season');
   const add = (dish: Dish, options: string[]) => {
     dispatch({ type: 'add', dish: dish.id, options });
     const count = n + 1;
@@ -69,16 +72,18 @@ export function Menu({ onOpenOrder, onOpenStatus, scrollRoot }: { onOpenOrder: (
 
   return (
     <div className="lc-menu">
-      <section className="lc-hero" aria-labelledby="lc-hello">
+      <section className="lc-hero" aria-labelledby="lc-hello" data-season={season}>
+        <SeasonDecor />
         <div className="lc-hero-copy">
-          <p className="lc-kicker">{t('table', { n: 4 })}</p>
+          {season === 'clasica' ? <p className="lc-kicker">{t('table', { n: 4 })}</p> : <p className="lc-season-chip">{ts(`${season}.chip`)}</p>}
           <h2 id="lc-hello" className="lc-hello">
-            {t('hello')}
+            {season === 'clasica' ? t('hello') : ts(`${season}.hello`)}
           </h2>
-          <p className="lc-hello-sub">{t('helloSub')}</p>
+          <p className="lc-hello-sub">{season === 'clasica' ? t('helloSub') : ts(`${season}.helloSub`)}</p>
         </div>
         <div className="lc-hero-gus">
           <Gus pose={waving} priority className="lc-hero-img" />
+          <SeasonProp />
         </div>
       </section>
 

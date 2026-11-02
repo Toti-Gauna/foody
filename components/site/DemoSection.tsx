@@ -5,6 +5,7 @@ import { demoHref } from '@/components/SiteNav';
 import { PhaseGlyph } from '@/components/ui/PhaseGlyph';
 import { sectionNumber, sectionPhase } from '@/lib/sections';
 import { PLAN_IDS, type PlanId } from '@/lib/plans';
+import type { Season } from '@/lib/seasons';
 import { asset } from '@/lib/env';
 import './demo-section.css';
 
@@ -22,7 +23,11 @@ export interface DemoSectionText {
   /** «Plan USD 25», per plan, with the price already read from the catalog. */
   plans: Record<PlanId, string>;
   demoBadge: string;
+  /** «Vestida para cada fecha»: the special dates, each a way into the demo dressed for it. */
+  seasons: { label: string; note: string; items: Record<Exclude<Season, 'clasica'>, string> };
 }
+
+const SEASON_LINKS = ['halloween', 'navidad', 'sanvalentin'] as const;
 
 /**
  * 03 · Demo. Lucero (a fictional venue, always labeled «Demo»): what you can do in it, the way in as a guest and the way
@@ -78,6 +83,20 @@ export function DemoSection({ id, locale, text }: { id: 'demo'; locale: Locale; 
                 </li>
               ))}
             </ul>
+          </nav>
+          <nav aria-label={text.seasons.label} className="ds-seasons">
+            <span className="label">{text.seasons.label}</span>
+            <ul>
+              {SEASON_LINKS.map((s) => (
+                <li key={s}>
+                  <a href={`${demoHref(locale)}?temporada=${s}`} className="ds-season" data-season={s}>
+                    <span aria-hidden className="ds-season-dot" />
+                    {text.seasons.items[s]}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="ds-seasons-note">{text.seasons.note}</p>
           </nav>
         </div>
 
