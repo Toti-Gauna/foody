@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "title": "Eclipse for restaurants",
+    "description": "The menu with Gus, the waiter who takes your order, the venue CRM and games for the table. Try the Lucero demo."
+  },
+  "languages": {
+    "label": "Language",
+    "es": "Spanish",
+    "en": "English",
+    "pt": "Portuguese"
+  },
+  "notFound": {
+    "title": "This page does not exist.",
+    "back": "Go home"
+  },
+  "placeholder": {
+    "title": "Eclipse for restaurants",
+    "text": "We are building the site. Coming very soon."
+  }
+}
