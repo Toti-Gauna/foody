@@ -11,7 +11,11 @@ import { preloadGus } from './Gus';
 import { CartaApp } from './carta/CartaApp';
 import { Crm, type CrmSection } from './crm/Crm';
 import { SyncInvite } from './SyncInvite';
+import { isSeason, seasonForDate, SEASONS, type Season } from '@/lib/seasons';
+import { SeasonProvider } from './season';
+import { LoadingScreen } from './LoadingScreen';
 import './lucero.css';
+import './seasons.css';
 import './crm/crm.css';
 
 type View = 'carta' | 'crm';
@@ -19,6 +23,7 @@ const SECTIONS: CrmSection[] = ['servicio', 'cocina', 'clientes', 'carta', 'jueg
 
 const noop = () => () => {};
 /** The query string, '' on the server (the static export renders the demo without it). */
+const todaySeason = () => seasonForDate(new Date());
 const useSearchString = () => useSyncExternalStore(noop, () => window.location.search, () => '');
 
 /** Read `?plan=`, `?vista=` and `?area=` against their lists; anything else is ignored. */
@@ -28,7 +33,9 @@ function readUrl(search: string) {
   const vista = q.get('vista');
   const area = q.get('area');
   const sync = q.get('sync');
+  const temporada = q.get('temporada');
   return {
+    season: isSeason(temporada) ? temporada : null,
     sync: isRoomCode(sync) ? sync : null,
     lead: q.get('lider') === '1',
     plan: isPlanId(plan) ? plan : null,
@@ -52,7 +59,12 @@ export interface DemoExtras {
 export function LuceroDemo({ lang, extras }: { lang: Lang; extras?: DemoExtras }) {
   const fromUrl = readUrl(useSearchString());
   // What the visitor picked here wins over the URL it came with (the URL is then kept in step with replaceState).
-  const [picked, setPicked] = useState<{ plan?: PlanId | null; view?: View; section?: CrmSection; sync?: string }>({});
+  const [picked, setPicked] = useState<{ plan?: PlanId | null; view?: View; section?: CrmSection; sync?: string; season?: Season | null }>({});
+  // The season: the one picked here, else the URL's (`?temporada=`), else the date's (lib/seasons.ts).
+  // The date is the visitor's, not the build's: the static page renders «clásica» and the client corrects it.
+  const today = useSyncExternalStore(noop, todaySeason, () => 'clasica' as Season);
+  const chosenSeason = picked.season !== undefined ? picked.season : fromUrl.season;
+  const season: Season = chosenSeason ?? today;
   const syncCode = API_URL ? (picked.sync ?? fromUrl.sync) : null;
   // The screen that made the code leads (also after a reload: `lider=1` stays in its URL, not in the phone's link).
   const syncLead = !!picked.sync || (!!fromUrl.sync && fromUrl.lead);
@@ -67,8 +79,20 @@ export function LuceroDemo({ lang, extras }: { lang: Lang; extras?: DemoExtras }
     preloadGus();
   }, []);
 
-  const sync = useCallback((next: { plan?: PlanId | null; view?: View; section?: CrmSection; sync?: string }) => {
+  // The games read their colours from <html>: the season goes there too, and their cached palette is dropped.
+  useEffect(() => {
+    const root = document.documentElement;
+    root.dataset.season = season;
+    void import('@/games/core/engine/palette').then((m) => m.clearPaletteCache());
+    return () => {
+      delete root.dataset.season;
+    };
+  }, [season]);
+
+  const sync = useCallback((next: { plan?: PlanId | null; view?: View; section?: CrmSection; sync?: string; season?: Season | null }) => {
     const q = new URLSearchParams(window.location.search);
+    if (next.season) q.set('temporada', next.season);
+    else if (next.season === null) q.delete('temporada');
     if (next.sync) {
       q.set('sync', next.sync);
       q.set('lider', '1');
@@ -83,7 +107,15 @@ export function LuceroDemo({ lang, extras }: { lang: Lang; extras?: DemoExtras }
 
   return (
     <LuceroProvider plan={plan} lang={lang} syncCode={syncCode} syncLead={syncLead}>
+      <SeasonProvider value={season}>
       <Shell
+        season={season}
+        today={today}
+        auto={chosenSeason === null}
+        onSeason={(x) => {
+          setPicked((c) => ({ ...c, season: x }));
+          sync({ season: x });
+        }}
         lang={lang}
         syncCode={syncCode}
         onPair={() => {
@@ -108,11 +140,16 @@ export function LuceroDemo({ lang, extras }: { lang: Lang; extras?: DemoExtras }
           sync({ section: s });
         }}
       />
+      </SeasonProvider>
     </LuceroProvider>
   );
 }
 
 function Shell({
+  season,
+  today,
+  auto,
+  onSeason,
   lang,
   syncCode,
   onPair,
@@ -123,6 +160,10 @@ function Shell({
   onView,
   onSection,
 }: {
+  season: Season;
+  today: Season;
+  auto: boolean;
+  onSeason: (s: Season | null) => void;
   lang: Lang;
   syncCode: string | null;
   onPair: () => void;
@@ -134,12 +175,14 @@ function Shell({
   onSection: (s: CrmSection) => void;
 }) {
   const t = useTranslations('lucero.shell');
+  const ts = useTranslations('lucero.season');
   const { plan } = useLucero();
   const canPlay = !plan || includes(plan, 'juegos');
   const pairLink = syncCode && typeof window !== 'undefined' ? `${window.location.origin}${BASE_PATH}/${lang}/demo/?${plan ? `plan=${plan}&` : ''}vista=carta&sync=${syncCode}` : null;
 
   return (
-    <div className="ld" data-view={view}>
+    <div className="ld" data-view={view} data-season={season}>
+      <LoadingScreen />
       <header className="ld-top">
         <a className="ld-back" href={`${BASE_PATH}/${lang}/`}>
           <ArrowLeft aria-hidden className="size-4" />
@@ -151,6 +194,17 @@ function Shell({
           <span className="ld-note">{t('note')}</span>
         </p>
         {API_URL ? <SyncInvite link={pairLink} onOpen={onPair} /> : null}
+        <label className="ld-plan ld-season">
+          <span>{ts('label')}</span>
+          <select value={auto ? '' : season} onChange={(e) => onSeason(isSeason(e.target.value) ? e.target.value : null)}>
+            <option value="">{ts('auto', { season: ts(`${today}.name`) })}</option>
+            {SEASONS.map((x) => (
+              <option key={x} value={x}>
+                {ts(`${x}.name`)}
+              </option>
+            ))}
+          </select>
+        </label>
         <label className="ld-plan">
           <span>{t('planLabel')}</span>
           <select value={plan ?? ''} onChange={(e) => onPlan(isPlanId(e.target.value) ? e.target.value : null)}>

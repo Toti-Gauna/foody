@@ -47,6 +47,18 @@ Este archivo es el registro de avance: se actualiza al cerrar cada fase, así se
 - Después de la ruleta, los juegos en un modal (hoja que sube desde abajo, con el pedido oscurecido detrás).
 - Sin nada «próximamente»: fuera el bloque de Qué ofrecemos y los productos de Otros negocios que solo eran «Próximamente».
 - La demo vista con un plan muestra solo lo de ese plan: lo que no tiene no aparece (sin candados ni avisos de otro plan).
+- Fechas especiales (`lib/seasons.ts`):
+  - Temporadas: clásica, Halloween (20/10–3/11), Navidad (1/12–6/1) y San Valentín (7–15/2).
+  - La demo se viste sola según la fecha, y se puede elegir cualquiera desde la barra o con `?temporada=`.
+  - Cambian la paleta (también la de los juegos), las decoraciones, el objeto junto a Gus, el saludo y la ruleta.
+  - Nunca cambian precios ni lo incluido. El sitio la muestra en Demo, «Vestida para cada fecha».
+- Pantalla de carga de la demo: espera a que estén las imágenes, con un mínimo de 1,4 s y un máximo de 5 s.
+- Juegos más premium:
+  - tarjeta de inicio con arte, nombre y bajada;
+  - marcador en una barra arriba del tablero;
+  - textos traducidos;
+  - carga con el arte del juego;
+  - resultado con los puntos contando, la mejor marca y confeti en un récord.
 
 ## Cómo se trabaja
 
@@ -81,5 +93,5 @@ Con el export servido en `localhost:4100` (`python3 -m http.server 4100 --direct
 - Demo en dos aparatos (con Foody-be): manda la compu que hizo el QR; el celular le pide el estado al conectarse.
   Otras pestañas del mismo navegador que no estén emparejadas no reciben lo que llega del otro aparato.
 
-- Los textos dentro de los juegos copiados de games-market (pantalla de inicio, HUD) están en español en los tres idiomas:
-  traducirlos obliga a tocar el código copiado. Se hace cuando se decida.
+- Los botones del escenario de los juegos ya están traducidos (skin de Lucero). Siguen en español las instrucciones y los
+  nombres del marcador que trae cada juego copiado de games-market.

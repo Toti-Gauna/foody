@@ -19,6 +19,7 @@ for (const reduced of [false, true]) {
       p.on('pageerror', (e) => problems.push(`${tag}: pageerror ${e}`));
       p.on('console', (m) => m.type() === 'error' && problems.push(`${tag}: console ${m.text()}`));
       await p.goto(base + path, { waitUntil: 'networkidle' });
+      await p.waitForSelector('.ls', { state: 'detached', timeout: 8000 }).catch(() => {});
       await p.waitForTimeout(600);
       const r = await p.evaluate(() => {
         const vw = document.documentElement.clientWidth;
@@ -55,7 +56,8 @@ for (const plan of ['25', '50', '75']) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const p = await ctx.newPage();
   await p.goto(`${base}/es/demo/?plan=${plan}`);
-  await p.waitForTimeout(1200);
+  await p.waitForSelector('.ls', { state: 'detached', timeout: 8000 });
+  await p.waitForTimeout(300);
   await p.getByRole('button', { name: 'Agregar Provoleta' }).click();
   await p.getByRole('button', { name: 'Ver mi pedido' }).click();
   await p.getByRole('button', { name: 'Mandar a la cocina' }).click();

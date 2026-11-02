@@ -193,3 +193,64 @@
     min-height: 520px;
   }
 }
+/* Vestida para cada fecha: each date in its own colours. */
+.ds-seasons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin-top: 14px;
+}
+.ds-seasons ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ds-season {
+  --c1: #e8661c;
+  --c2: #7c3aed;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--c1) 60%, transparent);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--c1) 18%, transparent), color-mix(in srgb, var(--c2) 18%, transparent));
+  color: var(--fg);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.ds-season[data-season='navidad'] {
+  --c1: #c0283a;
+  --c2: #2e8b57;
+}
+.ds-season[data-season='sanvalentin'] {
+  --c1: #d81b60;
+  --c2: #ff8fab;
+}
+.ds-season:hover {
+  border-color: var(--c1);
+  transform: translateY(-1px);
+}
+.ds-season-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--c1), var(--c2));
+  box-shadow: 0 0 10px var(--c1);
+}
+.ds-seasons-note {
+  flex-basis: 100%;
+  color: var(--fg-muted);
+  font-size: 0.875rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ds-season {
+    transition: none;
+  }
+  .ds-season:hover {
+    transform: none;
+  }
+}

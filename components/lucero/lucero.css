@@ -563,7 +563,7 @@
 .lc-btn-main {
   background: linear-gradient(180deg, var(--l-wine-hi), var(--l-wine));
   color: #fff6ee;
-  box-shadow: 0 8px 20px -6px rgb(178 58 82 / 0.6);
+  box-shadow: 0 8px 20px -6px color-mix(in srgb, var(--l-wine) 60%, transparent);
 }
 .lc-btn-ghost {
   border: 1px solid var(--l-line-strong);
