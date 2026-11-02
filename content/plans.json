@@ -1,0 +1,10 @@
+{
+  "$comment": "Eclipse para restaurantes: los tres planes (Ignacio, 02/11/2026). Única fuente de precios del sitio: ningún componente ni texto escribe un número. tests/plans.test.ts fija su digest.",
+  "currency": "USD",
+  "period": "month",
+  "plans": [
+    { "id": "25", "priceUsd": 25, "features": ["carta", "gus", "crm"], "games": [] },
+    { "id": "50", "priceUsd": 50, "features": ["carta", "gus", "crm", "juegos", "ruleta"], "games": ["ninja", "combinaciones", "catapulta"] },
+    { "id": "75", "priceUsd": 75, "features": ["carta", "gus", "crm", "juegos", "ruleta", "mesa", "academy"], "games": ["ninja", "combinaciones", "catapulta", "dibujo", "hockey"] }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "title": "Eclipse para restaurantes",
+    "description": "O cardápio com o Gus, o garçom que anota seu pedido, o CRM do local e jogos para a mesa. Veja a demo do Lucero."
+  },
+  "languages": {
+    "label": "Idioma",
+    "es": "Espanhol",
+    "en": "Inglês",
+    "pt": "Português"
+  },
+  "notFound": {
+    "title": "Esta página não existe.",
+    "back": "Ir para o início"
+  },
+  "placeholder": {
+    "title": "Eclipse para restaurantes",
+    "text": "Estamos montando o site. Em breve, aqui."
+  }
+}
