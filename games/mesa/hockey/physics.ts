@@ -54,12 +54,12 @@ export function clampPaddle(p: Vec, bottom: boolean): Vec {
 /** The guest's finger, in its turned view, as a point on the table. */
 export const fromGuestView = (p: Vec): Vec => ({ x: W - p.x, y: H - p.y });
 
-function movePaddle(pos: Vec, target: Vec, dt: number, bottom: boolean): { pos: Vec; vel: Vec } {
+function movePaddle(pos: Vec, target: Vec, dt: number, bottom: boolean, speed = PADDLE_SPEED): { pos: Vec; vel: Vec } {
   const goal = clampPaddle(target, bottom);
   const dx = goal.x - pos.x;
   const dy = goal.y - pos.y;
   const dist = Math.hypot(dx, dy);
-  const step = Math.min(dist, PADDLE_SPEED * dt);
+  const step = Math.min(dist, speed * dt);
   const next = dist > 0 ? { x: pos.x + (dx / dist) * step, y: pos.y + (dy / dist) * step } : pos;
   return { pos: next, vel: { x: (next.x - pos.x) / dt, y: (next.y - pos.y) / dt } };
 }
@@ -86,12 +86,12 @@ function hit(puck: HockeyState['puck'], paddle: Vec, vel: Vec) {
   puck.vy += vel.y * 0.35;
 }
 
-/** Advance the table by `dt` seconds with each paddle heading to its target. */
-export function step(s: HockeyState, dt: number, targetA: Vec, targetB: Vec): HockeyState {
+/** Advance the table by `dt` seconds with each paddle heading to its target. `speedB`: how fast the top paddle can go (Gus's level). */
+export function step(s: HockeyState, dt: number, targetA: Vec, targetB: Vec, speedB = PADDLE_SPEED): HockeyState {
   if (s.phase === 'end') return s;
   const next: HockeyState = { ...s, puck: { ...s.puck }, score: [...s.score] as [number, number] };
   const a = movePaddle(s.a, targetA, dt, true);
-  const b = movePaddle(s.b, targetB, dt, false);
+  const b = movePaddle(s.b, targetB, dt, false, speedB);
   next.a = a.pos;
   next.b = b.pos;
   next.av = a.vel;
@@ -154,9 +154,29 @@ function goal(s: HockeyState, scorer: 0 | 1): HockeyState {
   return { ...s, score, last: scorer, phase: end ? 'end' : 'goal', pause: 1.4, puck: { x: W / 2, y: H / 2, vx: 0, vy: 0 } };
 }
 
-/** Gus at the other end when you play alone: follows the puck in his half, goes home when it is away. */
-export function botTarget(s: HockeyState, skill = 0.8): Vec {
+/**
+ * How Gus plays when you're alone (Ignacio: «está muy difícil»). Fácil is the default:
+ * - `speed`: how fast his paddle moves (yours: PADDLE_SPEED);
+ * - `react`: seconds between looks at the puck (in between he keeps going where he last aimed);
+ * - `error`: how far off he aims, across;
+ * - `attack`: he only comes out to hit the puck in his half when it is slower than this; otherwise he guards;
+ * - `track`: how much he follows the puck sideways while guarding (1 = exactly);
+ * - `guard`: how far out from his goal he stands (further out, more shots get past him).
+ */
+export const BOT_LEVELS = {
+  facil: { speed: 1.3, react: 0.36, error: 0.2, attack: 0.45, track: 0.35, guard: 0.36 },
+  normal: { speed: 2.4, react: 0.18, error: 0.07, attack: 1.0, track: 0.65, guard: 0.26 },
+  dificil: { speed: PADDLE_SPEED, react: 0.06, error: 0.015, attack: 2.2, track: 0.9, guard: 0.18 },
+} as const;
+export type BotLevel = keyof typeof BOT_LEVELS;
+export const BOT_LEVEL_IDS = Object.keys(BOT_LEVELS) as BotLevel[];
+
+/** Where Gus heads for: after the puck when it is slow in his half, else guarding his goal. `noise` in [-1, 1]. */
+export function botTarget(s: HockeyState, level: BotLevel = 'normal', noise = 0): Vec {
+  const L = BOT_LEVELS[level];
   const p = s.puck;
-  if (p.y < H / 2 + 0.1) return { x: p.x + (p.vx > 0 ? 0.03 : -0.03) * skill, y: Math.max(PADDLE_R, p.y - 0.12) };
-  return { x: W / 2 + (p.x - W / 2) * 0.4, y: 0.18 };
+  const miss = noise * L.error;
+  const inHisHalf = p.y < H / 2 + 0.05;
+  if (inHisHalf && Math.hypot(p.vx, p.vy) < L.attack) return { x: p.x + miss, y: Math.max(PADDLE_R, p.y - 0.12) };
+  return { x: W / 2 + (p.x - W / 2) * L.track + miss, y: L.guard };
 }

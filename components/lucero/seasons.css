@@ -466,7 +466,7 @@ html:root[data-season='sanvalentin'] {
 .rs > .sd {
   z-index: 0;
 }
-.rs > :not(.sd):not(.rs-rays) {
+.rs > :not(.sd):not(.rs-rays):not(.rs-close) {
   position: relative;
   z-index: 1;
 }

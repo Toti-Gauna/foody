@@ -15,18 +15,18 @@ const SPIN_MS = 4600;
 const prizeCode = () => `LUC-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
 
 /**
- * La ruleta de la casa, over the guest's whole screen right after an order is placed (Ignacio, 02/11/2026: «que aparezca
- * superponiéndose en toda la pantalla desde la primera vez que el usuario pide algo»). One spin per order, to win the
- * daily menu or a deal. The prizes and their odds are the venue's (CRM → «Juegos y ruleta»); slices are drawn equal, but
+ * La ruleta de la casa, over the guest's whole screen as soon as the carta opens, right after scanning the table's QR
+ * (Ignacio, 02/11/2026: «la ruleta aparece al principio luego de escanear el QR»). One spin per visit, to win the daily
+ * menu or a deal for the order. The prizes and their odds are the venue's (CRM → «Juegos y ruleta»); slices are drawn equal, but
  * what comes out follows the weights: the result is decided first (`pickPrize`) and the wheel lands on it. In the demo,
  * prizes are examples.
  */
-export function Ruleta({ orderId, onDone, onClose }: { orderId: string | null; onDone: () => void; onClose: () => void }) {
+export function Ruleta({ spinKey, onDone, onClose }: { spinKey: string; onDone: () => void; onClose: () => void }) {
   const t = useTranslations('lucero.games.ruleta');
   const { state, dispatch } = useLucero();
   const reduced = useReducedMotion();
   const slices = useMemo(() => state.prizes.filter((p) => p.weight > 0), [state.prizes]);
-  const done = orderId ? state.spins.find((s) => s.orderId === orderId) : null;
+  const done = state.spins.find((s) => s.orderId === spinKey) ?? null;
   const [angle, setAngle] = useState(0);
   const [spinning, setSpinning] = useState(false);
   const [shown, setShown] = useState<{ prize: Prize | null; code: string | null } | null>(null);
@@ -34,7 +34,7 @@ export function Ruleta({ orderId, onDone, onClose }: { orderId: string | null; o
   const result = shown ?? (done ? { prize: state.prizes.find((p) => p.id === done.prize) ?? null, code: done.code } : null);
 
   const spin = () => {
-    if (!orderId || done || spinning || !slices.length) return;
+    if (done || spinning || !slices.length) return;
     const prize = pickPrize(slices, Math.random());
     const index = prize ? slices.indexOf(prize) : 0;
     const per = 360 / slices.length;
@@ -48,7 +48,7 @@ export function Ruleta({ orderId, onDone, onClose }: { orderId: string | null; o
       () => {
         setSpinning(false);
         setShown({ prize: prize && prize.label ? prize : null, code });
-        dispatch({ type: 'spin', spin: { orderId, prize: prize && prize.label ? prize.id : null, code, at: Date.now() } });
+        dispatch({ type: 'spin', spin: { orderId: spinKey, prize: prize && prize.label ? prize.id : null, code, at: Date.now() } });
       },
       reduced ? 60 : SPIN_MS,
     );
@@ -82,23 +82,36 @@ export function Ruleta({ orderId, onDone, onClose }: { orderId: string | null; o
       <div className="rs-stage">
         <svg viewBox="0 0 320 320" className="rs-wheel-svg" aria-hidden>
           <defs>
-            <radialGradient id="rs-rim" cx="50%" cy="40%" r="65%">
-              <stop offset="0%" stopColor="#ffe3a3" />
+            <linearGradient id="rs-rim" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#fff1c4" />
+              <stop offset="22%" stopColor="#f5b942" />
+              <stop offset="48%" stopColor="#a8701a" />
+              <stop offset="70%" stopColor="#f7cd6b" />
+              <stop offset="100%" stopColor="#8a5a14" />
+            </linearGradient>
+            <radialGradient id="rs-hub" cx="38%" cy="32%" r="75%">
+              <stop offset="0%" stopColor="#fff6d6" />
               <stop offset="55%" stopColor="#f5b942" />
-              <stop offset="100%" stopColor="#9a6a1d" />
+              <stop offset="100%" stopColor="#8a5a14" />
             </radialGradient>
-            <radialGradient id="rs-hub" cx="40%" cy="35%" r="70%">
-              <stop offset="0%" stopColor="#fff2cc" />
-              <stop offset="60%" stopColor="#f5b942" />
-              <stop offset="100%" stopColor="#a87422" />
+            <radialGradient id="rs-depth" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#fff" stopOpacity="0.16" />
+              <stop offset="55%" stopColor="#fff" stopOpacity="0" />
+              <stop offset="100%" stopColor="#000" stopOpacity="0.38" />
             </radialGradient>
+            <linearGradient id="rs-gloss" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#fff" stopOpacity="0.32" />
+              <stop offset="100%" stopColor="#fff" stopOpacity="0" />
+            </linearGradient>
           </defs>
-          {/* Rim and lights stay still; only the slices turn. */}
-          <circle cx={C} cy={C} r="156" fill="url(#rs-rim)" />
-          <circle cx={C} cy={C} r="142" fill="#1a1113" />
+          {/* Rim, bevel and lights stay still; only the slices turn. */}
+          <circle cx={C} cy={C} r="158" fill="#0d0809" />
+          <circle cx={C} cy={C} r="155" fill="url(#rs-rim)" />
+          <circle cx={C} cy={C} r="141.5" fill="none" stroke="#5a3a0c" strokeWidth="2" />
+          <circle cx={C} cy={C} r="139" fill="#140c0e" />
           {Array.from({ length: BULBS }, (_, i) => {
-            const [x, y] = point((i * 360) / BULBS, 149).split(' ').map(Number);
-            return <circle key={i} cx={x} cy={y} r="4.2" className="rs-bulb" style={{ animationDelay: `${(i % 2) * 0.35}s` }} />;
+            const [x, y] = point((i * 360) / BULBS, 148).split(' ').map(Number);
+            return <circle key={i} cx={x} cy={y} r="4.6" className="rs-bulb" style={{ animationDelay: `${(i % 2) * 0.35}s` }} />;
           })}
           <g className="rs-turn" style={{ transform: `rotate(${angle}deg)`, transition: spinning && !reduced ? `transform ${SPIN_MS - 100}ms cubic-bezier(0.1, 0.75, 0.08, 1)` : 'none' }}>
             {slices.map((p, i) => {
@@ -107,7 +120,7 @@ export function Ruleta({ orderId, onDone, onClose }: { orderId: string | null; o
               // Radial labels, from the rim towards the hub, like a real wheel: none reads upside down.
               return (
                 <g key={p.id}>
-                  <path d={`M${C} ${C} L${point(i * per)} A${R} ${R} 0 ${per > 180 ? 1 : 0} 1 ${point((i + 1) * per)} Z`} style={{ fill: s.fill }} stroke="#1a1113" strokeWidth="1.5" />
+                  <path d={`M${C} ${C} L${point(i * per)} A${R} ${R} 0 ${per > 180 ? 1 : 0} 1 ${point((i + 1) * per)} Z`} style={{ fill: s.fill }} />
                   <g transform={`rotate(${i * per + per / 2} ${C} ${C})`}>
                     <text x={C} y={C - R + 14} transform={`rotate(90 ${C} ${C - R + 14})`} dominantBaseline="central" className="rs-label" style={{ fill: s.ink }}>
                       {label}
@@ -116,13 +129,40 @@ export function Ruleta({ orderId, onDone, onClose }: { orderId: string | null; o
                 </g>
               );
             })}
+            {/* Gold dividers with a stud at the rim. */}
+            {slices.map((p, i) => {
+              const [x, y] = point(i * per, R - 4).split(' ').map(Number);
+              return (
+                <g key={`d-${p.id}`}>
+                  <line x1={C} y1={C} x2={x} y2={y} stroke="url(#rs-rim)" strokeWidth="3" />
+                  <circle cx={x} cy={y} r="3.6" fill="#ffe3a3" stroke="#8a5a14" strokeWidth="1" />
+                </g>
+              );
+            })}
           </g>
-          <circle cx={C} cy={C} r="30" fill="url(#rs-hub)" stroke="#1a1113" strokeWidth="3" />
+          {/* Depth and a glossy highlight over the slices (still, so the light doesn't spin). */}
+          <circle cx={C} cy={C} r={R} fill="url(#rs-depth)" pointerEvents="none" />
+          <path d={`M${C - 108} ${C - 40} A${R - 10} ${R - 10} 0 0 1 ${C + 108} ${C - 40} Q${C} ${C - 70} ${C - 108} ${C - 40}Z`} fill="url(#rs-gloss)" pointerEvents="none" />
+          <circle cx={C} cy={C} r="34" fill="#0d0809" opacity="0.45" />
+          <circle cx={C} cy={C} r="31" fill="url(#rs-hub)" stroke="#5a3a0c" strokeWidth="2" />
+          <circle cx={C} cy={C} r="24" fill="none" stroke="#fff3cf" strokeOpacity="0.6" strokeWidth="1" strokeDasharray="2 3" />
           <text x={C} y={C + 9} textAnchor="middle" className="rs-hub-l">
             L
           </text>
         </svg>
-        <span aria-hidden className="rs-pointer" />
+        <svg viewBox="0 0 40 56" className="rs-pointer" aria-hidden>
+          <defs>
+            <linearGradient id="rs-ptr" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#fff1c4" />
+              <stop offset="50%" stopColor="#f5b942" />
+              <stop offset="100%" stopColor="#8a5a14" />
+            </linearGradient>
+          </defs>
+          <path d="M20 54 L5 18 A16 16 0 1 1 35 18 Z" fill="url(#rs-ptr)" stroke="#5a3a0c" strokeWidth="1.5" />
+          <circle cx="20" cy="15" r="7" className="rs-gem" />
+          <circle cx="17.5" cy="12.5" r="2" fill="#fff" opacity="0.7" />
+        </svg>
+        <span aria-hidden className="rs-stand" />
       </div>
 
       {result ? (
@@ -156,7 +196,7 @@ export function Ruleta({ orderId, onDone, onClose }: { orderId: string | null; o
         </div>
       ) : (
         <div className="rs-actions">
-          <button type="button" className="lc-btn lc-btn-main lc-btn-block rs-go" onClick={spin} disabled={!orderId || spinning || !slices.length}>
+          <button type="button" className="lc-btn lc-btn-main lc-btn-block rs-go" onClick={spin} disabled={spinning || !slices.length}>
             {spinning ? t('spinning') : t('spin')}
           </button>
           <p className="rs-note">{t('note')}</p>

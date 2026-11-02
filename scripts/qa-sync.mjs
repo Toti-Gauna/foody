@@ -22,7 +22,9 @@ const before = await pc.locator('.crm-ticket').count();
 const phone = await (await browser.newContext({ ...devices['iPhone 14'] })).newPage();
 watch(phone, 'phone');
 await phone.goto(link);
-await phone.waitForTimeout(1500);
+await phone.waitForSelector('.ls', { state: 'detached', timeout: 8000 });
+await phone.waitForTimeout(900);
+await phone.getByRole('button', { name: 'Ahora no' }).click(); // the wheel, on arrival
 await phone.getByRole('button', { name: 'Agregar Provoleta' }).click();
 await phone.getByRole('button', { name: 'Ver mi pedido' }).click();
 await phone.getByRole('button', { name: 'Mandar a la cocina' }).click();

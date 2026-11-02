@@ -317,7 +317,9 @@
       "optionsOf": "Options for {dish}",
       "less": "Remove one {dish}",
       "more": "Add another {dish}",
-      "add": "Add {dish}"
+      "add": "Add {dish}",
+      "wheelChip": "Wheel",
+      "wheelChipLabel": "Spin the house wheel"
     },
     "comanda": {
       "back": "Back to the menu",
@@ -368,8 +370,7 @@
         "bill": "Bringing the bill. You pay at the venue."
       },
       "tableLabel": "TABLE 4",
-      "kitchen": "KITCHEN",
-      "spin": "Spin the wheel"
+      "kitchen": "KITCHEN"
     },
     "crm": {
       "navLabel": "CRM sections",
@@ -465,7 +466,7 @@
         "remove": "Remove {prize}",
         "newPrize": "New prize",
         "add": "Add a prize",
-        "rule": "One spin per order. The percentage is each prize’s chance; the wheel’s slices look equal.",
+        "rule": "One spin per visit, when the menu opens. The percentage is each prize’s chance; the slices look the same size.",
         "handed": "Tonight’s prizes",
         "noneYet": "Nobody has won anything tonight yet.",
         "games": "Games your guests see"
@@ -554,11 +555,11 @@
         "spinning": "Spinning…",
         "won": "You won: {prize}",
         "show": "Show the code to the waiter.",
-        "nothing": "You get another spin with your next order.",
+        "nothing": "Enjoy your meal anyway: you get another spin on your next visit.",
         "nothingShort": "Next time",
-        "note": "One spin per order. Example prizes: each venue picks its own.",
+        "note": "One spin per visit. Sample prizes: each venue picks its own.",
         "headline": "Spin to win",
-        "sub": "One spin for this order. You could win the daily menu or a deal.",
+        "sub": "Welcome to Lucero. Before you order, one spin: you could win the daily menu or a deal.",
         "later": "Not now",
         "wonTitle": "You won!",
         "code": "Your code",
@@ -653,7 +654,18 @@
         "help": "Move your paddle with your finger. Your goal is the bottom one.",
         "watching": "You’re watching: the table is for two. You play next time.",
         "goal": "Goal!",
-        "wins": "{name} wins"
+        "wins": "{name} wins",
+        "level": {
+          "title": "How good is Gus?",
+          "sub": "Pick who you play against. You can change it at the end.",
+          "facil": "Easy",
+          "facilHint": "Gus is still learning: slow and distracted.",
+          "normal": "Normal",
+          "normalHint": "He defends well and attacks now and then.",
+          "dificil": "Hard",
+          "dificilHint": "Gus on his best night.",
+          "change": "Change level"
+        }
       }
     },
     "season": {

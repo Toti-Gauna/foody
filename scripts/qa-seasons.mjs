@@ -18,6 +18,9 @@ for (const season of ['clasica', 'halloween', 'navidad', 'sanvalentin']) {
   await p.waitForTimeout(350);
   await p.screenshot({ path: `${out}/season-${season}-0-loading.png` });
   await p.waitForSelector('.ls', { state: 'detached', timeout: 8000 });
+  await p.waitForTimeout(1000);
+  await p.screenshot({ path: `${out}/season-${season}-1-wheel.png` });
+  await p.getByRole('button', { name: 'Ahora no' }).click();
   await p.waitForTimeout(400);
   await p.screenshot({ path: `${out}/season-${season}-1-carta.png` });
   const decor = await p.locator('.sd').count();
@@ -37,12 +40,12 @@ const g = await phone.newPage();
 watch(g, 'game');
 await g.goto(`${base}/es/demo/?plan=50&temporada=halloween`);
 await g.waitForSelector('.ls', { state: 'detached', timeout: 8000 });
+await g.waitForTimeout(900);
+await g.getByRole('button', { name: 'Ahora no' }).click(); // the wheel, on arrival
 await g.getByRole('button', { name: 'Agregar Provoleta' }).click();
 await g.getByRole('button', { name: 'Ver mi pedido' }).click();
 await g.getByRole('button', { name: 'Mandar a la cocina' }).click();
-await g.waitForTimeout(1600);
-await g.getByRole('button', { name: 'Ahora no' }).click();
-await g.waitForTimeout(500);
+await g.waitForTimeout(2000);
 await g.locator('.gl-card', { hasText: 'Combinaciones' }).click();
 await g.waitForTimeout(1500);
 await g.locator('.sn-skin-play').click();

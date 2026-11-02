@@ -5,15 +5,17 @@ import { useTranslations } from 'next-intl';
 import { Menu } from './Menu';
 import { Comanda } from './Comanda';
 import { Pedido } from './Pedido';
-import { myOrders, useLucero } from '../store';
+import { Gift } from 'lucide-react';
+import { myOrders, useLucero, VISIT } from '../store';
+import { onDemoReady } from '../LoadingScreen';
 import type { GamesStage } from '../games/GamesLayer';
 
 export type CartaView = 'menu' | 'comanda' | 'pedido';
 
 /**
  * The guest's side of Lucero: carta → «Tu pedido» → «Tu pedido fue realizado». It scrolls inside its own box, so it fits
- * the whole phone screen on a phone and the docked phone on a computer. `renderGames` (fase 5) shows, right after an order
- * is placed on a plan with games, the wheel over the whole screen and then the games modal.
+ * the whole phone screen on a phone and the docked phone on a computer. `renderGames` (fase 5) shows, on a plan with games,
+ * the wheel over the whole screen when the carta opens, and the games modal right after an order is placed.
  */
 export function CartaApp({
   canPlay = false,
@@ -35,6 +37,23 @@ export function CartaApp({
     scroll.current?.scrollTo({ top: 0, behavior: 'instant' });
   }, [view]);
 
+  // Right after scanning the QR: once the demo is on screen, the wheel (one spin per visit).
+  const spun = state.spins.some((s) => s.orderId === VISIT);
+  const offerWheel = canPlay && !spun;
+  useEffect(() => {
+    if (!offerWheel) return;
+    let timer = 0;
+    const off = onDemoReady(() => {
+      timer = window.setTimeout(() => setStage((s) => s ?? 'wheel'), 500);
+    });
+    return () => {
+      off();
+      window.clearTimeout(timer);
+    };
+    // Only when the carta opens (or the plan starts having the wheel), not after every spin.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [canPlay]);
+
   return (
     <div className="lc-app">
       <header className="lc-top">
@@ -44,6 +63,12 @@ export function CartaApp({
           {t('table', { n: 4 })}
         </span>
         <span className="lc-demo">{t('demo')}</span>
+        {offerWheel ? (
+          <button type="button" className="lc-wheel-chip" onClick={() => setStage('wheel')} aria-label={t('wheelChipLabel')}>
+            <Gift aria-hidden className="size-4" />
+            <span>{t('wheelChip')}</span>
+          </button>
+        ) : null}
       </header>
       <div ref={scroll} className="lc-scroll" data-view={view}>
         {view === 'menu' ? (
@@ -54,8 +79,8 @@ export function CartaApp({
             onSent={(id) => {
               setFocus(id);
               setView('pedido');
-              // The wheel takes the whole screen a moment after «Tu pedido fue realizado»; the games modal follows it.
-              if (canPlay) window.setTimeout(() => setStage('wheel'), 1100);
+              // The games modal, a moment after «Tu pedido fue realizado».
+              if (canPlay) window.setTimeout(() => setStage('games'), 1300);
             }}
           />
         ) : order ? (
@@ -64,7 +89,6 @@ export function CartaApp({
             onMore={() => setView('menu')}
             canPlay={canPlay}
             onPlay={() => setStage('games')}
-            onSpin={canPlay && !state.spins.some((s) => s.orderId === order.id) ? () => setStage('wheel') : undefined}
           />
         ) : null}
       </div>

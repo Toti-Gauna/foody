@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { guessPoints, isClose, isCorrect, mask, normalize, pickOptions, WORDS } from '@/games/mesa/dibujo/logic';
-import { botTarget, clampPaddle, fromGuestView, GOAL_W, H, initial, PUCK_R, step, W, WIN } from '@/games/mesa/hockey/physics';
+import { BOT_LEVELS, botTarget, clampPaddle, fromGuestView, GOAL_W, H, initial, PUCK_R, step, W, WIN, type BotLevel } from '@/games/mesa/hockey/physics';
 import { isRoomCode, newRoomCode, pickTransport } from '@/games/mesa/transport';
 
 describe('dibujá y adiviná', () => {
@@ -70,8 +70,37 @@ describe('hockey', () => {
   });
 
   it('Gus the bot stays in his half', () => {
-    const t = clampPaddle(botTarget(initial()), false);
-    expect(t.y).toBeLessThan(H / 2);
+    for (const level of ['facil', 'normal', 'dificil'] as const) expect(clampPaddle(botTarget(initial(), level), false).y).toBeLessThan(H / 2);
+  });
+
+  it('Gus on easy is slower and lets in more of the same shots than on hard', () => {
+    expect(BOT_LEVELS.facil.speed).toBeLessThan(BOT_LEVELS.dificil.speed);
+    // The same 24 shots at his goal, with the same «aim noise», against each level.
+    const conceded = (level: BotLevel) => {
+      const L = BOT_LEVELS[level];
+      let goals = 0;
+      for (let shot = 0; shot < 24; shot++) {
+        let s = initial();
+        const x = 0.15 + (shot % 8) * 0.1;
+        // Every shot is on target: it would reach the goal mouth (x within ±0.12 of the middle) with nobody there.
+        const vy = -2.2 - (shot % 4) * 0.15;
+        const aimX = W / 2 + (((shot * 5) % 7) - 3) * 0.04;
+        s = { ...s, puck: { x, y: 1.05, vx: ((aimX - x) * -vy) / 1.05, vy } };
+        let aim = s.b;
+        for (let i = 0; i < 180 && s.phase === 'play'; i++) {
+          if (i % Math.max(1, Math.round(L.react * 60)) === 0) aim = clampPaddle(botTarget(s, level, Math.sin(shot * 7 + i)), false);
+          s = step(s, 1 / 60, { x: W / 2, y: H - 0.2 }, aim, L.speed);
+        }
+        if (s.score[0] > 0) goals += 1;
+      }
+      return goals;
+    };
+    const easy = conceded('facil');
+    const normal = conceded('normal');
+    const hard = conceded('dificil');
+    expect(easy).toBeGreaterThan(normal);
+    expect(normal).toBeGreaterThanOrEqual(hard);
+    expect(easy).toBeGreaterThanOrEqual(6);
   });
 });
 

@@ -519,9 +519,10 @@
 }
 .rs-stage {
   position: relative;
+  isolation: isolate;
   align-self: center;
-  margin-top: 16px;
-  width: min(100%, 330px, 46dvh);
+  margin: 22px 0 8%;
+  width: min(100%, 340px, 44dvh);
   aspect-ratio: 1;
   max-width: 100%;
   filter: drop-shadow(0 26px 40px rgb(0 0 0 / 0.65)) drop-shadow(0 0 50px rgb(245 185 66 / 0.18));
@@ -552,7 +553,8 @@
 }
 .rs-bulb {
   fill: #fff2cc;
-  opacity: 0.55;
+  opacity: 0.6;
+  filter: drop-shadow(0 0 3px #ffd77a);
 }
 .rs[data-state='spinning'] .rs-bulb,
 .rs[data-state='won'] .rs-bulb {
@@ -565,14 +567,43 @@
 }
 .rs-pointer {
   position: absolute;
-  top: -3%;
+  top: -6%;
   left: 50%;
-  width: 28px;
-  height: 36px;
+  z-index: 2;
+  width: 13%;
+  height: auto;
   transform: translateX(-50%);
-  background: linear-gradient(180deg, #fff2cc, #f5b942 55%, #a87422);
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  filter: drop-shadow(0 4px 6px rgb(0 0 0 / 0.6));
+  transform-origin: 50% 27%;
+  filter: drop-shadow(0 6px 8px rgb(0 0 0 / 0.6));
+}
+.rs[data-state='spinning'] .rs-pointer {
+  animation: rs-tick 0.14s ease-in-out infinite alternate;
+}
+@keyframes rs-tick {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(-14deg);
+  }
+}
+.rs-gem {
+  fill: var(--l-wine-hi);
+  stroke: #5a3a0c;
+  stroke-width: 1.2;
+}
+/* The wheel's stand, like a fairground one. */
+.rs-stand {
+  position: absolute;
+  left: 50%;
+  bottom: -9%;
+  z-index: -1;
+  width: 34%;
+  height: 16%;
+  transform: translateX(-50%);
+  clip-path: polygon(30% 0, 70% 0, 100% 100%, 0 100%);
+  background: linear-gradient(90deg, #8a5a14, #f5b942 45%, #fff1c4 52%, #a8701a 80%);
+  border-radius: 4px;
 }
 .rs-actions,
 .rs-result {
@@ -728,4 +759,43 @@
   border: 1px solid var(--l-line-strong);
   background: color-mix(in srgb, var(--l-surface) 85%, transparent);
   color: var(--l-ink);
+}
+
+/* The carta's «Ruleta» chip, while the visit's spin is unused. */
+.lc-wheel-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--l-amber) 60%, transparent);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--l-amber) 22%, transparent), color-mix(in srgb, var(--l-wine) 30%, transparent));
+  color: var(--l-amber);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  position: relative;
+}
+.lc-wheel-chip::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+}
+.lc-wheel-chip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 16px -2px color-mix(in srgb, var(--l-amber) 70%, transparent);
+  opacity: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .lc-wheel-chip::before {
+    animation: lc-chip-glow 2.2s ease-in-out infinite;
+  }
+}
+@keyframes lc-chip-glow {
+  50% {
+    opacity: 1;
+  }
 }

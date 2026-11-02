@@ -57,14 +57,14 @@ for (const plan of ['25', '50', '75']) {
   const p = await ctx.newPage();
   await p.goto(`${base}/es/demo/?plan=${plan}`);
   await p.waitForSelector('.ls', { state: 'detached', timeout: 8000 });
-  await p.waitForTimeout(300);
+  await p.waitForTimeout(1000);
+  const ruleta = await p.locator('.rs').count();
+  if (ruleta) await p.getByRole('button', { name: 'Ahora no' }).click();
+  await p.waitForTimeout(400);
   await p.getByRole('button', { name: 'Agregar Provoleta' }).click();
   await p.getByRole('button', { name: 'Ver mi pedido' }).click();
   await p.getByRole('button', { name: 'Mandar a la cocina' }).click();
   await p.waitForTimeout(2000);
-  const ruleta = await p.locator('.rs').count();
-  if (ruleta) await p.getByRole('button', { name: 'Ahora no' }).click();
-  await p.waitForTimeout(600);
   lens[plan] = {
     ruleta,
     modal: await p.locator('.gl').count(),

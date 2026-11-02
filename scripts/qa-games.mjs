@@ -9,12 +9,9 @@ const p = await ctx.newPage();
 p.on('pageerror', (e) => errors.push(e.message));
 p.on('console', (m) => m.type() === 'error' && errors.push(`console: ${m.text()}`));
 await p.goto(`${base}/es/demo/?plan=50`);
-await p.waitForTimeout(1200);
-await p.getByRole('button', { name: 'Agregar Provoleta' }).click();
-await p.getByRole('button', { name: 'Ver mi pedido' }).click();
-await p.getByRole('button', { name: 'Mandar a la cocina' }).click();
-await p.waitForTimeout(1800);
-// 1) The wheel, over the whole screen.
+await p.waitForSelector('.ls', { state: 'detached', timeout: 8000 });
+await p.waitForTimeout(900);
+// 1) On arrival (right after scanning the QR), the wheel over the whole screen.
 await p.screenshot({ path: `${out}/games-0-wheel.png` });
 const overlay = await p.locator('.rs').count();
 await p.locator('.rs').getByRole('button', { name: 'Girar la ruleta' }).click();
@@ -23,9 +20,13 @@ await p.screenshot({ path: `${out}/games-1-spinning.png` });
 await p.waitForTimeout(4600);
 await p.screenshot({ path: `${out}/games-2-wheel.png` });
 const wheel = await p.locator('.rs-result').innerText().catch(() => '');
-// 2) Then the games modal.
 await p.locator('.rs').getByRole('button', { name: 'Seguir' }).click();
-await p.waitForTimeout(700);
+await p.waitForTimeout(500);
+await p.getByRole('button', { name: 'Agregar Provoleta' }).click();
+await p.getByRole('button', { name: 'Ver mi pedido' }).click();
+await p.getByRole('button', { name: 'Mandar a la cocina' }).click();
+await p.waitForTimeout(2000);
+// 2) After ordering, the games modal.
 await p.screenshot({ path: `${out}/games-3-modal.png` });
 const modal = await p.locator('.gl .gl-sheet').count();
 for (const g of ['Ninja', 'Combinaciones', 'Catapulta']) {

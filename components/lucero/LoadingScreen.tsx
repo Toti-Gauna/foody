@@ -7,6 +7,26 @@ import { useReducedMotion } from '@/components/motion/useReducedMotion';
 import { FRAMES, Gus, gusSrc, GUS_POSES, useFrames } from './Gus';
 import { SeasonDecor, useSeason } from './season';
 
+/** The carta waits for this before offering the wheel: the guest has to see it, not the loading screen. */
+export const READY_EVENT = 'lucero:ready';
+declare global {
+  interface Window {
+    __luceroReady?: boolean;
+  }
+}
+function markReady() {
+  window.__luceroReady = true;
+  window.dispatchEvent(new Event(READY_EVENT));
+}
+export function onDemoReady(fn: () => void) {
+  if (window.__luceroReady) {
+    fn();
+    return () => {};
+  }
+  window.addEventListener(READY_EVENT, fn, { once: true });
+  return () => window.removeEventListener(READY_EVENT, fn);
+}
+
 /** What the first screens need before they look right: every Gus pose and the dishes' photos. */
 const WARM = [...GUS_POSES.map(gusSrc), ...['pasta', 'pizza', 'burger', 'dessert', 'cocktail'].map((f) => asset(`/lucero/food/${f}.webp`))];
 const MIN_MS = 1400;
@@ -47,6 +67,7 @@ export function LoadingScreen() {
       if ((count >= imgs.length && elapsed >= min) || elapsed >= MAX_MS) {
         window.clearInterval(check);
         setPhase('leaving');
+        markReady();
         window.setTimeout(() => alive && setPhase('gone'), reduced ? 0 : 650);
       }
     }, 100);
