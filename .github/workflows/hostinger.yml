@@ -44,6 +44,9 @@ jobs:
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           FTP_DIR: ${{ secrets.FTP_DIR }}
+          SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
         run: |
+          # mirror --delete borra lo que sobra: nunca en la raíz ni en el public_html del dominio principal.
+          node --input-type=module -e "import { safeFtpDir } from './deploy/safe-dir.mjs'; const host = new URL(process.env.SITE_URL || 'https://x').hostname; if (!safeFtpDir(process.env.FTP_DIR, host)) { console.error('FTP_DIR tiene que ser la carpeta del subdominio'); process.exit(1); }"
           sudo apt-get update -qq && sudo apt-get install -y -qq lftp
           lftp -u "$FTP_USERNAME","$FTP_PASSWORD" -e "set ftp:ssl-force true; mirror -R --delete --parallel=4 --exclude-glob .git* out/ \"$FTP_DIR\"/; bye" "$FTP_SERVER"

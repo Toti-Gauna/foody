@@ -68,8 +68,12 @@ function peerTransport(room: string, isHost: boolean): MesaTransport {
   };
 }
 
+/** A secret this phone repeats when it reconnects, so the relay gives its seat back to it and to nobody else. */
+export const seatKey = () => Array.from({ length: 3 }, () => Math.random().toString(36).slice(2, 10)).join('').slice(0, 24).padEnd(16, '0');
+
 function wsTransport(room: string, isHost: boolean, apiUrl: string): MesaTransport {
   const id = `${isHost ? 'h' : 'g'}-${Math.random().toString(36).slice(2, 9)}`;
+  const key = seatKey();
   const handlers = new Set<(msg: Wire) => void>();
   const statusHandlers = new Set<(s: TransportStatus) => void>();
   let ws: WebSocket | null = null;
@@ -80,7 +84,7 @@ function wsTransport(room: string, isHost: boolean, apiUrl: string): MesaTranspo
     status = s;
     for (const cb of statusHandlers) cb(s);
   };
-  const url = `${apiUrl.replace(/^http/, 'ws')}/rooms/${encodeURIComponent(room)}?role=${isHost ? 'host' : 'guest'}&id=${id}`;
+  const url = `${apiUrl.replace(/^http/, 'ws')}/rooms/${encodeURIComponent(room)}?role=${isHost ? 'host' : 'guest'}&id=${id}&k=${key}`;
   const open = () => {
     if (closed) return;
     ws = new WebSocket(url);

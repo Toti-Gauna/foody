@@ -1,6 +1,6 @@
 # Kit de deploy de Eclipse para restaurantes. En Codespaces, desde la raíz del repo:
 #   docker build -t foody-kit -f deploy/Dockerfile .
-#   docker run -it --rm -v "$PWD/deploy-out:/out" foody-kit
+#   mkdir -p deploy-out && docker run -it --rm -v "$PWD/deploy-out:/out" foody-kit
 # Te pide los datos por consola y deja en ./deploy-out el sitio, el .htaccess, las variables y los secretos.
 FROM node:22-bookworm-slim
 RUN apt-get update \

@@ -1,4 +1,5 @@
 import { API_URL } from '@/lib/env';
+import { seatKey } from '@/games/mesa/transport';
 
 /**
  * The demo between devices, through Foody-be's `/sync/:channel` (everyone hears everyone else): the guest orders on a
@@ -13,7 +14,7 @@ export interface SyncLink {
 export function openSync(channel: string, onMessage: (msg: unknown) => void, onOpen: () => void): SyncLink | null {
   if (!API_URL || typeof WebSocket === 'undefined') return null;
   const id = `d-${Math.random().toString(36).slice(2, 10)}`;
-  const url = `${API_URL.replace(/^http/, 'ws')}/sync/${encodeURIComponent(channel)}?id=${id}`;
+  const url = `${API_URL.replace(/^http/, 'ws')}/sync/${encodeURIComponent(channel)}?id=${id}&k=${seatKey()}`;
   const queue: string[] = [];
   let ws: WebSocket | null = null;
   let closed = false;
@@ -22,8 +23,9 @@ export function openSync(channel: string, onMessage: (msg: unknown) => void, onO
     if (closed) return;
     ws = new WebSocket(url);
     ws.onopen = () => {
-      onOpen();
+      // What was done offline goes first, then `onOpen` (the follower's hello): the answer already includes it.
       while (queue.length && ws?.readyState === WebSocket.OPEN) ws.send(queue.shift()!);
+      onOpen();
     };
     ws.onmessage = (e) => {
       try {

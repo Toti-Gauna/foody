@@ -70,5 +70,8 @@ Con el export servido en `localhost:4100` (`python3 -m http.server 4100 --direct
 - En «Dibujá y adiviná», sin backend la palabra viaja a todos los celulares y solo el que dibuja la muestra. Con Foody-be le
   llega solo al que dibuja.
 
+- Demo en dos aparatos (con Foody-be): manda la compu que hizo el QR; el celular le pide el estado al conectarse.
+  Otras pestañas del mismo navegador que no estén emparejadas no reciben lo que llega del otro aparato.
+
 - Los textos dentro de los juegos copiados de games-market (pantalla de inicio, HUD) están en español en los tres idiomas:
   traducirlos obliga a tocar el código copiado. Se hace cuando se decida.

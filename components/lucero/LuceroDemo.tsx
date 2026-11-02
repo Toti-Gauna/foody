@@ -30,6 +30,7 @@ function readUrl(search: string) {
   const sync = q.get('sync');
   return {
     sync: isRoomCode(sync) ? sync : null,
+    lead: q.get('lider') === '1',
     plan: isPlanId(plan) ? plan : null,
     view: (vista === 'crm' ? 'crm' : 'carta') as View,
     section: (SECTIONS as string[]).includes(area ?? '') ? (area as CrmSection) : 'servicio',
@@ -53,6 +54,8 @@ export function LuceroDemo({ lang, extras }: { lang: Lang; extras?: DemoExtras }
   // What the visitor picked here wins over the URL it came with (the URL is then kept in step with replaceState).
   const [picked, setPicked] = useState<{ plan?: PlanId | null; view?: View; section?: CrmSection; sync?: string }>({});
   const syncCode = API_URL ? (picked.sync ?? fromUrl.sync) : null;
+  // The screen that made the code leads (also after a reload: `lider=1` stays in its URL, not in the phone's link).
+  const syncLead = !!picked.sync || (!!fromUrl.sync && fromUrl.lead);
   const plan = picked.plan !== undefined ? picked.plan : fromUrl.plan;
   const view = picked.view ?? fromUrl.view;
   const section = picked.section ?? fromUrl.section;
@@ -66,7 +69,10 @@ export function LuceroDemo({ lang, extras }: { lang: Lang; extras?: DemoExtras }
 
   const sync = useCallback((next: { plan?: PlanId | null; view?: View; section?: CrmSection; sync?: string }) => {
     const q = new URLSearchParams(window.location.search);
-    if (next.sync) q.set('sync', next.sync);
+    if (next.sync) {
+      q.set('sync', next.sync);
+      q.set('lider', '1');
+    }
     if (next.plan) q.set('plan', next.plan);
     else if (next.plan === null) q.delete('plan');
     if (next.view) q.set('vista', next.view);
@@ -76,7 +82,7 @@ export function LuceroDemo({ lang, extras }: { lang: Lang; extras?: DemoExtras }
   }, []);
 
   return (
-    <LuceroProvider plan={plan} lang={lang} syncCode={syncCode}>
+    <LuceroProvider plan={plan} lang={lang} syncCode={syncCode} syncLead={syncLead}>
       <Shell
         lang={lang}
         syncCode={syncCode}

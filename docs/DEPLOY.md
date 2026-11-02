@@ -7,6 +7,7 @@ va a Render. Nada se publica sin el OK de Ignacio.
 
 ```bash
 docker build -t foody-kit -f deploy/Dockerfile .
+mkdir -p deploy-out
 docker run -it --rm -v "$PWD/deploy-out:/out" foody-kit
 ```
 
@@ -15,7 +16,8 @@ Sin Docker: `node deploy/kit.mjs --out deploy-out` (después de `npm ci`).
 Pregunta por consola:
 - dominio, path base y URL del backend en Render;
 - URLs de Eclipse y Roofy, y el WhatsApp;
-- datos FTP de Hostinger (opcionales; la contraseña no se muestra al escribirla).
+- datos FTP de Hostinger (opcionales; la contraseña no se muestra al escribirla). La carpeta tiene que ser la del
+  subdominio: la subida borra lo que sobra ahí, y el kit no acepta `public_html` ni la raíz.
 
 Después construye el sitio y deja en `deploy-out/` (ignorada por git):
 

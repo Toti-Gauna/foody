@@ -6,11 +6,12 @@
 //   docker run -it --rm -v "$PWD/deploy-out:/out" foody-kit
 // Sin Docker: `node deploy/kit.mjs --out deploy-out`. `--yes` acepta los valores por defecto (y los KIT_* del entorno).
 import { execFileSync } from 'node:child_process';
-import { chmodSync, cpSync, existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { chmodSync, cpSync, existsSync, mkdirSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import readline from 'node:readline';
 import { htaccess } from './htaccess.mjs';
+import { safeFtpDir } from './safe-dir.mjs';
 
 const args = process.argv.slice(2);
 const AUTO = args.includes('--yes');
@@ -51,6 +52,15 @@ async function ask(q, def = '', { secret = false, env } = {}) {
   return a.trim() || def;
 }
 
+async function askFtpDir() {
+  for (;;) {
+    const d = (await ask('Carpeta del subdominio en el servidor (ej. domains/eclipse-business.com/public_html/foody)', '', { env: 'KIT_FTP_DIR' })).trim().replace(/\/$/, '');
+    if (safeFtpDir(d, domain)) return d;
+    if (AUTO) throw new Error(`Carpeta FTP «${d}»: tiene que ser la del subdominio, no la raíz del sitio principal.`);
+    console.log('  Tiene que ser la carpeta del subdominio: la subida borra lo que sobra ahí, y en public_html borraría el sitio principal.');
+  }
+}
+
 const clean = (url) => url.trim().replace(/\/$/, '');
 const isUrl = (s) => /^https?:\/\/[^\s/]+/.test(s);
 async function askUrl(q, def, env, optional = false) {
@@ -82,7 +92,7 @@ console.log('\n— Hostinger (para el deploy por FTPS desde GitHub; vacío si lo
 const ftpHost = (await ask('Servidor FTP (ej. ftp.eclipse-business.com)', '', { env: 'KIT_FTP_HOST' })).trim();
 const ftpUser = ftpHost ? (await ask('Usuario FTP', '', { env: 'KIT_FTP_USER' })).trim() : '';
 const ftpPass = ftpHost ? await ask('Contraseña FTP (no se muestra)', '', { secret: true, env: 'KIT_FTP_PASSWORD' }) : '';
-const ftpDir = ftpHost ? (await ask('Carpeta del subdominio en el servidor', 'public_html', { env: 'KIT_FTP_DIR' })).trim().replace(/\/$/, '') : '';
+const ftpDir = ftpHost ? await askFtpDir() : '';
 const repo = (await ask('Repo del sitio en GitHub', 'Toti-Gauna/foody', { env: 'KIT_REPO' })).trim();
 rl?.close();
 
@@ -149,6 +159,12 @@ ${envLines}
 );
 write('PASOS.md', steps());
 
+// In Docker this runs as root: hand the files to whoever owns the mounted folder (the Codespaces user).
+if (process.getuid?.() === 0) {
+  const { uid, gid } = statSync(OUT);
+  if (uid !== 0) execFileSync('chown', ['-R', `${uid}:${gid}`, OUT]);
+}
+
 console.log(`
 Listo. En ${OUT}:
   site/                el sitio construido, con .htaccess${zipped ? '\n  foody-sitio.zip      lo mismo, para el Administrador de archivos de Hostinger' : ''}
@@ -186,7 +202,10 @@ En Render → foody-be → Environment, dejá lo mismo que \`render.env\`.
 
 **Desde GitHub (opcional):** cargá \`github-secrets.txt\` en ${repo} → Settings → Secrets and variables → Actions, creá el
 environment **hostinger** (Settings → Environments) y corré a mano el workflow **Deploy a Hostinger** escribiendo
-PUBLICAR. Sube \`out/\` por FTPS a ${ftpDir || 'la carpeta del subdominio'}. Nunca corre solo.
+PUBLICAR. Sube \`out/\` por FTPS a ${ftpDir || 'la carpeta del subdominio'} y borra ahí lo que sobra. Nunca corre solo.
+
+El certificado del FTP se verifica: usá como servidor el nombre que muestra hPanel → Archivos → Cuentas FTP (si el
+certificado es de otro nombre, la subida falla en vez de mandar la contraseña sin cifrar).
 
 ## 4. Probar
 - ${site}${basePath}/ → elige idioma y muestra el sitio.
