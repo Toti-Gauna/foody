@@ -57,13 +57,6 @@
           "name": "Table and Academy",
           "text": "Games for everyone at the table —draw and guess, hockey— and Eclipse Academy: ideas for digital and on-site marketing."
         }
-      },
-      "soonLabel": "Coming soon",
-      "soonNote": "Not in any plan yet",
-      "soon": {
-        "reservas": "Bookings",
-        "web": "Venue website",
-        "platos": "3D dishes"
       }
     },
     "demo": {
@@ -127,7 +120,7 @@
     "others": {
       "section": "Other businesses",
       "title": "And for <em>other businesses</em>.",
-      "sub": "Eclipse has one product per industry. Today Eclipse for real estate is on sale; the rest are in the works or coming next. No prices here.",
+      "sub": "Eclipse has one product per industry. Today Eclipse for real estate is on sale; the rest are in the works. No prices here.",
       "listLabel": "Eclipse products for other businesses",
       "status": {
         "available": "Available",
@@ -368,12 +361,12 @@
         "bill": "Bringing the bill. You pay at the venue."
       },
       "tableLabel": "TABLE 4",
-      "kitchen": "KITCHEN"
+      "kitchen": "KITCHEN",
+      "spin": "Spin the wheel"
     },
     "crm": {
       "navLabel": "CRM sections",
       "brandSub": "Venue CRM · demo",
-      "locked": "Not in this plan",
       "nav": {
         "servicio": "Service",
         "cocina": "Kitchen",
@@ -382,9 +375,6 @@
         "juegos": "Games and wheel",
         "academy": "Eclipse Academy"
       },
-      "lockedText": "This section is not in the plan you are viewing. It starts in the {price} plan.",
-      "seePlan": "See the {price} plan demo",
-      "soon": "This section comes in a later phase.",
       "servicio": {
         "title": "Tonight’s service",
         "sub": "Everything happening in the room, live.",
@@ -509,7 +499,7 @@
     },
     "games": {
       "kicker": "Your order is in the kitchen",
-      "title": "While your food is on its way, you can play",
+      "title": "While your food is on its way, you can play these games",
       "sub": "We’ll let you know when your dish arrives, even mid-game.",
       "soloTitle": "Play on your phone",
       "tableTitle": "Play with the table",
@@ -554,9 +544,16 @@
         "spinning": "Spinning…",
         "won": "You won: {prize}",
         "show": "Show the code to the waiter.",
-        "nothing": "No luck this time. Next order!",
+        "nothing": "You get another spin with your next order.",
         "nothingShort": "Next time",
-        "note": "One spin per order. Example prizes: each venue picks its own."
+        "note": "One spin per order. Example prizes: each venue picks its own.",
+        "headline": "Spin to win",
+        "sub": "One spin for this order. You could win the daily menu or a deal.",
+        "later": "Not now",
+        "wonTitle": "You won!",
+        "code": "Your code",
+        "nothingTitle": "No luck this time",
+        "next": "Continue"
       }
     },
     "mesa": {

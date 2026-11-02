@@ -6,22 +6,18 @@ import './offer.css';
 
 export const OFFER_ITEMS = ['carta', 'crm', 'juegos', 'academy'] as const;
 export type OfferItem = (typeof OFFER_ITEMS)[number];
-export const SOON_ITEMS = ['reservas', 'web', 'platos'] as const;
 
 export interface OfferText {
   section: string;
   title: ReactNode;
   lead: string;
   items: Record<OfferItem, { name: string; text: string; from: string }>;
-  soonLabel: string;
-  soonNote: string;
-  soon: Record<(typeof SOON_ITEMS)[number], string>;
 }
 
 /**
  * 02 · Qué ofrecemos. The four things the plans deliver, each with the plan it starts in («Desde el plan USD 50», read
- * from content/plans.json by the page), and a small drawn screen of it. Apart, dashed and with no light, what is not in
- * any plan yet («Próximamente»): never shown as included.
+ * from content/plans.json by the page), and a small drawn screen of it. Only what the plans have: nothing «próximamente»
+ * (Ignacio, 02/11/2026).
  */
 export function Offer({ id, text }: { id: 'ofrecemos'; text: OfferText }) {
   return (
@@ -54,16 +50,6 @@ export function Offer({ id, text }: { id: 'ofrecemos'; text: OfferText }) {
           ))}
         </ul>
 
-        <div className="of-soon">
-          <p className="label">
-            <span className="of-soon-tag">{text.soonLabel}</span> {text.soonNote}
-          </p>
-          <ul>
-            {SOON_ITEMS.map((key) => (
-              <li key={key}>{text.soon[key]}</li>
-            ))}
-          </ul>
-        </div>
       </div>
     </section>
   );

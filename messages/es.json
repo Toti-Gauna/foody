@@ -57,13 +57,6 @@
           "name": "Mesa y Academy",
           "text": "Juegos para jugar entre todos —dibujar y adivinar, hockey— y Eclipse Academy: ideas de marketing digital y físico."
         }
-      },
-      "soonLabel": "Próximamente",
-      "soonNote": "Todavía no está en ningún plan",
-      "soon": {
-        "reservas": "Reservas",
-        "web": "Web del local",
-        "platos": "Platos en 3D"
       }
     },
     "demo": {
@@ -127,7 +120,7 @@
     "others": {
       "section": "Otros negocios",
       "title": "Y para <em>otros negocios</em>.",
-      "sub": "Eclipse tiene un producto por rubro. Hoy se vende Eclipse para inmobiliarias; el resto está en preparación o es lo próximo. Acá no hay precios.",
+      "sub": "Eclipse tiene un producto por rubro. Hoy se vende Eclipse para inmobiliarias; el resto está en preparación. Acá no hay precios.",
       "listLabel": "Productos de Eclipse para otros negocios",
       "status": {
         "available": "Disponible",
@@ -368,12 +361,12 @@
         "bill": "Ya te llevo la cuenta. Se paga en el local."
       },
       "tableLabel": "MESA 4",
-      "kitchen": "COCINA"
+      "kitchen": "COCINA",
+      "spin": "Girar la ruleta"
     },
     "crm": {
       "navLabel": "Secciones del CRM",
       "brandSub": "CRM del local · demo",
-      "locked": "No incluido en este plan",
       "nav": {
         "servicio": "Servicio",
         "cocina": "Cocina",
@@ -382,9 +375,6 @@
         "juegos": "Juegos y ruleta",
         "academy": "Eclipse Academy"
       },
-      "lockedText": "Esta sección no está en el plan que estás mirando. Empieza en el plan {price}.",
-      "seePlan": "Ver la demo del plan {price}",
-      "soon": "Esta sección llega en una próxima fase.",
       "servicio": {
         "title": "Servicio de esta noche",
         "sub": "Todo lo que pasa en el salón, en vivo.",
@@ -509,7 +499,7 @@
     },
     "games": {
       "kicker": "Tu pedido ya está en la cocina",
-      "title": "Mientras esperás la comida, podés jugar",
+      "title": "Mientras esperás la comida, podés jugar estos juegos",
       "sub": "Cuando llegue tu plato te avisamos, aunque estés jugando.",
       "soloTitle": "Para jugar desde tu celular",
       "tableTitle": "Para jugar con la mesa",
@@ -554,9 +544,16 @@
         "spinning": "Girando…",
         "won": "Ganaste: {prize}",
         "show": "Mostrale el código al mozo.",
-        "nothing": "Esta vez no tocó. ¡En el próximo pedido!",
+        "nothing": "En el próximo pedido tenés otro tiro.",
         "nothingShort": "Otra vez",
-        "note": "Un tiro por pedido. Premios de ejemplo: cada local elige los suyos."
+        "note": "Un tiro por pedido. Premios de ejemplo: cada local elige los suyos.",
+        "headline": "Girá y ganá",
+        "sub": "Un tiro por este pedido. Puede tocarte el menú del día o una promo.",
+        "later": "Ahora no",
+        "wonTitle": "¡Ganaste!",
+        "code": "Tu código",
+        "nothingTitle": "Esta vez no tocó",
+        "next": "Seguir"
       }
     },
     "mesa": {

@@ -13,17 +13,25 @@ await p.waitForTimeout(1200);
 await p.getByRole('button', { name: 'Agregar Provoleta' }).click();
 await p.getByRole('button', { name: 'Ver mi pedido' }).click();
 await p.getByRole('button', { name: 'Mandar a la cocina' }).click();
-await p.waitForTimeout(2600);
-await p.screenshot({ path: `${out}/games-1-modal.png` });
-const modal = await p.locator('.gl').count();
-await p.getByRole('button', { name: 'Girar la ruleta' }).click();
-await p.waitForTimeout(4800);
+await p.waitForTimeout(1800);
+// 1) The wheel, over the whole screen.
+await p.screenshot({ path: `${out}/games-0-wheel.png` });
+const overlay = await p.locator('.rs').count();
+await p.locator('.rs').getByRole('button', { name: 'Girar la ruleta' }).click();
+await p.waitForTimeout(800);
+await p.screenshot({ path: `${out}/games-1-spinning.png` });
+await p.waitForTimeout(4600);
 await p.screenshot({ path: `${out}/games-2-wheel.png` });
-const wheel = await p.locator('.ru-result').innerText().catch(() => '');
+const wheel = await p.locator('.rs-result').innerText().catch(() => '');
+// 2) Then the games modal.
+await p.locator('.rs').getByRole('button', { name: 'Seguir' }).click();
+await p.waitForTimeout(700);
+await p.screenshot({ path: `${out}/games-3-modal.png` });
+const modal = await p.locator('.gl .gl-sheet').count();
 for (const g of ['Ninja', 'Combinaciones', 'Catapulta']) {
   await p.locator('.gl-card', { hasText: g }).click();
   await p.waitForTimeout(2500);
-  await p.screenshot({ path: `${out}/games-3-${g}.png` });
+  await p.screenshot({ path: `${out}/games-4-${g}.png` });
   const canvas = await p.locator('.gh canvas').count();
   console.log(g, 'canvas', canvas);
   await p.getByRole('button', { name: 'Cerrar el juego' }).click();
@@ -31,7 +39,7 @@ for (const g of ['Ninja', 'Combinaciones', 'Catapulta']) {
 }
 await p.locator('.gl-card', { hasText: 'Ninja' }).click();
 await p.waitForTimeout(12000);
-await p.screenshot({ path: `${out}/games-4-arrived.png` });
+await p.screenshot({ path: `${out}/games-5-arrived.png` });
 const arrived = await p.locator('.gh-arrived').count();
-console.log('modal', modal, '| wheel:', wheel.replace(/\n/g, ' '), '| arrived banner', arrived, '| errors', JSON.stringify(errors));
+console.log('wheel overlay', overlay, '| modal', modal, '| wheel:', wheel.replace(/\n/g, ' '), '| arrived banner', arrived, '| errors', JSON.stringify(errors));
 await browser.close();

@@ -237,6 +237,11 @@
     box-shadow: 0 0 0 1px var(--l-line-strong), 0 50px 100px -30px rgb(0 0 0 / 0.95), 0 0 120px -30px rgb(178 58 82 / 0.5);
     overflow: hidden;
   }
+  /* The wheel's animated layers escape a plain rounded overflow: clip the screen itself. */
+  .ld-phone-frame > .lc-app {
+    border-radius: 35px;
+    clip-path: inset(0 round 35px);
+  }
 }
 
 /* ---- The guest's app --------------------------------------------- */

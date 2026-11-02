@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { Check, Gamepad2, Receipt, UtensilsCrossed } from 'lucide-react';
+import { Check, Gamepad2, Gift, Receipt, UtensilsCrossed } from 'lucide-react';
 import { Gus, FRAMES, PLATE_GLOW, useFrames, type GusPose } from '../Gus';
 import { DISHES, ORDER_FLOW, formatArs, lineTotal, orderTotal, tableTotal, useLucero, type Order } from '../store';
 import { Bubble, useSay } from './Bubble';
@@ -15,7 +15,20 @@ const hhmm = (ms: number | undefined) => (ms ? new Date(ms).toTimeString().slice
  * he runs with it. Delivered: the lid comes off with sparks, «¡Buen provecho!». Every step is a real state of the order
  * (the same one the CRM shows): Gus never pretends.
  */
-export function Pedido({ order, onMore, canPlay, onPlay }: { order: Order; onMore: () => void; canPlay: boolean; onPlay: () => void }) {
+export function Pedido({
+  order,
+  onMore,
+  canPlay,
+  onPlay,
+  onSpin,
+}: {
+  order: Order;
+  onMore: () => void;
+  canPlay: boolean;
+  onPlay: () => void;
+  /** When this order's wheel spin is still unused. */
+  onSpin?: () => void;
+}) {
   const t = useTranslations('lucero.pedido');
   const { state, dispatch, lang } = useLucero();
   const delivered = order.status === 'delivered';
@@ -54,6 +67,12 @@ export function Pedido({ order, onMore, canPlay, onPlay }: { order: Order; onMor
         <button type="button" className="lc-btn lc-btn-main lc-btn-block" onClick={onPlay}>
           <Gamepad2 aria-hidden className="size-4" />
           {t('play')}
+        </button>
+      ) : null}
+      {onSpin ? (
+        <button type="button" className="lc-btn lc-btn-ghost lc-btn-block" onClick={onSpin}>
+          <Gift aria-hidden className="size-4" />
+          {t('spin')}
         </button>
       ) : null}
 

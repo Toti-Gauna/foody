@@ -40,6 +40,14 @@ Este archivo es el registro de avance: se actualiza al cerrar cada fase, así se
 | 12 | Backend en Foody-be: relay de salas y sincronización de pedidos entre aparatos | Hecha (Foody-be #1 y PR de fases 12–13) |
 | 13 | Kit de deploy con Docker (`docs/DEPLOY.md`) | Hecha (PR de fases 12–13) |
 
+## Ajustes después de la fase 13 (Ignacio, 02/11/2026)
+
+- La ruleta aparece sobre toda la pantalla apenas se hace el pedido (desde el primero), con un estilo nuevo: aro dorado
+  con luces, etiquetas radiales, puntero, y el premio con su código en un ticket.
+- Después de la ruleta, los juegos en un modal (hoja que sube desde abajo, con el pedido oscurecido detrás).
+- Sin nada «próximamente»: fuera el bloque de Qué ofrecemos y los productos de Otros negocios que solo eran «Próximamente».
+- La demo vista con un plan muestra solo lo de ese plan: lo que no tiene no aparece (sin candados ni avisos de otro plan).
+
 ## Cómo se trabaja
 
 - Una fase, un PR. Antes de cada PR: `npm test`, `npm run typecheck`, `npm run lint`, `npm run build` (con y sin
