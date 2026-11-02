@@ -317,7 +317,9 @@
       "optionsOf": "Opciones de {dish}",
       "less": "Quitar uno de {dish}",
       "more": "Sumar otro {dish}",
-      "add": "Agregar {dish}"
+      "add": "Agregar {dish}",
+      "wheelChip": "Ruleta",
+      "wheelChipLabel": "Girar la ruleta de la casa"
     },
     "comanda": {
       "back": "Volver a la carta",
@@ -368,8 +370,7 @@
         "bill": "Ya te llevo la cuenta. Se paga en el local."
       },
       "tableLabel": "MESA 4",
-      "kitchen": "COCINA",
-      "spin": "Girar la ruleta"
+      "kitchen": "COCINA"
     },
     "crm": {
       "navLabel": "Secciones del CRM",
@@ -465,7 +466,7 @@
         "remove": "Quitar {prize}",
         "newPrize": "Nuevo premio",
         "add": "Sumar un premio",
-        "rule": "Un tiro por pedido. El porcentaje es la chance de cada premio; las porciones de la ruleta se ven iguales.",
+        "rule": "Un tiro por visita, al abrir la carta. El porcentaje es la chance de cada premio; las porciones de la ruleta se ven iguales.",
         "handed": "Premios de esta noche",
         "noneYet": "Todavía nadie ganó nada esta noche.",
         "games": "Juegos que ven tus clientes"
@@ -554,11 +555,11 @@
         "spinning": "Girando…",
         "won": "Ganaste: {prize}",
         "show": "Mostrale el código al mozo.",
-        "nothing": "En el próximo pedido tenés otro tiro.",
+        "nothing": "Igual, buen provecho: en tu próxima visita tenés otro tiro.",
         "nothingShort": "Otra vez",
-        "note": "Un tiro por pedido. Premios de ejemplo: cada local elige los suyos.",
+        "note": "Un tiro por visita. Premios de ejemplo: cada local elige los suyos.",
         "headline": "Girá y ganá",
-        "sub": "Un tiro por este pedido. Puede tocarte el menú del día o una promo.",
+        "sub": "Bienvenido a Lucero. Antes de pedir, un tiro: puede tocarte el menú del día o una promo.",
         "later": "Ahora no",
         "wonTitle": "¡Ganaste!",
         "code": "Tu código",

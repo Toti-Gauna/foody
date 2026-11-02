@@ -90,7 +90,11 @@ export interface Prize {
   weight: number;
 }
 
+/** The wheel's spin key for the table's visit: one spin per visit, offered when the carta opens. */
+export const VISIT = 'visita';
+
 export interface Spin {
+  /** `VISIT` for the visit's spin (older demos keyed it by order). */
   orderId: string;
   prize: string | null;
   code: string | null;

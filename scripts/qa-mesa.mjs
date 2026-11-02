@@ -13,14 +13,14 @@ const a = await ctx.newPage();
 watch(a, 'host');
 const RED = process.env.RED ?? 'local';
 await a.goto(`${base}/es/demo/?plan=75${RED === 'local' ? '&red=local' : ''}`);
-await a.waitForTimeout(1200);
+await a.waitForSelector('.ls', { state: 'detached', timeout: 8000 });
+await a.waitForTimeout(900);
+await a.getByRole('button', { name: 'Ahora no' }).click(); // the wheel, on arrival
 await a.getByRole('button', { name: 'Agregar Provoleta' }).click();
 await a.getByRole('button', { name: 'Ver mi pedido' }).click();
 await a.getByLabel('¿A nombre de quién?').fill('Sofi');
 await a.getByRole('button', { name: 'Mandar a la cocina' }).click();
-await a.waitForTimeout(1800);
-await a.getByRole('button', { name: 'Ahora no' }).click(); // the wheel comes first
-await a.waitForTimeout(600);
+await a.waitForTimeout(2000);
 await a.locator('.gl-card', { hasText: 'Dibujá y adiviná' }).click();
 await a.waitForTimeout(1200);
 await a.screenshot({ path: `${out}/mesa-1-lobby.png` });
@@ -87,7 +87,7 @@ await a.mouse.move(hb.x + hb.width / 2, hb.y + hb.height * 0.45, { steps: 6 });
 await a.mouse.up();
 await a.waitForTimeout(1200);
 await a.waitForTimeout(3500); // two roster beats: the score must not reset
-console.log('hockey host', (await a.locator('.hk-score').innerText()).replace(/\n/g, ' '), '| guest', (await c.locator('.hk-score').innerText()).replace(/\n/g, ' '));
+console.log('hockey host', (await a.locator('.hk-board').innerText()).replace(/\n/g, ' '), '| guest', (await c.locator('.hk-board').innerText()).replace(/\n/g, ' '));
 await a.screenshot({ path: `${out}/mesa-7-hockey-host.png` });
 await c.screenshot({ path: `${out}/mesa-8-hockey-guest.png` });
 console.log('errors', JSON.stringify(errors));

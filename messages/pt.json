@@ -317,7 +317,9 @@
       "optionsOf": "Opções de {dish}",
       "less": "Tirar um {dish}",
       "more": "Mais um {dish}",
-      "add": "Adicionar {dish}"
+      "add": "Adicionar {dish}",
+      "wheelChip": "Roleta",
+      "wheelChipLabel": "Girar a roleta da casa"
     },
     "comanda": {
       "back": "Voltar ao cardápio",
@@ -368,8 +370,7 @@
         "bill": "Já trago a conta. Paga-se no local."
       },
       "tableLabel": "MESA 4",
-      "kitchen": "COZINHA",
-      "spin": "Girar a roleta"
+      "kitchen": "COZINHA"
     },
     "crm": {
       "navLabel": "Seções do CRM",
@@ -465,7 +466,7 @@
         "remove": "Tirar {prize}",
         "newPrize": "Novo prêmio",
         "add": "Adicionar um prêmio",
-        "rule": "Um giro por pedido. A porcentagem é a chance de cada prêmio; as fatias da roleta parecem iguais.",
+        "rule": "Um giro por visita, ao abrir o cardápio. A porcentagem é a chance de cada prêmio; as fatias parecem iguais.",
         "handed": "Prêmios desta noite",
         "noneYet": "Ninguém ganhou nada esta noite ainda.",
         "games": "Jogos que seus clientes veem"
@@ -554,11 +555,11 @@
         "spinning": "Girando…",
         "won": "Você ganhou: {prize}",
         "show": "Mostre o código ao garçom.",
-        "nothing": "No próximo pedido você tem outro giro.",
+        "nothing": "Bom apetite mesmo assim: na próxima visita você tem outro giro.",
         "nothingShort": "Outra vez",
-        "note": "Um giro por pedido. Prêmios de exemplo: cada local escolhe os seus.",
+        "note": "Um giro por visita. Prêmios de exemplo: cada restaurante escolhe os seus.",
         "headline": "Gire e ganhe",
-        "sub": "Um giro por este pedido. Pode sair o prato do dia ou uma promoção.",
+        "sub": "Bem-vindo ao Lucero. Antes de pedir, um giro: pode sair o prato do dia ou uma promoção.",
         "later": "Agora não",
         "wonTitle": "Você ganhou!",
         "code": "Seu código",

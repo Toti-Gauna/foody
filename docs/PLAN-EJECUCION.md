@@ -42,9 +42,18 @@ Este archivo es el registro de avance: se actualiza al cerrar cada fase, así se
 
 ## Ajustes después de la fase 13 (Ignacio, 02/11/2026)
 
-- La ruleta aparece sobre toda la pantalla apenas se hace el pedido (desde el primero), con un estilo nuevo: aro dorado
-  con luces, etiquetas radiales, puntero, y el premio con su código en un ticket.
-- Después de la ruleta, los juegos en un modal (hoja que sube desde abajo, con el pedido oscurecido detrás).
+- La ruleta aparece sobre toda la pantalla al abrir la carta, apenas se escanea el QR (Ignacio: «la ruleta aparece al
+  principio luego de escanear el QR»). Un tiro por visita, y si se cierra queda el botón «Ruleta» en la barra de la
+  carta.
+  - Rueda de feria: aro dorado con bisel y luces, separadores dorados, relieve y brillo, puntero con gema que vibra al
+    girar y su pie.
+  - El premio sale con su código en un ticket.
+- Después de pedir, los juegos en un modal (hoja que sube desde abajo, con el pedido oscurecido detrás).
+- Hockey rediseñado:
+  - marcador con el color de cada paleta y los goles hasta 5;
+  - la mesa ocupa el espacio que queda;
+  - riel dorado, agujeros de aire, arcos que brillan, paletas con volumen, estela del disco y destello en el gol;
+  - todo con los colores de la temporada.
 - Sin nada «próximamente»: fuera el bloque de Qué ofrecemos y los productos de Otros negocios que solo eran «Próximamente».
 - La demo vista con un plan muestra solo lo de ese plan: lo que no tiene no aparece (sin candados ni avisos de otro plan).
 - Fechas especiales (`lib/seasons.ts`):

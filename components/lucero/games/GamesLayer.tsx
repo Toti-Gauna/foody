@@ -6,7 +6,7 @@ import { Play, Users, X } from 'lucide-react';
 import { asset } from '@/lib/env';
 import { includes, planById, type GameId } from '@/lib/plans';
 import { GAMES } from '@/games/registry';
-import { useLucero } from '../store';
+import { useLucero, VISIT } from '../store';
 import { GameHost } from './GameHost';
 import { Ruleta } from './Ruleta';
 import { TableGames, TableRoom } from './TableGames';
@@ -22,10 +22,10 @@ const ART: Partial<Record<GameId, string>> = {
 export type GamesStage = 'wheel' | 'games' | null;
 
 /**
- * What the guest sees right after «Tu pedido fue realizado» on a plan with games (50 and up), in two steps (Ignacio,
- * 02/11/2026):
- * 1. `wheel`: la ruleta de la casa over the whole screen (one spin per order).
- * 2. `games`: a modal, «Mientras esperás la comida, podés jugar estos juegos», with the solo games in one column, each
+ * The plan's fun (50 and up), in two moments (Ignacio, 02/11/2026):
+ * 1. `wheel`: la ruleta de la casa over the whole screen, as soon as the carta opens after scanning the QR (one spin
+ *    per visit).
+ * 2. `games`, right after «Tu pedido fue realizado»: a modal, «Mientras esperás la comida, podés jugar estos juegos», with the solo games in one column, each
  *    as wide as the phone, and on plan 75 the table games (they open a room on this phone). Through a plan, only its
  *    games show.
  */
@@ -40,15 +40,16 @@ export function GamesLayer({ stage, onStage, orderId }: { stage: GamesStage; onS
   const wheel = !plan || includes(plan, 'ruleta');
   const table = !plan || includes(plan, 'mesa');
 
-  // Keyboard: Esc moves on (wheel → games → back to the order), and focus goes into what just opened.
+  // Keyboard: Esc closes what is open, and focus goes into what just opened.
   const layer = playing || room ? null : stage;
   useEffect(() => {
     if (!layer) return;
     const focusTarget = document.querySelector<HTMLElement>(layer === 'wheel' ? '.rs .rs-go, .rs .lc-btn-main' : '.gl-sheet .gl-x');
-    focusTarget?.focus();
+    // Into the dialog for keyboards and screen readers, without painting a focus ring nobody asked for.
+    focusTarget?.focus({ focusVisible: false } as FocusOptions);
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== 'Escape') return;
-      onStage(layer === 'wheel' ? 'games' : null);
+      onStage(null);
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -67,8 +68,8 @@ export function GamesLayer({ stage, onStage, orderId }: { stage: GamesStage; onS
       />
     );
   if (room) return <TableRoom game={room} onClose={() => setRoom(null)} />;
-  // The wheel stays up after the spin to show the prize and its code; «Seguir» (or closing it) moves on to the games.
-  if (stage === 'wheel' && wheel) return <Ruleta orderId={orderId} onDone={() => onStage('games')} onClose={() => onStage('games')} />;
+  // The wheel stays up after the spin to show the prize and its code; «Seguir» (or closing it) goes back to the carta.
+  if (stage === 'wheel' && wheel) return <Ruleta spinKey={VISIT} onDone={onClose} onClose={onClose} />;
   if (!stage) return null;
 
   return (
