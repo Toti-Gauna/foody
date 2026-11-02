@@ -494,3 +494,31 @@
     transform: translateX(calc(100% - 36px));
   }
 }
+
+/* Game colors (games/styles/games.css): utilities like text-sn-cyan used by the games copied from games-market. */
+@theme inline {
+  --color-sn-bg: var(--sn-bg);
+  --color-sn-bg-elev: var(--sn-bg-elev);
+  --color-sn-panel: var(--sn-panel);
+  --color-sn-panel-hi: var(--sn-panel-hi);
+  --color-sn-line: var(--sn-line);
+  --color-sn-line-soft: var(--sn-line-soft);
+
+  --color-sn-text: var(--sn-text);
+  --color-sn-muted: var(--sn-text-muted);
+  --color-sn-dim: var(--sn-text-dim);
+
+  --color-sn-violet: var(--sn-violet-500);
+  --color-sn-violet-300: var(--sn-violet-300);
+  --color-sn-violet-400: var(--sn-violet-400);
+  --color-sn-magenta: var(--sn-magenta-400);
+  --color-sn-magenta-300: var(--sn-magenta-300);
+  --color-sn-cyan: var(--sn-cyan-400);
+  --color-sn-cyan-300: var(--sn-cyan-300);
+
+  --color-sn-accent: var(--sn-accent);
+  --color-sn-success: var(--sn-success);
+  --color-sn-warn: var(--sn-warn);
+  --color-sn-danger: var(--sn-danger);
+
+}

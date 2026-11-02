@@ -1,0 +1,265 @@
+/* The games modal and the game host: they cover the guest's screen (the phone, or the docked phone on a computer). */
+.gl,
+.gh {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  background: var(--l-bg);
+  color: var(--l-ink);
+  animation: gl-in 0.32s var(--ease-expo) both;
+}
+@keyframes gl-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+.gl {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.gl-sheet {
+  display: grid;
+  gap: 14px;
+  padding: 16px 16px 28px;
+}
+.gl-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.gl-title {
+  font-family: var(--font-serif);
+  font-size: 1.9rem;
+  line-height: 1;
+}
+.gl-sub {
+  color: var(--l-muted);
+  font-size: 0.9rem;
+}
+.gl-block {
+  display: grid;
+  gap: 10px;
+  padding-top: 6px;
+}
+.gl-h {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--l-wine-text);
+}
+/* One column, each game as wide as the phone (padding on both sides comes from the sheet). */
+.gl-list {
+  display: grid;
+  gap: 10px;
+}
+.gl-card {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  min-height: 96px;
+  padding: 10px 14px 10px 10px;
+  border-radius: 18px;
+  border: 1px solid var(--l-line-strong);
+  background: linear-gradient(135deg, var(--l-surface-2), var(--l-surface));
+  text-align: left;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.gl-card:hover {
+  border-color: var(--l-wine-text);
+}
+.gl-card:active {
+  transform: scale(0.99);
+}
+.gl-art {
+  width: 76px;
+  height: 76px;
+  border-radius: 14px;
+  background: var(--l-bg-2);
+}
+.gl-card-text {
+  display: grid;
+  gap: 2px;
+}
+.gl-card-text b {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.45rem;
+  line-height: 1.05;
+}
+.gl-card-text span {
+  font-size: 0.8125rem;
+  color: var(--l-muted);
+}
+.gl-play {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--l-wine);
+  color: #fff6ee;
+}
+
+/* Game host */
+.gh-top {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+  padding: 0 8px 0 16px;
+  border-bottom: 1px solid var(--l-line);
+}
+.gh-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+}
+.gh-close {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+.gh-stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  background: var(--sn-bg);
+  touch-action: none;
+}
+.gh-loading {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: var(--l-muted);
+}
+.gh-result {
+  height: 100%;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 10px;
+  padding: 24px;
+  text-align: center;
+}
+.gh-result-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--l-muted);
+}
+.gh-result-points {
+  font-family: var(--font-serif);
+  font-size: 3.2rem;
+  line-height: 1;
+}
+.gh-result-actions {
+  display: grid;
+  gap: 8px;
+  width: min(280px, 100%);
+  margin-top: 10px;
+}
+.gh-arrived {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px 10px 14px;
+  border-radius: 16px;
+  background: var(--l-paper);
+  color: var(--l-paper-ink);
+  box-shadow: 0 16px 40px rgb(0 0 0 / 0.5);
+  animation: gl-in 0.4s var(--ease-expo) both;
+}
+.gh-arrived span {
+  flex: 1;
+  font-weight: 600;
+}
+
+/* Wheel */
+.ru {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid var(--l-line-strong);
+  background: radial-gradient(80% 70% at 50% 30%, rgb(245 185 66 / 0.12), transparent 70%), var(--l-surface);
+}
+.ru-wheel-wrap {
+  position: relative;
+  width: min(250px, 100%);
+}
+.ru-wheel {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 14px 22px rgb(0 0 0 / 0.5));
+}
+.ru-label {
+  fill: #f3e6d0;
+  font-size: 9px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+.ru-pointer {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: -6px;
+  width: 0;
+  height: 0;
+  margin-left: -10px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 22px solid #f5b942;
+  filter: drop-shadow(0 2px 4px rgb(0 0 0 / 0.5));
+}
+.ru-result {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: var(--l-paper);
+  color: var(--l-paper-ink);
+}
+.ru-result p {
+  display: grid;
+  gap: 2px;
+}
+.ru-code {
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+}
+.ru-result small {
+  font-size: 0.75rem;
+  opacity: 0.75;
+}
+.ru-note {
+  font-size: 0.75rem;
+  color: var(--l-muted);
+  text-align: center;
+}
+@media (prefers-reduced-motion: reduce) {
+  .gl,
+  .gh,
+  .gh-arrived {
+    animation: none;
+  }
+}

@@ -449,6 +449,73 @@
         "sub": "Mark a dish as sold out and the guest sees it at once.",
         "in": "Available",
         "out": "Sold out"
+      },
+      "juegos": {
+        "title": "Games and wheel",
+        "sub": "The wheel’s prizes, their odds and what each table won.",
+        "prizes": "Wheel prizes",
+        "prizeName": "Prize",
+        "nothing": "No prize («No luck this time»)",
+        "weight": "Weight",
+        "remove": "Remove {prize}",
+        "newPrize": "New prize",
+        "add": "Add a prize",
+        "rule": "One spin per order. The percentage is each prize’s chance; the wheel’s slices look equal.",
+        "handed": "Tonight’s prizes",
+        "noneYet": "Nobody has won anything tonight yet.",
+        "games": "Games your guests see"
+      }
+    },
+    "games": {
+      "kicker": "Your order is in the kitchen",
+      "title": "While your food is on its way, you can play",
+      "sub": "We’ll let you know when your dish arrives, even mid-game.",
+      "soloTitle": "Play on your phone",
+      "tableTitle": "Play with the table",
+      "play": "Play",
+      "backToOrder": "Back to my order",
+      "close": "Close the game",
+      "loading": "Loading the game…",
+      "again": "Play again",
+      "backToGames": "Back to the games",
+      "arrived": "Your order is here!",
+      "seeIt": "See my table",
+      "result": {
+        "done": "Finished",
+        "stopped": "Game stopped",
+        "points": "{n, plural, one {# point} other {# points}}"
+      },
+      "items": {
+        "ninja": {
+          "name": "Ninja",
+          "tagline": "Slice everything that flies. Not the bombs."
+        },
+        "combinaciones": {
+          "name": "Combinaciones",
+          "tagline": "Match three and build chains."
+        },
+        "catapulta": {
+          "name": "Catapult",
+          "tagline": "Three shots per level to bring the tower down."
+        },
+        "dibujo": {
+          "name": "Draw and guess",
+          "tagline": "One draws, the table guesses."
+        },
+        "hockey": {
+          "name": "Hockey",
+          "tagline": "One on one, first to five."
+        }
+      },
+      "ruleta": {
+        "title": "House wheel",
+        "spin": "Spin the wheel",
+        "spinning": "Spinning…",
+        "won": "You won: {prize}",
+        "show": "Show the code to the waiter.",
+        "nothing": "No luck this time. Next order!",
+        "nothingShort": "Next time",
+        "note": "One spin per order. Example prizes: each venue picks its own."
       }
     }
   }

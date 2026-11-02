@@ -38,3 +38,18 @@ la misma escena (lámpara, puerta de la cocina, mesa 4, chispas al levantar la c
 (02/11/2026): Gus más grande, la comanda como una hoja limpia y el pedido que avanza solo (enviado → cocina → listo →
 entregado) sin la barra «Simular». Fotos de comida: las 5 del prototipo (`public/lucero/food/`). Carta en
 `content/lucero-menu.json` (es/en/pt). El CRM es nuevo (`components/lucero/crm/`).
+
+## Fases 5–6 · juegos y ruleta (de `Toti-Gauna/games-market`, `477d574`)
+
+| Archivo en foody | Origen | Cambios |
+|---|---|---|
+| `games/core/contract/{game,net,settings}.ts`, `games/core/engine/*` (13 archivos), `games/ui/game/{GameStage.tsx,format.ts,useFullscreen.ts}` | `src/core/…`, `src/ui/game/…` | Solo las rutas de import (`@/core/` → `@/games/core/`, `@/ui/` → `@/games/ui/`) |
+| `games/{ninja,combinaciones,catapulta}/*` (con sus tests) | `src/games/…` | Ídem |
+| `games/styles/games.css` | `src/styles/tokens.css` y la capa de componentes de `src/styles/global.css` | Mismos nombres de tokens; valores de la paleta de Lucero (vino, cobre, ámbar, crema) en vez de Supernova |
+| Bloque `@theme` de colores `sn-*` en `app/globals.css` | `src/styles/global.css` | Ninguno |
+
+`@dimforge/rapier2d-compat@0.20.0` (física de Catapulta) se suma a las dependencias, aprobado por Ignacio (02/11/2026); se
+carga solo al abrir Catapulta. `eslint.config.mjs` apaga las reglas del compilador de React solo en el código copiado.
+
+Escrito en foody: `games/registry.ts`, `components/lucero/games/*` (anfitrión, modal, ruleta), `components/lucero/crm/JuegosAdmin.tsx`,
+`content/lucero-prizes.json`, `public/lucero/games/*.svg`.

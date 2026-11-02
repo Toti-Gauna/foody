@@ -1,0 +1,10 @@
+{
+  "$comment": "Premios de ejemplo de la ruleta de Lucero (local ficticio). Cada local carga los suyos en el CRM. Una etiqueta vacía es «esta vez no tocó».",
+  "prizes": [
+    { "id": "menu", "label": { "es": "Menú del día", "en": "Daily menu", "pt": "Prato do dia" }, "weight": 1 },
+    { "id": "postre", "label": { "es": "Postre de la casa", "en": "House dessert", "pt": "Sobremesa da casa" }, "weight": 3 },
+    { "id": "trago", "label": { "es": "2x1 en tragos", "en": "2-for-1 drinks", "pt": "Drinks 2 por 1" }, "weight": 3 },
+    { "id": "cafe", "label": { "es": "Café de cortesía", "en": "Coffee on us", "pt": "Café de cortesia" }, "weight": 4 },
+    { "id": "nada", "label": { "es": "", "en": "", "pt": "" }, "weight": 5 }
+  ]
+}

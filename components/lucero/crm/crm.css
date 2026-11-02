@@ -411,3 +411,54 @@
   border-radius: 18px;
   border: 1.5px dashed var(--l-line-strong);
 }
+.crm-prizes {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.crm-prizes li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto auto;
+  align-items: center;
+  gap: 8px;
+}
+.crm-prizes .crm-input {
+  margin-top: 0;
+}
+.crm-weight {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--l-muted);
+}
+.crm-weight .crm-input {
+  width: 64px;
+}
+.crm-share {
+  min-width: 40px;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+.crm-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  color: var(--l-muted);
+}
+.crm-gap {
+  margin-top: 10px;
+}
+.crm-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+@media (max-width: 480px) {
+  .crm-weight span {
+    display: none;
+  }
+}
