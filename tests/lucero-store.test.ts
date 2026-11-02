@@ -45,3 +45,15 @@ describe('Lucero store', () => {
     expect(pickPrize([{ id: 'z', label: '', weight: 0 }], 0.5)).toBeNull();
   });
 });
+
+describe('state from another device', () => {
+  it('accepts a real state and refuses junk that would crash the demo', async () => {
+    const { isLuceroState, initialState } = await import('@/components/lucero/store');
+    const ok = initialState('es');
+    expect(isLuceroState(ok)).toBe(true);
+    expect(isLuceroState({})).toBe(false);
+    expect(isLuceroState(null)).toBe(false);
+    expect(isLuceroState({ ...ok, orders: [{ id: 'x', status: 'sent', at: {}, lines: [{ dish: 'nope', options: [] }] }] })).toBe(false);
+    expect(isLuceroState({ ...ok, orders: [{ id: 'x', status: 'flying', at: {}, lines: [] }] })).toBe(false);
+  });
+});

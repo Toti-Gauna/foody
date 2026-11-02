@@ -11,7 +11,8 @@ const watch = (p, tag) => {
 };
 const a = await ctx.newPage();
 watch(a, 'host');
-await a.goto(`${base}/es/demo/?plan=75&red=local`);
+const RED = process.env.RED ?? 'local';
+await a.goto(`${base}/es/demo/?plan=75${RED === 'local' ? '&red=local' : ''}`);
 await a.waitForTimeout(1200);
 await a.getByRole('button', { name: 'Agregar Provoleta' }).click();
 await a.getByRole('button', { name: 'Ver mi pedido' }).click();

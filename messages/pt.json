@@ -280,7 +280,15 @@
       "viewCrm": "CRM do local",
       "crmLabel": "CRM do local",
       "cartaLabel": "O cardápio do cliente",
-      "phoneLabel": "O celular do cliente · mesa 4"
+      "phoneLabel": "O celular do cliente · mesa 4",
+      "sync": {
+        "button": "Peça pelo celular",
+        "kicker": "Demo em dois aparelhos",
+        "title": "Escaneie e peça pelo celular",
+        "text": "O cardápio do Lucero abre no seu celular, conectado a esta tela: o que você pedir lá aparece aqui no CRM.",
+        "qrAlt": "QR code para abrir o cardápio no celular",
+        "close": "Fechar"
+      }
     },
     "carta": {
       "demo": "Demo",

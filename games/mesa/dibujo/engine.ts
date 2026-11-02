@@ -31,8 +31,8 @@ export interface Secret {
 /**
  * The host's referee for «Dibujá y adiviná». It runs on the host's phone only; guests send their picks, guesses and
  * strokes, and it answers with the public state, the drawer's secret and the strokes. The public state only carries the
- * mask (letters fill in as the round goes) until the reveal. The secret travels to every phone like everything else (the
- * room is a star with no private channel) and only the drawer's phone shows it: fine for a game at a table, not a lock.
+ * mask (letters fill in as the round goes) until the reveal. The secret is addressed to the drawer: Foody-be's relay
+ * delivers it to that phone only; over WebRTC or BroadcastChannel it reaches every phone and only the drawer's shows it.
  */
 export class DibujoEngine {
   private order: string[] = [];

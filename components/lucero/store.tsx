@@ -4,6 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useReducer,
 import menuJson from '@/content/lucero-menu.json';
 import prizesJson from '@/content/lucero-prizes.json';
 import type { PlanId } from '@/lib/plans';
+import { openSync, type SyncLink } from './sync';
 
 /**
  * Lucero's demo state: one store shared by the guest's carta and the venue's CRM.
@@ -12,7 +13,7 @@ import type { PlanId } from '@/lib/plans';
  * kitchen → ready → delivered, so «Mandar a la cocina» brings the plate back with no button to press (Ignacio,
  * 02/11/2026). The CRM can move any order by hand too; every transition is idempotent (`advance` only moves forward), so
  * the timers and the hand never fight. Tabs of the same browser stay in step over a BroadcastChannel; with the backend
- * (fase 12) devices do too.
+ * (fase 12) devices paired with a code do too (`sync.ts`).
  */
 
 export type Lang = 'es' | 'en' | 'pt';
@@ -276,36 +277,94 @@ interface Ctx {
 
 const LuceroCtx = createContext<Ctx | null>(null);
 const CHANNEL = 'lucero-demo-v1';
+type SyncMsg = { kind: 'hello' } | { kind: 'action'; action: Action } | { kind: 'state'; state: LuceroState };
+/** What another tab or device may ask the store to do (never `snapshot`: a whole state comes only as `state`). */
+const REMOTE_ACTIONS = new Set<Action['type']>(['add', 'qty', 'send', 'advance', 'toggleOut', 'bill', 'setPrizes', 'spin', 'note', 'reset']);
+const isObj = (x: unknown): x is Record<string, unknown> => !!x && typeof x === 'object' && !Array.isArray(x);
+/** A state from elsewhere, checked enough that rendering it can't crash the demo. */
+export function isLuceroState(x: unknown): x is LuceroState {
+  if (!isObj(x)) return false;
+  const arrays = ['cart', 'orders', 'customers', 'prizes', 'spins'] as const;
+  if (!arrays.every((k) => Array.isArray(x[k])) || !isObj(x.out) || typeof x.guestName !== 'string') return false;
+  const orders = x.orders as unknown[];
+  return orders.every((o) => isObj(o) && typeof o.id === 'string' && Array.isArray(o.lines) && ORDER_FLOW.includes(o.status as OrderStatus) && isObj(o.at) && o.lines.every((l) => isObj(l) && typeof l.dish === 'string' && l.dish in DISHES && Array.isArray(l.options)));
+}
 
-export function LuceroProvider({ plan, lang, children }: { plan: PlanId | null; lang: Lang; children: ReactNode }) {
+export function LuceroProvider({
+  plan,
+  lang,
+  syncCode,
+  syncLead = false,
+  children,
+}: {
+  plan: PlanId | null;
+  lang: Lang;
+  syncCode?: string | null;
+  /** The device that made the pairing code: the only one that answers with the whole state. */
+  syncLead?: boolean;
+  children: ReactNode;
+}) {
   const [state, rawDispatch] = useReducer(reducer, lang, initialState);
   const channel = useRef<BroadcastChannel | null>(null);
+  const remote = useRef<SyncLink | null>(null);
   const stateRef = useRef(state);
   useEffect(() => {
     stateRef.current = state;
   }, [state]);
+
+  // What another tab or device says: an action to mirror, a hello to answer with the current state, or that state.
+  // Nothing from outside is trusted: unknown actions, ones that would throw and malformed states are dropped.
+  const receive = useCallback((raw: unknown, reply: ((msg: SyncMsg) => void) | null) => {
+    if (!isObj(raw)) return;
+    if (raw.kind === 'action' && isObj(raw.action) && REMOTE_ACTIONS.has(raw.action.type as Action['type'])) {
+      const action = raw.action as unknown as Action;
+      try {
+        if (!isLuceroState(reducer(stateRef.current, action))) return;
+      } catch {
+        return;
+      }
+      rawDispatch(action);
+    } else if (raw.kind === 'hello') reply?.({ kind: 'state', state: stateRef.current });
+    else if (raw.kind === 'state' && isLuceroState(raw.state)) rawDispatch({ type: 'snapshot', state: raw.state });
+  }, []);
 
   // Tabs of the same browser share the demo: every local action is mirrored; a new tab asks for the current state.
   useEffect(() => {
     if (typeof BroadcastChannel === 'undefined') return;
     const ch = new BroadcastChannel(CHANNEL);
     channel.current = ch;
-    ch.onmessage = (e: MessageEvent<{ kind: string; action?: Action; state?: LuceroState }>) => {
-      const msg = e.data;
-      if (msg.kind === 'action' && msg.action) rawDispatch(msg.action);
-      else if (msg.kind === 'hello') ch.postMessage({ kind: 'state', state: stateRef.current });
-      else if (msg.kind === 'state' && msg.state) rawDispatch({ type: 'snapshot', state: msg.state });
-    };
+    ch.onmessage = (e: MessageEvent<unknown>) => receive(e.data, (m) => ch.postMessage(m));
     ch.postMessage({ kind: 'hello' });
     return () => {
       ch.close();
       channel.current = null;
     };
-  }, []);
+  }, [receive]);
+
+  // Devices paired with a code (`?sync=`) do the same through Foody-be, when there is one. One device leads (the one
+  // that made the code): it answers hellos and never asks. The other asks on every (re)connection, after sending what it
+  // did offline, so the answer already has it and both end up equal.
+  useEffect(() => {
+    if (!syncCode) return;
+    const link = openSync(
+      `lucero-demo-${syncCode}`,
+      (msg) => receive(msg, syncLead ? (m) => link?.send(m) : null),
+      () => {
+        if (!syncLead) link?.send({ kind: 'hello' });
+      },
+    );
+    remote.current = link;
+    return () => {
+      link?.close();
+      remote.current = null;
+    };
+  }, [syncCode, syncLead, receive]);
 
   const dispatch = useCallback((action: Action) => {
     rawDispatch(action);
-    if (action.type !== 'snapshot') channel.current?.postMessage({ kind: 'action', action });
+    if (action.type === 'snapshot') return;
+    channel.current?.postMessage({ kind: 'action', action });
+    remote.current?.send({ kind: 'action', action });
   }, []);
 
   // The guest's orders move on their own. Each pending order schedules its next step; the CRM may get there first.

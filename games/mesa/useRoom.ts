@@ -96,7 +96,7 @@ export function useRoom({ game, code, host, name, transport, apiUrl }: { game: R
     };
   }, [game, code, host, name, transport, apiUrl]);
 
-  const send = useCallback((type: string, payload: unknown) => t.current?.send(type, payload), []);
+  const send = useCallback((type: string, payload: unknown, to?: string) => t.current?.send(type, payload, to), []);
   const subscribe = useCallback((fn: (msg: Wire) => void) => {
     subs.current.add(fn);
     return () => {
