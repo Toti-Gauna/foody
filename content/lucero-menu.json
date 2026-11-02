@@ -1,0 +1,780 @@
+{
+ "$comment": "La carta de Lucero (local ficticio, demo). Precios en pesos de ejemplo: son de la carta del local, no de Eclipse.",
+ "currency": "ARS",
+ "optionGroups": {
+  "salsa": {
+   "multi": false,
+   "options": [
+    {
+     "id": "fileto",
+     "label": {
+      "es": "Fileto",
+      "en": "Tomato",
+      "pt": "Sugo"
+     }
+    },
+    {
+     "id": "crema",
+     "label": {
+      "es": "Crema",
+      "en": "Cream",
+      "pt": "Creme"
+     }
+    },
+    {
+     "id": "mixta",
+     "label": {
+      "es": "Mixta",
+      "en": "Rosé",
+      "pt": "Rosé"
+     }
+    }
+   ]
+  },
+  "punto": {
+   "multi": false,
+   "options": [
+    {
+     "id": "jugoso",
+     "label": {
+      "es": "Jugoso",
+      "en": "Rare",
+      "pt": "Mal passado"
+     }
+    },
+    {
+     "id": "apunto",
+     "label": {
+      "es": "A punto",
+      "en": "Medium",
+      "pt": "Ao ponto"
+     }
+    },
+    {
+     "id": "cocido",
+     "label": {
+      "es": "Cocido",
+      "en": "Well done",
+      "pt": "Bem passado"
+     }
+    }
+   ]
+  },
+  "extra": {
+   "multi": true,
+   "options": [
+    {
+     "id": "tomate",
+     "label": {
+      "es": "+ Extra tomate",
+      "en": "+ Extra tomato",
+      "pt": "+ Tomate extra"
+     }
+    },
+    {
+     "id": "singluten",
+     "label": {
+      "es": "Sin gluten",
+      "en": "Gluten-free",
+      "pt": "Sem glúten"
+     }
+    }
+   ]
+  }
+ },
+ "categories": [
+  {
+   "id": "entradas",
+   "name": {
+    "es": "Entradas",
+    "en": "Starters",
+    "pt": "Entradas"
+   },
+   "kicker": {
+    "es": "Para picar",
+    "en": "To share",
+    "pt": "Para beliscar"
+   },
+   "photo": null,
+   "pose": "03-presentar-carta",
+   "say": {
+    "es": [
+     "Arrancá por la provoleta: sale en ocho minutos.",
+     "Las rabas vuelan. Avisá rápido."
+    ],
+    "en": [
+     "Start with the provoleta: out in eight minutes.",
+     "The calamari goes fast. Be quick."
+    ],
+    "pt": [
+     "Comece pela provoleta: sai em oito minutos.",
+     "As lulas acabam rápido. Corre."
+    ]
+   },
+   "items": [
+    {
+     "id": "provo",
+     "name": {
+      "es": "Provoleta",
+      "en": "Grilled provolone",
+      "pt": "Provoleta"
+     },
+     "desc": {
+      "es": "Con orégano y aceite de oliva, a la parrilla.",
+      "en": "With oregano and olive oil, off the grill.",
+      "pt": "Com orégano e azeite, na grelha."
+     },
+     "price": 9800,
+     "options": null,
+     "soldOut": false,
+     "adult": false
+    },
+    {
+     "id": "rabas",
+     "name": {
+      "es": "Rabas",
+      "en": "Fried calamari",
+      "pt": "Lulas fritas"
+     },
+     "desc": {
+      "es": "Con limón y alioli de la casa.",
+      "en": "With lemon and house aioli.",
+      "pt": "Com limão e aioli da casa."
+     },
+     "price": 14500,
+     "options": null,
+     "soldOut": false,
+     "adult": false
+    },
+    {
+     "id": "empa",
+     "name": {
+      "es": "Empanadas de carne",
+      "en": "Beef empanadas",
+      "pt": "Empanadas de carne"
+     },
+     "desc": {
+      "es": "Cortadas a cuchillo. Dos por porción.",
+      "en": "Hand-cut beef. Two per serving.",
+      "pt": "Carne cortada na faca. Duas por porção."
+     },
+     "price": 6200,
+     "options": null,
+     "soldOut": false,
+     "adult": false
+    },
+    {
+     "id": "tabla",
+     "name": {
+      "es": "Tabla de fiambres",
+      "en": "Cold cuts board",
+      "pt": "Tábua de frios"
+     },
+     "desc": {
+      "es": "Jamón crudo, salame, queso y aceitunas. Para dos.",
+      "en": "Cured ham, salami, cheese and olives. For two.",
+      "pt": "Presunto cru, salame, queijo e azeitonas. Para dois."
+     },
+     "price": 18900,
+     "options": null,
+     "soldOut": false,
+     "adult": false
+    }
+   ]
+  },
+  {
+   "id": "pastas",
+   "name": {
+    "es": "Pastas",
+    "en": "Pasta",
+    "pt": "Massas"
+   },
+   "kicker": {
+    "es": "Caseras",
+    "en": "Homemade",
+    "pt": "Caseiras"
+   },
+   "photo": "pasta",
+   "pose": "13-senalar",
+   "say": {
+    "es": [
+     "Hoy los sorrentinos son caseros.",
+     "Con fileto no fallás."
+    ],
+    "en": [
+     "Today the sorrentinos are homemade.",
+     "You can’t go wrong with tomato sauce."
+    ],
+    "pt": [
+     "Hoje os sorrentinos são caseiros.",
+     "Com molho de tomate não tem erro."
+    ]
+   },
+   "items": [
+    {
+     "id": "sorre",
+     "name": {
+      "es": "Sorrentinos",
+      "en": "Sorrentinos",
+      "pt": "Sorrentinos"
+     },
+     "desc": {
+      "es": "De jamón y queso.",
+      "en": "Ham and cheese.",
+      "pt": "De presunto e queijo."
+     },
+     "price": 13900,
+     "options": "salsa",
+     "soldOut": false,
+     "adult": false
+    },
+    {
+     "id": "noq",
+     "name": {
+      "es": "Ñoquis de papa",
+      "en": "Potato gnocchi",
+      "pt": "Nhoque de batata"
+     },
+     "desc": {
+      "es": "Hechos hoy.",
+      "en": "Made today.",
+      "pt": "Feitos hoje."
+     },
+     "price": 11800,
+     "options": "salsa",
+     "soldOut": false,
+     "adult": false
+    },
+    {
+     "id": "ravi",
+     "name": {
+      "es": "Ravioles de verdura",
+      "en": "Vegetable ravioli",
+      "pt": "Ravióli de verdura"
+     },
+     "desc": {
+      "es": "Con ricota y espinaca.",
+      "en": "With ricotta and spinach.",
+      "pt": "Com ricota e espinafre."
+     },
+     "price": 12500,
+     "options": "salsa",
+     "soldOut": false,
+     "adult": false
+    },
+    {
+     "id": "talla",
+     "name": {
+      "es": "Tallarines",
+      "en": "Tagliatelle",
+      "pt": "Talharim"
+     },
+     "desc": {
+      "es": "Al huevo, con tomate y albahaca.",
+      "en": "Egg pasta, tomato and basil.",
+      "pt": "Ao ovo, com tomate e manjericão."
+     },
+     "price": 10900,
+     "options": null,
+     "soldOut": false,
+     "adult": false
+    }
+   ]
+  },
+  {
+   "id": "parrilla",
+   "name": {
+    "es": "Parrilla",
+    "en": "Grill",
+    "pt": "Grelha"
+   },
+   "kicker": {
+    "es": "A las brasas",
+    "en": "Over the coals",
+    "pt": "Na brasa"
+   },
+   "photo": null,
+   "pose": "12-pensar",
+   "say": {
+    "es": [
+     "¿A qué punto te gusta la carne?",
+     "El bife sale con guarnición."
+    ],
+    "en": [
+     "How do you like your meat?",
+     "The steak comes with a side."
+    ],
+    "pt": [
+     "Qual o ponto da carne?",
+     "O bife vem com acompanhamento."
+    ]
+   },
+   "items": [
+    {
+     "id": "bife",
+     "name": {
+      "es": "Bife de chorizo",
+      "en": "Sirloin steak",
+      "pt": "Bife de chorizo"
+     },
+     "desc": {
+      "es": "400 g, con guarnición.",
+      "en": "400 g, with a side.",
+      "pt": "400 g, com acompanhamento."
+     },
+     "price": 22800,
+     "options": "punto",
+     "soldOut": false,
+     "adult": false
+    },
+    {
+     "id": "entrana",
+     "name": {
+      "es": "Entraña",
+      "en": "Skirt steak",
+      "pt": "Fraldinha"
+     },
+     "desc": {
+      "es": "Con chimichurri.",
+      "en": "With chimichurri.",
+      "pt": "Com chimichurri."
+     },
+     "price": 21500,
+     "options": null,
+     "soldOut": true,
+     "adult": false
+    },
+    {
+     "id": "vacio",
+     "name": {
+      "es": "Vacío",
+      "en": "Flank steak",
+      "pt": "Vazio"
+     },
+     "desc": {
+      "es": "Tierno, con papas rústicas.",
+      "en": "Tender, with rustic potatoes.",
+      "pt": "Macio, com batatas rústicas."
+     },
+     "price": 19800,
+     "options": "punto",
+     "soldOut": false,
+     "adult": false
+    },
+    {
+     "id": "asado",
+     "name": {
+      "es": "Tira de asado",
+      "en": "Short ribs",
+      "pt": "Costela"
+     },
+     "desc": {
+      "es": "Con ensalada mixta.",
+      "en": "With mixed salad.",
+      "pt": "Com salada mista."
+     },
+     "price": 18600,
+     "options": null,
+     "soldOut": false,
+     "adult": false
+    }
+   ]
+  },
+  {
+   "id": "pizzas",
+   "name": {
+    "es": "Pizzas",
+    "en": "Pizzas",
+    "pt": "Pizzas"
+   },
+   "kicker": {
+    "es": "Al horno de barro",
+    "en": "From the clay oven",
+    "pt": "No forno de barro"
+   },
+   "photo": "pizza",
+   "pose": "13-senalar",
+   "say": {
+    "es": [
+     "La fugazzeta es la de la casa.",
+     "Horno de barro, como corresponde."
+    ],
+    "en": [
+     "The fugazzeta is our signature.",
+     "Clay oven, as it should be."
+    ],
+    "pt": [
+     "A fugazzeta é a da casa.",
+     "Forno de barro, como deve ser."
+    ]
+   },
+   "items": [
+    {
+     "id": "muzza",
+     "name": {
+      "es": "Muzzarella",
+      "en": "Mozzarella",
+      "pt": "Muçarela"
+     },
+     "desc": {
+      "es": "Salsa de tomate, muzzarella y aceitunas.",
+      "en": "Tomato sauce, mozzarella and olives.",
+      "pt": "Molho de tomate, muçarela e azeitonas."
+     },
+     "price": 12900,
+     "options": "extra",
+     "soldOut": false,
+     "adult": false
+    },
+    {
+     "id": "fuga",
+     "name": {
+      "es": "Fugazzeta",
+      "en": "Fugazzeta",
+      "pt": "Fugazzeta"
+     },
+     "desc": {
+      "es": "Rellena, con cebolla dulce.",
+      "en": "Stuffed, with sweet onion.",
+      "pt": "Recheada, com cebola doce."
+     },
+     "price": 15400,
+     "options": "extra",
+     "soldOut": false,
+     "adult": false
+    },
+    {
+     "id": "napo",
+     "name": {
+      "es": "Napolitana",
+      "en": "Neapolitan",
+      "pt": "Napolitana"
+     },
+     "desc": {
+      "es": "Tomate en rodajas y ajo.",
+      "en": "Sliced tomato and garlic.",
+      "pt": "Tomate em rodelas e alho."
+     },
+     "price": 14200,
+     "options": "extra",
+     "soldOut": false,
+     "adult": false
+    },
+    {
+     "id": "cala",
+     "name": {
+      "es": "Calabresa",
+      "en": "Calabrese",
+      "pt": "Calabresa"
+     },
+     "desc": {
+      "es": "Con longaniza picante.",
+      "en": "With spicy sausage.",
+      "pt": "Com linguiça picante."
+     },
+     "price": 14800,
+     "options": null,
+     "soldOut": false,
+     "adult": false
+    }
+   ]
+  },
+  {
+   "id": "minutas",
+   "name": {
+    "es": "Minutas",
+    "en": "Classics",
+    "pt": "Pratos rápidos"
+   },
+   "kicker": {
+    "es": "Clásicos",
+    "en": "Classics",
+    "pt": "Clássicos"
+   },
+   "photo": "burger",
+   "pose": "03-presentar-carta",
+   "say": {
+    "es": [
+     "La hamburguesa viene con papas.",
+     "La milanesa es más grande que el plato."
+    ],
+    "en": [
+     "The burger comes with fries.",
+     "The milanesa is bigger than the plate."
+    ],
+    "pt": [
+     "O hambúrguer vem com batatas.",
+     "A milanesa é maior que o prato."
+    ]
+   },
+   "items": [
+    {
+     "id": "burg",
+     "name": {
+      "es": "Hamburguesa Lucero",
+      "en": "Lucero burger",
+      "pt": "Hambúrguer Lucero"
+     },
+     "desc": {
+      "es": "Doble medallón, cheddar y pepinos, con papas.",
+      "en": "Double patty, cheddar and pickles, with fries.",
+      "pt": "Dois discos, cheddar e picles, com batatas."
+     },
+     "price": 14900,
+     "options": null,
+     "soldOut": false,
+     "adult": false
+    },
+    {
+     "id": "mila",
+     "name": {
+      "es": "Milanesa napolitana",
+      "en": "Milanesa napolitana",
+      "pt": "Milanesa à napolitana"
+     },
+     "desc": {
+      "es": "Con papas fritas.",
+      "en": "With fries.",
+      "pt": "Com batatas fritas."
+     },
+     "price": 16500,
+     "options": null,
+     "soldOut": false,
+     "adult": false
+    },
+    {
+     "id": "supre",
+     "name": {
+      "es": "Suprema",
+      "en": "Breaded chicken",
+      "pt": "Frango empanado"
+     },
+     "desc": {
+      "es": "Con puré de calabaza.",
+      "en": "With pumpkin mash.",
+      "pt": "Com purê de abóbora."
+     },
+     "price": 15200,
+     "options": null,
+     "soldOut": false,
+     "adult": false
+    },
+    {
+     "id": "pollo",
+     "name": {
+      "es": "Pollo grillado",
+      "en": "Grilled chicken",
+      "pt": "Frango grelhado"
+     },
+     "desc": {
+      "es": "Con ensalada de estación.",
+      "en": "With seasonal salad.",
+      "pt": "Com salada da estação."
+     },
+     "price": 13800,
+     "options": null,
+     "soldOut": false,
+     "adult": false
+    }
+   ]
+  },
+  {
+   "id": "postres",
+   "name": {
+    "es": "Postres",
+    "en": "Desserts",
+    "pt": "Sobremesas"
+   },
+   "kicker": {
+    "es": "Para el final",
+    "en": "To finish",
+    "pt": "Para o final"
+   },
+   "photo": "dessert",
+   "pose": "08-sorpresa",
+   "say": {
+    "es": [
+     "¡El volcán! Pedilo con helado.",
+     "Dejá lugar para el postre."
+    ],
+    "en": [
+     "The lava cake! Get it with ice cream.",
+     "Save room for dessert."
+    ],
+    "pt": [
+     "O vulcão! Peça com sorvete.",
+     "Guarde espaço para a sobremesa."
+    ]
+   },
+   "items": [
+    {
+     "id": "volcan",
+     "name": {
+      "es": "Volcán de chocolate",
+      "en": "Chocolate lava cake",
+      "pt": "Vulcão de chocolate"
+     },
+     "desc": {
+      "es": "Con helado de crema.",
+      "en": "With vanilla ice cream.",
+      "pt": "Com sorvete de creme."
+     },
+     "price": 8900,
+     "options": null,
+     "soldOut": false,
+     "adult": false
+    },
+    {
+     "id": "flan",
+     "name": {
+      "es": "Flan casero",
+      "en": "Homemade flan",
+      "pt": "Pudim caseiro"
+     },
+     "desc": {
+      "es": "Con dulce de leche o crema.",
+      "en": "With dulce de leche or cream.",
+      "pt": "Com doce de leite ou creme."
+     },
+     "price": 6400,
+     "options": null,
+     "soldOut": false,
+     "adult": false
+    },
+    {
+     "id": "tira",
+     "name": {
+      "es": "Tiramisú",
+      "en": "Tiramisu",
+      "pt": "Tiramisù"
+     },
+     "desc": {
+      "es": "Con café de especialidad.",
+      "en": "With specialty coffee.",
+      "pt": "Com café especial."
+     },
+     "price": 8200,
+     "options": null,
+     "soldOut": false,
+     "adult": false
+    },
+    {
+     "id": "panq",
+     "name": {
+      "es": "Panqueque",
+      "en": "Crêpe",
+      "pt": "Panqueca"
+     },
+     "desc": {
+      "es": "Con dulce de leche.",
+      "en": "With dulce de leche.",
+      "pt": "Com doce de leite."
+     },
+     "price": 6900,
+     "options": null,
+     "soldOut": false,
+     "adult": false
+    }
+   ]
+  },
+  {
+   "id": "tragos",
+   "name": {
+    "es": "Tragos",
+    "en": "Drinks",
+    "pt": "Drinks"
+   },
+   "kicker": {
+    "es": "Barra",
+    "en": "Bar",
+    "pt": "Bar"
+   },
+   "photo": "cocktail",
+   "pose": "12-pensar",
+   "say": {
+    "es": [
+     "Los tragos te los confirmo en la mesa.",
+     "Para el calor, aperol."
+    ],
+    "en": [
+     "I’ll confirm drinks at the table.",
+     "For the heat, an aperol."
+    ],
+    "pt": [
+     "Os drinks eu confirmo na mesa.",
+     "Para o calor, aperol."
+    ]
+   },
+   "items": [
+    {
+     "id": "negroni",
+     "name": {
+      "es": "Negroni",
+      "en": "Negroni",
+      "pt": "Negroni"
+     },
+     "desc": {
+      "es": "Gin, vermut rosso y Campari.",
+      "en": "Gin, rosso vermouth and Campari.",
+      "pt": "Gin, vermute rosso e Campari."
+     },
+     "price": 9800,
+     "options": null,
+     "soldOut": false,
+     "adult": true
+    },
+    {
+     "id": "aperol",
+     "name": {
+      "es": "Aperol spritz",
+      "en": "Aperol spritz",
+      "pt": "Aperol spritz"
+     },
+     "desc": {
+      "es": "Con naranja.",
+      "en": "With orange.",
+      "pt": "Com laranja."
+     },
+     "price": 8900,
+     "options": null,
+     "soldOut": false,
+     "adult": true
+    },
+    {
+     "id": "gin",
+     "name": {
+      "es": "Gin tonic",
+      "en": "Gin and tonic",
+      "pt": "Gin tônica"
+     },
+     "desc": {
+      "es": "Con pepino o pomelo.",
+      "en": "With cucumber or grapefruit.",
+      "pt": "Com pepino ou toranja."
+     },
+     "price": 9200,
+     "options": null,
+     "soldOut": false,
+     "adult": true
+    },
+    {
+     "id": "fernet",
+     "name": {
+      "es": "Fernet con cola",
+      "en": "Fernet and cola",
+      "pt": "Fernet com cola"
+     },
+     "desc": {
+      "es": "El de siempre.",
+      "en": "The classic.",
+      "pt": "O de sempre."
+     },
+     "price": 7600,
+     "options": null,
+     "soldOut": false,
+     "adult": true
+    }
+   ]
+  }
+ ]
+}

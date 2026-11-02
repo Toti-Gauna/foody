@@ -1,0 +1,413 @@
+/* Lucero's CRM: the venue's side, in the demo's own palette (lucero.css tokens). */
+.crm {
+  display: grid;
+  align-content: start;
+  min-height: 100%;
+  background: var(--l-bg);
+  border: 1px solid var(--l-line);
+}
+@media (min-width: 1100px) {
+  .crm {
+    grid-template-columns: 220px minmax(0, 1fr);
+    min-height: calc(100dvh - 106px);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+}
+.crm-nav {
+  padding: 12px;
+  border-bottom: 1px solid var(--l-line);
+  background: var(--l-bg-2);
+  overflow-x: auto;
+}
+.crm-nav ul {
+  display: flex;
+  gap: 4px;
+  width: max-content;
+}
+.crm-nav button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: var(--l-muted);
+  white-space: nowrap;
+}
+.crm-nav button[aria-current='page'] {
+  background: var(--l-surface-2);
+  color: var(--l-ink);
+}
+.crm-brand {
+  display: none;
+}
+@media (min-width: 1100px) {
+  .crm-nav {
+    border-bottom: 0;
+    border-right: 1px solid var(--l-line);
+    overflow: visible;
+  }
+  .crm-nav ul {
+    display: grid;
+    width: auto;
+  }
+  .crm-brand {
+    display: grid;
+    padding: 8px 12px 18px;
+  }
+  .crm-brand span:first-child {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+}
+.crm-brand-sub {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--l-muted);
+}
+.crm-badge {
+  margin-left: auto;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--l-wine);
+  color: #fff6ee;
+  font-size: 0.75rem;
+  display: grid;
+  place-items: center;
+}
+.crm-lock-ic {
+  margin-left: auto;
+  opacity: 0.7;
+}
+.crm-main {
+  min-width: 0;
+  padding: 18px 16px 40px;
+}
+@media (min-width: 1100px) {
+  .crm-main {
+    padding: 24px 28px 40px;
+  }
+}
+.crm-head {
+  margin-bottom: 18px;
+}
+.crm-h {
+  font-family: var(--font-serif);
+  font-size: 2.1rem;
+  line-height: 1;
+}
+.crm-h3 {
+  margin: 22px 0 10px;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+}
+.crm-h4 {
+  margin: 16px 0 8px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--l-wine-text);
+}
+.crm-muted {
+  color: var(--l-muted);
+  font-size: 0.875rem;
+}
+.crm-kpis {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+@media (min-width: 760px) {
+  .crm-kpis {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+.crm-kpis > div {
+  padding: 14px;
+  border-radius: 14px;
+  background: var(--l-surface);
+  border: 1px solid var(--l-line);
+}
+.crm-kpis dt {
+  font-size: 0.75rem;
+  color: var(--l-muted);
+}
+.crm-kpis dd {
+  margin-top: 4px;
+  font-family: var(--font-serif);
+  font-size: 1.9rem;
+  line-height: 1;
+}
+.crm-feed {
+  display: grid;
+  margin-bottom: 18px;
+}
+.crm-feed li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas: 'table what chip' 'table time time';
+  gap: 2px 12px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--l-line);
+}
+.crm-feed-table {
+  grid-area: table;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+.crm-feed-what {
+  grid-area: what;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.875rem;
+}
+.crm-feed-time {
+  grid-area: time;
+  font-size: 0.75rem;
+  color: var(--l-muted);
+}
+.crm-feed li[data-mine] .crm-feed-table {
+  color: var(--l-amber);
+}
+.crm-chip {
+  grid-area: chip;
+  padding: 2px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--l-line-strong);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  white-space: nowrap;
+}
+.crm-chip[data-status='sent'] {
+  border-color: var(--l-amber);
+  color: var(--l-amber);
+}
+.crm-chip[data-status='delivered'] {
+  color: #b4c06e;
+}
+.crm-board {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(196px, 1fr);
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+.crm-col {
+  min-width: 0;
+  padding: 10px;
+  border-radius: 16px;
+  background: var(--l-bg-2);
+  border: 1px solid var(--l-line);
+}
+.crm-col-h {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--l-muted);
+}
+.crm-col ul {
+  display: grid;
+  gap: 8px;
+}
+.crm-ticket {
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--l-surface);
+  border: 1px solid var(--l-line);
+}
+.crm-ticket[data-mine] {
+  border-color: var(--l-amber);
+  box-shadow: 0 0 0 3px rgb(245 185 66 / 0.14);
+}
+.crm-ticket-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+}
+.crm-ticket-top span {
+  font-size: 0.75rem;
+  color: var(--l-muted);
+}
+.crm-ticket-lines {
+  margin-top: 6px;
+  display: grid;
+  gap: 2px;
+  font-size: 0.875rem;
+}
+.crm-ticket-lines small {
+  color: var(--l-muted);
+}
+.crm-note {
+  margin-top: 6px;
+  font-size: 0.8125rem;
+  font-style: italic;
+  color: var(--l-wine-text);
+}
+.crm-next {
+  margin-top: 10px;
+  width: 100%;
+  min-height: 40px;
+  border-radius: 10px;
+  background: var(--l-ink);
+  color: var(--l-bg);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+.crm-split {
+  display: grid;
+  gap: 16px;
+}
+@media (min-width: 900px) {
+  .crm-split {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  }
+}
+.crm-people {
+  display: grid;
+  gap: 4px;
+}
+.crm-people button {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-height: 52px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  text-align: left;
+}
+.crm-people button[aria-current] {
+  background: var(--l-surface-2);
+}
+.crm-avatar {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--l-wine);
+  font-weight: 600;
+}
+.crm-person {
+  display: grid;
+  margin-right: auto;
+}
+.crm-person small {
+  font-size: 0.75rem;
+  color: var(--l-muted);
+}
+.crm-tag {
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--l-line-strong);
+  font-size: 0.6875rem;
+  color: var(--l-muted);
+}
+.crm-card {
+  padding: 18px;
+  border-radius: 16px;
+  background: var(--l-surface);
+  border: 1px solid var(--l-line);
+}
+.crm-card .crm-h3 {
+  margin-top: 0;
+}
+.crm-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.crm-facts dt {
+  font-size: 0.75rem;
+  color: var(--l-muted);
+}
+.crm-facts dd {
+  font-size: 1rem;
+}
+.crm-label {
+  display: block;
+  margin-top: 16px;
+  font-size: 0.8125rem;
+  color: var(--l-muted);
+}
+.crm-input {
+  width: 100%;
+  margin-top: 6px;
+  min-height: 46px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--l-line-strong);
+  background: var(--l-bg-2);
+  color: var(--l-ink);
+  font: inherit;
+  font-size: 16px;
+}
+.crm-history li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--l-line);
+  font-size: 0.875rem;
+}
+.crm-menu {
+  display: grid;
+  gap: 8px;
+}
+@media (min-width: 900px) {
+  .crm-menu {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 24px;
+  }
+}
+.crm-menu li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  border-bottom: 1px solid var(--l-line);
+  font-size: 0.9rem;
+}
+.crm-out {
+  text-decoration: line-through;
+  color: var(--l-muted);
+}
+.crm-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+.crm-switch input {
+  width: 38px;
+  height: 22px;
+  accent-color: var(--l-wine);
+}
+.crm-locked {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  max-width: 34rem;
+  padding: 28px;
+  border-radius: 18px;
+  border: 1.5px dashed var(--l-line-strong);
+}

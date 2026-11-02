@@ -262,5 +262,194 @@
   "autoTour": {
     "resume": "Continuar o tour automático",
     "stop": "Encerrar o tour"
+  },
+  "lucero": {
+    "meta": {
+      "title": "Lucero · demo do Eclipse para restaurantes",
+      "description": "Peça da mesa com o Gus e veja o CRM do local. O Lucero é um local fictício."
+    },
+    "shell": {
+      "back": "Voltar ao site",
+      "demo": "Demo",
+      "note": "Local fictício · dados de teste",
+      "planLabel": "Ver como",
+      "planAll": "Tudo aberto",
+      "planOption": "Plano {price}",
+      "viewLabel": "O que ver",
+      "viewCarta": "Cliente",
+      "viewCrm": "CRM do local",
+      "crmLabel": "CRM do local",
+      "cartaLabel": "O cardápio do cliente",
+      "phoneLabel": "O celular do cliente · mesa 4"
+    },
+    "carta": {
+      "demo": "Demo",
+      "table": "Mesa {n}",
+      "hello": "Olá! Sou o Gus, seu garçom.",
+      "helloSub": "O que eu trago? Escolha e eu anoto.",
+      "catsLabel": "Categorias do cardápio",
+      "footNote": "O Lucero é um local fictício: o cardápio e os preços são de exemplo.",
+      "barLabel": "Seu pedido",
+      "countN": "{n, plural, one {# anotado} other {# anotados}}",
+      "status": {
+        "sent": "Pedido enviado",
+        "kitchen": "Na cozinha",
+        "ready": "Pronto: indo para a mesa",
+        "delivered": "Entregue · bom apetite!"
+      },
+      "roundN": "Pedido {n}",
+      "empty": "Nada anotado ainda",
+      "emptySub": "Toque + para pedir",
+      "viewOrder": "Ver meu pedido",
+      "viewStatus": "Ver como está",
+      "noted1": "Anotado! Vamos lá.",
+      "notedN": "Anotado. São {n}.",
+      "soldOut": "Esgotado hoje",
+      "adult": "Só para maiores de 18. O garçom confirma na mesa.",
+      "optionsOf": "Opções de {dish}",
+      "less": "Tirar um {dish}",
+      "more": "Mais um {dish}",
+      "add": "Adicionar {dish}"
+    },
+    "comanda": {
+      "back": "Voltar ao cardápio",
+      "title": "Seu pedido",
+      "sub": "Mesa {table} · pedido {round}",
+      "gusAsk": "Mando para a cozinha?",
+      "gusEmpty": "Ainda não anotei nada.",
+      "empty": "Escolha algo do cardápio e aparece aqui.",
+      "name": "Em nome de quem?",
+      "namePlaceholder": "Seu nome",
+      "note": "Observações para a cozinha",
+      "notePlaceholder": "Por exemplo: o bife sem sal",
+      "total": "Total",
+      "send": "Mandar para a cozinha",
+      "payNote": "Aqui não se paga nada: você paga no local, como sempre.",
+      "defaultName": "Mesa 4",
+      "less": "Tirar um {dish}",
+      "more": "Mais um {dish}"
+    },
+    "pedido": {
+      "title": "Seu pedido foi feito!",
+      "deliveredTitle": "Bom apetite!",
+      "now": {
+        "sent": "O Gus leva a comanda para a cozinha.",
+        "kitchen": "A cozinha está preparando.",
+        "ready": "Está pronto: o Gus vai para a sua mesa.",
+        "delivered": "Já está na sua mesa."
+      },
+      "step": {
+        "sent": "Enviado",
+        "kitchen": "Na cozinha",
+        "ready": "Pronto",
+        "delivered": "Na sua mesa"
+      },
+      "play": "Jogar enquanto espera",
+      "ticket": "Pedido {round}",
+      "more": "Pedir mais",
+      "bill": "Pedir a conta",
+      "billAsked": "Conta pedida",
+      "tableTotal": "Total da mesa:",
+      "payNote": "paga-se no local.",
+      "say": {
+        "sent": "Já levo para a cozinha.",
+        "kitchen": "Está na cozinha. Eu espero.",
+        "peek": "Psiu… não conta para a cozinha que eu espiei.",
+        "ready": "Saindo para a mesa 4!",
+        "delivered": "Bom apetite!",
+        "bill": "Já trago a conta. Paga-se no local."
+      },
+      "tableLabel": "MESA 4",
+      "kitchen": "COZINHA"
+    },
+    "crm": {
+      "navLabel": "Seções do CRM",
+      "brandSub": "CRM do local · demo",
+      "locked": "Não incluído neste plano",
+      "nav": {
+        "servicio": "Serviço",
+        "cocina": "Cozinha",
+        "clientes": "Clientes",
+        "carta": "Cardápio e estoque",
+        "juegos": "Jogos e roleta",
+        "academy": "Eclipse Academy"
+      },
+      "lockedText": "Esta seção não está no plano que você está vendo. Começa no plano {price}.",
+      "seePlan": "Ver a demo do plano {price}",
+      "soon": "Esta seção chega numa próxima fase.",
+      "servicio": {
+        "title": "Serviço de hoje à noite",
+        "sub": "Tudo o que acontece no salão, ao vivo.",
+        "kpi": {
+          "orders": "Pedidos de hoje",
+          "kitchen": "Na cozinha",
+          "tables": "Mesas com pedido",
+          "sales": "Vendas de hoje"
+        },
+        "feed": "Últimos pedidos",
+        "table": "Mesa {n}",
+        "status": {
+          "sent": "Novo",
+          "kitchen": "Na cozinha",
+          "ready": "Pronto",
+          "delivered": "Entregue"
+        },
+        "ago": "há {n} min",
+        "toKitchen": "Ir para a cozinha"
+      },
+      "cocina": {
+        "title": "Cozinha",
+        "sub": "Os pedidos do QR chegam sozinhos. Mova com um toque.",
+        "col": {
+          "sent": "Novos",
+          "kitchen": "Na cozinha",
+          "ready": "Prontos",
+          "delivered": "Entregues"
+        },
+        "table": "Mesa {n}",
+        "ago": "há {n} min",
+        "byQr": "por QR",
+        "byWaiter": "pelo garçom",
+        "round": "pedido {n}",
+        "next": {
+          "sent": "Aceitar",
+          "kitchen": "Marcar pronto",
+          "ready": "Entregue"
+        }
+      },
+      "clientes": {
+        "title": "Clientes",
+        "sub": "Quem vem, quanto volta e o que pede.",
+        "listLabel": "Clientes do local",
+        "visits": "{n, plural, one {# visita} other {# visitas}}",
+        "tag": {
+          "frequent": "Frequente",
+          "glutenFree": "Sem glúten",
+          "new": "Novo",
+          "birthday": "Aniversário este mês"
+        },
+        "fact": {
+          "visits": "Visitas",
+          "spent": "Gastou no total",
+          "favourite": "O que mais pede",
+          "last": "Última visita"
+        },
+        "last": {
+          "today": "Hoje",
+          "lastWeek": "Semana passada"
+        },
+        "note": "Nota do local",
+        "notePlaceholder": "Por exemplo: prefere a mesa da janela",
+        "history": "Pedidos",
+        "order": "Pedido {n} · mesa {table}",
+        "noHistory": "Ainda não há pedidos hoje."
+      },
+      "carta": {
+        "title": "Cardápio e estoque",
+        "sub": "Marque um prato como esgotado e o cliente vê na hora.",
+        "in": "Disponível",
+        "out": "Esgotado"
+      }
+    }
   }
 }
