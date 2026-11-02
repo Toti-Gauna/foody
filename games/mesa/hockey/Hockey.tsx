@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { Trophy } from 'lucide-react';
 import type { Room } from '../useRoom';
 import type { Wire } from '../transport';
-import { GOAL_W, H, PADDLE_R, PUCK_R, W, WIN, botTarget, clampPaddle, fromGuestView, initial, step, type HockeyState, type Vec } from './physics';
+import { BOT_LEVELS, BOT_LEVEL_IDS, GOAL_W, H, PADDLE_R, PUCK_R, W, WIN, botTarget, clampPaddle, fromGuestView, initial, step, type BotLevel, type HockeyState, type Vec } from './physics';
 
 /** What travels to the guest 30 times a second: numbers rounded to the millimetre of the table. */
 type Snap = { p: [number, number]; a: [number, number]; b: [number, number]; s: [number, number]; ph: HockeyState['phase']; l: 0 | 1 | null };
@@ -35,9 +35,15 @@ export function Hockey({ room, bot = false }: { room: Room | null; bot?: boolean
   const shown = useRef<Snap>(snap(initial()));
   const [hud, setHud] = useState<{ s: [number, number]; ph: HockeyState['phase']; l: 0 | 1 | null }>({ s: [0, 0], ph: 'play', l: null });
   const [round, setRound] = useState(0);
+  // Against Gus: his level, picked before playing (null = still picking).
+  const [level, setLevel] = useState<BotLevel | null>(null);
 
   // Host: simulate. Guest: listen.
   useEffect(() => {
+    if (bot && !level) return;
+    const L = BOT_LEVELS[level ?? 'normal'];
+    let botAim: Vec = { x: W / 2, y: 0.18 };
+    let botLook = 0;
     let raf = 0;
     let state = initial();
     let last = performance.now();
@@ -56,8 +62,13 @@ export function Hockey({ room, bot = false }: { room: Room | null; bot?: boolean
       const dt = Math.min(0.033, (now - last) / 1000);
       last = now;
       if (host) {
-        const b = bot ? clampPaddle(botTarget(state), false) : remote.current;
-        state = step(state, dt, target.current, b);
+        // Gus looks at the puck every `react` seconds and aims a little off; in between he keeps going.
+        if (bot && now - botLook > L.react * 1000) {
+          botLook = now;
+          botAim = clampPaddle(botTarget(state, level ?? 'normal', Math.random() * 2 - 1), false);
+        }
+        const b = bot ? botAim : remote.current;
+        state = step(state, dt, target.current, b, bot ? L.speed : undefined);
         shown.current = snap(state);
         if (send && now - sentAt > 33) {
           sentAt = now;
@@ -81,7 +92,7 @@ export function Hockey({ room, bot = false }: { room: Room | null; bot?: boolean
       cancelAnimationFrame(raf);
       off?.();
     };
-  }, [send, subscribe, host, playing, bot, round]);
+  }, [send, subscribe, host, playing, bot, round, level]);
 
   const onPointer = (e: React.PointerEvent<HTMLCanvasElement>) => {
     if (!playing) return;
@@ -98,10 +109,29 @@ export function Hockey({ room, bot = false }: { room: Room | null; bot?: boolean
   const nameOf = (ofHost: boolean) => room?.players.find((p) => p.host === ofHost && (ofHost || p.id === rival))?.name ?? '…';
 
   const mineName = playing ? t('you') : nameOf(true);
-  const theirsName = bot ? t('gus') : playing ? t('rival') : nameOf(false);
+  const theirsName = bot ? `${t('gus')} · ${t(`level.${level ?? 'normal'}`)}` : playing ? t('rival') : nameOf(false);
   // My paddle is always the one at the bottom: the host's is «a», the guest's is «b».
   const mineSide = host || !playing ? 'a' : 'b';
   const pips = (n: number) => Array.from({ length: WIN }, (_, i) => <i key={i} data-on={i < n || undefined} />);
+
+  if (bot && !level)
+    return (
+      <div className="hk hk-pick">
+        <span className="hk-trophy" aria-hidden>
+          <Trophy className="size-9" />
+        </span>
+        <h3 className="hk-end-title">{t('level.title')}</h3>
+        <p className="ms-wait">{t('level.sub')}</p>
+        <div className="hk-levels">
+          {BOT_LEVEL_IDS.map((id) => (
+            <button key={id} type="button" className={`lc-btn lc-btn-block ${id === 'facil' ? 'lc-btn-main' : 'lc-btn-ghost'}`} onClick={() => setLevel(id)}>
+              <span className="hk-level-name">{t(`level.${id}`)}</span>
+              <small>{t(`level.${id}Hint`)}</small>
+            </button>
+          ))}
+        </div>
+      </div>
+    );
 
   return (
     <div className="hk">
@@ -156,16 +186,23 @@ export function Hockey({ room, bot = false }: { room: Room | null; bot?: boolean
                 {mine} – {theirs}
               </p>
               {host ? (
-                <button
-                  type="button"
-                  className="lc-btn lc-btn-main"
-                  onClick={() => {
-                    send?.('restart', {});
-                    setRound((n) => n + 1);
-                  }}
-                >
-                  {t('again')}
-                </button>
+                <>
+                  <button
+                    type="button"
+                    className="lc-btn lc-btn-main"
+                    onClick={() => {
+                      send?.('restart', {});
+                      setRound((n) => n + 1);
+                    }}
+                  >
+                    {t('again')}
+                  </button>
+                  {bot ? (
+                    <button type="button" className="lc-btn lc-btn-ghost" onClick={() => setLevel(null)}>
+                      {t('level.change')}
+                    </button>
+                  ) : null}
+                </>
               ) : (
                 <p className="ms-wait">{t('waitAgain')}</p>
               )}

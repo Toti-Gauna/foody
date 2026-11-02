@@ -54,6 +54,10 @@ Este archivo es el registro de avance: se actualiza al cerrar cada fase, así se
   - la mesa ocupa el espacio que queda;
   - riel dorado, agujeros de aire, arcos que brillan, paletas con volumen, estela del disco y destello en el gol;
   - todo con los colores de la temporada.
+- Hockey contra Gus con tres niveles, que se eligen antes de jugar (Ignacio: «está muy difícil»).
+  - Fácil (el principal), Normal o Difícil, y se puede cambiar al final.
+  - Cambian velocidad, reacción, puntería, cuándo sale a atacar y qué tan adelante defiende (`BOT_LEVELS` en
+    `games/mesa/hockey/physics.ts`).
 - Sin nada «próximamente»: fuera el bloque de Qué ofrecemos y los productos de Otros negocios que solo eran «Próximamente».
 - La demo vista con un plan muestra solo lo de ese plan: lo que no tiene no aparece (sin candados ni avisos de otro plan).
 - Fechas especiales (`lib/seasons.ts`):

@@ -533,3 +533,31 @@
   flex: 1;
   min-height: 0;
 }
+/* Against Gus: pick his level. */
+.hk-pick {
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+.hk-levels {
+  display: grid;
+  gap: 8px;
+  width: min(100%, 340px);
+  margin-top: 6px;
+}
+.hk-levels .lc-btn {
+  flex-direction: column;
+  gap: 2px;
+  min-height: 64px;
+  padding: 10px 16px;
+}
+.hk-level-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+.hk-levels small {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  opacity: 0.85;
+}

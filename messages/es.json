@@ -654,7 +654,18 @@
         "help": "Mové tu paleta con el dedo. Tu arco es el de abajo.",
         "watching": "Estás mirando: la mesa es de a dos. Jugás en la próxima.",
         "goal": "¡Gol!",
-        "wins": "Ganó {name}"
+        "wins": "Ganó {name}",
+        "level": {
+          "title": "¿Qué tan bueno es Gus?",
+          "sub": "Elegí contra quién jugás. Lo podés cambiar al final.",
+          "facil": "Fácil",
+          "facilHint": "Gus recién aprende: lento y distraído.",
+          "normal": "Normal",
+          "normalHint": "Defiende bien y a veces ataca.",
+          "dificil": "Difícil",
+          "dificilHint": "Gus en su mejor noche.",
+          "change": "Cambiar nivel"
+        }
       }
     },
     "season": {

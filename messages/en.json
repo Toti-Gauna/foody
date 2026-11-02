@@ -654,7 +654,18 @@
         "help": "Move your paddle with your finger. Your goal is the bottom one.",
         "watching": "You’re watching: the table is for two. You play next time.",
         "goal": "Goal!",
-        "wins": "{name} wins"
+        "wins": "{name} wins",
+        "level": {
+          "title": "How good is Gus?",
+          "sub": "Pick who you play against. You can change it at the end.",
+          "facil": "Easy",
+          "facilHint": "Gus is still learning: slow and distracted.",
+          "normal": "Normal",
+          "normalHint": "He defends well and attacks now and then.",
+          "dificil": "Hard",
+          "dificilHint": "Gus on his best night.",
+          "change": "Change level"
+        }
       }
     },
     "season": {

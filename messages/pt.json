@@ -654,7 +654,18 @@
         "help": "Mova o taco com o dedo. O seu gol é o de baixo.",
         "watching": "Você está assistindo: a mesa é para dois. Você joga na próxima.",
         "goal": "Gol!",
-        "wins": "{name} venceu"
+        "wins": "{name} venceu",
+        "level": {
+          "title": "Quão bom é o Gus?",
+          "sub": "Escolha contra quem você joga. Dá para mudar no final.",
+          "facil": "Fácil",
+          "facilHint": "O Gus está aprendendo: lento e distraído.",
+          "normal": "Normal",
+          "normalHint": "Defende bem e às vezes ataca.",
+          "dificil": "Difícil",
+          "dificilHint": "O Gus na sua melhor noite.",
+          "change": "Mudar nível"
+        }
       }
     },
     "season": {
