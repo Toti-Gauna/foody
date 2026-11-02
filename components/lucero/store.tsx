@@ -2,6 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useReducer, useRef, type ReactNode } from 'react';
 import menuJson from '@/content/lucero-menu.json';
+import prizesJson from '@/content/lucero-prizes.json';
 import type { PlanId } from '@/lib/plans';
 
 /**
@@ -145,15 +146,10 @@ const SEED_CUSTOMERS: Customer[] = [
   { id: 'c6', name: 'Sofía A.', visits: 1, spent: 18900, lastVisit: 'lastWeek', favourite: 'tabla', tags: ['new'], note: '' },
 ];
 
-export const SEED_PRIZES: Prize[] = [
-  { id: 'menu', label: 'Menú del día', weight: 1 },
-  { id: 'postre', label: 'Postre de la casa', weight: 3 },
-  { id: 'trago', label: '2x1 en tragos', weight: 3 },
-  { id: 'cafe', label: 'Café de cortesía', weight: 4 },
-  { id: 'nada', label: '', weight: 5 },
-];
+/** The wheel's example prizes, in the visitor's language (content/lucero-prizes.json). */
+export const seedPrizes = (lang: Lang): Prize[] => prizesJson.prizes.map((p) => ({ id: p.id, label: p.label[lang], weight: p.weight }));
 
-export function initialState(): LuceroState {
+export function initialState(lang: Lang = 'es'): LuceroState {
   return {
     cart: [],
     orders: seedOrders(),
@@ -161,7 +157,7 @@ export function initialState(): LuceroState {
     customers: SEED_CUSTOMERS,
     guestName: '',
     billRequested: false,
-    prizes: SEED_PRIZES,
+    prizes: seedPrizes(lang),
     spins: [],
   };
 }
@@ -282,7 +278,7 @@ const LuceroCtx = createContext<Ctx | null>(null);
 const CHANNEL = 'lucero-demo-v1';
 
 export function LuceroProvider({ plan, lang, children }: { plan: PlanId | null; lang: Lang; children: ReactNode }) {
-  const [state, rawDispatch] = useReducer(reducer, undefined, initialState);
+  const [state, rawDispatch] = useReducer(reducer, lang, initialState);
   const channel = useRef<BroadcastChannel | null>(null);
   const stateRef = useRef(state);
   useEffect(() => {

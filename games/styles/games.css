@@ -1,0 +1,245 @@
+/*
+ * Game tokens and classes, copied from games-market (src/styles/tokens.css and the components layer of
+ * src/styles/global.css, 477d574). Same token names — the games read them by name (games/core/engine/palette.ts) —
+ * with the values remapped from the Supernova violet/cyan to Lucero's warm palette (wine, copper, amber, cream),
+ * so the games look like the venue's, not the test bench's. Loaded only with the games.
+ */
+ /**
+ * Tokens Supernova — fuente unica de verdad del color.
+ *
+ * Los juegos NO hardcodean hex: leen estas variables una sola vez con
+ * `readPalette()` (src/core/engine/palette.ts) y cachean el resultado.
+ * Cambiar un valor aca cambia el shell, el HUD y el canvas a la vez.
+ *
+ * Contraste verificado contra --sn-bg (#120b0c):
+ *   text        #f3e6d0  18.9:1   AAA
+ *   text-muted  #cdb9a0   8.1:1   AAA
+ *   text-dim    #9c8a78   3.6:1   solo decorativo / bordes, nunca texto chico
+ *   cyan-400    #f5b942  12.4:1   AAA
+ *   violet-300  #f0b47a   7.0:1   AAA
+ *   magenta-400 #e8909f   5.9:1   AA
+ *   violet-500  #d9783a   4.1:1   NO usar para texto: es color de relleno/glow
+ */
+
+:root,
+:root[data-theme="dark"] {
+  /* --- superficie --- */
+  --sn-bg: #120b0c;
+  --sn-bg-elev: #1a1113;
+  --sn-panel: #241719;
+  --sn-panel-hi: #2e1e21;
+  --sn-line: #4a3438;
+  --sn-line-soft: #2e1e21;
+
+  /* --- texto --- */
+  --sn-text: #f3e6d0;
+  --sn-text-muted: #cdb9a0;
+  --sn-text-dim: #9c8a78;
+
+  /* --- acentos (escalas) --- */
+  --sn-violet-300: #f0b47a;
+  --sn-violet-400: #e08a4e;
+  --sn-violet-500: #d9783a;
+  --sn-violet-600: #a9531f;
+
+  --sn-magenta-300: #f2a3b2;
+  --sn-magenta-400: #e8909f;
+  --sn-magenta-500: #b23a52;
+
+  --sn-cyan-300: #ffe0a0;
+  --sn-cyan-400: #f5b942;
+  --sn-cyan-500: #d99a1f;
+
+  /* alias cortos: son los que nombran las guias de games-guide */
+  --sn-violet: var(--sn-violet-500);
+  --sn-magenta: var(--sn-magenta-400);
+  --sn-cyan: var(--sn-cyan-400);
+
+  /* --- semanticos --- */
+  --sn-accent: var(--sn-violet-400);
+  --sn-accent-text: var(--sn-violet-300);
+  --sn-success: #a7c95f;
+  --sn-warn: #ffb020;
+  --sn-danger: #ff6b6b;
+  --sn-focus: var(--sn-cyan-400);
+
+  /* --- paisaje (Bubble Shooter Game: pasto, roca, atardecer, agua) --- */
+  --sn-grass-400: #5fae55;
+  --sn-grass-600: #2f6f3a;
+  --sn-rock-400: #8a8aa6;
+  --sn-rock-600: #4a4862;
+  --sn-sunset-top: #3a2a6e;
+  --sn-sunset-horizon: #ff9e5e;
+  --sn-sunset-low: #6b2f5a;
+  --sn-water-400: #6fd6ff;
+
+  /* --- estados del catalogo --- */
+  --sn-status-stable: var(--sn-success);
+  --sn-status-beta: var(--sn-warn);
+  --sn-status-draft: var(--sn-violet-300);
+  --sn-status-planned: var(--sn-text-dim);
+
+  /* --- topologias --- */
+  --sn-topo-solo: var(--sn-cyan-400);
+  --sn-topo-gamepad: var(--sn-violet-300);
+  --sn-topo-arena: var(--sn-magenta-400);
+
+  /* --- geometria --- */
+  --sn-radius-sm: 6px;
+  --sn-radius: 10px;
+  --sn-radius-lg: 16px;
+  --sn-radius-xl: 24px;
+
+  /* --- profundidad --- */
+  --sn-shadow-1: 0 1px 2px rgb(0 0 0 / 0.4);
+  --sn-shadow-2: 0 8px 24px -8px rgb(0 0 0 / 0.65);
+  --sn-glow-violet: 0 0 24px -4px rgb(217 120 58 / 0.55);
+  --sn-glow-cyan: 0 0 24px -4px rgb(245 185 66 / 0.45);
+  --sn-glow-magenta: 0 0 24px -4px rgb(232 144 159 / 0.45);
+
+  /* --- motion --- */
+  --sn-dur-fast: 120ms;
+  --sn-dur: 200ms;
+  --sn-dur-slow: 320ms;
+  --sn-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* --- layout --- */
+  --sn-sidebar-w: 288px;
+  --sn-topbar-h: 56px;
+}
+
+/* Quien pide menos movimiento lo recibe en todo el sistema, no juego por juego. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --sn-dur-fast: 1ms;
+    --sn-dur: 1ms;
+    --sn-dur-slow: 1ms;
+  }
+}
+
+
+@layer components {
+  /* Fondo de nebulosa. Es decorativo: `aria-hidden` donde se use. */
+  .sn-nebula {
+    background-image:
+      radial-gradient(60rem 30rem at 12% -10%, rgb(178 58 82 / 0.2), transparent 60%),
+      radial-gradient(45rem 28rem at 95% 0%, rgb(217 120 58 / 0.14), transparent 55%),
+      radial-gradient(40rem 24rem at 50% 110%, rgb(245 185 66 / 0.1), transparent 60%);
+  }
+
+  .sn-card {
+    background: color-mix(in oklab, var(--sn-panel) 82%, transparent);
+    border: 1px solid var(--sn-line-soft);
+    border-radius: var(--sn-radius-lg);
+  }
+
+  .sn-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 2.25rem;
+    padding-inline: 0.875rem;
+    border-radius: var(--sn-radius);
+    border: 1px solid var(--sn-line);
+    background: var(--sn-panel);
+    color: var(--sn-text);
+    font-weight: 500;
+    font-size: 0.8125rem;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      background var(--sn-dur-fast) var(--sn-ease),
+      border-color var(--sn-dur-fast) var(--sn-ease),
+      transform var(--sn-dur-fast) var(--sn-ease);
+  }
+  .sn-btn:hover:not(:disabled) { background: var(--sn-panel-hi); border-color: var(--sn-violet-600); }
+  .sn-btn:active:not(:disabled) { transform: translateY(1px); }
+  .sn-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+  .sn-btn--primary {
+    background: linear-gradient(135deg, var(--sn-violet-500), var(--sn-magenta-500));
+    border-color: transparent;
+    color: #fff;
+    box-shadow: var(--sn-glow-violet);
+  }
+  .sn-btn--primary:hover:not(:disabled) {
+    background: linear-gradient(135deg, var(--sn-violet-400), var(--sn-magenta-400));
+    border-color: transparent;
+  }
+
+  .sn-btn--ghost { background: transparent; border-color: transparent; color: var(--sn-text-muted); }
+  .sn-btn--ghost:hover:not(:disabled) { background: var(--sn-panel); color: var(--sn-text); }
+
+  .sn-btn--danger { border-color: color-mix(in oklab, var(--sn-danger) 45%, transparent); color: var(--sn-danger); }
+  .sn-btn--danger:hover:not(:disabled) { background: color-mix(in oklab, var(--sn-danger) 14%, transparent); }
+
+  .sn-input {
+    width: 100%;
+    height: 2rem;
+    padding-inline: 0.625rem;
+    border-radius: var(--sn-radius-sm);
+    border: 1px solid var(--sn-line);
+    background: var(--sn-bg-elev);
+    color: var(--sn-text);
+    font-size: 0.8125rem;
+    font-family: inherit;
+  }
+  .sn-input:hover { border-color: var(--sn-violet-600); }
+  textarea.sn-input { height: auto; padding-block: 0.375rem; resize: vertical; line-height: 1.45; }
+
+  .sn-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid var(--sn-line);
+    background: var(--sn-bg-elev);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--sn-text-muted);
+    white-space: nowrap;
+  }
+
+  .sn-num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+  /* Slider comun a todo el panel de administrables. */
+  .sn-range {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 999px;
+    background: var(--sn-line);
+    cursor: pointer;
+  }
+  .sn-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--sn-violet-400);
+    box-shadow: var(--sn-glow-violet);
+    cursor: grab;
+  }
+  .sn-range::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border: none;
+    border-radius: 50%;
+    background: var(--sn-violet-400);
+  }
+}
+
+@layer utilities {
+  .sn-scroll-y { overflow-y: auto; scrollbar-gutter: stable; }
+  .sn-grid-floor {
+    background-image:
+      linear-gradient(to right, rgb(124 77 255 / 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(124 77 255 / 0.07) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+}

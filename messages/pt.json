@@ -449,6 +449,73 @@
         "sub": "Marque um prato como esgotado e o cliente vê na hora.",
         "in": "Disponível",
         "out": "Esgotado"
+      },
+      "juegos": {
+        "title": "Jogos e roleta",
+        "sub": "Os prêmios da roleta, suas chances e o que cada mesa ganhou.",
+        "prizes": "Prêmios da roleta",
+        "prizeName": "Prêmio",
+        "nothing": "Sem prêmio («Desta vez não deu»)",
+        "weight": "Peso",
+        "remove": "Tirar {prize}",
+        "newPrize": "Novo prêmio",
+        "add": "Adicionar um prêmio",
+        "rule": "Um giro por pedido. A porcentagem é a chance de cada prêmio; as fatias da roleta parecem iguais.",
+        "handed": "Prêmios desta noite",
+        "noneYet": "Ninguém ganhou nada esta noite ainda.",
+        "games": "Jogos que seus clientes veem"
+      }
+    },
+    "games": {
+      "kicker": "Seu pedido já está na cozinha",
+      "title": "Enquanto a comida não chega, você pode jogar",
+      "sub": "Quando o prato chegar a gente avisa, mesmo no meio do jogo.",
+      "soloTitle": "Para jogar no seu celular",
+      "tableTitle": "Para jogar com a mesa",
+      "play": "Jogar",
+      "backToOrder": "Voltar ao meu pedido",
+      "close": "Fechar o jogo",
+      "loading": "Carregando o jogo…",
+      "again": "Jogar de novo",
+      "backToGames": "Voltar aos jogos",
+      "arrived": "Seu pedido chegou!",
+      "seeIt": "Ver minha mesa",
+      "result": {
+        "done": "Terminou",
+        "stopped": "Partida interrompida",
+        "points": "{n, plural, one {# ponto} other {# pontos}}"
+      },
+      "items": {
+        "ninja": {
+          "name": "Ninja",
+          "tagline": "Corte tudo o que voa. As bombas, não."
+        },
+        "combinaciones": {
+          "name": "Combinações",
+          "tagline": "Junte três iguais e monte sequências."
+        },
+        "catapulta": {
+          "name": "Catapulta",
+          "tagline": "Três tiros por fase para derrubar a torre."
+        },
+        "dibujo": {
+          "name": "Desenhe e adivinhe",
+          "tagline": "Um desenha e a mesa adivinha."
+        },
+        "hockey": {
+          "name": "Hóquei",
+          "tagline": "Um contra um, até cinco gols."
+        }
+      },
+      "ruleta": {
+        "title": "Roleta da casa",
+        "spin": "Girar a roleta",
+        "spinning": "Girando…",
+        "won": "Você ganhou: {prize}",
+        "show": "Mostre o código ao garçom.",
+        "nothing": "Desta vez não deu. No próximo pedido!",
+        "nothingShort": "Outra vez",
+        "note": "Um giro por pedido. Prêmios de exemplo: cada local escolhe os seus."
       }
     }
   }
