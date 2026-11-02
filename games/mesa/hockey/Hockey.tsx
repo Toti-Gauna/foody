@@ -15,11 +15,20 @@ const snap = (s: HockeyState): Snap => ({ p: [r3(s.puck.x), r3(s.puck.y)], a: [r
 /**
  * Hockey, one on one (new; Ignacio asked for it with Dibujá y adiviná for the 75 plan). The host's phone runs the table;
  * the other phone sends where its finger is and draws what comes back. Alone, you play against Gus (`bot`).
- * Each player sees their paddle at the bottom.
+ * Each player sees their paddle at the bottom. It is one on one: the first guest plays, anyone else in the room watches.
  */
 export function Hockey({ room, bot = false }: { room: Room | null; bot?: boolean }) {
   const t = useTranslations('lucero.mesa.hockey');
   const host = bot || !!room?.isHost;
+  // The rival is the first guest; later ones watch the host's view. `send` and `subscribe` are stable, `room` is not.
+  const rival = room?.players.find((p) => !p.host)?.id ?? '';
+  const playing = host || (!!room && room.me === rival);
+  const send = room?.send;
+  const subscribe = room?.subscribe;
+  const rivalRef = useRef(rival);
+  useEffect(() => {
+    rivalRef.current = rival;
+  }, [rival]);
   const canvas = useRef<HTMLCanvasElement>(null);
   const target = useRef<Vec>({ x: W / 2, y: H - 0.2 });
   const remote = useRef<Vec>({ x: W / 2, y: 0.2 });
@@ -33,10 +42,12 @@ export function Hockey({ room, bot = false }: { room: Room | null; bot?: boolean
     let state = initial();
     let last = performance.now();
     let sentAt = 0;
-    target.current = { x: W / 2, y: H - 0.2 };
-    const off = room?.subscribe((msg: Wire) => {
+    // Each paddle starts in front of its own goal (the guest's is at the top of the table).
+    target.current = host ? { x: W / 2, y: H - 0.2 } : { x: W / 2, y: 0.2 };
+    remote.current = { x: W / 2, y: 0.2 };
+    const off = subscribe?.((msg: Wire) => {
       const p = msg.payload as Record<string, unknown>;
-      if (host && msg.type === 'input') remote.current = fromGuestView({ x: Number(p.x) || 0, y: Number(p.y) || 0 });
+      if (host && msg.type === 'input' && msg.from === rivalRef.current) remote.current = fromGuestView({ x: Number(p.x) || 0, y: Number(p.y) || 0 });
       if (!host && msg.type === 'state') shown.current = p as unknown as Snap;
       if (!host && msg.type === 'restart') setRound((n) => n + 1);
     });
@@ -47,18 +58,18 @@ export function Hockey({ room, bot = false }: { room: Room | null; bot?: boolean
         const b = bot ? clampPaddle(botTarget(state), false) : remote.current;
         state = step(state, dt, target.current, b);
         shown.current = snap(state);
-        if (room && now - sentAt > 33) {
+        if (send && now - sentAt > 33) {
           sentAt = now;
-          room.send('state', shown.current);
+          send('state', shown.current);
         }
-      } else if (room && now - sentAt > 33) {
+      } else if (send && playing && now - sentAt > 33) {
         sentAt = now;
         // Our finger, in our own (turned) view.
-        room.send('input', { x: r3(W - target.current.x), y: r3(H - target.current.y) });
+        send('input', { x: r3(W - target.current.x), y: r3(H - target.current.y) });
       }
       const sh = shown.current;
       setHud((cur) => (cur.s[0] !== sh.s[0] || cur.s[1] !== sh.s[1] || cur.ph !== sh.ph ? { s: sh.s, ph: sh.ph, l: sh.l } : cur));
-      paint(canvas.current, sh, !host);
+      paint(canvas.current, sh, !host && playing);
       raf = requestAnimationFrame(frame);
     };
     raf = requestAnimationFrame(frame);
@@ -66,9 +77,10 @@ export function Hockey({ room, bot = false }: { room: Room | null; bot?: boolean
       cancelAnimationFrame(raf);
       off?.();
     };
-  }, [room, host, bot, round]);
+  }, [send, subscribe, host, playing, bot, round]);
 
   const onPointer = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    if (!playing) return;
     const r = e.currentTarget.getBoundingClientRect();
     // Canvas shows the table from this player's end: bottom = own goal. Host's view is the table as is.
     const x = ((e.clientX - r.left) / r.width) * W;
@@ -76,19 +88,20 @@ export function Hockey({ room, bot = false }: { room: Room | null; bot?: boolean
     target.current = host ? { x, y: y - 0.06 } : { x: W - x, y: H - (y - 0.06) };
   };
 
-  const mine = host ? hud.s[0] : hud.s[1];
-  const theirs = host ? hud.s[1] : hud.s[0];
+  const mine = host || !playing ? hud.s[0] : hud.s[1];
+  const theirs = host || !playing ? hud.s[1] : hud.s[0];
   const won = hud.ph === 'end' ? mine > theirs : null;
+  const nameOf = (ofHost: boolean) => room?.players.find((p) => p.host === ofHost && (ofHost || p.id === rival))?.name ?? '…';
 
   return (
     <div className="hk">
       <p className="hk-score" aria-live="polite">
         <span>
-          {t('you')} <b>{mine}</b>
+          {playing ? t('you') : nameOf(true)} <b>{mine}</b>
         </span>
         <span className="hk-to">{t('to', { n: WIN })}</span>
         <span>
-          <b>{theirs}</b> {bot ? t('gus') : t('rival')}
+          <b>{theirs}</b> {bot ? t('gus') : playing ? t('rival') : nameOf(false)}
         </span>
       </p>
       <div className="hk-table">
@@ -103,17 +116,17 @@ export function Hockey({ room, bot = false }: { room: Room | null; bot?: boolean
           }}
           onPointerMove={onPointer}
         />
-        {hud.ph === 'goal' ? <p className="hk-goal">{(hud.l === 0) === host ? t('goalYou') : t('goalThem')}</p> : null}
+        {hud.ph === 'goal' ? <p className="hk-goal">{!playing ? t('goal') : (hud.l === 0) === host ? t('goalYou') : t('goalThem')}</p> : null}
         {hud.ph === 'end' ? (
           <div className="hk-end" role="status">
             <Trophy aria-hidden className="size-8" />
-            <p className="gl-title">{won ? t('won') : t('lost')}</p>
+            <p className="gl-title">{!playing ? t('wins', { name: nameOf(mine > theirs) }) : won ? t('won') : t('lost')}</p>
             {host ? (
               <button
                 type="button"
                 className="lc-btn lc-btn-main"
                 onClick={() => {
-                  room?.send('restart', {});
+                  send?.('restart', {});
                   setRound((n) => n + 1);
                 }}
               >
@@ -125,7 +138,7 @@ export function Hockey({ room, bot = false }: { room: Room | null; bot?: boolean
           </div>
         ) : null}
       </div>
-      <p className="hk-help">{t('help')}</p>
+      <p className="hk-help">{playing ? t('help') : t('watching')}</p>
     </div>
   );
 }

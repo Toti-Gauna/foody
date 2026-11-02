@@ -589,7 +589,10 @@
         "lost": "Você perdeu",
         "again": "Revanche",
         "waitAgain": "Esperando a revanche…",
-        "help": "Mova o taco com o dedo. O seu gol é o de baixo."
+        "help": "Mova o taco com o dedo. O seu gol é o de baixo.",
+        "watching": "Você está assistindo: a mesa é para dois. Você joga na próxima.",
+        "goal": "Gol!",
+        "wins": "{name} venceu"
       }
     }
   }

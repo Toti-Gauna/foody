@@ -30,11 +30,14 @@ export interface Secret {
 
 /**
  * The host's referee for «Dibujá y adiviná». It runs on the host's phone only; guests send their picks, guesses and
- * strokes, and it answers with the public state, the drawer's secret and the strokes. It never trusts a guest with the
- * word: guessers only ever get the mask (letters fill in as the round goes) until the reveal.
+ * strokes, and it answers with the public state, the drawer's secret and the strokes. The public state only carries the
+ * mask (letters fill in as the round goes) until the reveal. The secret travels to every phone like everything else (the
+ * room is a star with no private channel) and only the drawer's phone shows it: fine for a game at a table, not a lock.
  */
 export class DibujoEngine {
   private order: string[] = [];
+  /** Who is in the room right now. `order` and `names` keep everyone who played, so their turn and score survive a drop. */
+  private present = new Set<string>();
   private names: Record<string, string> = {};
   private turn = 0;
   private phase: Phase = 'choose';
@@ -56,6 +59,7 @@ export class DibujoEngine {
 
   start(players: { id: string; name: string }[], seed = Math.floor(Math.random() * 1e9)) {
     this.order = players.map((p) => p.id);
+    this.present = new Set(this.order);
     this.names = Object.fromEntries(players.map((p) => [p.id, p.name]));
     this.scores = Object.fromEntries(players.map((p) => [p.id, 0]));
     this.turn = 0;
@@ -64,14 +68,26 @@ export class DibujoEngine {
     this.begin();
   }
 
-  /** Players who come and go keep their score; someone new joins with 0. */
+  /** Players who come and go keep their score and turn; someone new joins with 0 and draws after the others. */
   setPlayers(players: { id: string; name: string }[]) {
     for (const p of players) {
       this.names[p.id] = p.name;
       if (!(p.id in this.scores)) this.scores[p.id] = 0;
+      if (!this.order.includes(p.id)) this.order.push(p.id);
     }
-    const present = new Set(players.map((p) => p.id));
-    if (this.phase !== 'end' && this.drawer && !present.has(this.drawer)) this.reveal();
+    this.present = new Set(players.map((p) => p.id));
+    if (this.phase !== 'choose' && this.phase !== 'draw') return;
+    if (!this.present.has(this.drawer)) this.reveal();
+    else if (this.phase === 'draw') this.maybeDone();
+  }
+
+  /** The guessers who are here now. */
+  private get needed() {
+    return [...this.present].filter((id) => id !== this.drawer).length;
+  }
+  private maybeDone() {
+    const left = [...this.present].filter((id) => id !== this.drawer && !this.guessed.includes(id));
+    if (this.guessed.length && !left.length) this.reveal();
   }
 
   get rounds() {
@@ -82,6 +98,13 @@ export class DibujoEngine {
   }
 
   private begin() {
+    // Someone who left doesn't get a turn: the next one here draws.
+    while (this.turn < this.rounds && !this.present.has(this.drawer)) this.turn += 1;
+    if (this.turn >= this.rounds || this.needed === 0) {
+      this.phase = 'end';
+      this.publish();
+      return;
+    }
     this.phase = 'choose';
     this.word = '';
     this.guessed = [];
@@ -108,15 +131,15 @@ export class DibujoEngine {
 
   guess(from: string, text: string) {
     const clean = text.trim().slice(0, 40);
-    if (this.phase !== 'draw' || !clean || from === this.drawer || this.guessed.includes(from)) return;
+    if (this.phase !== 'draw' || !clean || from === this.drawer || !this.present.has(from) || this.guessed.includes(from)) return;
     const elapsed = this.now() - this.phaseStart;
     if (isCorrect(clean, this.word)) {
       this.scores[from] = (this.scores[from] ?? 0) + guessPoints(elapsed, ROUND_MS, this.guessed.length === 0);
       this.scores[this.drawer] = (this.scores[this.drawer] ?? 0) + DRAWER_POINTS;
       this.guessed.push(from);
       this.say(from, 'right', '');
-      if (this.guessed.length >= this.order.filter((id) => id !== this.drawer && id in this.names).length) this.reveal();
-      else this.publish();
+      this.maybeDone();
+      if (this.phase === 'draw') this.publish();
       return;
     }
     this.say(from, isClose(clean, this.word) ? 'close' : 'guess', isClose(clean, this.word) ? '' : clean);
@@ -144,6 +167,11 @@ export class DibujoEngine {
   allStrokes() {
     return this.strokes;
   }
+  /** A phone (re)joined: send it the drawing and the drawer's secret again. */
+  resync() {
+    this.emit('strokes', this.strokes);
+    if (this.phase === 'choose' || this.phase === 'draw') this.secret();
+  }
 
   private reveal() {
     this.phase = 'reveal';
@@ -152,7 +180,7 @@ export class DibujoEngine {
   }
 
   restart() {
-    this.start(this.order.filter((id) => id in this.names).map((id) => ({ id, name: this.names[id] })));
+    this.start(this.order.filter((id) => this.present.has(id)).map((id) => ({ id, name: this.names[id] })));
   }
 
   /** Call often (every ~250 ms): it moves the phases on and publishes the timer and the mask. */

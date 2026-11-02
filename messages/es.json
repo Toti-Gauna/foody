@@ -589,7 +589,10 @@
         "lost": "Perdiste",
         "again": "Revancha",
         "waitAgain": "Esperando la revancha…",
-        "help": "Mové tu paleta con el dedo. Tu arco es el de abajo."
+        "help": "Mové tu paleta con el dedo. Tu arco es el de abajo.",
+        "watching": "Estás mirando: la mesa es de a dos. Jugás en la próxima.",
+        "goal": "¡Gol!",
+        "wins": "Ganó {name}"
       }
     }
   }

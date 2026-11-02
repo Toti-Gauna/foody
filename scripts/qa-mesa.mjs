@@ -83,6 +83,8 @@ await a.mouse.down();
 await a.mouse.move(hb.x + hb.width / 2, hb.y + hb.height * 0.45, { steps: 6 });
 await a.mouse.up();
 await a.waitForTimeout(1200);
+await a.waitForTimeout(3500); // two roster beats: the score must not reset
+console.log('hockey host', (await a.locator('.hk-score').innerText()).replace(/\n/g, ' '), '| guest', (await c.locator('.hk-score').innerText()).replace(/\n/g, ' '));
 await a.screenshot({ path: `${out}/mesa-7-hockey-host.png` });
 await c.screenshot({ path: `${out}/mesa-8-hockey-guest.png` });
 console.log('errors', JSON.stringify(errors));

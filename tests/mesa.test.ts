@@ -149,4 +149,47 @@ describe('dibujá y adiviná · the host referee', () => {
     e.tick();
     expect(last<Pub>('state').drawer).toBe('a');
   });
+
+  it('ends the round when everyone still here guessed, even if someone left', () => {
+    const { e, last } = setup();
+    const word = last<Secret>('secret').options![0];
+    e.pick('h', word);
+    e.guess('a', word);
+    expect(last<Pub>('state').phase).toBe('draw');
+    e.setPlayers([
+      { id: 'h', name: 'Sofi' },
+      { id: 'a', name: 'Martín' },
+    ]);
+    expect(last<Pub>('state').phase).toBe('reveal');
+  });
+
+  it('skips the turn of a player who left, and lets a late one guess and draw', () => {
+    const { e, last, advance } = setup();
+    e.setPlayers([
+      { id: 'h', name: 'Sofi' },
+      { id: 'b', name: 'Lucía' },
+      { id: 'c', name: 'Juan' },
+    ]);
+    const word = last<Secret>('secret').options![0];
+    e.pick('h', word);
+    e.guess('a', word);
+    expect(last<Pub>('state').guessed).toEqual([]);
+    e.guess('c', word);
+    expect(last<Pub>('state').guessed).toEqual(['c']);
+    e.guess('b', word);
+    advance(5000);
+    e.tick();
+    expect(last<Pub>('state').drawer).toBe('b');
+    expect(last<Pub>('state').rounds).toBe(4);
+  });
+
+  it('sends the drawer the word again when a phone asks to sync', () => {
+    const { e, last, out } = setup();
+    const word = last<Secret>('secret').options![1];
+    e.pick('h', word);
+    out.length = 0;
+    e.resync();
+    expect(last<Secret>('secret').word).toBe(word);
+    expect(out.some((m) => m.type === 'strokes')).toBe(true);
+  });
 });

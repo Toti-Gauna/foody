@@ -589,7 +589,10 @@
         "lost": "You lost",
         "again": "Rematch",
         "waitAgain": "Waiting for the rematch…",
-        "help": "Move your paddle with your finger. Your goal is the bottom one."
+        "help": "Move your paddle with your finger. Your goal is the bottom one.",
+        "watching": "You’re watching: the table is for two. You play next time.",
+        "goal": "Goal!",
+        "wins": "{name} wins"
       }
     }
   }

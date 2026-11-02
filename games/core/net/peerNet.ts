@@ -124,11 +124,12 @@ export function createPeerTransport(init: TransportInit): PeerTransport {
       deliver(wire);
     });
     conn.on("close", () => {
-      connections.delete(conn.peer);
+      // Foody: una reconexión ya pudo registrar la conexión nueva con el mismo peer; no la borres.
+      if (connections.get(conn.peer) === conn) connections.delete(conn.peer);
       if (!isHost) scheduleReconnect("Se cayó la conexión con el proyector");
     });
     conn.on("error", () => {
-      connections.delete(conn.peer);
+      if (connections.get(conn.peer) === conn) connections.delete(conn.peer);
     });
   }
 

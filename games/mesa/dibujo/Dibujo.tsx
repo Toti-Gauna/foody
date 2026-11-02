@@ -47,7 +47,7 @@ export function Dibujo({ room, lang }: { room: Room; lang: Lang }) {
         }
       } else if (msg.type === 'clear') e.clear(msg.from);
       else if (msg.type === 'undo') e.undo(msg.from);
-      else if (msg.type === 'sync') room.send('strokes', e.allStrokes());
+      else if (msg.type === 'sync') e.resync();
     });
     return () => {
       window.clearInterval(tick);
@@ -62,10 +62,11 @@ export function Dibujo({ room, lang }: { room: Room; lang: Lang }) {
     engine.current?.setPlayers(room.players.map((p) => ({ id: p.id, name: p.name })));
   }, [room.players]);
 
-  // Guests: follow the host.
+  // Guests: follow the host. `subscribe` and `send` are stable; `room` itself changes with every roster.
+  const { isHost, subscribe, send } = room;
   useEffect(() => {
-    if (room.isHost) return;
-    const off = room.subscribe((msg: Wire) => {
+    if (isHost) return;
+    const off = subscribe((msg: Wire) => {
       if (msg.type === 'state') setPub({ s: msg.payload as Pub, at: Date.now() });
       else if (msg.type === 'secret') {
         const s = msg.payload as Secret;
@@ -73,9 +74,9 @@ export function Dibujo({ room, lang }: { room: Room; lang: Lang }) {
       } else if (msg.type === 'strokes') setStrokes(msg.payload as Stroke[]);
       else if (msg.type === 'stroke') upsert(msg.payload as Stroke);
     });
-    room.send('sync', {});
+    send('sync', {});
     return off;
-  }, [room, me, upsert]);
+  }, [isHost, subscribe, send, me, upsert]);
 
   // A clock that re-renders the timer.
   const [now, setNow] = useState(() => Date.now());
