@@ -1,0 +1,278 @@
+{
+ "$comment": "Eclipse Academy (plan 75): ideas de marketing para el local. Los documentos son contenido real; los videos y las fotos son de ejemplo hasta tener los definitivos (docs/PLAN-EJECUCION.md, decisión 6).",
+ "sections": [
+  {
+   "id": "digital",
+   "items": [
+    {
+     "id": "d-ig",
+     "type": "doc",
+     "minutes": 4,
+     "title": {
+      "es": "Instagram que trae gente a la mesa",
+      "en": "Instagram that brings people to the table",
+      "pt": "Instagram que traz gente para a mesa"
+     },
+     "summary": {
+      "es": "Qué publicar, cuándo y cómo medirlo sin volverte loco.",
+      "en": "What to post, when, and how to measure it without going crazy.",
+      "pt": "O que postar, quando e como medir sem enlouquecer."
+     },
+     "body": {
+      "es": [
+       "Publicá el plato del día antes de las 12 y antes de las 19: es cuando la gente decide dónde comer.",
+       "Mostrá manos y vapor: un plato servido en la mesa vende más que una foto de catálogo.",
+       "Usá las historias para lo que cambia (el plato que se agota, la mesa libre); el feed para lo que queda.",
+       "Poné el link de la carta en la bio y repetilo en cada historia con el sticker de enlace.",
+       "Medí una sola cosa por mes: cuántas veces tocaron el link de la carta."
+      ],
+      "en": [
+       "Post the dish of the day before 12 and before 7 pm: that is when people decide where to eat.",
+       "Show hands and steam: a dish served at the table sells more than a catalogue photo.",
+       "Use stories for what changes (the dish that sells out, the free table); the feed for what stays.",
+       "Put the menu link in your bio and repeat it in every story with the link sticker.",
+       "Measure one thing a month: how many times people tapped the menu link."
+      ],
+      "pt": [
+       "Poste o prato do dia antes das 12 e antes das 19: é quando as pessoas decidem onde comer.",
+       "Mostre mãos e vapor: um prato servido na mesa vende mais que uma foto de catálogo.",
+       "Use os stories para o que muda (o prato que esgota, a mesa livre); o feed para o que fica.",
+       "Coloque o link do cardápio na bio e repita em cada story com o sticker de link.",
+       "Meça uma coisa por mês: quantas vezes tocaram no link do cardápio."
+      ]
+     }
+    },
+    {
+     "id": "d-resenas",
+     "type": "doc",
+     "minutes": 3,
+     "title": {
+      "es": "Reseñas en Google sin pedir de más",
+      "en": "Google reviews without overasking",
+      "pt": "Avaliações no Google sem pedir demais"
+     },
+     "summary": {
+      "es": "Cuándo pedirlas, cómo responder y qué hacer con una mala.",
+      "en": "When to ask, how to reply and what to do with a bad one.",
+      "pt": "Quando pedir, como responder e o que fazer com uma ruim."
+     },
+     "body": {
+      "es": [
+       "Pedila cuando el cliente ya dijo que le gustó: con el postre o al traer la cuenta, nunca antes.",
+       "Respondé todas, las buenas en una línea y por el nombre.",
+       "A una mala: agradecé, reconocé lo concreto, ofrecé volver a hablar por privado. Sin discutir.",
+       "Una foto del local en la ficha de Google vale más que diez textos: actualizala cada temporada."
+      ],
+      "en": [
+       "Ask when the guest has already said they liked it: with dessert or when bringing the bill, never before.",
+       "Reply to all of them, the good ones in one line and by name.",
+       "To a bad one: thank them, acknowledge the specific thing, offer to talk in private. No arguing.",
+       "One photo of the venue on your Google listing is worth ten texts: update it every season."
+      ],
+      "pt": [
+       "Peça quando o cliente já disse que gostou: com a sobremesa ou ao trazer a conta, nunca antes.",
+       "Responda todas, as boas em uma linha e pelo nome.",
+       "A uma ruim: agradeça, reconheça o ponto concreto, ofereça conversar no privado. Sem discutir.",
+       "Uma foto do local na ficha do Google vale mais que dez textos: atualize a cada estação."
+      ]
+     }
+    },
+    {
+     "id": "d-v1",
+     "type": "video",
+     "minutes": 6,
+     "title": {
+      "es": "Fotos de platos con el celular",
+      "en": "Food photos with your phone",
+      "pt": "Fotos de pratos com o celular"
+     },
+     "summary": {
+      "es": "Luz de ventana, ángulo y fondo: lo básico en seis minutos.",
+      "en": "Window light, angle and background: the basics in six minutes.",
+      "pt": "Luz de janela, ângulo e fundo: o básico em seis minutos."
+     }
+    },
+    {
+     "id": "d-v2",
+     "type": "video",
+     "minutes": 8,
+     "title": {
+      "es": "Tu carta con QR en las redes",
+      "en": "Your QR menu on social media",
+      "pt": "Seu cardápio com QR nas redes"
+     },
+     "summary": {
+      "es": "Cómo llevar a la gente de una historia a pedir en la mesa.",
+      "en": "How to take people from a story to ordering at the table.",
+      "pt": "Como levar as pessoas de um story a pedir na mesa."
+     }
+    },
+    {
+     "id": "d-f1",
+     "type": "photo",
+     "src": "/lucero/food/pasta.webp",
+     "title": {
+      "es": "Plato con vapor y manos",
+      "en": "Dish with steam and hands",
+      "pt": "Prato com vapor e mãos"
+     },
+     "summary": {
+      "es": "Así se ve una foto que abre el apetito.",
+      "en": "This is what a photo that whets the appetite looks like.",
+      "pt": "Assim fica uma foto que abre o apetite."
+     }
+    },
+    {
+     "id": "d-f2",
+     "type": "photo",
+     "src": "/lucero/food/cocktail.webp",
+     "title": {
+      "es": "Trago con luz de barra",
+      "en": "Drink in bar light",
+      "pt": "Drink com luz de bar"
+     },
+     "summary": {
+      "es": "Fondo oscuro, una sola luz lateral.",
+      "en": "Dark background, one side light.",
+      "pt": "Fundo escuro, uma única luz lateral."
+     }
+    }
+   ]
+  },
+  {
+   "id": "fisico",
+   "items": [
+    {
+     "id": "f-qr",
+     "type": "doc",
+     "minutes": 3,
+     "title": {
+      "es": "El QR de la mesa, bien puesto",
+      "en": "The table QR, done right",
+      "pt": "O QR da mesa, bem colocado"
+     },
+     "summary": {
+      "es": "Dónde va, qué dice al lado y cómo se cuida.",
+      "en": "Where it goes, what it says next to it and how to look after it.",
+      "pt": "Onde fica, o que diz ao lado e como cuidar."
+     },
+     "body": {
+      "es": [
+       "A la altura de la vista de quien se sienta, no debajo del servilletero.",
+       "Al lado, una sola frase: «Escaneá, pedí y Gus te lo trae».",
+       "Imprimilo mate: el brillo de la lámpara lo vuelve ilegible.",
+       "Revisalo cada semana: uno despegado es una mesa que no pide."
+      ],
+      "en": [
+       "At the eye level of whoever sits down, not under the napkin holder.",
+       "Next to it, one line: «Scan, order and Gus brings it».",
+       "Print it matte: the lamp’s glare makes a glossy one unreadable.",
+       "Check it every week: one that came off is a table that doesn’t order."
+      ],
+      "pt": [
+       "Na altura dos olhos de quem senta, não embaixo do porta-guardanapos.",
+       "Ao lado, uma frase só: «Escaneie, peça e o Gus traz».",
+       "Imprima fosco: o brilho da luminária deixa ilegível.",
+       "Revise toda semana: um descolado é uma mesa que não pede."
+      ]
+     }
+    },
+    {
+     "id": "f-pizarra",
+     "type": "doc",
+     "minutes": 2,
+     "title": {
+      "es": "La pizarra de la vereda",
+      "en": "The sidewalk board",
+      "pt": "A lousa da calçada"
+     },
+     "summary": {
+      "es": "Tres renglones que hacen frenar a quien pasa.",
+      "en": "Three lines that make passers-by stop.",
+      "pt": "Três linhas que fazem quem passa parar."
+     },
+     "body": {
+      "es": [
+       "Arriba, el plato del día con su precio.",
+       "En el medio, algo que solo pasa hoy (la ruleta del menú, la torta recién hecha).",
+       "Abajo, el QR o la cuenta de Instagram.",
+       "Letra grande, tiza blanca, y cambiala todos los días: una pizarra igual se vuelve invisible."
+      ],
+      "en": [
+       "At the top, the dish of the day with its price.",
+       "In the middle, something that only happens today (the menu wheel, the freshly baked cake).",
+       "At the bottom, the QR or your Instagram handle.",
+       "Big letters, white chalk, and change it every day: a board that never changes becomes invisible."
+      ],
+      "pt": [
+       "Em cima, o prato do dia com o preço.",
+       "No meio, algo que só acontece hoje (a roleta do cardápio, o bolo recém-feito).",
+       "Embaixo, o QR ou o Instagram.",
+       "Letra grande, giz branco, e troque todo dia: uma lousa igual fica invisível."
+      ]
+     }
+    },
+    {
+     "id": "f-v1",
+     "type": "video",
+     "minutes": 5,
+     "title": {
+      "es": "La vidriera que invita a entrar",
+      "en": "The window that invites people in",
+      "pt": "A vitrine que convida a entrar"
+     },
+     "summary": {
+      "es": "Luz, orden y un detalle que se recuerde.",
+      "en": "Light, order and one detail people remember.",
+      "pt": "Luz, ordem e um detalhe que fica na memória."
+     }
+    },
+    {
+     "id": "f-v2",
+     "type": "video",
+     "minutes": 7,
+     "title": {
+      "es": "Promos en el local sin regalar",
+      "en": "In-store deals without giving it away",
+      "pt": "Promoções no local sem dar de graça"
+     },
+     "summary": {
+      "es": "Ruleta, menú del día y 2x1 que traen de vuelta.",
+      "en": "Wheel, daily menu and 2-for-1 that bring people back.",
+      "pt": "Roleta, prato do dia e 2 por 1 que trazem de volta."
+     }
+    },
+    {
+     "id": "f-f1",
+     "type": "photo",
+     "src": "/lucero/food/pizza.webp",
+     "title": {
+      "es": "Mesa servida para la vidriera",
+      "en": "Table set for the window",
+      "pt": "Mesa posta para a vitrine"
+     },
+     "summary": {
+      "es": "El plato estrella, a la vista desde la calle.",
+      "en": "The star dish, visible from the street.",
+      "pt": "O prato principal, visível da rua."
+     }
+    },
+    {
+     "id": "f-f2",
+     "type": "photo",
+     "src": "/lucero/food/dessert.webp",
+     "title": {
+      "es": "Postre para la pizarra",
+      "en": "Dessert for the board",
+      "pt": "Sobremesa para a lousa"
+     },
+     "summary": {
+      "es": "Una foto así, impresa, al lado del QR.",
+      "en": "A photo like this, printed, next to the QR.",
+      "pt": "Uma foto assim, impressa, ao lado do QR."
+     }
+    }
+   ]
+  }
+ ]
+}

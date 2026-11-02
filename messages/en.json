@@ -464,6 +464,39 @@
         "handed": "Tonight’s prizes",
         "noneYet": "Nobody has won anything tonight yet.",
         "games": "Games your guests see"
+      },
+      "academy": {
+        "title": "Eclipse Academy",
+        "sub": "Ideas to help your venue sell more, ready to use this week.",
+        "sectionsLabel": "Academy sections",
+        "sections": {
+          "digital": {
+            "title": "Digital marketing ideas",
+            "sub": "Social media, Google and your menu on the phone."
+          },
+          "fisico": {
+            "title": "In-store marketing ideas",
+            "sub": "The sidewalk, the window and the table."
+          }
+        },
+        "filterLabel": "Show",
+        "filter": {
+          "all": "All",
+          "video": "Videos",
+          "doc": "Guides",
+          "photo": "Photos"
+        },
+        "kind": {
+          "video": "Video",
+          "doc": "Guide",
+          "photo": "Photo"
+        },
+        "read": "{n} min read",
+        "watch": "{n} min",
+        "sample": "Sample",
+        "sampleNote": "The guides are real. Videos and photos are samples until the final ones are ready.",
+        "videoSoon": "The video goes here. We record it before launch.",
+        "close": "Close"
       }
     },
     "games": {

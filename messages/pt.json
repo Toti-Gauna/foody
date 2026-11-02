@@ -464,6 +464,39 @@
         "handed": "Prêmios desta noite",
         "noneYet": "Ninguém ganhou nada esta noite ainda.",
         "games": "Jogos que seus clientes veem"
+      },
+      "academy": {
+        "title": "Eclipse Academy",
+        "sub": "Ideias para o seu restaurante vender mais, prontas para usar esta semana.",
+        "sectionsLabel": "Seções da Academy",
+        "sections": {
+          "digital": {
+            "title": "Ideias de marketing digital",
+            "sub": "Redes, Google e o seu cardápio no celular."
+          },
+          "fisico": {
+            "title": "Ideias de marketing físico",
+            "sub": "A calçada, a vitrine e a mesa."
+          }
+        },
+        "filterLabel": "Mostrar",
+        "filter": {
+          "all": "Tudo",
+          "video": "Vídeos",
+          "doc": "Documentos",
+          "photo": "Fotos"
+        },
+        "kind": {
+          "video": "Vídeo",
+          "doc": "Documento",
+          "photo": "Foto"
+        },
+        "read": "{n} min de leitura",
+        "watch": "{n} min",
+        "sample": "Exemplo",
+        "sampleNote": "Os guias são reais. Vídeos e fotos são de exemplo até termos os definitivos.",
+        "videoSoon": "Aqui vai o vídeo. Gravamos antes do lançamento.",
+        "close": "Fechar"
       }
     },
     "games": {

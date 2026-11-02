@@ -32,11 +32,11 @@ Este archivo es el registro de avance: se actualiza al cerrar cada fase, así se
 | 4 | CRM de Lucero: pedidos, cocina, clientes, carta y stock, candados por plan | Mergeada (#6) |
 | 5 | Capa de juegos: modal «Mientras esperás la comida…», lista en columna a todo el ancho | Mergeada (#7) |
 | 6 | Juegos de 50: Ninja, Combinaciones, Catapulta y la ruleta (configurable en el CRM) | Mergeada (#7) |
-| 7 | Salas: crear, link, código y QR, lobby | Hecha (PR de fases 7–9) |
-| 8 | Dibujá y adiviná en celulares | Hecha (PR de fases 7–9) |
-| 9 | Hockey 1 contra 1 (nuevo) | Hecha (PR de fases 7–9) |
-| 10 | Eclipse Academy en el CRM (75) | Pendiente |
-| 11 | QA: lente de plan, honestidad, accesibilidad, movimiento reducido, Playwright 360–1920 | Pendiente |
+| 7 | Salas: crear, link, código y QR, lobby | Mergeada (#8) |
+| 8 | Dibujá y adiviná en celulares | Mergeada (#8) |
+| 9 | Hockey 1 contra 1 (nuevo) | Mergeada (#8) |
+| 10 | Eclipse Academy en el CRM (75): marketing digital y físico, con videos, documentos y fotos | Hecha (PR de fases 10–11) |
+| 11 | QA: lente de plan, honestidad, accesibilidad, movimiento reducido, Playwright 360–1920 | Hecha (PR de fases 10–11) |
 | 12 | Backend en Foody-be: relay de salas y sincronización de pedidos entre aparatos | Pendiente |
 | 13 | Kit de deploy con Docker | Pendiente |
 
@@ -48,10 +48,26 @@ Este archivo es el registro de avance: se actualiza al cerrar cada fase, así se
 - Claude se detiene solo si falta una credencial, si algo choca con una regla de honestidad o si hay que tocar Eclipse-Web.
 - Lo copiado se anota con su origen en `docs/procedencia.md`.
 
+## QA (fase 11)
+
+Con el export servido en `localhost:4100` (`python3 -m http.server 4100 --directory out`), y `NODE_PATH=$(npm root -g)`:
+
+- `node scripts/qa-sweep.mjs`: 8 páginas × 7 anchos (360, 390, 768, 1024, 1366×657, 1440, 1920), con y sin movimiento
+  reducido. Sin scroll horizontal, sin errores de consola, `noindex`, un solo botón principal a la vista, blancos ≥ 44 px,
+  y la lente de plan: 25 sin juegos, 50 con la ruleta y los tres individuales, 75 suma los de mesa.
+- `node scripts/qa-axe.mjs`: axe-core (WCAG 2.1 A y AA) en el sitio, la demo, cada sección del CRM y la sala.
+- `qa-demo.mjs`, `qa-games.mjs`, `qa-mesa.mjs`, `qa-academy.mjs`: los recorridos de cada fase.
+
 ## Pendientes conocidos
 
 - Salas sin backend: WebRTC por el broker público de PeerJS. En la WiFi del local anda; entre redes distintas (datos
   móviles) puede no conectar sin un servidor TURN. Con Foody-be (fase 12) las salas pasan por su relay y andan en cualquier red.
+
+- Eclipse Academy: las guías son reales; los videos y las fotos son de ejemplo (marcados «Ejemplo») hasta tener los
+  definitivos. Se reemplazan en `content/academy.json`.
+
+- En «Dibujá y adiviná» la palabra viaja a todos los celulares y solo el que dibuja la muestra (la sala es una estrella sin
+  canal privado). Alcanza para jugar en la mesa; con Foody-be se puede mandar solo al que dibuja.
 
 - Los textos dentro de los juegos copiados de games-market (pantalla de inicio, HUD) están en español en los tres idiomas:
   traducirlos obliga a tocar el código copiado. Se hace cuando se decida.
