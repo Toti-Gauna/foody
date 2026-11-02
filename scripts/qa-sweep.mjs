@@ -59,19 +59,23 @@ for (const plan of ['25', '50', '75']) {
   await p.getByRole('button', { name: 'Agregar Provoleta' }).click();
   await p.getByRole('button', { name: 'Ver mi pedido' }).click();
   await p.getByRole('button', { name: 'Mandar a la cocina' }).click();
-  await p.waitForTimeout(2500);
+  await p.waitForTimeout(2000);
+  const ruleta = await p.locator('.rs').count();
+  if (ruleta) await p.getByRole('button', { name: 'Ahora no' }).click();
+  await p.waitForTimeout(600);
   lens[plan] = {
+    ruleta,
     modal: await p.locator('.gl').count(),
     solo: await p.locator('.gl-card').filter({ hasNotText: /Hockey|Dibujá/ }).count(),
     table: await p.locator('.gl-card').filter({ hasText: /Hockey|Dibujá/ }).count(),
-    ruleta: await p.getByText('Ruleta de la casa').count(),
+    crm: await p.locator('.crm-nav li').count(),
   };
   await ctx.close();
 }
 console.log('plan lens', JSON.stringify(lens));
-if (lens['25'].modal !== 0) problems.push('plan 25 shows the games modal');
-if (lens['50'].table !== 0 || lens['50'].solo < 3 || !lens['50'].ruleta) problems.push('plan 50 lens wrong');
-if (lens['75'].table < 2) problems.push('plan 75 lacks table games');
+if (lens['25'].modal !== 0 || lens['25'].ruleta !== 0 || lens['25'].crm !== 4) problems.push('plan 25 lens wrong');
+if (lens['50'].table !== 0 || lens['50'].solo < 3 || !lens['50'].ruleta || lens['50'].crm !== 5) problems.push('plan 50 lens wrong');
+if (lens['75'].table < 2 || lens['75'].crm !== 6) problems.push('plan 75 lens wrong');
 console.log(`checked ${checked} page views`);
 console.log(problems.length ? problems.join('\n') : 'no problems');
 await browser.close();

@@ -20,8 +20,8 @@ describe('products (content/products.json, a copy of Eclipse-Web via roofy)', ()
     expect(createHash('sha256').update(bytes).digest('hex')).toBe('8d2d6596a3924d7374f1f7dfa76e9c80565a968a9c125b237d302b9de66a06a3');
   });
 
-  it('«otros negocios» lists every product but this one, Roofy first', () => {
-    expect(otherProducts.map((p) => p.id)).toEqual(['roofy', 'markyt', 'handy', 'gym', 'dental', 'clinic', 'vet']);
+  it('«otros negocios» lists every product but this one, Roofy first, and nothing that is only «próximamente»', () => {
+    expect(otherProducts.map((p) => p.id)).toEqual(['roofy', 'markyt', 'handy']);
   });
 
   it('is honest about status: only Roofy is on sale', () => {

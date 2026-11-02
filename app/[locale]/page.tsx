@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import { routing, type Locale } from '@/i18n/routing';
 import { BackToEclipse, SiteNav } from '@/components/SiteNav';
 import { Hero } from '@/components/hero/Hero';
-import { Offer, OFFER_ITEMS, SOON_ITEMS } from '@/components/site/Offer';
+import { Offer, OFFER_ITEMS } from '@/components/site/Offer';
 import { DemoSection, DEMO_STEPS } from '@/components/site/DemoSection';
 import { Plans, type PlanCard } from '@/components/site/Plans';
 import { Others, type OtherItem } from '@/components/site/Others';
@@ -127,9 +127,6 @@ export default async function SitePage({ params }: { params: Promise<{ locale: s
                   { name: t(`offer.items.${k}.name`), text: t(`offer.items.${k}.text`), from: t('offer.from', { price: formatUsd(firstPlanWith(OFFER_FEATURE[k]).priceUsd) }) },
                 ]),
               ) as Record<(typeof OFFER_ITEMS)[number], { name: string; text: string; from: string }>,
-              soonLabel: t('offer.soonLabel'),
-              soonNote: t('offer.soonNote'),
-              soon: Object.fromEntries(SOON_ITEMS.map((k) => [k, t(`offer.soon.${k}`)])) as Record<(typeof SOON_ITEMS)[number], string>,
             }}
           />
           <DemoSection

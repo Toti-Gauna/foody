@@ -12,7 +12,7 @@ export function DemoPage({ lang }: { lang: Locale }) {
     <LuceroDemo
       lang={lang}
       extras={{
-        renderGames: ({ open, onClose, orderId }) => <GamesLayer open={open} onClose={onClose} orderId={orderId} />,
+        renderGames: ({ stage, onStage, orderId }) => <GamesLayer stage={stage} onStage={onStage} orderId={orderId} />,
         slots: { juegos: <JuegosAdmin />, academy: <Academy /> },
       }}
     />

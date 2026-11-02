@@ -136,7 +136,6 @@ function Shell({
   const t = useTranslations('lucero.shell');
   const { plan } = useLucero();
   const canPlay = !plan || includes(plan, 'juegos');
-  const planHref = (p: PlanId) => `${BASE_PATH}/${lang}/demo/?plan=${p}&vista=crm&area=${section}`;
   const pairLink = syncCode && typeof window !== 'undefined' ? `${window.location.origin}${BASE_PATH}/${lang}/demo/?${plan ? `plan=${plan}&` : ''}vista=carta&sync=${syncCode}` : null;
 
   return (
@@ -176,7 +175,7 @@ function Shell({
       </header>
       <div className="ld-body">
         <section className="ld-crm" aria-label={t('crmLabel')}>
-          <Crm section={section} onSection={onSection} planHref={planHref} slots={extras?.slots} />
+          <Crm section={section} onSection={onSection} slots={extras?.slots} />
         </section>
         <section className="ld-phone" aria-label={t('cartaLabel')}>
           <p className="ld-phone-label">{t('phoneLabel')}</p>

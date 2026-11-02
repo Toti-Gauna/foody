@@ -6,26 +6,27 @@ import { Menu } from './Menu';
 import { Comanda } from './Comanda';
 import { Pedido } from './Pedido';
 import { myOrders, useLucero } from '../store';
+import type { GamesStage } from '../games/GamesLayer';
 
 export type CartaView = 'menu' | 'comanda' | 'pedido';
 
 /**
  * The guest's side of Lucero: carta → «Tu pedido» → «Tu pedido fue realizado». It scrolls inside its own box, so it fits
- * the whole phone screen on a phone and the docked phone on a computer. `games` (fase 5) is the modal that offers the
- * plan's games while the food is on its way: it opens by itself right after an order is placed.
+ * the whole phone screen on a phone and the docked phone on a computer. `renderGames` (fase 5) shows, right after an order
+ * is placed on a plan with games, the wheel over the whole screen and then the games modal.
  */
 export function CartaApp({
   canPlay = false,
   renderGames,
 }: {
   canPlay?: boolean;
-  renderGames?: (props: { open: boolean; onClose: () => void; orderId: string | null }) => ReactNode;
+  renderGames?: (props: { stage: GamesStage; onStage: (s: GamesStage) => void; orderId: string | null }) => ReactNode;
 }) {
   const t = useTranslations('lucero.carta');
   const { state } = useLucero();
   const [view, setView] = useState<CartaView>('menu');
   const [focus, setFocus] = useState<string | null>(null);
-  const [games, setGames] = useState(false);
+  const [stage, setStage] = useState<GamesStage>(null);
   const scroll = useRef<HTMLDivElement>(null);
   const mine = myOrders(state);
   const order = mine.find((o) => o.id === focus) ?? mine[0] ?? null;
@@ -53,14 +54,21 @@ export function CartaApp({
             onSent={(id) => {
               setFocus(id);
               setView('pedido');
-              if (canPlay) window.setTimeout(() => setGames(true), 1600);
+              // The wheel takes the whole screen a moment after «Tu pedido fue realizado»; the games modal follows it.
+              if (canPlay) window.setTimeout(() => setStage('wheel'), 1100);
             }}
           />
         ) : order ? (
-          <Pedido order={order} onMore={() => setView('menu')} canPlay={canPlay} onPlay={() => setGames(true)} />
+          <Pedido
+            order={order}
+            onMore={() => setView('menu')}
+            canPlay={canPlay}
+            onPlay={() => setStage('games')}
+            onSpin={canPlay && !state.spins.some((s) => s.orderId === order.id) ? () => setStage('wheel') : undefined}
+          />
         ) : null}
       </div>
-      {renderGames?.({ open: games, onClose: () => setGames(false), orderId: order?.id ?? null })}
+      {renderGames?.({ stage, onStage: setStage, orderId: order?.id ?? null })}
     </div>
   );
 }

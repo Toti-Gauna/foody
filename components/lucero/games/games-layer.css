@@ -1,5 +1,4 @@
-/* The games modal and the game host: they cover the guest's screen (the phone, or the docked phone on a computer). */
-.gl,
+/* The game host covers the guest's screen (the phone, or the docked phone on a computer). */
 .gh {
   position: absolute;
   inset: 0;
@@ -16,24 +15,62 @@
     transform: translateY(24px);
   }
 }
+
+/* The games modal: the order dims behind it and a sheet comes up from the bottom. */
 .gl {
-  overflow-y: auto;
-  overscroll-behavior: contain;
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: flex-end;
+  background: rgb(10 6 7 / 0.66);
+  backdrop-filter: blur(6px);
+  animation: gl-fade 0.25s ease-out both;
+}
+@keyframes gl-fade {
+  from {
+    opacity: 0;
+  }
 }
 .gl-sheet {
+  position: relative;
   display: grid;
   gap: 14px;
-  padding: 16px 16px 28px;
+  width: 100%;
+  max-height: 88%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 10px 16px calc(24px + env(safe-area-inset-bottom, 0px));
+  border-radius: 26px 26px 0 0;
+  border-top: 1px solid var(--l-line-strong);
+  background: linear-gradient(180deg, var(--l-surface) 0%, var(--l-bg) 140px);
+  color: var(--l-ink);
+  box-shadow: 0 -30px 80px -20px rgb(0 0 0 / 0.7);
+  animation: gl-up 0.42s var(--ease-expo) both;
+}
+@keyframes gl-up {
+  from {
+    transform: translateY(100%);
+  }
+}
+.gl-handle {
+  justify-self: center;
+  width: 44px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--l-line-strong);
 }
 .gl-head {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
   gap: 12px;
 }
 .gl-title {
   font-family: var(--font-serif);
-  font-size: 1.9rem;
-  line-height: 1;
+  font-size: 1.75rem;
+  line-height: 1.02;
+  text-wrap: balance;
 }
 .gl-sub {
   color: var(--l-muted);
@@ -191,75 +228,255 @@
 }
 
 /* Wheel */
-.ru {
-  display: grid;
-  gap: 12px;
-  justify-items: center;
-  padding: 14px;
-  border-radius: 18px;
-  border: 1px solid var(--l-line-strong);
-  background: radial-gradient(80% 70% at 50% 30%, rgb(245 185 66 / 0.12), transparent 70%), var(--l-surface);
-}
-.ru-wheel-wrap {
-  position: relative;
-  width: min(250px, 100%);
-}
-.ru-wheel {
-  display: block;
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 14px 22px rgb(0 0 0 / 0.5));
-}
-.ru-label {
-  fill: #f3e6d0;
-  font-size: 9px;
-  font-family: var(--font-sans);
-  font-weight: 600;
-}
-.ru-pointer {
-  position: absolute;
-  z-index: 1;
-  left: 50%;
-  top: -6px;
-  width: 0;
-  height: 0;
-  margin-left: -10px;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 22px solid #f5b942;
-  filter: drop-shadow(0 2px 4px rgb(0 0 0 / 0.5));
-}
-.ru-result {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 14px;
-  background: var(--l-paper);
-  color: var(--l-paper-ink);
-}
-.ru-result p {
-  display: grid;
-  gap: 2px;
-}
-.ru-code {
-  font-family: var(--font-mono);
-  letter-spacing: 0.08em;
-}
-.ru-result small {
-  font-size: 0.75rem;
-  opacity: 0.75;
-}
-.ru-note {
-  font-size: 0.75rem;
-  color: var(--l-muted);
-  text-align: center;
-}
 @media (prefers-reduced-motion: reduce) {
   .gl,
   .gh,
   .gh-arrived {
     animation: none;
+  }
+}
+
+/* La ruleta de la casa: over the whole guest screen; on a phone, over the whole screen (the demo's bar too). */
+.rs {
+  position: absolute;
+  inset: 0;
+  z-index: 45;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  justify-items: center;
+  gap: 10px;
+  overflow: hidden auto;
+  padding: 22px 18px calc(22px + env(safe-area-inset-bottom, 0px));
+  background:
+    radial-gradient(120% 70% at 50% 46%, rgb(178 58 82 / 0.55) 0%, transparent 60%),
+    radial-gradient(80% 50% at 50% 100%, rgb(245 185 66 / 0.18) 0%, transparent 70%),
+    #120b0c;
+  color: var(--l-ink);
+  text-align: center;
+  animation: rs-in 0.45s var(--ease-expo) both;
+}
+@keyframes rs-in {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+}
+.rs-rays {
+  position: absolute;
+  inset: -40%;
+  z-index: -1;
+  background: repeating-conic-gradient(from 0deg at 50% 50%, rgb(245 185 66 / 0.07) 0deg 9deg, transparent 9deg 18deg);
+  mask-image: radial-gradient(circle at 50% 50%, #000 0%, transparent 60%);
+  animation: rs-rays 40s linear infinite;
+  pointer-events: none;
+}
+@keyframes rs-rays {
+  to {
+    transform: rotate(1turn);
+  }
+}
+.rs-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgb(243 230 208 / 0.08);
+  color: var(--l-ink);
+  z-index: 2;
+}
+.rs-head {
+  display: grid;
+  gap: 4px;
+  padding: 0 40px;
+}
+.rs-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--l-amber);
+}
+.rs-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.3rem, 9vw, 3rem);
+  line-height: 0.95;
+}
+.rs-sub {
+  max-width: 30ch;
+  margin: 2px auto 0;
+  color: var(--l-muted);
+  font-size: 0.9rem;
+}
+.rs-stage {
+  position: relative;
+  align-self: center;
+  margin-top: 16px;
+  width: min(100%, 330px, 46dvh);
+  aspect-ratio: 1;
+  max-width: 100%;
+  filter: drop-shadow(0 26px 40px rgb(0 0 0 / 0.65)) drop-shadow(0 0 50px rgb(245 185 66 / 0.18));
+}
+.rs[data-state='won'] .rs-stage,
+.rs[data-state='lost'] .rs-stage {
+  width: min(100%, 260px, 30dvh);
+}
+.rs-wheel-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.rs-turn {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+}
+.rs-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.rs-hub-l {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  fill: #1a1113;
+}
+.rs-bulb {
+  fill: #fff2cc;
+  opacity: 0.55;
+}
+.rs[data-state='spinning'] .rs-bulb,
+.rs[data-state='won'] .rs-bulb {
+  animation: rs-bulb 0.7s steps(1) infinite;
+}
+@keyframes rs-bulb {
+  50% {
+    opacity: 1;
+  }
+}
+.rs-pointer {
+  position: absolute;
+  top: -3%;
+  left: 50%;
+  width: 28px;
+  height: 36px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #fff2cc, #f5b942 55%, #a87422);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  filter: drop-shadow(0 4px 6px rgb(0 0 0 / 0.6));
+}
+.rs-actions,
+.rs-result {
+  position: relative;
+  display: grid;
+  gap: 10px;
+  width: min(100%, 360px);
+}
+.rs-go {
+  min-height: 56px;
+  font-size: 1.05rem;
+}
+.rs-note {
+  color: var(--l-muted);
+  font-size: 0.75rem;
+}
+.rs-result {
+  padding: 16px;
+  border-radius: 22px;
+  border: 1px solid rgb(245 185 66 / 0.35);
+  background: rgb(26 17 19 / 0.88);
+  animation: rs-pop 0.5s var(--ease-expo) both;
+}
+@keyframes rs-pop {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+}
+.rs-won {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--l-amber);
+}
+.rs-prize {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.55rem;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+.rs-ticket {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1.5px dashed var(--l-amber);
+  background: rgb(245 185 66 / 0.08);
+}
+.rs-ticket span {
+  font-size: 0.8125rem;
+  color: var(--l-muted);
+}
+.rs-ticket b {
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  color: var(--l-amber);
+}
+.rs-show {
+  color: var(--l-muted);
+  font-size: 0.875rem;
+}
+.rs-confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.rs-confetti i {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 7px;
+  height: 12px;
+  border-radius: 2px;
+  background: hsl(calc(var(--i) * 37deg) 80% 62%);
+  opacity: 0;
+  animation: rs-confetti 1.4s cubic-bezier(0.2, 0.7, 0.3, 1) calc(var(--i) * 0.03s) both;
+}
+@keyframes rs-confetti {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc((var(--i) - 9) * 18px), calc(-140px - (var(--i) * 7px))) rotate(calc(var(--i) * 70deg));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rs,
+  .rs-result,
+  .gl,
+  .gl-sheet {
+    animation: none;
+  }
+  .rs-rays,
+  .rs-bulb {
+    animation: none !important;
+  }
+}
+
+/* On a phone the wheel takes the whole screen, the demo's bar too (after the base rule, so it wins). */
+@media (max-width: 1099px) {
+  .rs {
+    position: fixed;
+    z-index: 100;
   }
 }

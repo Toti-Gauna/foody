@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { ArrowLeft, Play, Users } from 'lucide-react';
+import { Play, Users, X } from 'lucide-react';
 import { asset } from '@/lib/env';
 import { includes, planById, type GameId } from '@/lib/plans';
 import { GAMES } from '@/games/registry';
@@ -19,20 +19,40 @@ const ART: Partial<Record<GameId, string>> = {
   catapulta: '/lucero/games/catapulta.svg',
 };
 
+export type GamesStage = 'wheel' | 'games' | null;
+
 /**
- * «Mientras esperás la comida, podés jugar»: opens by itself right after «Tu pedido fue realizado» when the plan has
- * games (50 and up). The wheel first (one spin per order), then the solo games in one column, each as wide as the phone
- * (Ignacio, 02/11/2026). Table games (plan 75) open a room on this phone (TableGames). Through a plan, only its games show.
+ * What the guest sees right after «Tu pedido fue realizado» on a plan with games (50 and up), in two steps (Ignacio,
+ * 02/11/2026):
+ * 1. `wheel`: la ruleta de la casa over the whole screen (one spin per order).
+ * 2. `games`: a modal, «Mientras esperás la comida, podés jugar estos juegos», with the solo games in one column, each
+ *    as wide as the phone, and on plan 75 the table games (they open a room on this phone). Through a plan, only its
+ *    games show.
  */
-export function GamesLayer({ open, onClose, orderId }: { open: boolean; onClose: () => void; orderId: string | null }) {
+export function GamesLayer({ stage, onStage, orderId }: { stage: GamesStage; onStage: (s: GamesStage) => void; orderId: string | null }) {
   const t = useTranslations('lucero.games');
   const { plan } = useLucero();
+  const onClose = () => onStage(null);
   const [playing, setPlaying] = useState<GameId | null>(null);
   const [room, setRoom] = useState<RoomGame | null>(null);
   const allowed = (id: GameId) => (plan ? planById(plan).games.includes(id) : true);
   const solo = GAMES.filter((g) => g.kind === 'solo' && allowed(g.id));
   const wheel = !plan || includes(plan, 'ruleta');
   const table = !plan || includes(plan, 'mesa');
+
+  // Keyboard: Esc moves on (wheel → games → back to the order), and focus goes into what just opened.
+  const layer = playing || room ? null : stage;
+  useEffect(() => {
+    if (!layer) return;
+    const focusTarget = document.querySelector<HTMLElement>(layer === 'wheel' ? '.rs .rs-go, .rs .lc-btn-main' : '.gl-sheet .gl-x');
+    focusTarget?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return;
+      onStage(layer === 'wheel' ? 'games' : null);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [layer, onStage]);
 
   if (playing)
     return (
@@ -47,32 +67,26 @@ export function GamesLayer({ open, onClose, orderId }: { open: boolean; onClose:
       />
     );
   if (room) return <TableRoom game={room} onClose={() => setRoom(null)} />;
-  if (!open) return null;
+  // The wheel stays up after the spin to show the prize and its code; «Seguir» (or closing it) moves on to the games.
+  if (stage === 'wheel' && wheel) return <Ruleta orderId={orderId} onDone={() => onStage('games')} onClose={() => onStage('games')} />;
+  if (!stage) return null;
 
   return (
-    <div className="gl" role="dialog" aria-modal="true" aria-labelledby="gl-title">
-      <div className="gl-sheet">
+    <div className="gl" onClick={(e) => e.target === e.currentTarget && onClose()}>
+      <div className="gl-sheet" role="dialog" aria-modal="true" aria-labelledby="gl-title">
+        <span aria-hidden className="gl-handle" />
         <header className="gl-head">
-          <button type="button" className="lc-icon-btn" onClick={onClose} aria-label={t('backToOrder')}>
-            <ArrowLeft aria-hidden className="size-5" />
-          </button>
           <div>
             <p className="lc-kicker">{t('kicker')}</p>
             <h2 id="gl-title" className="gl-title">
               {t('title')}
             </h2>
           </div>
+          <button type="button" className="lc-icon-btn gl-x" onClick={onClose} aria-label={t('backToOrder')}>
+            <X aria-hidden className="size-5" />
+          </button>
         </header>
         <p className="gl-sub">{t('sub')}</p>
-
-        {wheel ? (
-          <section className="gl-block" aria-labelledby="gl-wheel">
-            <h3 id="gl-wheel" className="gl-h">
-              {t('ruleta.title')}
-            </h3>
-            <Ruleta orderId={orderId} />
-          </section>
-        ) : null}
 
         <section className="gl-block" aria-labelledby="gl-solo">
           <h3 id="gl-solo" className="gl-h">

@@ -26,8 +26,11 @@ export interface Product {
 export const products = productsJson.products as Product[];
 export const productById = (id: string) => products.find((p) => p.id === id);
 
-/** The products «Otros negocios» shows: every Eclipse product except this one (Foody, «Eclipse para restaurantes»). */
-export const otherProducts = products.filter((p) => p.id !== 'foody');
+/**
+ * The products «Otros negocios» shows: every Eclipse product except this one (Foody, «Eclipse para restaurantes»), and
+ * none that is only «Próximamente» (Ignacio, 02/11/2026: nothing about what is coming).
+ */
+export const otherProducts = products.filter((p) => p.id !== 'foody' && p.status !== 'soon');
 
 /** How lit a product's status glyph is: ready = full sun, launching = a sliver left, in the works = mostly dark, coming = almost all dark. */
 export const STATUS_PHASE: Record<ProductStatus, number> = { available: 0, launch: 0.3, planned: 0.72, soon: 0.9 };

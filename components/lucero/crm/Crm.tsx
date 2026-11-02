@@ -2,9 +2,9 @@
 
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { useTranslations } from 'next-intl';
-import { ChefHat, ClipboardList, Dices, GraduationCap, Lock, NotebookTabs, Users } from 'lucide-react';
+import { ChefHat, ClipboardList, Dices, GraduationCap, NotebookTabs, Users } from 'lucide-react';
 import { DISHES, MENU, ORDER_FLOW, dishSoldOut, formatArs, orderTotal, useLucero, type Order, type OrderStatus } from '../store';
-import { firstPlanWith, formatUsd, includes, type Feature, type PlanId } from '@/lib/plans';
+import { includes, type Feature } from '@/lib/plans';
 
 export type CrmSection = 'servicio' | 'cocina' | 'clientes' | 'carta' | 'juegos' | 'academy';
 
@@ -31,26 +31,24 @@ function useNow(every = 15_000) {
 
 /**
  * Lucero's CRM, the venue's side. Everything the guest does shows up here at once (same store), and the kitchen can move
- * any order by hand. Seen through a plan (`?plan=`), what the plan doesn't include stays visible but locked, with the
- * plan it starts in and the way to see that plan's demo.
+ * any order by hand. Seen through a plan (`?plan=`), it shows only what that plan has: what isn't in it doesn't appear
+ * (Ignacio, 02/11/2026: «si doy click en la de 50, que solo me muestre lo que tiene la de 50»).
  */
 export function Crm({
   section,
   onSection,
-  planHref,
   slots,
 }: {
   section: CrmSection;
   onSection: (s: CrmSection) => void;
-  planHref: (plan: PlanId) => string;
   /** Sections built in later phases (games and wheel, Academy). */
   slots?: Partial<Record<CrmSection, ReactNode>>;
 }) {
   const t = useTranslations('lucero.crm');
   const { state, plan } = useLucero();
   const newCount = state.orders.filter((o) => o.status === 'sent').length;
-  const current = SECTIONS.find((s) => s.id === section) ?? SECTIONS[0];
-  const locked = plan ? !includes(plan, current.feature) : false;
+  const visible = SECTIONS.filter((s) => !plan || includes(plan, s.feature));
+  const current = visible.find((s) => s.id === section) ?? visible[0];
 
   return (
     <div className="crm">
@@ -60,16 +58,14 @@ export function Crm({
           <span className="crm-brand-sub">{t('brandSub')}</span>
         </p>
         <ul>
-          {SECTIONS.map((s) => {
-            const lockedHere = plan ? !includes(plan, s.feature) : false;
+          {visible.map((s) => {
             const Icon = s.icon;
             return (
               <li key={s.id}>
-                <button type="button" aria-current={section === s.id ? 'page' : undefined} onClick={() => onSection(s.id)}>
+                <button type="button" aria-current={current.id === s.id ? 'page' : undefined} onClick={() => onSection(s.id)}>
                   <Icon aria-hidden className="size-4" strokeWidth={1.6} />
                   <span>{t(`nav.${s.id}`)}</span>
                   {s.id === 'cocina' && newCount ? <b className="crm-badge">{newCount}</b> : null}
-                  {lockedHere ? <Lock aria-label={t('locked')} className="size-3.5 crm-lock-ic" /> : null}
                 </button>
               </li>
             );
@@ -77,44 +73,20 @@ export function Crm({
         </ul>
       </nav>
       <div className="crm-main">
-        {locked ? (
-          <Locked feature={current.feature} title={t(`nav.${current.id}`)} planHref={planHref} />
-        ) : section === 'servicio' ? (
+        {current.id === 'servicio' ? (
           <Servicio onKitchen={() => onSection('cocina')} />
-        ) : section === 'cocina' ? (
+        ) : current.id === 'cocina' ? (
           <Cocina />
-        ) : section === 'clientes' ? (
+        ) : current.id === 'clientes' ? (
           <Clientes />
-        ) : section === 'carta' ? (
+        ) : current.id === 'carta' ? (
           <Carta />
         ) : (
-          (slots?.[section] ?? <Soon />)
+          slots?.[current.id]
         )}
       </div>
     </div>
   );
-}
-
-function Locked({ feature, title, planHref }: { feature: Feature; title: string; planHref: (plan: PlanId) => string }) {
-  const t = useTranslations('lucero.crm');
-  const from = firstPlanWith(feature);
-  return (
-    <section className="crm-locked" aria-labelledby="crm-locked-title">
-      <Lock aria-hidden className="size-6" />
-      <h2 id="crm-locked-title" className="crm-h">
-        {title}
-      </h2>
-      <p>{t('lockedText', { price: formatUsd(from.priceUsd) })}</p>
-      <a className="lc-btn lc-btn-main" href={planHref(from.id)}>
-        {t('seePlan', { price: formatUsd(from.priceUsd) })}
-      </a>
-    </section>
-  );
-}
-
-function Soon() {
-  const t = useTranslations('lucero.crm');
-  return <p className="crm-muted">{t('soon')}</p>;
 }
 
 function Head({ title, sub }: { title: string; sub?: string }) {
