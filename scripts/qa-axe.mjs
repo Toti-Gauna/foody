@@ -5,7 +5,7 @@ const require = createRequire(import.meta.url);
 const { chromium } = require('playwright');
 const axePath = require.resolve('axe-core/axe.min.js');
 const [base = 'http://localhost:4100'] = process.argv.slice(2);
-const PAGES = ['/es/', '/en/', '/es/demo/?plan=75', '/es/demo/?plan=75&vista=crm&area=servicio', '/es/demo/?plan=75&vista=crm&area=cocina', '/es/demo/?plan=75&vista=crm&area=clientes', '/es/demo/?plan=50&vista=crm&area=juegos', '/es/demo/?plan=75&vista=crm&area=academy', '/es/demo/?plan=25&vista=crm&area=academy', '/es/sala/?c=ABCD&j=dibujo&red=local'];
+const PAGES = ['/es/', '/en/', '/es/demo/?plan=75', '/es/demo/?plan=75&vista=crm&area=servicio', '/es/demo/?plan=75&vista=crm&area=cocina', '/es/demo/?plan=75&vista=crm&area=clientes', '/es/demo/?plan=50&vista=crm&area=juegos', '/es/demo/?plan=75&vista=crm&area=academy', '/es/demo/?plan=25&vista=crm&area=academy', '/es/sala/?c=ABCD&j=dibujo&red=local', '/es/local/', '/es/local/?s=ABCD', '/es/local/?s=ABCD&rol=mesero&red=local', '/es/local/?s=ABCD&rol=cocina&red=local', '/es/local/?s=ABCD&rol=dueno&red=local', '/es/local/?s=ABCD&rol=mesa&mesa=3&red=local'];
 const browser = await chromium.launch();
 let total = 0;
 for (const [w, h] of [[390, 844], [1440, 900]]) {

@@ -1,12 +1,12 @@
 import type { ReactNode } from 'react';
-import { ArrowUpRight, LayoutDashboard } from 'lucide-react';
+import { ArrowUpRight, LayoutDashboard, Radio } from 'lucide-react';
 import type { Locale } from '@/i18n/routing';
 import { demoHref } from '@/components/SiteNav';
 import { PhaseGlyph } from '@/components/ui/PhaseGlyph';
 import { sectionNumber, sectionPhase } from '@/lib/sections';
 import { PLAN_IDS, type PlanId } from '@/lib/plans';
 import type { Season } from '@/lib/seasons';
-import { asset } from '@/lib/env';
+import { asset, BASE_PATH } from '@/lib/env';
 import './demo-section.css';
 
 export const DEMO_STEPS = ['pedir', 'gus', 'jugar', 'crm'] as const;
@@ -19,6 +19,9 @@ export interface DemoSectionText {
   inDemo: string;
   open: string;
   crm: string;
+  /** «Probalo en vivo con tu equipo»: /local/, the venue on several phones. */
+  live: string;
+  liveNote: string;
   asPlan: string;
   /** «Plan USD 25», per plan, with the price already read from the catalog. */
   plans: Record<PlanId, string>;
@@ -72,6 +75,16 @@ export function DemoSection({ id, locale, text }: { id: 'demo'; locale: Locale; 
               {text.crm}
             </a>
           </div>
+          <a href={`${BASE_PATH}/${locale}/local/`} className="ds-live">
+            <span className="ds-live-icon" aria-hidden>
+              <Radio className="size-5" strokeWidth={1.5} />
+            </span>
+            <span className="ds-live-text">
+              <b>{text.live}</b>
+              <small>{text.liveNote}</small>
+            </span>
+            <ArrowUpRight aria-hidden className="size-4" strokeWidth={1.5} />
+          </a>
           <nav aria-label={text.asPlan} className="ds-plans">
             <span className="label">{text.asPlan}</span>
             <ul>

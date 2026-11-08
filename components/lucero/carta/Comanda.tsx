@@ -14,7 +14,7 @@ import { Bubble } from './Bubble';
  */
 export function Comanda({ onBack, onSent }: { onBack: () => void; onSent: (id: string) => void }) {
   const t = useTranslations('lucero.comanda');
-  const { state, dispatch, lang } = useLucero();
+  const { state, dispatch, lang, table } = useLucero();
   const [name, setName] = useState(state.guestName);
   const [note, setNote] = useState('');
   const pose = useFrames(FRAMES.write, { fps: 5 });
@@ -27,7 +27,7 @@ export function Comanda({ onBack, onSent }: { onBack: () => void; onSent: (id: s
   const send = () => {
     if (!n) return;
     const id = `m${Date.now().toString(36)}`;
-    dispatch({ type: 'send', id, guest: name.trim() || t('defaultName'), note: note.trim(), now: Date.now() });
+    dispatch({ type: 'send', id, guest: name.trim() || t('defaultName', { n: table }), note: note.trim(), now: Date.now() });
     onSent(id);
   };
 

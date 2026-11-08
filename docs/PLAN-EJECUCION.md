@@ -73,6 +73,30 @@ Este archivo es el registro de avance: se actualiza al cerrar cada fase, así se
   - carga con el arte del juego;
   - resultado con los puntos contando, la mejor marca y confeti en un récord.
 
+## Local en vivo (PWA multi-rol, Ignacio 08/11/2026)
+
+`/[locale]/local/`: la demo como un local de verdad, repartida en varios celulares.
+- **Abrir el local:** alguien lo abre y su celular queda como dueño y centro. Pasa links o QR, y cada persona entra con
+  su rol:
+  - **Mesa N:** la carta con Gus, la ruleta al entrar, los juegos, pedir la cuenta y la campana para llamar al mozo.
+  - **Mozo:** salón con el estado de cada mesa, «A servir», llamados y tomar pedido en la mesa.
+  - **Cocina:** comandas en columnas, Empezar → Listo, con sonido y vibración.
+  - **Dueño:** equipo conectado, links con QR, números de la noche y el CRM entero.
+- **Conexión:** usa el mismo transporte que las salas de juego.
+  - Con `NEXT_PUBLIC_API_URL`, va por el relay de Foody-be. El workflow de Pages ya la lee de la variable del repo.
+  - Sin backend, va por WebRTC.
+  - Para QA con pestañas del mismo navegador, `?red=local`.
+- **Estado:** el celular del dueño aplica las acciones y reparte el estado; cada celular conserva su carrito.
+  - El local queda guardado en el celular del dueño, así que una recarga no lo borra.
+  - Si el dueño cierra la pestaña, el local se corta hasta que la vuelve a abrir.
+- **PWA:** manifest, íconos de Gus, service worker (assets cache-first y páginas network-first, con fallback offline) y
+  botón «Instalar app» (en iPhone explica cómo).
+- **Kit atómico** en `components/kit/`, en CSS normal sobre los tokens de Lucero:
+  - átomos: Button, Badge, TableNum, Card, Stat, Field, Dot, Empty;
+  - moléculas: OrderTicket, QrLink, RoleCard, Tabs, Stepper.
+  Los roles (`components/live/roles/`) se arman con ellos.
+- QA: `scripts/qa-live.mjs` recorre dueño, mesa, cocina y mozo, el llamado, el pedido del mozo y la recarga del dueño.
+
 ## Cómo se trabaja
 
 - Una fase, un PR. Antes de cada PR: `npm test`, `npm run typecheck`, `npm run lint`, `npm run build` (con y sin

@@ -254,3 +254,48 @@
     transform: none;
   }
 }
+/* «Probalo en vivo con tu equipo». */
+.ds-live {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid var(--line-strong);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--corona) 14%, transparent), transparent);
+  color: var(--fg);
+  transition: border-color 0.2s, transform 0.2s;
+}
+.ds-live:hover {
+  border-color: var(--corona);
+  transform: translateY(-1px);
+}
+.ds-live-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--corona) 20%, transparent);
+  color: var(--corona);
+}
+.ds-live-text {
+  display: grid;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+.ds-live-text small {
+  color: var(--fg-muted);
+  font-size: 0.875rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ds-live {
+    transition: none;
+  }
+  .ds-live:hover {
+    transform: none;
+  }
+}

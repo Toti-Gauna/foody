@@ -80,7 +80,9 @@
         "halloween": "Halloween",
         "navidad": "Navidad",
         "sanvalentin": "San Valentín"
-      }
+      },
+      "live": "Probalo en vivo con tu equipo",
+      "liveNote": "Mesa, mozo, cocina y dueño en celulares distintos, en tiempo real. Pasás un link y listo."
     },
     "plans": {
       "section": "Planes",
@@ -319,7 +321,8 @@
       "more": "Sumar otro {dish}",
       "add": "Agregar {dish}",
       "wheelChip": "Ruleta",
-      "wheelChipLabel": "Girar la ruleta de la casa"
+      "wheelChipLabel": "Girar la ruleta de la casa",
+      "callWaiter": "Llamar al mozo"
     },
     "comanda": {
       "back": "Volver a la carta",
@@ -335,7 +338,7 @@
       "total": "Total",
       "send": "Mandar a la cocina",
       "payNote": "Acá no se paga nada: pagás en el local, como siempre.",
-      "defaultName": "Mesa 4",
+      "defaultName": "Mesa {n}",
       "less": "Quitar uno de {dish}",
       "more": "Sumar otro {dish}"
     },
@@ -369,7 +372,7 @@
         "delivered": "¡Buen provecho!",
         "bill": "Ya te llevo la cuenta. Se paga en el local."
       },
-      "tableLabel": "MESA 4",
+      "tableLabel": "MESA {n}",
       "kitchen": "COCINA"
     },
     "crm": {
@@ -602,7 +605,7 @@
       "needMore": "Hacen falta {n} para empezar",
       "vsGus": "Jugar contra Gus",
       "leave": "Salir de la sala",
-      "hostName": "Mesa 4",
+      "hostName": "Mesa {n}",
       "badLink": "Ese link de sala no sirve.",
       "toDemo": "Ir a la demo",
       "invited": "Te invitaron a jugar",
@@ -697,6 +700,160 @@
         "hello": "Mesa para dos. Soy Gus.",
         "helloSub": "Hoy todo se comparte. Elegí y yo lo anoto.",
         "loading": "Poniendo la mesa para dos…"
+      }
+    },
+    "live": {
+      "meta": {
+        "title": "Lucero en vivo · Mesa, mozo, cocina y dueño",
+        "description": "Probá Eclipse para restaurantes en tiempo real con tu equipo: cada uno entra con un link a su rol. Local ficticio."
+      },
+      "landing": {
+        "demo": "Demo",
+        "kicker": "Probalo en vivo con tu equipo",
+        "title": "Tu local, en vivo, en varios celulares.",
+        "text": "Abrí tu local y pasá links por WhatsApp: uno se sienta en una mesa y pide, otro es mozo, otro está en la cocina. Todo pasa en tiempo real, como en un local de verdad.",
+        "open": "Abrir mi local",
+        "note": "Lucero es un local ficticio: los pedidos son de prueba y no se cobra nada. Tu celular queda como centro del local: dejalo abierto."
+      },
+      "roles": {
+        "mesa": {
+          "name": "Mesa",
+          "text": "Escanea, pide, gira la ruleta y juega mientras llega la comida."
+        },
+        "mesero": {
+          "name": "Mozo",
+          "text": "Ve el salón, lleva lo que sale de la cocina, atiende llamados y toma pedidos."
+        },
+        "cocina": {
+          "name": "Cocina",
+          "text": "Recibe las comandas al instante y las marca listas."
+        },
+        "dueno": {
+          "name": "Dueño",
+          "text": "Ve todo el local en vivo, el equipo conectado y el CRM."
+        },
+        "mesaN": "Mesa {n}"
+      },
+      "picker": {
+        "demo": "Demo",
+        "kicker": "Local {code}",
+        "title": "¿Qué sos en el local?",
+        "table": "Número de mesa",
+        "tableDec": "Mesa anterior",
+        "tableInc": "Mesa siguiente",
+        "sit": "Sentarme en la mesa {n}",
+        "note": "Lucero es un local ficticio: los pedidos son de prueba."
+      },
+      "status": {
+        "connecting": "Conectando…",
+        "online": "En vivo",
+        "reconnecting": "Reconectando…",
+        "failed": "Sin conexión",
+        "waitingHost": "Esperando al dueño del local…"
+      },
+      "shell": {
+        "code": "Local {code}",
+        "change": "Cambiar de rol",
+        "viewer": "Estás viendo el local: el centro es el celular de quien lo abrió."
+      },
+      "pwa": {
+        "install": "Instalar app",
+        "iosHint": "En iPhone: tocá Compartir y después «Agregar a inicio»."
+      },
+      "cocina": {
+        "cols": {
+          "sent": "Nuevas",
+          "kitchen": "Preparando",
+          "ready": "Listas para salir"
+        },
+        "ago": "hace {n} min",
+        "byWaiter": "por el mozo",
+        "byQr": "por QR",
+        "start": "Empezar",
+        "ready": "Listo",
+        "waiting": "Esperando mozo",
+        "empty": {
+          "sent": "Sin comandas nuevas",
+          "kitchen": "Nada en preparación",
+          "ready": "Nada esperando"
+        }
+      },
+      "mesero": {
+        "tabsLabel": "Lo del mozo",
+        "tabs": {
+          "mesas": "Salón",
+          "retirar": "A servir",
+          "llamados": "Llamados",
+          "tomar": "Tomar pedido"
+        },
+        "state": {
+          "free": "Libre",
+          "call": "Te llama",
+          "bill": "Cuenta",
+          "ready": "Listo",
+          "kitchen": "En cocina",
+          "ordered": "Pidió",
+          "eating": "Comiendo"
+        },
+        "readyFor": "listo hace {n} min",
+        "deliver": "Entregado",
+        "readyEmpty": {
+          "title": "Nada para servir",
+          "text": "Cuando la cocina marque un pedido listo, aparece acá y te avisa."
+        },
+        "call": {
+          "waiter": "Te llama",
+          "bill": "Pide la cuenta"
+        },
+        "ago": "hace {n} min",
+        "attend": "Atendido",
+        "callsEmpty": {
+          "title": "Nadie te llama",
+          "text": "Cuando una mesa toque la campana o pida la cuenta, aparece acá."
+        },
+        "soldOut": "Agotado",
+        "tableN": "Mesa {n}",
+        "take": {
+          "table": "Mesa",
+          "tableDec": "Mesa anterior",
+          "tableInc": "Mesa siguiente",
+          "cats": "Categorías de la carta",
+          "remove": "Sacar {dish}",
+          "add": "Sumar {dish}",
+          "items": "{n, plural, =0 {Nada todavía} one {# plato} other {# platos}}",
+          "send": "Mandar a la cocina"
+        }
+      },
+      "dueno": {
+        "tabsLabel": "Lo del dueño",
+        "tabs": {
+          "equipo": "Equipo",
+          "crm": "CRM"
+        },
+        "code": "Local {code}",
+        "title": "Tu local está abierto",
+        "text": "Pasá estos links por WhatsApp o mostrá el QR. Cada uno entra con su rol y todo pasa en vivo.",
+        "hostNote": "Dejá esta pantalla abierta: tu celular es el centro del local.",
+        "kpi": {
+          "orders": "Pedidos",
+          "kitchen": "En cocina",
+          "ready": "A servir",
+          "sales": "Ventas"
+        },
+        "linksTitle": "Invitá a tu equipo",
+        "tableLink": "Link para la mesa",
+        "tableDec": "Mesa anterior",
+        "tableInc": "Mesa siguiente",
+        "tableTitle": "Mesa {n}",
+        "tableCaption": "Para quien se sienta ahí: escanea y pide.",
+        "anyLink": "Que cada uno elija",
+        "anyCaption": "Un solo link para todos: cada uno elige su rol.",
+        "copy": "Copiar link",
+        "copied": "Copiado",
+        "qrAlt": "QR para entrar como {role}",
+        "connected": "Conectados ahora",
+        "connectedEmpty": "Todavía nadie más. Mandá un link.",
+        "hub": "Centro"
       }
     }
   }

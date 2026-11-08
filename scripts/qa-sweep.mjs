@@ -6,7 +6,7 @@ import { createRequire } from 'node:module';
 const { chromium } = createRequire(import.meta.url)('playwright');
 const [base = 'http://localhost:4100', out = '.lab-shots'] = process.argv.slice(2);
 const SIZES = [[360, 760], [390, 844], [768, 1024], [1024, 768], [1366, 657], [1440, 900], [1920, 1080]];
-const PAGES = ['/es/', '/en/', '/pt/', '/es/demo/?plan=25', '/es/demo/?plan=50&vista=crm&area=juegos', '/es/demo/?plan=75&vista=crm&area=academy', '/en/demo/?plan=75', '/es/sala/?c=ABCD&j=dibujo&red=local'];
+const PAGES = ['/es/', '/en/', '/pt/', '/es/demo/?plan=25', '/es/demo/?plan=50&vista=crm&area=juegos', '/es/demo/?plan=75&vista=crm&area=academy', '/en/demo/?plan=75', '/es/sala/?c=ABCD&j=dibujo&red=local', '/es/local/', '/es/local/?s=ABCD', '/es/local/?s=ABCD&rol=mesero&red=local', '/es/local/?s=ABCD&rol=cocina&red=local', '/es/local/?s=ABCD&rol=dueno&red=local', '/es/local/?s=ABCD&rol=mesa&mesa=3&red=local'];
 const browser = await chromium.launch();
 const problems = [];
 let checked = 0;

@@ -24,6 +24,8 @@ env:
   # Pages sirve el proyecto bajo /<repo>.
   NEXT_PUBLIC_BASE_PATH: /foody
   NEXT_PUBLIC_SITE_URL: https://toti-gauna.github.io
+  # Foody-be on Render, when it is up (repo variable NEXT_PUBLIC_API_URL): the venue and the rooms go through its relay.
+  NEXT_PUBLIC_API_URL: ${{ vars.NEXT_PUBLIC_API_URL }}
 
 jobs:
   build:

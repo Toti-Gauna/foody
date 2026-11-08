@@ -80,7 +80,9 @@
         "halloween": "Halloween",
         "navidad": "Natal",
         "sanvalentin": "Dia dos Namorados"
-      }
+      },
+      "live": "Teste ao vivo com a sua equipe",
+      "liveNote": "Mesa, garçom, cozinha e dono em celulares diferentes, em tempo real. É só mandar um link."
     },
     "plans": {
       "section": "Planos",
@@ -319,7 +321,8 @@
       "more": "Mais um {dish}",
       "add": "Adicionar {dish}",
       "wheelChip": "Roleta",
-      "wheelChipLabel": "Girar a roleta da casa"
+      "wheelChipLabel": "Girar a roleta da casa",
+      "callWaiter": "Chamar o garçom"
     },
     "comanda": {
       "back": "Voltar ao cardápio",
@@ -335,7 +338,7 @@
       "total": "Total",
       "send": "Mandar para a cozinha",
       "payNote": "Aqui não se paga nada: você paga no local, como sempre.",
-      "defaultName": "Mesa 4",
+      "defaultName": "Mesa {n}",
       "less": "Tirar um {dish}",
       "more": "Mais um {dish}"
     },
@@ -369,7 +372,7 @@
         "delivered": "Bom apetite!",
         "bill": "Já trago a conta. Paga-se no local."
       },
-      "tableLabel": "MESA 4",
+      "tableLabel": "MESA {n}",
       "kitchen": "COZINHA"
     },
     "crm": {
@@ -602,7 +605,7 @@
       "needMore": "Precisa de {n} para começar",
       "vsGus": "Jogar contra o Gus",
       "leave": "Sair da sala",
-      "hostName": "Mesa 4",
+      "hostName": "Mesa {n}",
       "badLink": "Esse link de sala não funciona.",
       "toDemo": "Ir para a demo",
       "invited": "Você foi convidado para jogar",
@@ -697,6 +700,160 @@
         "hello": "Mesa para dois. Sou o Gus.",
         "helloSub": "Hoje tudo é para dividir. Escolha e eu anoto.",
         "loading": "Arrumando a mesa para dois…"
+      }
+    },
+    "live": {
+      "meta": {
+        "title": "Lucero ao vivo · Mesa, garçom, cozinha e dono",
+        "description": "Experimente o Eclipse para restaurantes em tempo real com a sua equipe: cada um entra no seu papel com um link. Restaurante fictício."
+      },
+      "landing": {
+        "demo": "Demo",
+        "kicker": "Teste ao vivo com a sua equipe",
+        "title": "Seu restaurante, ao vivo, em vários celulares.",
+        "text": "Abra o seu restaurante e mande links pelo WhatsApp: um senta numa mesa e pede, outro é garçom, outro está na cozinha. Tudo acontece em tempo real, como num restaurante de verdade.",
+        "open": "Abrir meu restaurante",
+        "note": "O Lucero é um restaurante fictício: os pedidos são de teste e nada é cobrado. Seu celular é o centro do restaurante: deixe aberto."
+      },
+      "roles": {
+        "mesa": {
+          "name": "Mesa",
+          "text": "Escaneia, pede, gira a roleta e joga enquanto a comida chega."
+        },
+        "mesero": {
+          "name": "Garçom",
+          "text": "Vê o salão, leva o que sai da cozinha, atende chamados e anota pedidos."
+        },
+        "cocina": {
+          "name": "Cozinha",
+          "text": "Recebe as comandas na hora e marca quando ficam prontas."
+        },
+        "dueno": {
+          "name": "Dono",
+          "text": "Vê o restaurante inteiro ao vivo, a equipe conectada e o CRM."
+        },
+        "mesaN": "Mesa {n}"
+      },
+      "picker": {
+        "demo": "Demo",
+        "kicker": "Restaurante {code}",
+        "title": "O que você é no restaurante?",
+        "table": "Número da mesa",
+        "tableDec": "Mesa anterior",
+        "tableInc": "Próxima mesa",
+        "sit": "Sentar na mesa {n}",
+        "note": "O Lucero é um restaurante fictício: os pedidos são de teste."
+      },
+      "status": {
+        "connecting": "Conectando…",
+        "online": "Ao vivo",
+        "reconnecting": "Reconectando…",
+        "failed": "Sem conexão",
+        "waitingHost": "Esperando o dono do restaurante…"
+      },
+      "shell": {
+        "code": "Restaurante {code}",
+        "change": "Trocar de papel",
+        "viewer": "Você está vendo o restaurante: o centro é o celular de quem abriu."
+      },
+      "pwa": {
+        "install": "Instalar app",
+        "iosHint": "No iPhone: toque em Compartilhar e depois em “Adicionar à Tela de Início”."
+      },
+      "cocina": {
+        "cols": {
+          "sent": "Novas",
+          "kitchen": "Preparando",
+          "ready": "Prontas para sair"
+        },
+        "ago": "há {n} min",
+        "byWaiter": "pelo garçom",
+        "byQr": "pelo QR",
+        "start": "Começar",
+        "ready": "Pronto",
+        "waiting": "Esperando garçom",
+        "empty": {
+          "sent": "Sem comandas novas",
+          "kitchen": "Nada em preparo",
+          "ready": "Nada esperando"
+        }
+      },
+      "mesero": {
+        "tabsLabel": "Garçom",
+        "tabs": {
+          "mesas": "Salão",
+          "retirar": "Para servir",
+          "llamados": "Chamados",
+          "tomar": "Anotar pedido"
+        },
+        "state": {
+          "free": "Livre",
+          "call": "Chamando",
+          "bill": "Conta",
+          "ready": "Pronto",
+          "kitchen": "Na cozinha",
+          "ordered": "Pediu",
+          "eating": "Comendo"
+        },
+        "readyFor": "pronto há {n} min",
+        "deliver": "Entregue",
+        "readyEmpty": {
+          "title": "Nada para servir",
+          "text": "Quando a cozinha marcar um pedido como pronto, ele aparece aqui e você é avisado."
+        },
+        "call": {
+          "waiter": "Chamando você",
+          "bill": "Pede a conta"
+        },
+        "ago": "há {n} min",
+        "attend": "Atendido",
+        "callsEmpty": {
+          "title": "Ninguém chamando",
+          "text": "Quando uma mesa tocar a campainha ou pedir a conta, aparece aqui."
+        },
+        "soldOut": "Esgotado",
+        "tableN": "Mesa {n}",
+        "take": {
+          "table": "Mesa",
+          "tableDec": "Mesa anterior",
+          "tableInc": "Próxima mesa",
+          "cats": "Categorias do cardápio",
+          "remove": "Tirar {dish}",
+          "add": "Adicionar {dish}",
+          "items": "{n, plural, =0 {Nada ainda} one {# prato} other {# pratos}}",
+          "send": "Mandar para a cozinha"
+        }
+      },
+      "dueno": {
+        "tabsLabel": "Dono",
+        "tabs": {
+          "equipo": "Equipe",
+          "crm": "CRM"
+        },
+        "code": "Restaurante {code}",
+        "title": "Seu restaurante está aberto",
+        "text": "Mande estes links pelo WhatsApp ou mostre o QR. Cada um entra no seu papel e tudo acontece ao vivo.",
+        "hostNote": "Deixe esta tela aberta: seu celular é o centro do restaurante.",
+        "kpi": {
+          "orders": "Pedidos",
+          "kitchen": "Na cozinha",
+          "ready": "Para servir",
+          "sales": "Vendas"
+        },
+        "linksTitle": "Convide a sua equipe",
+        "tableLink": "Link para a mesa",
+        "tableDec": "Mesa anterior",
+        "tableInc": "Próxima mesa",
+        "tableTitle": "Mesa {n}",
+        "tableCaption": "Para quem senta ali: escaneia e pede.",
+        "anyLink": "Cada um escolhe",
+        "anyCaption": "Um link só para todos: cada um escolhe o papel.",
+        "copy": "Copiar link",
+        "copied": "Copiado",
+        "qrAlt": "QR para entrar como {role}",
+        "connected": "Conectados agora",
+        "connectedEmpty": "Ninguém mais ainda. Mande um link.",
+        "hub": "Centro"
       }
     }
   }

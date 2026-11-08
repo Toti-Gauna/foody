@@ -38,7 +38,7 @@ export function TableGames({ onOpen }: { onOpen: (game: RoomGame) => void }) {
 export function TableRoom({ game, onClose }: { game: RoomGame; onClose: () => void }) {
   const t = useTranslations('lucero.mesa');
   const tg = useTranslations('lucero.games');
-  const { state, lang } = useLucero();
+  const { state, lang, table } = useLucero();
   const code = useMemo(() => newRoomCode(), []);
   const [search] = useState(() => (typeof window === 'undefined' ? '' : window.location.search));
   const transport = pickTransport(search, API_URL);
@@ -57,7 +57,7 @@ export function TableRoom({ game, onClose }: { game: RoomGame; onClose: () => vo
         <span className="lc-demo">Demo</span>
       </header>
       <div className="ms-body">
-        <MesaApp game={game} code={code} host name={state.guestName || t('hostName')} lang={lang} joinUrl={joinUrl} transport={transport} apiUrl={API_URL} />
+        <MesaApp game={game} code={code} host name={state.guestName || t('hostName', { n: table })} lang={lang} joinUrl={joinUrl} transport={transport} apiUrl={API_URL} />
       </div>
     </div>
   );
