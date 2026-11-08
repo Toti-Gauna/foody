@@ -57,3 +57,38 @@ describe('state from another device', () => {
     expect(isLuceroState({ ...ok, orders: [{ id: 'x', status: 'flying', at: {}, lines: [] }] })).toBe(false);
   });
 });
+
+describe('local en vivo (several phones)', () => {
+  it('starts empty: no made-up orders or customers', () => {
+    const s = initialState('es', true);
+    expect(s.orders).toEqual([]);
+    expect(s.customers).toEqual([]);
+    expect(s.calls).toEqual([]);
+    expect(s.prizes.length).toBeGreaterThan(0);
+  });
+
+  it('takes an order from another phone with its own lines, table and sender, without touching this cart', () => {
+    let s = initialState('es', true);
+    s = reducer(s, { type: 'add', dish: 'muzza', options: [] });
+    const lines = [{ key: 'provo|', dish: 'provo', options: [], qty: 2 }];
+    s = reducer(s, { type: 'send', id: 'o1', guest: 'Ana', note: '', now: 1, table: 5, by: 'dphone1', lines, mine: false });
+    expect(s.orders[0]).toMatchObject({ id: 'o1', table: 5, by: 'dphone1', mine: false, round: 1, source: 'qr' });
+    expect(s.orders[0].lines).toEqual(lines);
+    expect(s.cart.map((l) => l.dish)).toEqual(['muzza']);
+    s = reducer(s, { type: 'send', id: 'o2', guest: 'Mesa 5', note: '', now: 2, table: 5, lines, source: 'mozo', mine: false });
+    expect(s.orders[0]).toMatchObject({ round: 2, source: 'mozo' });
+  });
+
+  it('a table asking for the bill or calling shows up for the waiters until one takes it', () => {
+    let s = initialState('es', true);
+    s = reducer(s, { type: 'bill', table: 3, id: 'bill-3', now: 10 });
+    s = reducer(s, { type: 'bill', table: 3, id: 'bill-3', now: 11 });
+    s = reducer(s, { type: 'call', id: 'w1', table: 7, now: 12 });
+    expect(s.calls.filter((c) => !c.done).map((c) => [c.table, c.kind])).toEqual([
+      [7, 'waiter'],
+      [3, 'bill'],
+    ]);
+    s = reducer(s, { type: 'callDone', id: 'w1' });
+    expect(s.calls.filter((c) => !c.done)).toHaveLength(1);
+  });
+});

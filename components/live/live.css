@@ -1,0 +1,410 @@
+/* «Local en vivo»: the shell and the role screens. Organisms on top of the kit (components/kit/kit.css). */
+.lv {
+  height: 100dvh;
+  min-height: 0;
+}
+.lv-entry {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  width: min(560px, 100%);
+  margin: 0 auto;
+  padding: calc(24px + env(safe-area-inset-top, 0px)) 16px calc(32px + env(safe-area-inset-bottom, 0px));
+  overflow-y: auto;
+}
+.lv-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-serif);
+  font-size: 1.9rem;
+}
+.lv-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 9vw, 3.2rem);
+  line-height: 1;
+  text-wrap: balance;
+}
+.lv-h {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.05;
+}
+.lv-h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0 10px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--l-wine-text);
+}
+.lv-muted {
+  color: var(--l-muted);
+  line-height: 1.5;
+}
+.lv-note {
+  color: var(--l-muted);
+  font-size: 0.8125rem;
+}
+.lv-how {
+  display: grid;
+  gap: 10px;
+  margin-top: 6px;
+}
+.lv-how li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.lv-how li > span:last-child {
+  display: grid;
+}
+.lv-how small {
+  color: var(--l-muted);
+  font-size: 0.8125rem;
+}
+.lv-how-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--l-surface);
+  color: var(--l-amber);
+}
+.lv-roles {
+  display: grid;
+  gap: 10px;
+}
+.lv-table-pick {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.lv-table-pick--card {
+  padding: 12px 14px;
+  border-radius: 18px;
+  border: 1px dashed var(--l-line-strong);
+}
+
+/* The bar on top of every role. */
+.lv-bar {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 52px;
+  padding: calc(4px + env(safe-area-inset-top, 0px)) 10px 4px 14px;
+  border-bottom: 1px solid var(--l-line);
+  background: var(--l-bg-2);
+}
+.lv-bar-role {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  white-space: nowrap;
+}
+.lv-bar-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  color: var(--l-muted);
+  font-size: 0.75rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.lv-bar .k-badge {
+  display: none;
+}
+@media (min-width: 560px) {
+  .lv-bar .k-badge {
+    display: inline-flex;
+  }
+}
+.lv-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: color-mix(in srgb, var(--l-amber) 12%, transparent);
+  color: var(--l-amber);
+  font-size: 0.8125rem;
+}
+.lv-main {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.lv-main[data-role='mesa'] {
+  display: flex;
+  overflow: hidden;
+}
+.lv-carta {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.lv-carta > .lc-app {
+  flex: 1;
+}
+
+.lv-role {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 14px 16px calc(28px + env(safe-area-inset-bottom, 0px));
+}
+.lv-list {
+  display: grid;
+  gap: 10px;
+}
+
+/* Cocina: three columns on a wide screen, one after another on a phone. */
+.lv-board {
+  display: grid;
+  gap: 16px;
+  padding: 14px 16px calc(28px + env(safe-area-inset-bottom, 0px));
+}
+@media (min-width: 900px) {
+  .lv-board {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+  }
+}
+.lv-col {
+  display: grid;
+  gap: 10px;
+}
+.lv-col-h {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+
+/* Mozo: the room. */
+.lv-tables {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+}
+.lv-table {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  width: 100%;
+  min-height: 120px;
+  padding: 12px 8px;
+  border-radius: 18px;
+  border: 1px solid var(--l-line);
+  background: var(--l-surface);
+  color: var(--l-ink);
+}
+.lv-table[data-tone='alert'],
+.lv-table[data-tone='ready'],
+.lv-table[data-tone='gold'] {
+  border-color: var(--l-amber);
+  background: color-mix(in srgb, var(--l-amber) 10%, var(--l-surface));
+}
+.lv-table small {
+  color: var(--l-muted);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+}
+.lv-call {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.lv-call-text {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+}
+.lv-call-text b {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.lv-call-text small {
+  color: var(--l-muted);
+  font-size: 0.8125rem;
+}
+.lv-take {
+  display: grid;
+  gap: 12px;
+}
+.lv-take-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.lv-dishes {
+  display: grid;
+  gap: 6px;
+}
+.lv-dish {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 8px 8px 14px;
+  border-radius: 14px;
+  background: var(--l-surface);
+}
+.lv-dish[data-out] {
+  opacity: 0.5;
+}
+.lv-dish-name {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+}
+.lv-dish-name small {
+  color: var(--l-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+.lv-dish-qty {
+  min-width: 24px;
+  text-align: center;
+  font-family: var(--font-mono);
+  color: var(--l-amber);
+}
+.lv-take-foot {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 0 calc(8px + env(safe-area-inset-bottom, 0px));
+  background: var(--l-bg);
+}
+
+/* Dueño. */
+.lv-owner {
+  display: grid;
+  gap: 16px;
+}
+.lv-owner-head {
+  display: grid;
+  gap: 6px;
+}
+.lv-host-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--l-amber) 12%, transparent);
+  color: var(--l-amber);
+  font-size: 0.875rem;
+}
+.lv-kpis {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+@media (min-width: 700px) {
+  .lv-kpis {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+.lv-links {
+  display: grid;
+  gap: 10px;
+}
+@media (min-width: 900px) {
+  .lv-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lv-links > .lv-h3,
+  .lv-links > .lv-table-pick {
+    grid-column: 1 / -1;
+  }
+}
+.lv-people {
+  display: grid;
+  gap: 6px;
+}
+.lv-people li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: 12px;
+  background: var(--l-surface);
+}
+.lv-people li > span:nth-child(3) {
+  flex: 1;
+}
+.lv-crm {
+  min-height: 70dvh;
+}
+.lv-crm .crm {
+  border-radius: 20px;
+}
+
+/* «Instalar app». */
+.lv-install {
+  display: grid;
+  gap: 6px;
+}
+.lv-install-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 260px;
+  color: var(--l-muted);
+  font-size: 0.8125rem;
+}
+.lv-bar .lv-install-hint {
+  position: absolute;
+  top: 56px;
+  right: 12px;
+  z-index: 50;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--l-surface-2);
+  box-shadow: 0 12px 30px rgb(0 0 0 / 0.5);
+}
+
+/* The waiter's bell in the carta (live mode). */
+.lc-call-btn {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--l-line-strong);
+  color: var(--l-amber);
+  position: relative;
+}
+.lc-call-btn::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+}

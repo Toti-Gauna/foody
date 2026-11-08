@@ -16,7 +16,7 @@ import { Bubble, useSay } from './Bubble';
  */
 export function Menu({ onOpenOrder, onOpenStatus, scrollRoot }: { onOpenOrder: () => void; onOpenStatus: () => void; scrollRoot: React.RefObject<HTMLDivElement | null> }) {
   const t = useTranslations('lucero.carta');
-  const { state, dispatch, lang } = useLucero();
+  const { state, dispatch, lang, table } = useLucero();
   const [say, speak] = useSay();
   const [reaction, setReaction] = useState<{ pose: GusPose | 'write'; until: number } | null>(null);
   const [current, setCurrent] = useState<string>(MENU.categories[0].id);
@@ -75,7 +75,7 @@ export function Menu({ onOpenOrder, onOpenStatus, scrollRoot }: { onOpenOrder: (
       <section className="lc-hero" aria-labelledby="lc-hello" data-season={season}>
         <SeasonDecor />
         <div className="lc-hero-copy">
-          {season === 'clasica' ? <p className="lc-kicker">{t('table', { n: 4 })}</p> : <p className="lc-season-chip">{ts(`${season}.chip`)}</p>}
+          {season === 'clasica' ? <p className="lc-kicker">{t('table', { n: table })}</p> : <p className="lc-season-chip">{ts(`${season}.chip`)}</p>}
           <h2 id="lc-hello" className="lc-hello">
             {season === 'clasica' ? t('hello') : ts(`${season}.hello`)}
           </h2>

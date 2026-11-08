@@ -1,0 +1,23 @@
+{
+  "name": "Lucero · Local en vivo (demo de Eclipse para restaurantes)",
+  "short_name": "Lucero",
+  "description": "Demo de Eclipse para restaurantes: mesa, mozo, cocina y dueño en tiempo real. Local ficticio.",
+  "id": "./es/local/",
+  "start_url": "./es/local/",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#140d0f",
+  "theme_color": "#140d0f",
+  "lang": "es",
+  "categories": ["food", "business"],
+  "icons": [
+    { "src": "pwa/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "pwa/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "pwa/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Mozo", "url": "./es/local/" },
+    { "name": "Cocina", "url": "./es/local/" }
+  ]
+}

@@ -80,7 +80,9 @@
         "halloween": "Halloween",
         "navidad": "Christmas",
         "sanvalentin": "Valentine’s Day"
-      }
+      },
+      "live": "Try it live with your team",
+      "liveNote": "Table, waiter, kitchen and owner on different phones, in real time. Send a link and that’s it."
     },
     "plans": {
       "section": "Plans",
@@ -319,7 +321,8 @@
       "more": "Add another {dish}",
       "add": "Add {dish}",
       "wheelChip": "Wheel",
-      "wheelChipLabel": "Spin the house wheel"
+      "wheelChipLabel": "Spin the house wheel",
+      "callWaiter": "Call the waiter"
     },
     "comanda": {
       "back": "Back to the menu",
@@ -335,7 +338,7 @@
       "total": "Total",
       "send": "Send to the kitchen",
       "payNote": "Nothing is paid here: you pay at the venue, as usual.",
-      "defaultName": "Table 4",
+      "defaultName": "Table {n}",
       "less": "Remove one {dish}",
       "more": "Add another {dish}"
     },
@@ -369,7 +372,7 @@
         "delivered": "Enjoy!",
         "bill": "Bringing the bill. You pay at the venue."
       },
-      "tableLabel": "TABLE 4",
+      "tableLabel": "TABLE {n}",
       "kitchen": "KITCHEN"
     },
     "crm": {
@@ -602,7 +605,7 @@
       "needMore": "You need {n} to start",
       "vsGus": "Play against Gus",
       "leave": "Leave the room",
-      "hostName": "Table 4",
+      "hostName": "Table {n}",
       "badLink": "That room link doesn’t work.",
       "toDemo": "Go to the demo",
       "invited": "You’re invited to play",
@@ -697,6 +700,160 @@
         "hello": "Table for two. I’m Gus.",
         "helloSub": "Tonight everything is for sharing. Pick and I’ll take it down.",
         "loading": "Setting a table for two…"
+      }
+    },
+    "live": {
+      "meta": {
+        "title": "Lucero live · Table, waiter, kitchen and owner",
+        "description": "Try Eclipse for restaurants in real time with your team: everyone joins their role with a link. Fictional venue."
+      },
+      "landing": {
+        "demo": "Demo",
+        "kicker": "Try it live with your team",
+        "title": "Your venue, live, on several phones.",
+        "text": "Open your venue and share links on WhatsApp: one sits at a table and orders, another is the waiter, another is in the kitchen. Everything happens in real time, like in a real venue.",
+        "open": "Open my venue",
+        "note": "Lucero is a fictional venue: orders are tests and nothing is charged. Your phone is the venue’s hub: keep it open."
+      },
+      "roles": {
+        "mesa": {
+          "name": "Table",
+          "text": "Scans, orders, spins the wheel and plays while the food comes."
+        },
+        "mesero": {
+          "name": "Waiter",
+          "text": "Sees the room, takes out what the kitchen finishes, answers calls and takes orders."
+        },
+        "cocina": {
+          "name": "Kitchen",
+          "text": "Gets the tickets instantly and marks them ready."
+        },
+        "dueno": {
+          "name": "Owner",
+          "text": "Sees the whole venue live, the team online and the CRM."
+        },
+        "mesaN": "Table {n}"
+      },
+      "picker": {
+        "demo": "Demo",
+        "kicker": "Venue {code}",
+        "title": "What are you in the venue?",
+        "table": "Table number",
+        "tableDec": "Previous table",
+        "tableInc": "Next table",
+        "sit": "Sit at table {n}",
+        "note": "Lucero is a fictional venue: orders are tests."
+      },
+      "status": {
+        "connecting": "Connecting…",
+        "online": "Live",
+        "reconnecting": "Reconnecting…",
+        "failed": "Offline",
+        "waitingHost": "Waiting for the venue’s owner…"
+      },
+      "shell": {
+        "code": "Venue {code}",
+        "change": "Change role",
+        "viewer": "You’re viewing the venue: the hub is the phone of whoever opened it."
+      },
+      "pwa": {
+        "install": "Install app",
+        "iosHint": "On iPhone: tap Share, then “Add to Home Screen”."
+      },
+      "cocina": {
+        "cols": {
+          "sent": "New",
+          "kitchen": "Cooking",
+          "ready": "Ready to go"
+        },
+        "ago": "{n} min ago",
+        "byWaiter": "by the waiter",
+        "byQr": "by QR",
+        "start": "Start",
+        "ready": "Ready",
+        "waiting": "Waiting for waiter",
+        "empty": {
+          "sent": "No new tickets",
+          "kitchen": "Nothing cooking",
+          "ready": "Nothing waiting"
+        }
+      },
+      "mesero": {
+        "tabsLabel": "Waiter",
+        "tabs": {
+          "mesas": "Room",
+          "retirar": "To serve",
+          "llamados": "Calls",
+          "tomar": "Take order"
+        },
+        "state": {
+          "free": "Free",
+          "call": "Calling",
+          "bill": "Bill",
+          "ready": "Ready",
+          "kitchen": "In kitchen",
+          "ordered": "Ordered",
+          "eating": "Eating"
+        },
+        "readyFor": "ready {n} min ago",
+        "deliver": "Delivered",
+        "readyEmpty": {
+          "title": "Nothing to serve",
+          "text": "When the kitchen marks an order ready, it shows up here and you get a buzz."
+        },
+        "call": {
+          "waiter": "Calling you",
+          "bill": "Asks for the bill"
+        },
+        "ago": "{n} min ago",
+        "attend": "Done",
+        "callsEmpty": {
+          "title": "Nobody is calling",
+          "text": "When a table rings the bell or asks for the bill, it shows up here."
+        },
+        "soldOut": "Sold out",
+        "tableN": "Table {n}",
+        "take": {
+          "table": "Table",
+          "tableDec": "Previous table",
+          "tableInc": "Next table",
+          "cats": "Menu categories",
+          "remove": "Remove {dish}",
+          "add": "Add {dish}",
+          "items": "{n, plural, =0 {Nothing yet} one {# dish} other {# dishes}}",
+          "send": "Send to the kitchen"
+        }
+      },
+      "dueno": {
+        "tabsLabel": "Owner",
+        "tabs": {
+          "equipo": "Team",
+          "crm": "CRM"
+        },
+        "code": "Venue {code}",
+        "title": "Your venue is open",
+        "text": "Share these links on WhatsApp or show the QR. Everyone joins with their role and it all happens live.",
+        "hostNote": "Keep this screen open: your phone is the venue’s hub.",
+        "kpi": {
+          "orders": "Orders",
+          "kitchen": "In kitchen",
+          "ready": "To serve",
+          "sales": "Sales"
+        },
+        "linksTitle": "Invite your team",
+        "tableLink": "Link for a table",
+        "tableDec": "Previous table",
+        "tableInc": "Next table",
+        "tableTitle": "Table {n}",
+        "tableCaption": "For whoever sits there: scan and order.",
+        "anyLink": "Let everyone choose",
+        "anyCaption": "One link for all: each picks a role.",
+        "copy": "Copy link",
+        "copied": "Copied",
+        "qrAlt": "QR to join as {role}",
+        "connected": "Online now",
+        "connectedEmpty": "Nobody else yet. Send a link.",
+        "hub": "Hub"
       }
     }
   }

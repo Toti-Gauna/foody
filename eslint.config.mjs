@@ -16,6 +16,7 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
     "public/prototipos/**",
+    "public/sw.js",
   ]),
   {
     // The game engine and games are copied from games-market (docs/procedencia.md), where they run as they are: its

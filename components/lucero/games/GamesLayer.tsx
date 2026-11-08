@@ -6,7 +6,7 @@ import { Play, Users, X } from 'lucide-react';
 import { asset } from '@/lib/env';
 import { includes, planById, type GameId } from '@/lib/plans';
 import { GAMES } from '@/games/registry';
-import { useLucero, VISIT } from '../store';
+import { useLucero } from '../store';
 import { GameHost } from './GameHost';
 import { Ruleta } from './Ruleta';
 import { TableGames, TableRoom } from './TableGames';
@@ -31,7 +31,7 @@ export type GamesStage = 'wheel' | 'games' | null;
  */
 export function GamesLayer({ stage, onStage, orderId }: { stage: GamesStage; onStage: (s: GamesStage) => void; orderId: string | null }) {
   const t = useTranslations('lucero.games');
-  const { plan } = useLucero();
+  const { plan, visitKey } = useLucero();
   const onClose = () => onStage(null);
   const [playing, setPlaying] = useState<GameId | null>(null);
   const [room, setRoom] = useState<RoomGame | null>(null);
@@ -69,7 +69,7 @@ export function GamesLayer({ stage, onStage, orderId }: { stage: GamesStage; onS
     );
   if (room) return <TableRoom game={room} onClose={() => setRoom(null)} />;
   // The wheel stays up after the spin to show the prize and its code; «Seguir» (or closing it) goes back to the carta.
-  if (stage === 'wheel' && wheel) return <Ruleta spinKey={VISIT} onDone={onClose} onClose={onClose} />;
+  if (stage === 'wheel' && wheel) return <Ruleta spinKey={visitKey} onDone={onClose} onClose={onClose} />;
   if (!stage) return null;
 
   return (

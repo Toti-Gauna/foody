@@ -102,6 +102,7 @@ export function Pedido({
 
 function Scene({ order, bill }: { order: Order; bill: boolean }) {
   const t = useTranslations('lucero.pedido');
+  const table = order.table;
   const [say, speak] = useSay();
   const [peek, setPeek] = useState(false);
   // Timed beats of a step, keyed by the step: a new step starts clean without resetting state in an effect.
@@ -177,7 +178,7 @@ function Scene({ order, bill }: { order: Order; bill: boolean }) {
       <div className="lc-table4">
         <span className="lc-candle" />
         <span className="lc-table-top" />
-        <span className="lc-table-label">{t('tableLabel')}</span>
+        <span className="lc-table-label">{t('tableLabel', { n: table })}</span>
       </div>
       <div className={`lc-door ${order.status === 'sent' && leaving ? 'is-open' : ''}`}>
         <span className="lc-door-sign">{t('kitchen')}</span>

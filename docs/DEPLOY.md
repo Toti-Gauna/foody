@@ -44,3 +44,12 @@ Render → New → Blueprint → `Toti-Gauna/Foody-be` (lee su `render.yaml`). C
 - la palabra de «Dibujá y adiviná» le llega solo al que dibuja.
 
 Sin backend, todo sigue andando: salas por WebRTC y sincronización solo entre pestañas.
+
+## Local en vivo con gente en redes distintas
+
+`/es/local/` funciona sin backend por WebRTC. Entre datos móviles y WiFi distintos puede no conectar sin un servidor TURN.
+Para que ande siempre:
+1. Publicá Foody-be en Render (arriba).
+2. En GitHub → Toti-Gauna/foody → Settings → Secrets and variables → Actions → **Variables**, creá
+   `NEXT_PUBLIC_API_URL` con la URL de Render.
+3. El próximo deploy de Pages (o el kit para Hostinger) ya usa el relay.

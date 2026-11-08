@@ -15,6 +15,7 @@ Mismo sistema visual que Eclipse-Web y roofy (Efemérides), con la paleta «Bras
 - `npm run dev` — servidor de desarrollo.
 - Vista bajo un path: `NEXT_PUBLIC_BASE_PATH=/foody npm run build`.
 - Deploy (Hostinger + Render): `docs/DEPLOY.md` (kit con Docker en `deploy/`). Backend: repo `Foody-be`.
+- Componentes nuevos: armarlos con el kit atómico de `components/kit/` (átomos y moléculas, CSS normal con tokens `--l-*`).
 
 ## Reglas que no se negocian
 

@@ -68,6 +68,8 @@ export interface Order {
   at: Partial<Record<OrderStatus, number>>;
   source: 'qr' | 'mozo';
   mine: boolean;
+  /** Live mode: the device that sent it (a table's phone or a waiter's). */
+  by?: string;
   /** Round number for this table (1, 2…). */
   round: number;
 }
@@ -101,6 +103,15 @@ export interface Spin {
   at: number;
 }
 
+/** Live mode: a table asking for the bill or calling the waiter, until a waiter takes it. */
+export interface Call {
+  id: string;
+  table: number;
+  kind: 'bill' | 'waiter';
+  at: number;
+  done: boolean;
+}
+
 export interface LuceroState {
   cart: Line[];
   orders: Order[];
@@ -111,6 +122,8 @@ export interface LuceroState {
   billRequested: boolean;
   prizes: Prize[];
   spins: Spin[];
+  /** Live mode: tables calling (bill, waiter). */
+  calls: Call[];
 }
 
 export const TABLE = 4;
@@ -154,26 +167,30 @@ const SEED_CUSTOMERS: Customer[] = [
 /** The wheel's example prizes, in the visitor's language (content/lucero-prizes.json). */
 export const seedPrizes = (lang: Lang): Prize[] => prizesJson.prizes.map((p) => ({ id: p.id, label: p.label[lang], weight: p.weight }));
 
-export function initialState(lang: Lang = 'es'): LuceroState {
+/** The demo starts with an evening already going; a live venue (`live`) starts empty, with only its menu and prizes. */
+export function initialState(lang: Lang = 'es', live = false): LuceroState {
   return {
     cart: [],
-    orders: seedOrders(),
+    orders: live ? [] : seedOrders(),
     out: {},
-    customers: SEED_CUSTOMERS,
+    customers: live ? [] : SEED_CUSTOMERS,
     guestName: '',
     billRequested: false,
     prizes: seedPrizes(lang),
     spins: [],
+    calls: [],
   };
 }
 
 export type Action =
   | { type: 'add'; dish: string; options: string[] }
   | { type: 'qty'; key: string; delta: number }
-  | { type: 'send'; id: string; guest: string; note: string; now: number }
+  | { type: 'send'; id: string; guest: string; note: string; now: number; table?: number; by?: string; lines?: Line[]; source?: Order['source']; mine?: boolean }
   | { type: 'advance'; id: string; to: OrderStatus; now: number }
   | { type: 'toggleOut'; dish: string }
-  | { type: 'bill' }
+  | { type: 'bill'; table?: number; id?: string; now?: number }
+  | { type: 'call'; id: string; table: number; now: number }
+  | { type: 'callDone'; id: string }
   | { type: 'setPrizes'; prizes: Prize[] }
   | { type: 'spin'; spin: Spin }
   | { type: 'note'; customer: string; note: string }
@@ -195,26 +212,31 @@ export function reducer(state: LuceroState, action: Action): LuceroState {
     case 'qty':
       return { ...state, cart: state.cart.map((l) => (l.key === action.key ? { ...l, qty: l.qty + action.delta } : l)).filter((l) => l.qty > 0) };
     case 'send': {
-      if (!state.cart.length || state.orders.some((o) => o.id === action.id)) return state;
-      const round = state.orders.filter((o) => o.mine).length + 1;
+      // Live mode sends the lines with the order (the venue's phone has no cart of its own); the demo uses the cart.
+      const lines = action.lines ?? state.cart;
+      if (!lines.length || state.orders.some((o) => o.id === action.id)) return state;
+      const table = action.table ?? TABLE;
+      const round = action.table === undefined ? state.orders.filter((o) => o.mine).length + 1 : state.orders.filter((o) => o.table === table).length + 1;
       const order: Order = {
         id: action.id,
-        table: TABLE,
+        table,
         guest: action.guest,
-        lines: state.cart,
+        lines,
         note: action.note,
         status: 'sent',
         at: { sent: action.now },
-        source: 'qr',
-        mine: true,
+        source: action.source ?? 'qr',
+        mine: action.mine ?? true,
         round,
+        ...(action.by ? { by: action.by } : {}),
       };
       const total = orderTotal(order);
       const known = state.customers.find((c) => c.name.toLowerCase() === action.guest.toLowerCase());
       const customers = known
         ? state.customers.map((c) => (c === known ? { ...c, visits: round === 1 ? c.visits + 1 : c.visits, spent: c.spent + total, lastVisit: 'today' } : c))
         : [{ id: `g-${action.id}`, name: action.guest, visits: 1, spent: total, lastVisit: 'today', favourite: order.lines[0]?.dish ?? '', tags: ['new'], note: '' }, ...state.customers];
-      return { ...state, cart: [], orders: [order, ...state.orders], guestName: action.guest, customers, billRequested: false };
+      const fromCart = !action.lines;
+      return { ...state, cart: fromCart ? [] : state.cart, orders: [order, ...state.orders], guestName: action.guest || state.guestName, customers, billRequested: false };
     }
     case 'advance': {
       let changed = false;
@@ -228,8 +250,16 @@ export function reducer(state: LuceroState, action: Action): LuceroState {
     }
     case 'toggleOut':
       return { ...state, out: { ...state.out, [action.dish]: !state.out[action.dish] } };
-    case 'bill':
-      return { ...state, billRequested: true };
+    case 'bill': {
+      if (action.table === undefined) return { ...state, billRequested: true };
+      const id = action.id ?? `bill-${action.table}`;
+      const calls = state.calls.some((c) => c.id === id && !c.done) ? state.calls : [{ id, table: action.table, kind: 'bill' as const, at: action.now ?? Date.now(), done: false }, ...state.calls.filter((c) => c.id !== id)];
+      return { ...state, billRequested: true, calls };
+    }
+    case 'call':
+      return state.calls.some((c) => c.id === action.id) ? state : { ...state, calls: [{ id: action.id, table: action.table, kind: 'waiter', at: action.now, done: false }, ...state.calls] };
+    case 'callDone':
+      return { ...state, calls: state.calls.map((c) => (c.id === action.id ? { ...c, done: true } : c)) };
     case 'setPrizes':
       return { ...state, prizes: action.prizes };
     case 'spin':
@@ -272,24 +302,63 @@ export function pickPrize(prizes: Prize[], rand: number): Prize | null {
 /* Provider                                                             */
 /* ------------------------------------------------------------------ */
 
+/**
+ * Live mode («Local en vivo»): several phones share one venue, each in a role. The owner's phone is the authority: it
+ * applies what the others send and hands everyone the venue's state. A phone keeps its own cart, name and bill flag;
+ * «mine» means sent from this phone. Messages: `v-action` (to the owner), `v-state` (from the owner).
+ */
+export type LiveRole = 'mesa' | 'mesero' | 'cocina' | 'dueno';
+export interface LiveLink {
+  /** The venue's code: the owner's phone keeps the venue under it, so a reload doesn't wipe the night. */
+  venue: string;
+  deviceId: string;
+  isHost: boolean;
+  role: LiveRole;
+  /** The table this phone sits at (role `mesa`). */
+  table: number | null;
+  send(type: string, payload: unknown): void;
+  subscribe(fn: (type: string, payload: unknown, from: string) => void): () => void;
+}
+
 interface Ctx {
   state: LuceroState;
   dispatch: (a: Action) => void;
   plan: PlanId | null;
   lang: Lang;
+  /** The table this carta belongs to (4 in the demo). */
+  table: number;
+  /** The wheel's spin key for this visit (per phone in live mode). */
+  visitKey: string;
+  live: LiveLink | null;
 }
+
+const venueKey = (code: string) => `lucero-venue-${code}`;
+/** The venue the owner's phone saved, if it is still a valid state (from this browser, checked like any remote one). */
+function savedVenue(code: string): LuceroState | null {
+  try {
+    const raw = typeof window !== 'undefined' ? window.localStorage.getItem(venueKey(code)) : null;
+    const parsed: unknown = raw ? JSON.parse(raw) : null;
+    return isLuceroState(parsed) ? { ...parsed, calls: parsed.calls ?? [] } : null;
+  } catch {
+    return null;
+  }
+}
+
+/** What only this phone has: kept when the owner's state arrives. */
+const LOCAL_ONLY = new Set<Action['type']>(['add', 'qty']);
 
 const LuceroCtx = createContext<Ctx | null>(null);
 const CHANNEL = 'lucero-demo-v1';
 type SyncMsg = { kind: 'hello' } | { kind: 'action'; action: Action } | { kind: 'state'; state: LuceroState };
 /** What another tab or device may ask the store to do (never `snapshot`: a whole state comes only as `state`). */
-const REMOTE_ACTIONS = new Set<Action['type']>(['add', 'qty', 'send', 'advance', 'toggleOut', 'bill', 'setPrizes', 'spin', 'note', 'reset']);
+const REMOTE_ACTIONS = new Set<Action['type']>(['add', 'qty', 'send', 'advance', 'toggleOut', 'bill', 'call', 'callDone', 'setPrizes', 'spin', 'note', 'reset']);
 const isObj = (x: unknown): x is Record<string, unknown> => !!x && typeof x === 'object' && !Array.isArray(x);
 /** A state from elsewhere, checked enough that rendering it can't crash the demo. */
 export function isLuceroState(x: unknown): x is LuceroState {
   if (!isObj(x)) return false;
   const arrays = ['cart', 'orders', 'customers', 'prizes', 'spins'] as const;
   if (!arrays.every((k) => Array.isArray(x[k])) || !isObj(x.out) || typeof x.guestName !== 'string') return false;
+  if (x.calls !== undefined && !(Array.isArray(x.calls) && x.calls.every((c) => isObj(c) && typeof c.id === 'string' && typeof c.table === 'number'))) return false;
   const orders = x.orders as unknown[];
   return orders.every((o) => isObj(o) && typeof o.id === 'string' && Array.isArray(o.lines) && ORDER_FLOW.includes(o.status as OrderStatus) && isObj(o.at) && o.lines.every((l) => isObj(l) && typeof l.dish === 'string' && l.dish in DISHES && Array.isArray(l.options)));
 }
@@ -299,6 +368,7 @@ export function LuceroProvider({
   lang,
   syncCode,
   syncLead = false,
+  live = null,
   children,
 }: {
   plan: PlanId | null;
@@ -306,9 +376,11 @@ export function LuceroProvider({
   syncCode?: string | null;
   /** The device that made the pairing code: the only one that answers with the whole state. */
   syncLead?: boolean;
+  /** «Local en vivo»: this phone's role and its link to the others. */
+  live?: LiveLink | null;
   children: ReactNode;
 }) {
-  const [state, rawDispatch] = useReducer(reducer, lang, initialState);
+  const [state, rawDispatch] = useReducer(reducer, lang, (l: Lang) => (live?.isHost ? savedVenue(live.venue) : null) ?? initialState(l, !!live));
   const channel = useRef<BroadcastChannel | null>(null);
   const remote = useRef<SyncLink | null>(null);
   const stateRef = useRef(state);
@@ -334,7 +406,7 @@ export function LuceroProvider({
 
   // Tabs of the same browser share the demo: every local action is mirrored; a new tab asks for the current state.
   useEffect(() => {
-    if (typeof BroadcastChannel === 'undefined') return;
+    if (live || typeof BroadcastChannel === 'undefined') return;
     const ch = new BroadcastChannel(CHANNEL);
     channel.current = ch;
     ch.onmessage = (e: MessageEvent<unknown>) => receive(e.data, (m) => ch.postMessage(m));
@@ -343,7 +415,58 @@ export function LuceroProvider({
       ch.close();
       channel.current = null;
     };
-  }, [receive]);
+  }, [receive, live]);
+
+  // Live mode, the owner's phone: apply what the others send (checked like any remote action) and hand the venue's
+  // state to everyone when it changes, and every few seconds for phones that just arrived.
+  useEffect(() => {
+    if (!live) return;
+    if (live.isHost)
+      return live.subscribe((type, payload) => {
+        if (type !== 'v-action' || !isObj(payload) || !REMOTE_ACTIONS.has(payload.type as Action['type'])) return;
+        let action = payload as unknown as Action;
+        if (action.type === 'send') action = { ...action, mine: false };
+        try {
+          if (!isLuceroState(reducer(stateRef.current, action))) return;
+        } catch {
+          return;
+        }
+        rawDispatch(action);
+      });
+    return live.subscribe((type, payload) => {
+      if (type !== 'v-state' || !isLuceroState(payload)) return;
+      const cur = stateRef.current;
+      rawDispatch({
+        type: 'snapshot',
+        state: { ...payload, calls: payload.calls ?? [], cart: cur.cart, guestName: cur.guestName, billRequested: cur.billRequested, orders: payload.orders.map((o) => ({ ...o, mine: !!o.by && o.by === live.deviceId })) },
+      });
+    });
+  }, [live]);
+  // The owner's phone keeps the venue (orders, calls, stock, prizes) across a reload.
+  useEffect(() => {
+    if (!live?.isHost) return;
+    const id = window.setTimeout(() => {
+      try {
+        window.localStorage.setItem(venueKey(live.venue), JSON.stringify({ ...state, cart: [], guestName: '', billRequested: false }));
+      } catch {
+        /* storage off or full: the venue lives while the tab does */
+      }
+    }, 400);
+    return () => window.clearTimeout(id);
+  }, [live, state]);
+  useEffect(() => {
+    if (!live?.isHost) return;
+    const share = () => {
+      const s = stateRef.current;
+      live.send('v-state', { ...s, cart: [], guestName: '', billRequested: false });
+    };
+    const soon = window.setTimeout(share, 80);
+    const beat = window.setInterval(share, 2500);
+    return () => {
+      window.clearTimeout(soon);
+      window.clearInterval(beat);
+    };
+  }, [live, state]);
 
   // Devices paired with a code (`?sync=`) do the same through Foody-be, when there is one. One device leads (the one
   // that made the code): it answers hellos and never asks. The other asks on every (re)connection, after sending what it
@@ -364,15 +487,29 @@ export function LuceroProvider({
     };
   }, [syncCode, syncLead, receive]);
 
-  const dispatch = useCallback((action: Action) => {
-    rawDispatch(action);
-    if (action.type === 'snapshot') return;
-    channel.current?.postMessage({ kind: 'action', action });
-    remote.current?.send({ kind: 'action', action });
-  }, []);
+  const dispatch = useCallback(
+    (action: Action) => {
+      if (live) {
+        // Every order and bill carries this phone's table and id; the order its own lines (the owner has no cart).
+        let a = action;
+        if (a.type === 'send') a = { ...a, table: a.table ?? live.table ?? TABLE, by: live.deviceId, lines: a.lines ?? stateRef.current.cart, mine: true };
+        if (a.type === 'bill' && a.table === undefined && live.table !== null) a = { ...a, table: live.table, id: `bill-${live.table}`, now: Date.now() };
+        rawDispatch(a);
+        if (!live.isHost && !LOCAL_ONLY.has(a.type) && a.type !== 'snapshot') live.send('v-action', a);
+        return;
+      }
+      rawDispatch(action);
+      if (action.type === 'snapshot') return;
+      channel.current?.postMessage({ kind: 'action', action });
+      remote.current?.send({ kind: 'action', action });
+    },
+    [live],
+  );
 
   // The guest's orders move on their own. Each pending order schedules its next step; the CRM may get there first.
+  // Live mode: no — the kitchen and the waiters move them, for real.
   useEffect(() => {
+    if (live) return;
     const timers = state.orders
       .filter((o) => o.mine && o.status !== 'delivered')
       .map((o) => {
@@ -383,9 +520,12 @@ export function LuceroProvider({
         return window.setTimeout(() => dispatch({ type: 'advance', id: o.id, to, now: Date.now() }), wait);
       });
     return () => timers.forEach((t) => window.clearTimeout(t));
-  }, [state.orders, dispatch]);
+  }, [state.orders, dispatch, live]);
 
-  const value = useMemo(() => ({ state, dispatch, plan, lang }), [state, dispatch, plan, lang]);
+  const value = useMemo(
+    () => ({ state, dispatch, plan, lang, table: live?.table ?? TABLE, visitKey: live ? `visita-${live.deviceId}` : VISIT, live }),
+    [state, dispatch, plan, lang, live],
+  );
   return <LuceroCtx.Provider value={value}>{children}</LuceroCtx.Provider>;
 }
 

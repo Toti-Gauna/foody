@@ -140,6 +140,8 @@ export default async function SitePage({ params }: { params: Promise<{ locale: s
               inDemo: t('demo.inDemo'),
               open: t('demo.open'),
               crm: t('demo.crm'),
+              live: t('demo.live'),
+              liveNote: t('demo.liveNote'),
               asPlan: t('demo.asPlan'),
               plans: Object.fromEntries(PLAN_IDS.map((id) => [id, t('demo.plan', { price: price(id) })])) as Record<PlanId, string>,
               seasons: {

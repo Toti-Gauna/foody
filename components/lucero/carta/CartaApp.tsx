@@ -5,8 +5,8 @@ import { useTranslations } from 'next-intl';
 import { Menu } from './Menu';
 import { Comanda } from './Comanda';
 import { Pedido } from './Pedido';
-import { Gift } from 'lucide-react';
-import { myOrders, useLucero, VISIT } from '../store';
+import { BellRing, Gift } from 'lucide-react';
+import { myOrders, useLucero } from '../store';
 import { onDemoReady } from '../LoadingScreen';
 import type { GamesStage } from '../games/GamesLayer';
 
@@ -25,7 +25,7 @@ export function CartaApp({
   renderGames?: (props: { stage: GamesStage; onStage: (s: GamesStage) => void; orderId: string | null }) => ReactNode;
 }) {
   const t = useTranslations('lucero.carta');
-  const { state } = useLucero();
+  const { state, dispatch, table, visitKey, live } = useLucero();
   const [view, setView] = useState<CartaView>('menu');
   const [focus, setFocus] = useState<string | null>(null);
   const [stage, setStage] = useState<GamesStage>(null);
@@ -38,7 +38,7 @@ export function CartaApp({
   }, [view]);
 
   // Right after scanning the QR: once the demo is on screen, the wheel (one spin per visit).
-  const spun = state.spins.some((s) => s.orderId === VISIT);
+  const spun = state.spins.some((s) => s.orderId === visitKey);
   const offerWheel = canPlay && !spun;
   useEffect(() => {
     if (!offerWheel) return;
@@ -60,9 +60,20 @@ export function CartaApp({
         <span className="lc-brand">Lucero</span>
         <span className="lc-chip">
           <span aria-hidden className="lc-live" />
-          {t('table', { n: 4 })}
+          {t('table', { n: table })}
         </span>
         <span className="lc-demo">{t('demo')}</span>
+        {live ? (
+          <button
+            type="button"
+            className="lc-call-btn"
+            onClick={() => dispatch({ type: 'call', id: `waiter-${table}-${Date.now()}`, table, now: Date.now() })}
+            aria-label={t('callWaiter')}
+            title={t('callWaiter')}
+          >
+            <BellRing aria-hidden className="size-4" />
+          </button>
+        ) : null}
         {offerWheel ? (
           <button type="button" className="lc-wheel-chip" onClick={() => setStage('wheel')} aria-label={t('wheelChipLabel')}>
             <Gift aria-hidden className="size-4" />
